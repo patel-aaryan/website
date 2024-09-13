@@ -1,0 +1,100 @@
+{
+  "name": "Aaryan Patel",
+  "email": "a52patel@uwaterloo.ca",
+  "headerTaglineOne": "Aaryan Patel",
+  "headerTaglineTwo": "Software Engineer",
+  "darkMode": true,
+  "socials": [
+    {
+      "id": "1",
+      "title": "LinkedIn",
+      "link": "https://www.linkedin.com/in/aaryan-patel-896179217/",
+      "icon": "/images/linkedin.svg"
+    },
+    {
+      "id": "2",
+      "title": "Github",
+      "link": "https://github.com/patel-aaryan",
+      "icon": "/images/github.svg"
+    },
+    {
+      "id": "3",
+      "title": "Devopost",
+      "link": "https://devpost.com/patel-aaryan?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav",
+      "icon": "/images/devpost.svg"
+    },
+    {
+      "id": "4",
+      "title": "Email",
+      "link": "mailto:a52patel@uwaterloo.ca",
+      "icon": "/images/email.svg"
+    }
+  ],
+  "projects": [
+    {
+      "id": "1",
+      "title": "Crafts",
+      "description": "Web Design",
+      "imageSrc": "",
+      "url": ""
+    },
+    {
+      "id": "2",
+      "title": "Project Two",
+      "description": "Web Development",
+      "imageSrc": "",
+      "url": ""
+    },
+    {
+      "id": "3",
+      "title": "Project Three",
+      "description": "Design",
+      "imageSrc": "",
+      "url": ""
+    },
+    {
+      "id": "4",
+      "title": "Project Four",
+      "description": "Marketing",
+      "imageSrc": "",
+      "url": ""
+    },
+    {
+      "id": "5",
+      "title": "Project Five",
+      "description": "Development",
+      "imageSrc": "",
+      "url": ""
+    },
+    {
+      "id": "6",
+      "title": "Project Six",
+      "description": "Design & Development",
+      "imageSrc": "",
+      "url": ""
+    }
+  ],
+  "services": [
+    {
+      "id": "1",
+      "title": "Art Direction",
+      "description": "We help with the creation and development of online advertising ideas, with particular focus on their visual appearance."
+    },
+    {
+      "id": "2",
+      "title": "Branding",
+      "description": "We design key brand elements such as the logo, color scheme, typography, and other design components that makes your brand stand out from competitors."
+    },
+    {
+      "id": "3",
+      "title": "Web Design",
+      "description": "We build and optimize your online presence.  Website is the digital entry point into your business and a powerful revenue channel."
+    },
+    {
+      "id": "4",
+      "title": "3D Design",
+      "description": "We combine creative design and technical skills to build striking 3D visualisations that bring your project to life."
+    }
+  ],
+  "aboutMe": "Staying at the forefront of technological advancements is essential to creating lasting, meaningful change. In a world growing increasingly reliant on technology, I am an aspiring software engineer dedicated to creating impactful solutions that better the lives of others. In a world of unlimited possibilities, I'm ready to explore what's next!"
+}
