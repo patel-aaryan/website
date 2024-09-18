@@ -13,7 +13,7 @@ function Button({ children, type, onClick, classes }) {
           currentTheme === "dark"
             ? "bg-white text-black"
             : "bg-black text-white"
-        }  transition-all duration-300 ease-out first:ml-0 hover:scale-105 active:scale-100 link  ${classes}`}
+        }  transition-all duration-300 ease-out first:ml-0 hover:scale-125 active:scale-100 link ${classes}`}
       >
         {children}
       </button>

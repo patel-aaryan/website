@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
-function WorkCard({ name, description }) {
+function Education({ name, description }) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState();
 
@@ -24,4 +24,4 @@ function WorkCard({ name, description }) {
   );
 }
 
-export default WorkCard;
+export default Education;

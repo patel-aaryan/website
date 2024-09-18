@@ -8,12 +8,12 @@ import data from "../../data/portfolio.json";
 function Header({ handleScroll }) {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
-  const [mounted, setMounted] = useState(false);
+  const animation = "transition-all duration-300 ease-out hover:scale-125";
 
+  const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
   }, []);
-
   if (!mounted) return null;
 
   return (
@@ -41,7 +41,7 @@ function Header({ handleScroll }) {
                     }
                   >
                     <img
-                      className="h-6"
+                      className={`h-6 ${animation}`}
                       src={`/images/${
                         theme === "dark" ? "moon.svg" : "sun.svg"
                       }`}
@@ -118,7 +118,7 @@ function Header({ handleScroll }) {
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
               <img
-                className="h-6"
+                className={`h-6 ${animation}`}
                 src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
               />
             </Button>

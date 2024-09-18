@@ -8,7 +8,8 @@ import Image from "next/image";
 
 // Local Data
 import data from "../data/portfolio.json";
-import WorkCard from "../components/WorkCard";
+import Work from "../components/Education";
+import Education from "../components/Work";
 
 export default function Home() {
   const textOne = useRef();
@@ -81,38 +82,42 @@ export default function Home() {
               {data.aboutMe}
             </p>
           </div>
-          <div className="laptop:w-2/5 flex justify-center items-center">
+          <div className="laptop:w-2/5 flex justify-center items-center mt-6">
             <Image
-              src={"/images/sun.svg"}
+              className="transitionall duration-300 ease-out"
+              src={"/profile.png"}
               alt="profile"
-              width={256}
-              height={256}
+              width={320}
+              height={320}
             />
           </div>
         </div>
 
+        {/* React MUI timeline component */}
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
           <h1 className="text-2xl text-bold" id="ed" ref={eduRef}>
             Education
           </h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
-            {data.services.map((service, index) => (
-              <WorkCard
+            {data.education.map((school, index) => (
+              <Education
                 key={index}
-                name={service.title}
-                description={service.description}
+                name={school.name}
+                description={school.major}
               />
             ))}
           </div>
         </div>
 
+        {/* Vertical carousel/slider design */}
+        {/* Languages, Frontend, Backend, Devops (Cloud), Software Tools */}
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
           <h1 className="text-2xl text-bold" ref={skillsRef}>
             Skills
           </h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.services.map((service, index) => (
-              <WorkCard
+              <Education
                 key={index}
                 name={service.title}
                 description={service.description}
@@ -121,13 +126,14 @@ export default function Home() {
           </div>
         </div>
 
+        {/* React MUI timeline component */}
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
           <h1 className="text-2xl text-bold" ref={workRef}>
             Work Experience
           </h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.services.map((service, index) => (
-              <WorkCard
+              <Work
                 key={index}
                 name={service.title}
                 description={service.description}
@@ -136,13 +142,14 @@ export default function Home() {
           </div>
         </div>
 
+        {/* Tinder like swiping */}
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
           <h1 className="text-2xl text-bold" ref={projectsRef}>
             Projects
           </h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.services.map((service, index) => (
-              <WorkCard
+              <Education
                 key={index}
                 name={service.title}
                 description={service.description}
