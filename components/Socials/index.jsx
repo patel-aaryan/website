@@ -9,6 +9,7 @@ import Github from "../../public/images/github.svg";
 import Devpost from "../../public/images/devpost.svg";
 import Instagram from "../../public/images/instagram.svg";
 import Email from "../../public/images/email.svg";
+import { SvgIcon } from "@mui/material";
 
 function Socials({ className }) {
   const { theme, setTheme } = useTheme() || "dark";

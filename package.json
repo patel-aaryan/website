@@ -14,6 +14,7 @@
     "@headlessui/react": "^1.7.19",
     "@iconify-json/mdi": "^1.2.0",
     "@iconify-json/mdi-light": "^1.2.0",
+    "@mui/icons-material": "^6.1.0",
     "@mui/lab": "^6.0.0-beta.9",
     "@mui/material": "^6.1.0",
     "@svgr/webpack": "^8.1.0",

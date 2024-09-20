@@ -1,15 +1,15 @@
 import { useRef } from "react";
 import Header from "../components/Header";
 import Socials from "../components/Socials";
+import data from "../data/portfolio.json";
 import { useIsomorphicLayoutEffect } from "../utils";
 import { stagger } from "../animations";
 import Footer from "../components/Footer";
 import Image from "next/image";
 
-// Local Data
-import data from "../data/portfolio.json";
-import Work from "../components/Education";
-import Education from "../components/Work";
+import Education from "./../components/Education";
+import Work from "../components/Work";
+import { Timeline } from "@mui/lab";
 
 export default function Home() {
   const textOne = useRef();
@@ -93,19 +93,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* React MUI timeline component */}
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
           <h1 className="text-2xl text-bold" id="ed" ref={eduRef}>
             Education
           </h1>
-          <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
-            {data.education.map((school, index) => (
-              <Education
-                key={index}
-                name={school.name}
-                description={school.major}
-              />
-            ))}
+          <div className="mt-5 tablet:m-10 gap-6">
+            <Timeline className="max-w-5xl">
+              {data.education.map((school, index) => (
+                <Education key={index} school={school} index={index} />
+              ))}
+            </Timeline>
           </div>
         </div>
 
@@ -117,7 +114,7 @@ export default function Home() {
           </h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.services.map((service, index) => (
-              <Education
+              <Work
                 key={index}
                 name={service.title}
                 description={service.description}
@@ -149,7 +146,7 @@ export default function Home() {
           </h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.services.map((service, index) => (
-              <Education
+              <Work
                 key={index}
                 name={service.title}
                 description={service.description}
