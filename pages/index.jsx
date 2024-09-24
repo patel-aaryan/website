@@ -1,15 +1,13 @@
-import { useRef } from "react";
+import { useRef, useLayoutEffect, useEffect } from "react";
 import Header from "../components/Header";
 import Socials from "../components/Socials";
 import data from "../data/portfolio.json";
-import { useIsomorphicLayoutEffect } from "../utils";
 import { stagger } from "../animations";
 import Footer from "../components/Footer";
 import Image from "next/image";
 
 import Education from "./../components/Education";
 import Work from "../components/Work";
-import { Timeline } from "@mui/lab";
 
 export default function Home() {
   const textOne = useRef();
@@ -40,11 +38,14 @@ export default function Home() {
     }
   };
 
+  const useIsomorphicLayoutEffect =
+    typeof window !== "undefined" ? useLayoutEffect : useEffect;
+
   useIsomorphicLayoutEffect(() => {
     stagger(
       [textOne.current, textTwo.current],
       { y: 40, x: -10, transform: "scale(0.95) skew(10deg)" },
-      { y: 0, x: 0, transform: "scale(1)" }
+      { y: 0, x: 0, transform: "scale(1)" },
     );
   }, []);
 
@@ -98,11 +99,7 @@ export default function Home() {
             Education
           </h1>
           <div className="mt-5 tablet:m-10 gap-6">
-            <Timeline className="max-w-5xl">
-              {data.education.map((school, index) => (
-                <Education key={index} school={school} index={index} />
-              ))}
-            </Timeline>
+            <Education />
           </div>
         </div>
 

@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 
-function CoursePanel({ courseInfo, isOpen, setIsOpen, setIsActive }) {
+function CoursePanel({ info, isOpen, setIsOpen, setIsActive }) {
   const [isVisible, setIsVisible] = useState(false);
   const [shouldRender, setShouldRender] = useState(isOpen);
 
@@ -38,17 +37,17 @@ function CoursePanel({ courseInfo, isOpen, setIsOpen, setIsActive }) {
             </Button>
 
             <div className="flex items-center -space-y-1">
-              <h2 className="text-2xl font-semibold">{courseInfo.code}</h2>
+              <h2 className="text-2xl font-semibold">{info.code}</h2>
               <Button
                 className="flex items-center justify-center"
-                onClick={() => window.open(courseInfo.link)}
+                onClick={() => window.open(info.link)}
               >
                 <OpenInNewIcon className={`w-6 h-6 ${animation}`} />
               </Button>
             </div>
-            <h3 className="text-xl font-semibold mb-4">{courseInfo.name}</h3>
+            <h3 className="text-xl font-semibold mb-4">{info.name}</h3>
             <ul className="list-disc space-y-2 pl-4">
-              {courseInfo.desc.map((str, index) => (
+              {info.desc.map((str, index) => (
                 <li key={index}>{str}</li>
               ))}
             </ul>
