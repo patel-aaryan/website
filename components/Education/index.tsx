@@ -14,6 +14,7 @@ import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
 import data from "../../data/portfolio.json";
 import CoursePanel from "../Course";
+import AchivementPanel from "../AchivementsPanel";
 import { CourseInfo } from "../../types";
 
 function Education() {
@@ -26,8 +27,11 @@ function Education() {
   const [clubsOrCourses, setClubsOrCourses] = useState(true);
   const animation = "transition-all duration-300 ease-out hover:scale-105";
 
-  const [isActive, setIsActive] = useState(false);
+  const [isCourseActive, setIsCourseActive] = useState(false);
+  const [isAchievementsActive, setIsAchievementsActive] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
+
+  const [achivementsInfo, setAchievementsInfo] = useState<string[]>([]);
 
   const [courseInfo, setCourseInfo] = useState<CourseInfo>({
     code: "",
@@ -88,7 +92,7 @@ function Education() {
                       variant="outlined"
                       onClick={() => {
                         setIsOpen(true);
-                        setIsActive(true);
+                        setIsCourseActive(true);
                         setCourseInfo({
                           code: course.code,
                           name: course.name,
@@ -126,6 +130,11 @@ function Education() {
                   className={`rounded-full px-4 py-2 ${animation}`}
                   variant="contained"
                   color="primary"
+                  onClick={() => {
+                    setIsOpen(true);
+                    setIsAchievementsActive(true);
+                    setAchievementsInfo(school.achievements);
+                  }}
                 >
                   Achievements
                 </Button>
@@ -146,12 +155,21 @@ function Education() {
           </TimelineContent>
         </TimelineItem>
       ))}
-      {isActive && (
+      {isCourseActive && (
         <CoursePanel
           courseInfo={courseInfo}
           isOpen={isOpen}
           setIsOpen={setIsOpen}
-          setIsActive={setIsActive}
+          setIsActive={setIsCourseActive}
+        />
+      )}
+
+      {isAchievementsActive && (
+        <AchivementPanel
+          achivementInfo={achivementsInfo}
+          isOpen={isOpen}
+          setIsOpen={setIsOpen}
+          setIsActive={setIsAchievementsActive}
         />
       )}
     </Timeline>

@@ -1,17 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
-import OpenInNewIcon from "@mui/icons-material/OpenInNew";
-import ButtonComponent from "../Button";
 
 interface AchivementPanelProps {
-  AchivementInfo: string[];
+  achivementInfo: string[];
   isOpen: boolean;
   setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
   setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 function AchivementPanel({
-  AchivementInfo,
+  achivementInfo,
   isOpen,
   setIsOpen,
   setIsActive,
@@ -32,8 +30,6 @@ function AchivementPanel({
     }
   }, [isOpen, setIsActive]);
 
-  const animation = "transition-all duration-300 ease-out hover:scale-125";
-
   return (
     <>
       {shouldRender && (
@@ -52,7 +48,7 @@ function AchivementPanel({
 
             <h2 className="text-2xl font-semibold">Achivements</h2>
             <ul className="list-disc space-y-2 pl-4">
-              {AchivementInfo.map((str, index) => (
+              {achivementInfo.map((str, index) => (
                 <li key={index}>{str}</li>
               ))}
             </ul>
