@@ -1,7 +1,14 @@
 import React from "react";
 import { useTheme } from "next-themes";
 
-function Button({ children, type, onClick, classes }) {
+interface ButtonProps {
+  children: any;
+  type: string;
+  onClick: (...args: any[]) => any;
+  classes: string;
+}
+
+function ButtonComponent({ children, type, onClick, classes }: ButtonProps) {
   const { theme } = useTheme();
   const currentTheme = theme || "dark";
   if (type === "primary") {
@@ -13,7 +20,8 @@ function Button({ children, type, onClick, classes }) {
           currentTheme === "dark"
             ? "bg-white text-black"
             : "bg-black text-white"
-        }  transition-all duration-300 ease-out first:ml-0 hover:scale-125 active:scale-100 link ${classes}`}
+        }  transition-all duration-300 ease-out first:ml-0
+          hover:scale-125 active:scale-100 link ${classes}`}
       >
         {children}
       </button>
@@ -34,4 +42,4 @@ function Button({ children, type, onClick, classes }) {
   );
 }
 
-export default Button;
+export default ButtonComponent;

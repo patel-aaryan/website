@@ -6,20 +6,21 @@ import { stagger } from "../animations";
 import Footer from "../components/Footer";
 import Image from "next/image";
 
-import Education from "./../components/Education";
+import Education from "../components/Education";
 import Work from "../components/Work";
 
 export default function Home() {
-  const textOne = useRef();
-  const textTwo = useRef();
-  const topRef = useRef();
-  const eduRef = useRef();
-  const skillsRef = useRef();
-  const workRef = useRef();
-  const projectsRef = useRef();
-  const contactRef = useRef();
+  const textOne = useRef<HTMLHeadingElement>(null);
+  const textTwo = useRef<HTMLHeadingElement>(null);
 
-  const refMap = new Map([
+  const topRef = useRef<HTMLDivElement>(null);
+  const eduRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const workRef = useRef<HTMLDivElement>(null);
+  const projectsRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
+
+  const refMap = new Map<string, React.RefObject<HTMLDivElement>>([
     ["top", topRef],
     ["edu", eduRef],
     ["skills", skillsRef],
@@ -28,7 +29,7 @@ export default function Home() {
     ["contact", contactRef],
   ]);
 
-  const handleScroll = (ref) => {
+  const handleScroll = (ref: string) => {
     const refName = refMap.get(ref);
     if (refName && refName.current) {
       window.scrollTo({
@@ -45,7 +46,7 @@ export default function Home() {
     stagger(
       [textOne.current, textTwo.current],
       { y: 40, x: -10, transform: "scale(0.95) skew(10deg)" },
-      { y: 0, x: 0, transform: "scale(1)" },
+      { y: 0, x: 0, transform: "scale(1)" }
     );
   }, []);
 
@@ -94,8 +95,8 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
-          <h1 className="text-2xl text-bold" id="ed" ref={eduRef}>
+        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={eduRef}>
+          <h1 className="text-2xl text-bold" id="ed">
             Education
           </h1>
           <div className="mt-5 tablet:m-10 gap-6">
@@ -105,10 +106,8 @@ export default function Home() {
 
         {/* Vertical carousel/slider design */}
         {/* Languages, Frontend, Backend, Devops (Cloud), Software Tools */}
-        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
-          <h1 className="text-2xl text-bold" ref={skillsRef}>
-            Skills
-          </h1>
+        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={skillsRef}>
+          <h1 className="text-2xl text-bold">Skills</h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.services.map((service, index) => (
               <Work
@@ -121,10 +120,8 @@ export default function Home() {
         </div>
 
         {/* React MUI timeline component */}
-        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
-          <h1 className="text-2xl text-bold" ref={workRef}>
-            Work Experience
-          </h1>
+        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
+          <h1 className="text-2xl text-bold">Work Experience</h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.services.map((service, index) => (
               <Work
@@ -137,10 +134,8 @@ export default function Home() {
         </div>
 
         {/* Tinder like swiping */}
-        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0">
-          <h1 className="text-2xl text-bold" ref={projectsRef}>
-            Projects
-          </h1>
+        <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={projectsRef}>
+          <h1 className="text-2xl text-bold">Projects</h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.services.map((service, index) => (
               <Work

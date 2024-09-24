@@ -1,4 +1,3 @@
-// components/Timeline.js
 import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 import {
@@ -15,6 +14,7 @@ import SchoolIcon from "@mui/icons-material/School";
 import PlaceIcon from "@mui/icons-material/Place";
 import data from "../../data/portfolio.json";
 import CoursePanel from "../Course";
+import { CourseInfo } from "../../types";
 
 function Education() {
   const { theme } = useTheme();
@@ -29,10 +29,10 @@ function Education() {
   const [isActive, setIsActive] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  const [courseInfo, setCourseInfo] = useState({
+  const [courseInfo, setCourseInfo] = useState<CourseInfo>({
     code: "",
     name: "",
-    desc: "",
+    desc: [],
     link: "",
   });
 
@@ -60,15 +60,14 @@ function Education() {
           </TimelineSeparator>
           <TimelineContent>
             <div
-              className={`w-full p-2 mob:p-4 rounded-lg transition-all ease-out duration-300 ${mounted && theme === "dark"
+              className={`w-full p-2 mob:p-4 rounded-lg transition-all ease-out duration-300 ${
+                mounted && theme === "dark"
                   ? "hover:bg-slate-800"
                   : "hover:bg-slate-50"
-                } link`}
+              } link`}
             >
               <h3 className="text-lg font-semibold">{school.name}</h3>
               <p className="text-sm">{school.major}</p>
-              <p className="text-sm">{school.date}</p>
-              <p className="mt-2">{school.description}</p>
               <div className="mt-2 flex flex-wrap gap-2">
                 {clubsOrCourses &&
                   school.clubs.map((club, idx) => (

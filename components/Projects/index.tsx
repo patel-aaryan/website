@@ -4,7 +4,7 @@ import data from "../../data/portfolio.json";
 
 function ProjectCard() {
   const { theme } = useTheme();
-  const [mounted, setMounted] = useState();
+  const [mounted, setMounted] = useState<boolean>(false);
 
   const title = data.projects[0].title;
   const description = data.projects[0].description;

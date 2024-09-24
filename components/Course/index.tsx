@@ -1,7 +1,22 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
+import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import ButtonComponent from "../Button";
+import { CourseInfo } from "../../types";
 
-function CoursePanel({ info, isOpen, setIsOpen, setIsActive }) {
+interface CoursePanelProps {
+  courseInfo: CourseInfo;
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function CoursePanel({
+  courseInfo,
+  isOpen,
+  setIsOpen,
+  setIsActive,
+}: CoursePanelProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [shouldRender, setShouldRender] = useState(isOpen);
 
@@ -37,17 +52,18 @@ function CoursePanel({ info, isOpen, setIsOpen, setIsActive }) {
             </Button>
 
             <div className="flex items-center -space-y-1">
-              <h2 className="text-2xl font-semibold">{info.code}</h2>
-              <Button
-                className="flex items-center justify-center"
-                onClick={() => window.open(info.link)}
+              <h2 className="text-2xl font-semibold">{courseInfo.code}</h2>
+              <ButtonComponent
+                classes="flex items-center justify-center"
+                onClick={() => window.open(courseInfo.link)}
+                type="button"
               >
                 <OpenInNewIcon className={`w-6 h-6 ${animation}`} />
-              </Button>
+              </ButtonComponent>
             </div>
-            <h3 className="text-xl font-semibold mb-4">{info.name}</h3>
+            <h3 className="text-xl font-semibold mb-4">{courseInfo.name}</h3>
             <ul className="list-disc space-y-2 pl-4">
-              {info.desc.map((str, index) => (
+              {courseInfo.desc.map((str, index) => (
                 <li key={index}>{str}</li>
               ))}
             </ul>

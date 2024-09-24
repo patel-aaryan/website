@@ -1,8 +1,21 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
+import ButtonComponent from "../Button";
 
-function CoursePanel({ courseInfo, isOpen, setIsOpen, setIsActive }) {
+interface AchivementPanelProps {
+  AchivementInfo: string[];
+  isOpen: boolean;
+  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsActive: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+function AchivementPanel({
+  AchivementInfo,
+  isOpen,
+  setIsOpen,
+  setIsActive,
+}: AchivementPanelProps) {
   const [isVisible, setIsVisible] = useState(false);
   const [shouldRender, setShouldRender] = useState(isOpen);
 
@@ -37,18 +50,9 @@ function CoursePanel({ courseInfo, isOpen, setIsOpen, setIsActive }) {
               &times;
             </Button>
 
-            <div className="flex items-center -space-y-1">
-              <h2 className="text-2xl font-semibold">{courseInfo.code}</h2>
-              <Button
-                className="flex items-center justify-center"
-                onClick={() => window.open(courseInfo.link)}
-              >
-                <OpenInNewIcon className={`w-6 h-6 ${animation}`} />
-              </Button>
-            </div>
-            <h3 className="text-xl font-semibold mb-4">{courseInfo.name}</h3>
+            <h2 className="text-2xl font-semibold">Achivements</h2>
             <ul className="list-disc space-y-2 pl-4">
-              {courseInfo.desc.map((str, index) => (
+              {AchivementInfo.map((str, index) => (
                 <li key={index}>{str}</li>
               ))}
             </ul>
@@ -59,4 +63,4 @@ function CoursePanel({ courseInfo, isOpen, setIsOpen, setIsActive }) {
   );
 }
 
-export default CoursePanel;
+export default AchivementPanel;

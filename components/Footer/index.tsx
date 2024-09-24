@@ -1,7 +1,7 @@
 import React from "react";
 import Socials from "../Socials";
 import Link from "next/link";
-import Button from "../Button";
+import ButtonComponent from "../Button";
 
 function Footer() {
   return (
@@ -15,9 +15,11 @@ function Footer() {
           <h1 className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl text-bold">
             TOGETHER
           </h1>
-          <Button type="primary">Schedule a call</Button>
+          <ButtonComponent onClick={null} type="primary" classes="">
+            Schedule a call
+          </ButtonComponent>
           <div className="mt-10">
-            <Socials />
+            <Socials className="" />
           </div>
         </div>
       </div>

@@ -2,10 +2,15 @@ import { Popover } from "@headlessui/react";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
-import Button from "../Button";
+import ButtonComponent from "../Button";
 import data from "../../data/portfolio.json";
 
-function Header({ handleScroll }) {
+interface HeaderProps {
+  handleScroll: (ref: string) => void;
+  // Corrected spelling from 'handlScroll' to 'handleScroll'
+}
+
+function Header({ handleScroll }: HeaderProps) {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const animation = "transition-all duration-300 ease-out hover:scale-125";
@@ -35,10 +40,12 @@ function Header({ handleScroll }) {
 
               <div className="flex items-center">
                 {data.darkMode && (
-                  <Button
+                  <ButtonComponent
                     onClick={() =>
                       setTheme(theme === "dark" ? "light" : "dark")
                     }
+                    type="button"
+                    classes=""
                   >
                     <img
                       className={`h-6 ${animation}`}
@@ -46,7 +53,7 @@ function Header({ handleScroll }) {
                         theme === "dark" ? "moon.svg" : "sun.svg"
                       }`}
                     />
-                  </Button>
+                  </ButtonComponent>
                 )}
 
                 <Popover.Button>
@@ -71,18 +78,48 @@ function Header({ handleScroll }) {
               } shadow-md rounded-md`}
             >
               <div className="grid grid-cols-1">
-                <Button onClick={() => handleScroll("edu")}>Education</Button>
-                <Button onClick={() => handleScroll("skills")}>Skills</Button>
-                <Button onClick={() => handleScroll("work")}>Experience</Button>
-                <Button onClick={() => handleScroll("projects")}>
+                <ButtonComponent
+                  onClick={() => handleScroll("edu")}
+                  type="button"
+                  classes=""
+                >
+                  Education
+                </ButtonComponent>
+                <ButtonComponent
+                  onClick={() => handleScroll("skills")}
+                  type="button"
+                  classes=""
+                >
+                  Skills
+                </ButtonComponent>
+                <ButtonComponent
+                  onClick={() => handleScroll("work")}
+                  type="button"
+                  classes=""
+                >
+                  Experience
+                </ButtonComponent>
+                <ButtonComponent
+                  onClick={() => handleScroll("projects")}
+                  type="button"
+                  classes=""
+                >
                   Projects
-                </Button>
-                <Button onClick={() => window.open("/resume", "_blank")}>
+                </ButtonComponent>
+                <ButtonComponent
+                  onClick={() => window.open("/resume", "_blank")}
+                  type="button"
+                  classes=""
+                >
                   Resume
-                </Button>
-                <Button onClick={() => handleScroll("contact")}>
+                </ButtonComponent>
+                <ButtonComponent
+                  onClick={() => handleScroll("contact")}
+                  type="button"
+                  classes=""
+                >
                   Contact Me
-                </Button>
+                </ButtonComponent>
               </div>
             </Popover.Panel>
           </>
@@ -101,27 +138,60 @@ function Header({ handleScroll }) {
         </h1>
 
         <div className="flex">
-          <Button onClick={() => handleScroll("edu")}>Education</Button>
-          <Button onClick={() => handleScroll("skills")}>Skills</Button>
-          <Button onClick={() => handleScroll("work")}>Experience</Button>
-          <Button onClick={() => handleScroll("projects")}>Projects</Button>
-          <Button
+          <ButtonComponent
+            onClick={() => handleScroll("edu")}
+            type="button"
+            classes=""
+          >
+            Education
+          </ButtonComponent>
+          <ButtonComponent
+            onClick={() => handleScroll("skills")}
+            type="button"
+            classes=""
+          >
+            Skills
+          </ButtonComponent>
+          <ButtonComponent
+            onClick={() => handleScroll("work")}
+            type="button"
+            classes=""
+          >
+            Experience
+          </ButtonComponent>
+          <ButtonComponent
+            onClick={() => handleScroll("projects")}
+            type="button"
+            classes=""
+          >
+            Projects
+          </ButtonComponent>
+          <ButtonComponent
             onClick={() => window.open("/resume", "_blank")}
+            type="button"
             classes="first:ml-1"
           >
             Resume
-          </Button>
+          </ButtonComponent>
 
-          <Button onClick={() => handleScroll("contact")}>Contact Me</Button>
+          <ButtonComponent
+            onClick={() => handleScroll("contact")}
+            type="button"
+            classes=""
+          >
+            Contact Me
+          </ButtonComponent>
           {mounted && theme && data.darkMode && (
-            <Button
+            <ButtonComponent
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              type="button"
+              classes=""
             >
               <img
                 className={`h-6 ${animation}`}
                 src={`/images/${theme === "dark" ? "moon.svg" : "sun.svg"}`}
               />
-            </Button>
+            </ButtonComponent>
           )}
         </div>
       </div>
