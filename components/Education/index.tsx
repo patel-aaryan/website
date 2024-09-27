@@ -144,7 +144,7 @@ function Education() {
                   <PlaceIcon className="text-gray-500" />
                   <span
                     className="absolute opacity-0 group-hover:opacity-100
-                transition-opacity duration-300 bg-slate-800 text-white
+                transition-opacityduration-300 bg-slate-800 text-white
                 rounded-lg p-2 whitespace-nowrap"
                   >
                     {school.location}

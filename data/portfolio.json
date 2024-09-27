@@ -106,15 +106,18 @@
           "role": "Atonomous Software Division"
         },
         {
-          "title": "Computer Science Club",
+          "title": "Data Science Club",
           "role": "Member"
         },
         {
-          "title": "Data Science Club",
-          "role": "Member"
+          "title": "Waterloo Raas Warriors",
+          "role": "Dancer"
         }
       ],
-      "achievements": ["none lol"]
+      "achievements": [
+        "Math National Scholarship",
+        "President’s Scholarship Of Distinction"
+      ]
     },
     {
       "name": "St. Francis Xavier Secondary School",
@@ -132,11 +135,19 @@
           "role": "Member"
         },
         {
+          "title": "Math Club",
+          "role": "Member"
+        },
+        {
           "title": "French Club",
           "role": "Member"
         }
       ],
-      "achievements": ["none lol"]
+      "achievements": [
+        "Canadian Computing Competition - Certificate of Distinction",
+        "Euclid Contest - Certificate of Distinction",
+        "Canadian Senior Mathematics Contest - Certificate of Distinction"
+      ]
     }
   ],
   "skills": {
