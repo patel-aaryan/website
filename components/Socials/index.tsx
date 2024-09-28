@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import ButtonComponent from "../Button";
-
 import data from "../../data/portfolio.json";
-import LinkedIn from "../../public/images/linkedin.svg";
-import Github from "../../public/images/github.svg";
-import Devpost from "../../public/images/devpost.svg";
-import Instagram from "../../public/images/instagram.svg";
-import Email from "../../public/images/email.svg";
+import {
+  LinkedIn,
+  Github,
+  Devpost,
+  Instagram,
+  Email,
+} from "../../public/socials";
 
 interface SocialsProps {
   className: string;

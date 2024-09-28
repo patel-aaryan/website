@@ -1,0 +1,17 @@
+.slider {
+  max-width: 32rem;
+  margin: auto;
+  --slide-spacing: 1rem;
+  --slide-size: 20%;
+}
+.slider__container {
+  display: flex;
+  touch-action: pan-y pinch-zoom;
+  margin-left: calc(var(--slide-spacing) * -1);
+}
+.slider__slide {
+  transform: translate3d(0, 0, 0);
+  flex: 0 0 var(--slide-size);
+  min-width: 0;
+  padding-left: var(--slide-spacing);
+}

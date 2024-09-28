@@ -9,6 +9,15 @@ import Image from "next/image";
 import Education from "../components/Education";
 import Work from "../components/Work";
 
+import { EmblaOptionsType } from "embla-carousel";
+import Skills from "./../components/Skills/";
+import {
+  languages,
+  frontend,
+  backend,
+  devops,
+} from "../components/Skills/skills";
+
 export default function Home() {
   const textOne = useRef<HTMLHeadingElement>(null);
   const textTwo = useRef<HTMLHeadingElement>(null);
@@ -28,6 +37,14 @@ export default function Home() {
     ["projects", projectsRef],
     ["contact", contactRef],
   ]);
+
+  const skillsCategories = [
+    { name: "Languages", list: languages },
+    { name: "Frontend", list: frontend },
+    { name: "Backend", list: backend },
+    { name: "DevOps", list: devops },
+  ];
+  const OPTIONS: EmblaOptionsType = { dragFree: true };
 
   const handleScroll = (ref: string) => {
     const refName = refMap.get(ref);
@@ -86,7 +103,7 @@ export default function Home() {
           </div>
           <div className="laptop:w-2/5 flex justify-center items-center mt-6">
             <Image
-              className="transitionall duration-300 ease-out"
+              className="transition duration-300 ease-out"
               src={"/profile.png"}
               alt="profile"
               width={320}
@@ -104,17 +121,16 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Vertical carousel/slider design */}
-        {/* Languages, Frontend, Backend, Devops (Cloud), Software Tools */}
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={skillsRef}>
           <h1 className="text-2xl text-bold">Skills</h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
-            {data.services.map((service, index) => (
-              <Work
-                key={index}
-                name={service.title}
-                description={service.description}
-              />
+            {skillsCategories.map((category, index) => (
+              <div key={index}>
+                <h1 className="flex justify-center text-2xl text-bold mb-4">
+                  {category.name}
+                </h1>
+                <Skills options={OPTIONS} categoryList={category.list} />
+              </div>
             ))}
           </div>
         </div>
