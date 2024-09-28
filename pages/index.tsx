@@ -5,10 +5,8 @@ import data from "../data/portfolio.json";
 import { stagger } from "../animations";
 import Footer from "../components/Footer";
 import Image from "next/image";
-
 import Education from "../components/Education";
 import Work from "../components/Work";
-
 import { EmblaOptionsType } from "embla-carousel";
 import Skills from "./../components/Skills/";
 import {

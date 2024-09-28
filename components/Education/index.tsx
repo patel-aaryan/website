@@ -79,8 +79,8 @@ function Education() {
                       className={animation}
                       key={idx}
                       label={club.title}
-                      color="primary"
-                      variant="outlined"
+                      color="success"
+                      variant="filled"
                     />
                   ))}
                 {!clubsOrCourses &&
@@ -88,8 +88,8 @@ function Education() {
                     <Button
                       className={`rounded-full ${animation}`}
                       key={idx}
-                      color="primary"
-                      variant="outlined"
+                      color="error"
+                      variant="contained"
                       onClick={() => {
                         setIsOpen(true);
                         setIsCourseActive(true);

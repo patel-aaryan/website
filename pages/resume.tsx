@@ -11,7 +11,7 @@ export default function Resume() {
         className="w-full h-screen"
         src="/pdf/resume.pdf"
         style={{ border: "none" }}
-      ></iframe>
+      />
     </div>
   );
 }
