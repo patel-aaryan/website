@@ -44,10 +44,10 @@ export default function Home() {
   ]);
 
   const [isCourseActive, setIsCourseActive] = useState(false);
-  const [isAchievementsActive, setIsAchievementsActive] = useState(false);
+  const [isMilestonesActive, setIsMilestonesActive] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
-  const [achivementsInfo, setAchievementsInfo] = useState<string[]>([]);
+  const [achivementsInfo, setMilestonesInfo] = useState<string[]>([]);
 
   const [courseInfo, setCourseInfo] = useState<CourseInfo>({
     code: "",
@@ -144,10 +144,10 @@ export default function Home() {
                   key={index}
                   school={school}
                   setCourseInfo={setCourseInfo}
-                  setAchievementsInfo={setAchievementsInfo}
+                  setMilestonesInfo={setMilestonesInfo}
                   setIsOpen={setIsOpen}
                   setIsCourseActive={setIsCourseActive}
-                  setIsAchievementsActive={setIsAchievementsActive}
+                  setIsMilestonesActive={setIsMilestonesActive}
                 />
               ))}
             </VerticalTimeline>
@@ -161,12 +161,12 @@ export default function Home() {
               />
             )}
 
-            {isAchievementsActive && (
+            {isMilestonesActive && (
               <AchivementPanel
                 achivementInfo={achivementsInfo}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
-                setIsActive={setIsAchievementsActive}
+                setIsActive={setIsMilestonesActive}
               />
             )}
           </div>

@@ -11,19 +11,19 @@ import PlaceIcon from "@mui/icons-material/Place";
 interface EducationProps {
   school: School;
   setCourseInfo: Dispatch<SetStateAction<CourseInfo>>;
-  setAchievementsInfo: Dispatch<SetStateAction<string[]>>;
+  setMilestonesInfo: Dispatch<SetStateAction<string[]>>;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
   setIsCourseActive: Dispatch<SetStateAction<boolean>>;
-  setIsAchievementsActive: Dispatch<SetStateAction<boolean>>;
+  setIsMilestonesActive: Dispatch<SetStateAction<boolean>>;
 }
 
 function Education({
   school,
   setCourseInfo,
-  setAchievementsInfo,
+  setMilestonesInfo,
   setIsOpen,
   setIsCourseActive,
-  setIsAchievementsActive,
+  setIsMilestonesActive,
 }: EducationProps) {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState<boolean>(false);
@@ -58,9 +58,24 @@ function Education({
               : "7px solid rgba(0, 0, 0, 0.15)",
         }}
       >
-        <h1 className="text-xl font-medium">{school.name}</h1>
+        <h1 className="text-xl font-medium w-60 tablet:w-full">
+          {school.name}
+        </h1>
         <h1 className="italic">{school.major}</h1>
         <h1 className="text-sm italic">{school.minor}</h1>
+
+        <div className="absolute top-1 right-2 p-2">
+          <div className="group relative">
+            <Tooltip
+              title={school.location}
+              placement="top"
+              classes={{ tooltip: "bg-slate-800 p-2 text-sm" }}
+              enterTouchDelay={0}
+            >
+              <PlaceIcon className="text-gray-500" />
+            </Tooltip>
+          </div>
+        </div>
 
         <div className="mt-2 flex justify-center flex-wrap gap-2">
           {clubsOrCourses &&
@@ -99,7 +114,7 @@ function Education({
         <div className="flex justify-evenly mt-4">
           {school.clubs && school.courses && (
             <Button
-              className={`rounded-full ${animation}`}
+              className={`rounded-full ${animation} scale-90 tablet:scale-100`}
               variant="contained"
               color="primary"
               onClick={() => setClubsOrCourses(true)}
@@ -109,7 +124,7 @@ function Education({
           )}
           {school.courses && school.clubs && (
             <Button
-              className={`rounded-full px-4 py-2 ${animation}`}
+              className={`rounded-full px-4 py-2 ${animation} scale-90 tablet:scale-100`}
               variant="contained"
               color="primary"
               onClick={() => setClubsOrCourses(false)}
@@ -118,30 +133,17 @@ function Education({
             </Button>
           )}
           <Button
-            className={`rounded-full px-4 py-2 ${animation}`}
+            className={`rounded-full px-4 py-2 ${animation} scale-90 tablet:scale-100`}
             variant="contained"
             color="primary"
             onClick={() => {
               setIsOpen(true);
-              setIsAchievementsActive(true);
-              setAchievementsInfo(school.achievements);
+              setIsMilestonesActive(true);
+              setMilestonesInfo(school.milestones);
             }}
           >
-            Achievements
+            Milestones
           </Button>
-        </div>
-
-        <div className="absolute top-1 right-2 p-2">
-          <div className="group relative">
-            <Tooltip
-              title={school.location}
-              placement="top"
-              classes={{ tooltip: "bg-slate-800 p-2 text-sm" }}
-              enterTouchDelay={0}
-            >
-              <PlaceIcon className="text-gray-500" />
-            </Tooltip>
-          </div>
         </div>
       </VerticalTimelineElement>
     </>

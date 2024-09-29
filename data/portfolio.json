@@ -109,7 +109,7 @@
           "role": "Member"
         }
       ],
-      "achievements": [
+      "milestones": [
         "Math National Scholarship",
         "President’s Scholarship Of Distinction"
       ]
@@ -137,7 +137,7 @@
           "role": "Member"
         }
       ],
-      "achievements": [
+      "milestones": [
         "Canadian Computing Competition - Certificate of Distinction",
         "Euclid Contest - Certificate of Distinction",
         "Canadian Senior Mathematics Contest - Certificate of Distinction"
@@ -146,12 +146,21 @@
   ],
   "experience": [
     {
+      "title": "TBD",
+      "company": "TBD",
+      "location": "TBD",
+      "description": [],
+      "date": "May 2025 - Aug. 2025",
+      "colour": "#06D6A0",
+      "icon": ""
+    },
+    {
       "title": "QTS Software Developer Intern",
       "company": "RBC Capital Markets",
       "location": "Toronto, ON, Canada",
       "description": [],
       "date": "Sep. 2024 - Dec. 2024",
-      "colour": "#005daa",
+      "colour": "#005DAA",
       "icon": ""
     },
     {
@@ -183,7 +192,7 @@
     },
     {
       "title": "Junior Developer",
-      "company": "RBC Capital Markets",
+      "company": "CGI Inc",
       "location": "Mississauga, ON, Canada",
       "description": [
         "Development using Angular, TypeScript, HTML & CSS, improving overall application functionality",

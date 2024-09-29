@@ -21,5 +21,5 @@ export interface School {
     title: string;
     role: string;
   }[];
-  achievements: string[];
+  milestones: string[];
 }
