@@ -1,11 +1,11 @@
-import { useRef, useLayoutEffect, useEffect } from "react";
+import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Socials from "../components/Socials";
 import data from "../data/portfolio.json";
 import { stagger } from "../animations";
 import Footer from "../components/Footer";
 import Image from "next/image";
-import Education from "../components/Education";
+import Education from "../components/Education/";
 import Work from "../components/Work";
 import { EmblaOptionsType } from "embla-carousel";
 import Skills from "./../components/Skills/";
@@ -16,9 +16,14 @@ import {
   backend,
   devops,
 } from "../components/Skills/skills";
-import { Timeline } from "@mui/lab";
+import { VerticalTimeline } from "react-vertical-timeline-component";
+import { useTheme } from "next-themes";
+import { CourseInfo } from "../data/types";
+import CoursePanel from "../components/Education/course";
+import AchivementPanel from "../components/Education/achievements";
 
 export default function Home() {
+  const { theme } = useTheme();
   const textOne = useRef<HTMLHeadingElement>(null);
   const textTwo = useRef<HTMLHeadingElement>(null);
 
@@ -37,6 +42,19 @@ export default function Home() {
     ["projects", projectsRef],
     ["contact", contactRef],
   ]);
+
+  const [isCourseActive, setIsCourseActive] = useState(false);
+  const [isAchievementsActive, setIsAchievementsActive] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const [achivementsInfo, setAchievementsInfo] = useState<string[]>([]);
+
+  const [courseInfo, setCourseInfo] = useState<CourseInfo>({
+    code: "",
+    name: "",
+    desc: [],
+    link: "",
+  });
 
   const skillsCategories = [
     { name: "Languages", list: languages },
@@ -68,7 +86,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative" ref={topRef}>
+    <div className="relative content-center" ref={topRef}>
       <div className="gradient-circle"></div>
       <div className="gradient-circle-bottom"></div>
 
@@ -117,11 +135,40 @@ export default function Home() {
             Education
           </h1>
           <div className="mt-5 tablet:m-10 gap-6">
-            <Timeline className="max-w-5xl">
+            <VerticalTimeline
+              animate={true}
+              lineColor={`${theme === "light" ? "#121313" : "white"}`}
+            >
               {data.education.map((school, index) => (
-                <Education key={index} school={school} index={index} />
+                <Education
+                  key={index}
+                  school={school}
+                  setCourseInfo={setCourseInfo}
+                  setAchievementsInfo={setAchievementsInfo}
+                  setIsOpen={setIsOpen}
+                  setIsCourseActive={setIsCourseActive}
+                  setIsAchievementsActive={setIsAchievementsActive}
+                />
               ))}
-            </Timeline>
+            </VerticalTimeline>
+
+            {isCourseActive && (
+              <CoursePanel
+                courseInfo={courseInfo}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                setIsActive={setIsCourseActive}
+              />
+            )}
+
+            {isAchievementsActive && (
+              <AchivementPanel
+                achivementInfo={achivementsInfo}
+                isOpen={isOpen}
+                setIsOpen={setIsOpen}
+                setIsActive={setIsAchievementsActive}
+              />
+            )}
           </div>
         </div>
 
@@ -129,7 +176,7 @@ export default function Home() {
           <h1 className="text-2xl text-bold">Skills</h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {skillsCategories.map((category, index) => (
-              <div key={index}>
+              <div key={index} className="scale-60 tablet:scale-100">
                 <h1 className="flex justify-center text-2xl text-bold mb-4">
                   {category.name}
                 </h1>

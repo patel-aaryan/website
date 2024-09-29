@@ -27,7 +27,6 @@ function SkillSlider({ category }: SliderProps) {
           <Tooltip
             title={c.name}
             placement="bottom"
-            enterTouchDelay={0}
             classes={{
               tooltip: "bg-slate-800 p-2 text-sm",
               arrow: "text-slate-800",
@@ -66,7 +65,7 @@ function Skills({ options, categoryList }: SkillsProps) {
   const { onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi);
 
   return (
-    <div className="my-4 flex items-center">
+    <div className="my-4 flex justify-center items-center">
       <PrevButton click={onPrevButtonClick} />
 
       <section className="slider">

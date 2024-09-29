@@ -7,8 +7,7 @@ export interface CourseInfo {
 
 export interface School {
   name: string;
-  start: string;
-  end: string;
+  date: string;
   major: string;
   minor?: string;
   location: string;

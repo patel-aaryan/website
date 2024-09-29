@@ -11,5 +11,9 @@ export const theme = {
     desktop: "1280px",
     laptopl: "1440px",
   },
-  extend: {},
+  extend: {
+    scale: {
+      60: "0.6",
+    },
+  },
 };

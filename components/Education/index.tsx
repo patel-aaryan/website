@@ -1,180 +1,149 @@
-import React, { useEffect, useState } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useTheme } from "next-themes";
-import {
-  TimelineConnector,
-  TimelineContent,
-  TimelineDot,
-  TimelineItem,
-  TimelineOppositeContent,
-  TimelineSeparator,
-} from "@mui/lab";
-import { Button, Chip, Tooltip } from "@mui/material";
-import SchoolIcon from "@mui/icons-material/School";
-import PlaceIcon from "@mui/icons-material/Place";
-import data from "../../data/portfolio.json";
-import CoursePanel from "./course";
-import AchivementPanel from "./achievements";
 import { CourseInfo, School } from "../../data/types";
+
+import { VerticalTimelineElement } from "react-vertical-timeline-component";
+import "react-vertical-timeline-component/style.min.css";
+import SchoolIcon from "@mui/icons-material/School";
+import { Button, Chip, Tooltip } from "@mui/material";
+import PlaceIcon from "@mui/icons-material/Place";
 
 interface EducationProps {
   school: School;
-  index: number;
+  setCourseInfo: Dispatch<SetStateAction<CourseInfo>>;
+  setAchievementsInfo: Dispatch<SetStateAction<string[]>>;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
+  setIsCourseActive: Dispatch<SetStateAction<boolean>>;
+  setIsAchievementsActive: Dispatch<SetStateAction<boolean>>;
 }
 
-function Education({ school, index }: EducationProps) {
+function Education({
+  school,
+  setCourseInfo,
+  setAchievementsInfo,
+  setIsOpen,
+  setIsCourseActive,
+  setIsAchievementsActive,
+}: EducationProps) {
   const { theme } = useTheme();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
+  const [mounted, setMounted] = useState<boolean>(false);
   const [clubsOrCourses, setClubsOrCourses] = useState(true);
   const animation = "transition-all duration-300 ease-out hover:scale-105";
 
-  const [isCourseActive, setIsCourseActive] = useState(false);
-  const [isAchievementsActive, setIsAchievementsActive] = useState(false);
-  const [isOpen, setIsOpen] = useState(false);
-
-  const [achivementsInfo, setAchievementsInfo] = useState<string[]>([]);
-
-  const [courseInfo, setCourseInfo] = useState<CourseInfo>({
-    code: "",
-    name: "",
-    desc: [],
-    link: "",
-  });
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+  if (!mounted) return null;
 
   return (
     <>
-      <TimelineItem key={index}>
-        <TimelineOppositeContent style={{ flex: 0.5 }} sx={{ m: "auto 0" }} />
-        <TimelineSeparator>
-          <TimelineDot sx={{ mt: 7 }} color="primary">
-            <div className="group relative">
-              <SchoolIcon />
-              <span
-                className="absolute opacity-0 group-hover:opacity-100
-                  transition-opacity duration-300 bg-slate-800 text-white
-                  rounded-lg p-2 whitespace-nowrap left-full -translate-x-full"
-              >
-                {school.start} - {school.end}
-              </span>
-            </div>
-          </TimelineDot>
-          {index < data.education.length - 1 && (
-            <TimelineConnector sx={{ mt: 6 }} />
-          )}
-        </TimelineSeparator>
-        <TimelineContent>
-          <div
-            className={`w-full p-2 mob:p-4 rounded-lg transition-all ease-out duration-300 ${
-              mounted && theme === "dark"
-                ? "hover:bg-slate-800"
-                : "hover:bg-slate-50"
-            } link`}
-          >
-            <h3 className="text-lg font-semibold">{school.name}</h3>
-            <p className="text-sm">{school.major}</p>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {clubsOrCourses &&
-                school.clubs.map((club, idx) => (
-                  <Chip
-                    className={animation}
-                    key={idx}
-                    label={club.title}
-                    color="success"
-                    variant="filled"
-                  />
-                ))}
-              {!clubsOrCourses &&
-                school.courses?.map((course, idx) => (
-                  <Button
-                    className={`rounded-full ${animation}`}
-                    key={idx}
-                    color="error"
-                    variant="contained"
-                    onClick={() => {
-                      setIsOpen(true);
-                      setIsCourseActive(true);
-                      setCourseInfo({
-                        code: course.code,
-                        name: course.name,
-                        desc: course.desc,
-                        link: course.link,
-                      });
-                    }}
-                  >
-                    {course.code}
-                  </Button>
-                ))}
-            </div>
-            <div className="flex justify-evenly mt-4">
-              {school.clubs && school.courses && (
-                <Button
-                  className={`rounded-full ${animation}`}
-                  variant="contained"
-                  color="primary"
-                  onClick={() => setClubsOrCourses(true)}
-                >
-                  Clubs
-                </Button>
-              )}
-              {school.courses && school.clubs && (
-                <Button
-                  className={`rounded-full px-4 py-2 ${animation}`}
-                  variant="contained"
-                  color="primary"
-                  onClick={() => setClubsOrCourses(false)}
-                >
-                  Courses
-                </Button>
-              )}
+      <VerticalTimelineElement
+        date={school.date}
+        dateClassName="date"
+        iconStyle={{ background: "#005daa" }}
+        icon={<SchoolIcon />}
+        contentStyle={{
+          background: `${theme === "dark" ? "#121313" : "white"}`,
+          boxShadow: "rgba(23, 92, 230, 0.15) 0px 4px 24px",
+          border:
+            theme === "dark"
+              ? "1px solid rgba(255, 255, 255, 0.125)"
+              : "1px solid rgba(0, 0, 0, 0.15)",
+          borderRadius: "6px",
+        }}
+        contentArrowStyle={{
+          borderRight:
+            theme === "dark"
+              ? "7px solid rgba(255, 255, 255, 0.3)"
+              : "7px solid rgba(0, 0, 0, 0.15)",
+        }}
+      >
+        <h1 className="text-xl font-medium">{school.name}</h1>
+        <h1 className="italic">{school.major}</h1>
+        <h1 className="text-sm italic">{school.minor}</h1>
+
+        <div className="mt-2 flex justify-center flex-wrap gap-2">
+          {clubsOrCourses &&
+            school.clubs.map((club, idx) => (
+              <Chip
+                className={animation}
+                key={idx}
+                label={club.title}
+                color="success"
+                variant="filled"
+              />
+            ))}
+          {!clubsOrCourses &&
+            school.courses?.map((course, idx) => (
               <Button
-                className={`rounded-full px-4 py-2 ${animation}`}
+                className={`rounded-full ${animation}`}
+                key={idx}
+                color="error"
                 variant="contained"
-                color="primary"
                 onClick={() => {
                   setIsOpen(true);
-                  setIsAchievementsActive(true);
-                  setAchievementsInfo(school.achievements);
+                  setIsCourseActive(true);
+                  setCourseInfo({
+                    code: course.code,
+                    name: course.name,
+                    desc: course.desc,
+                    link: course.link,
+                  });
                 }}
               >
-                Achievements
+                {course.code}
               </Button>
-            </div>
-            <div className="absolute top-1 right-2 p-2">
-              <div className="group relative">
-                <Tooltip
-                  title={school.location}
-                  placement="right-start"
-                  classes={{ tooltip: "bg-slate-800 p-2 text-sm" }}
-                  enterTouchDelay={0}
-                >
-                  <PlaceIcon className="text-gray-500" />
-                </Tooltip>
-              </div>
-            </div>
+            ))}
+        </div>
+
+        <div className="flex justify-evenly mt-4">
+          {school.clubs && school.courses && (
+            <Button
+              className={`rounded-full ${animation}`}
+              variant="contained"
+              color="primary"
+              onClick={() => setClubsOrCourses(true)}
+            >
+              Clubs
+            </Button>
+          )}
+          {school.courses && school.clubs && (
+            <Button
+              className={`rounded-full px-4 py-2 ${animation}`}
+              variant="contained"
+              color="primary"
+              onClick={() => setClubsOrCourses(false)}
+            >
+              Courses
+            </Button>
+          )}
+          <Button
+            className={`rounded-full px-4 py-2 ${animation}`}
+            variant="contained"
+            color="primary"
+            onClick={() => {
+              setIsOpen(true);
+              setIsAchievementsActive(true);
+              setAchievementsInfo(school.achievements);
+            }}
+          >
+            Achievements
+          </Button>
+        </div>
+
+        <div className="absolute top-1 right-2 p-2">
+          <div className="group relative">
+            <Tooltip
+              title={school.location}
+              placement="top"
+              classes={{ tooltip: "bg-slate-800 p-2 text-sm" }}
+              enterTouchDelay={0}
+            >
+              <PlaceIcon className="text-gray-500" />
+            </Tooltip>
           </div>
-        </TimelineContent>
-      </TimelineItem>
-
-      {isCourseActive && (
-        <CoursePanel
-          courseInfo={courseInfo}
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          setIsActive={setIsCourseActive}
-        />
-      )}
-
-      {isAchievementsActive && (
-        <AchivementPanel
-          achivementInfo={achivementsInfo}
-          isOpen={isOpen}
-          setIsOpen={setIsOpen}
-          setIsActive={setIsAchievementsActive}
-        />
-      )}
+        </div>
+      </VerticalTimelineElement>
     </>
   );
 }
