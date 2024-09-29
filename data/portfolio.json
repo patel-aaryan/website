@@ -108,10 +108,6 @@
         {
           "title": "Data Science Club",
           "role": "Member"
-        },
-        {
-          "title": "Waterloo Raas Warriors",
-          "role": "Dancer"
         }
       ],
       "achievements": [
@@ -150,7 +146,57 @@
       ]
     }
   ],
-  "experience": [],
+  "experience": [
+    {
+      "title": "QTS Software Developer Intern",
+      "company": "RBC Capital Markets",
+      "location": "Toronto, ON, Canada",
+      "description": [],
+      "date": "Sep. 2024 - Dec. 2024",
+      "colour": "#005daa",
+      "icon": ""
+    },
+    {
+      "title": "Application Developer",
+      "company": "CGI Inc",
+      "location": "Toronto, ON, Canada",
+      "description": [
+        "Specialized in building and managing cloud-based API ecosystems using Google Cloud Platform as well as deploying, monitoring, and managing enterprise solutions on the cloud",
+        "Designed and deployed a PostgreSQL database integrated with Keyclock, streamlining authentication process",
+        "Leveraged Terraform to automate infrastructure provisioning, which optimized deployment time by up to 70%, significant enhancing operational efficiency"
+      ],
+      "date": "Jan. 2024 - May 2024",
+      "colour": "#E31937",
+      "icon": ""
+    },
+    {
+      "title": "Junior Software Developer",
+      "company": "JANA Corporation",
+      "location": "Aurora, ON, Canada",
+      "description": [
+        "Developed backend solutions using C#, ASP.NET, and SQL Server, contributing to the architecture, implementation, and maintenance of pipeline integrity management application",
+        "Led the optimization of SQL queries, significantly enhancing the performance of the data management REST API, which improved dynamic data retrieval and display",
+        "Introduced new visualization feature that displayed risk level results for predictive risk analysis, aiding in better decision-making for pipeline integrity management",
+        "Lead migration of APIs to a high-performance serialization library, boosting API performance by up to 50%"
+      ],
+      "date": "May 2023 - Aug. 2023",
+      "colour": "#6EB273",
+      "icon": ""
+    },
+    {
+      "title": "Junior Developer",
+      "company": "RBC Capital Markets",
+      "location": "Mississauga, ON, Canada",
+      "description": [
+        "Development using Angular, TypeScript, HTML & CSS, improving overall application functionality",
+        "Lead the redesigning of a POS inventory application to better meet the specific needs of a telecom client, enhancing user satisfaction and operational efficiency",
+        "Improved inventory management functionalities using RESTful APIs, resulting in a more intuitive user experience"
+      ],
+      "date": "Jun. 2022 - Sep. 2022",
+      "colour": "#E31937",
+      "icon": ""
+    }
+  ],
   "projects": [
     {
       "title": "Crafts",

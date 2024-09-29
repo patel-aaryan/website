@@ -45,7 +45,7 @@ function Header({ handleScroll }: HeaderProps) {
                       setTheme(theme === "dark" ? "light" : "dark")
                     }
                     type="button"
-                    classes=""
+                    classes="rounded-lg"
                   >
                     <img
                       className={`h-6 ${animation}`}
@@ -81,42 +81,42 @@ function Header({ handleScroll }: HeaderProps) {
                 <ButtonComponent
                   onClick={() => handleScroll("edu")}
                   type="button"
-                  classes=""
+                  classes="rounded-lg"
                 >
                   Education
                 </ButtonComponent>
                 <ButtonComponent
                   onClick={() => handleScroll("skills")}
                   type="button"
-                  classes=""
+                  classes="rounded-lg"
                 >
                   Skills
                 </ButtonComponent>
                 <ButtonComponent
                   onClick={() => handleScroll("work")}
                   type="button"
-                  classes=""
+                  classes="rounded-lg"
                 >
                   Experience
                 </ButtonComponent>
                 <ButtonComponent
                   onClick={() => handleScroll("projects")}
                   type="button"
-                  classes=""
+                  classes="rounded-lg"
                 >
                   Projects
                 </ButtonComponent>
                 <ButtonComponent
                   onClick={() => window.open("/resume", "_blank")}
                   type="button"
-                  classes=""
+                  classes="rounded-lg"
                 >
                   Resume
                 </ButtonComponent>
                 <ButtonComponent
                   onClick={() => handleScroll("contact")}
                   type="button"
-                  classes=""
+                  classes="rounded-lg"
                 >
                   Contact Me
                 </ButtonComponent>
@@ -141,35 +141,35 @@ function Header({ handleScroll }: HeaderProps) {
           <ButtonComponent
             onClick={() => handleScroll("edu")}
             type="button"
-            classes=""
+            classes="rounded-lg"
           >
             Education
           </ButtonComponent>
           <ButtonComponent
             onClick={() => handleScroll("skills")}
             type="button"
-            classes=""
+            classes="rounded-lg"
           >
             Skills
           </ButtonComponent>
           <ButtonComponent
             onClick={() => handleScroll("work")}
             type="button"
-            classes=""
+            classes="rounded-lg"
           >
             Experience
           </ButtonComponent>
           <ButtonComponent
             onClick={() => handleScroll("projects")}
             type="button"
-            classes=""
+            classes="rounded-lg"
           >
             Projects
           </ButtonComponent>
           <ButtonComponent
             onClick={() => window.open("/resume", "_blank")}
             type="button"
-            classes="first:ml-1"
+            classes="first:ml-1 rounded-lg"
           >
             Resume
           </ButtonComponent>
@@ -177,7 +177,7 @@ function Header({ handleScroll }: HeaderProps) {
           <ButtonComponent
             onClick={() => handleScroll("contact")}
             type="button"
-            classes=""
+            classes="rounded-lg"
           >
             Contact Me
           </ButtonComponent>
@@ -185,7 +185,7 @@ function Header({ handleScroll }: HeaderProps) {
             <ButtonComponent
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
               type="button"
-              classes=""
+              classes="rounded-lg"
             >
               <img
                 className={`h-6 ${animation}`}

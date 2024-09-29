@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import ButtonComponent from "../Button";
-import { CourseInfo } from "../../types";
+import { CourseInfo } from "../../data/types";
 
 interface CoursePanelProps {
   courseInfo: CourseInfo;
@@ -54,7 +54,7 @@ function CoursePanel({
             <div className="flex items-center -space-y-1">
               <h2 className="text-2xl font-semibold">{courseInfo.code}</h2>
               <ButtonComponent
-                classes="flex items-center justify-center"
+                classes="flex items-center justify-center rounded-lg"
                 onClick={() => window.open(courseInfo.link)}
                 type="button"
               >

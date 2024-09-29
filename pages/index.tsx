@@ -9,12 +9,14 @@ import Education from "../components/Education";
 import Work from "../components/Work";
 import { EmblaOptionsType } from "embla-carousel";
 import Skills from "./../components/Skills/";
+import Projects from "../components/Projects";
 import {
   languages,
   frontend,
   backend,
   devops,
 } from "../components/Skills/skills";
+import { Timeline } from "@mui/lab";
 
 export default function Home() {
   const textOne = useRef<HTMLHeadingElement>(null);
@@ -42,7 +44,7 @@ export default function Home() {
     { name: "Backend", list: backend },
     { name: "DevOps", list: devops },
   ];
-  const OPTIONS: EmblaOptionsType = { dragFree: true };
+  const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true };
 
   const handleScroll = (ref: string) => {
     const refName = refMap.get(ref);
@@ -76,7 +78,7 @@ export default function Home() {
           <div className="mt-5">
             <h1
               ref={textOne}
-              className="text-3xl tablet:text-4xl laptop:text-4xl laptopl:text-6xl
+              className="text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-6xl
                           p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5"
             >
               {data.headerTaglineOne}
@@ -99,13 +101,13 @@ export default function Home() {
               {data.aboutMe}
             </p>
           </div>
-          <div className="laptop:w-2/5 flex justify-center items-center mt-6">
+          <div className="laptop:w-2/5 flex justify-center items-center mt-6 laptop:mt-[-250px]">
             <Image
               className="transition duration-300 ease-out"
               src={"/profile.png"}
               alt="profile"
-              width={320}
-              height={320}
+              width={384}
+              height={384}
             />
           </div>
         </div>
@@ -115,7 +117,11 @@ export default function Home() {
             Education
           </h1>
           <div className="mt-5 tablet:m-10 gap-6">
-            <Education />
+            <Timeline className="max-w-5xl">
+              {data.education.map((school, index) => (
+                <Education key={index} school={school} index={index} />
+              ))}
+            </Timeline>
           </div>
         </div>
 
@@ -133,17 +139,10 @@ export default function Home() {
           </div>
         </div>
 
-        {/* React MUI timeline component */}
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
           <h1 className="text-2xl text-bold">Work Experience</h1>
-          <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
-            {data.services.map((service, index) => (
-              <Work
-                key={index}
-                name={service.title}
-                description={service.description}
-              />
-            ))}
+          <div className="mt-5 tablet:m-10 gap-6">
+            <Work />
           </div>
         </div>
 
@@ -152,7 +151,7 @@ export default function Home() {
           <h1 className="text-2xl text-bold">Projects</h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {data.services.map((service, index) => (
-              <Work
+              <Projects
                 key={index}
                 name={service.title}
                 description={service.description}

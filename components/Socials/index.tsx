@@ -14,7 +14,8 @@ interface SocialsProps {
 }
 
 function Socials({ className }: SocialsProps) {
-  const animation = "transition-all duration-300 ease-out hover:scale-125";
+  const animation =
+    "rounded-lg transition-all duration-300 ease-out hover:scale-125";
 
   const [mounted, setMounted] = useState(false);
   useEffect(() => {

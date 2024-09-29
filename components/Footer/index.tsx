@@ -15,9 +15,6 @@ function Footer() {
           <h1 className="text-3xl tablet:text-6xl laptop:text-6xl laptopl:text-8xl text-bold">
             TOGETHER
           </h1>
-          <ButtonComponent onClick={null} type="primary" classes="">
-            Schedule a call
-          </ButtonComponent>
           <div className="mt-10">
             <Socials className="" />
           </div>
