@@ -40,7 +40,7 @@ interface ButtonProps {
 
 export function PrevButton({ click }: ButtonProps) {
   return (
-    <ButtonComponent classes="rounded-full" type="button" onClick={click}>
+    <ButtonComponent classes="rounded-full" onClick={click}>
       <ArrowBackIosNewIcon />
     </ButtonComponent>
   );
@@ -48,7 +48,7 @@ export function PrevButton({ click }: ButtonProps) {
 
 export function NextButton({ click }: ButtonProps) {
   return (
-    <ButtonComponent classes="rounded-full" type="button" onClick={click}>
+    <ButtonComponent classes="rounded-full" onClick={click}>
       <ArrowForwardIosIcon />
     </ButtonComponent>
   );

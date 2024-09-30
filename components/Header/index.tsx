@@ -11,7 +11,6 @@ interface HeaderProps {
 }
 
 function Header({ handleScroll }: HeaderProps) {
-  const router = useRouter();
   const { theme, setTheme } = useTheme();
   const animation = "transition-all duration-300 ease-out hover:scale-125";
 
@@ -44,7 +43,6 @@ function Header({ handleScroll }: HeaderProps) {
                     onClick={() =>
                       setTheme(theme === "dark" ? "light" : "dark")
                     }
-                    type="button"
                     classes="rounded-lg"
                   >
                     <img
@@ -80,42 +78,36 @@ function Header({ handleScroll }: HeaderProps) {
               <div className="grid grid-cols-1">
                 <ButtonComponent
                   onClick={() => handleScroll("edu")}
-                  type="button"
                   classes="rounded-lg"
                 >
                   Education
                 </ButtonComponent>
                 <ButtonComponent
                   onClick={() => handleScroll("skills")}
-                  type="button"
                   classes="rounded-lg"
                 >
                   Skills
                 </ButtonComponent>
                 <ButtonComponent
                   onClick={() => handleScroll("work")}
-                  type="button"
                   classes="rounded-lg"
                 >
                   Experience
                 </ButtonComponent>
                 <ButtonComponent
                   onClick={() => handleScroll("projects")}
-                  type="button"
                   classes="rounded-lg"
                 >
                   Projects
                 </ButtonComponent>
                 <ButtonComponent
                   onClick={() => window.open("/resume", "_blank")}
-                  type="button"
                   classes="rounded-lg"
                 >
                   Resume
                 </ButtonComponent>
                 <ButtonComponent
                   onClick={() => handleScroll("contact")}
-                  type="button"
                   classes="rounded-lg"
                 >
                   Contact Me
@@ -140,35 +132,30 @@ function Header({ handleScroll }: HeaderProps) {
         <div className="flex">
           <ButtonComponent
             onClick={() => handleScroll("edu")}
-            type="button"
             classes="rounded-lg"
           >
             Education
           </ButtonComponent>
           <ButtonComponent
             onClick={() => handleScroll("skills")}
-            type="button"
             classes="rounded-lg"
           >
             Skills
           </ButtonComponent>
           <ButtonComponent
             onClick={() => handleScroll("work")}
-            type="button"
             classes="rounded-lg"
           >
             Experience
           </ButtonComponent>
           <ButtonComponent
             onClick={() => handleScroll("projects")}
-            type="button"
             classes="rounded-lg"
           >
             Projects
           </ButtonComponent>
           <ButtonComponent
             onClick={() => window.open("/resume", "_blank")}
-            type="button"
             classes="first:ml-1 rounded-lg"
           >
             Resume
@@ -176,7 +163,6 @@ function Header({ handleScroll }: HeaderProps) {
 
           <ButtonComponent
             onClick={() => handleScroll("contact")}
-            type="button"
             classes="rounded-lg"
           >
             Contact Me
@@ -184,7 +170,6 @@ function Header({ handleScroll }: HeaderProps) {
           {mounted && theme && data.darkMode && (
             <ButtonComponent
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              type="button"
               classes="rounded-lg"
             >
               <img

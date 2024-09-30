@@ -28,7 +28,6 @@ function Socials({ className }: SocialsProps) {
       <ButtonComponent
         onClick={() => window.open(data.socials.linkedin)}
         classes={animation}
-        type="button"
       >
         <LinkedIn />
       </ButtonComponent>
@@ -36,7 +35,6 @@ function Socials({ className }: SocialsProps) {
       <ButtonComponent
         onClick={() => window.open(data.socials.github)}
         classes={animation}
-        type="button"
       >
         <Github />
       </ButtonComponent>
@@ -44,7 +42,6 @@ function Socials({ className }: SocialsProps) {
       <ButtonComponent
         onClick={() => window.open(data.socials.devpost)}
         classes={animation}
-        type="button"
       >
         <Devpost />
       </ButtonComponent>
@@ -52,7 +49,6 @@ function Socials({ className }: SocialsProps) {
       <ButtonComponent
         onClick={() => window.open(data.socials.instagram)}
         classes={animation}
-        type="button"
       >
         <Instagram />
       </ButtonComponent>
@@ -60,7 +56,6 @@ function Socials({ className }: SocialsProps) {
       <ButtonComponent
         onClick={() => window.open(data.socials.email)}
         classes={animation}
-        type="button"
       >
         <Email />
       </ButtonComponent>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "next-themes";
 
 interface ButtonProps {
@@ -8,8 +8,12 @@ interface ButtonProps {
 }
 
 function ButtonComponent({ children, onClick, classes }: ButtonProps) {
-  const { theme } = useTheme();
-  const currentTheme = theme || "dark";
+  const { theme, resolvedTheme } = useTheme();
+  const [currentTheme, setCurrentTheme] = useState("dark");
+  useEffect(() => {
+    setCurrentTheme(resolvedTheme || theme || "dark");
+  }, [resolvedTheme, theme]);
+
   return (
     <button
       onClick={onClick}

@@ -21,6 +21,8 @@ import { useTheme } from "next-themes";
 import { CourseInfo } from "../data/types";
 import CoursePanel from "../components/Education/course";
 import AchivementPanel from "../components/Education/achievements";
+import Contact from "../components/Contact";
+import { Grid2 } from "@mui/material";
 
 export default function Home() {
   const { theme } = useTheme();
@@ -204,8 +206,17 @@ export default function Home() {
         </div>
       </div>
 
-      <div ref={contactRef}>
-        <Footer />
+      <div className="container mx-auto mb-10" ref={contactRef}>
+        <h1 className="text-4xl text-bold">Let&apos;s Connect!</h1>
+        <Grid2 container spacing={4}>
+          <Grid2 size={{ xs: 8 }}>
+              <Footer />
+          </Grid2>
+
+          <Grid2 size={{ xs: 4 }}>
+              <Contact />
+          </Grid2>
+        </Grid2>
       </div>
     </div>
   );

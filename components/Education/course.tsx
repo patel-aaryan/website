@@ -56,7 +56,6 @@ function CoursePanel({
               <ButtonComponent
                 classes="flex items-center justify-center rounded-lg"
                 onClick={() => window.open(courseInfo.link)}
-                type="button"
               >
                 <OpenInNewIcon className={`w-6 h-6 ${animation}`} />
               </ButtonComponent>
