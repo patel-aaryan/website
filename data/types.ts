@@ -11,6 +11,7 @@ export interface School {
   major: string;
   minor?: string;
   location: string;
+  colour: string;
   courses?: {
     code: string;
     name: string;

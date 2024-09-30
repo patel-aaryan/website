@@ -40,7 +40,7 @@ function Education({
       <VerticalTimelineElement
         date={school.date}
         dateClassName="date"
-        iconStyle={{ background: "#005daa" }}
+        iconStyle={{ background: school.colour }}
         icon={<SchoolIcon />}
         contentStyle={{
           background: `${theme === "dark" ? "#121313" : "white"}`,
