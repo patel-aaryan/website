@@ -8,7 +8,7 @@ import { AppProps } from "next/app";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider>
+    <ThemeProvider defaultTheme="dark">
       <Head>
         <title>{data.name}</title>
       </Head>
