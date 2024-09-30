@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import "../styles/skills.css";
+import "../styles/projects.css";
 import { ThemeProvider } from "next-themes";
 import Head from "next/head";
 import data from "../data/portfolio.json";

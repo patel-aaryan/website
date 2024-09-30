@@ -206,58 +206,46 @@
   ],
   "projects": [
     {
-      "title": "Crafts",
-      "description": "Web Design",
-      "imageSrc": "",
-      "url": ""
+      "title": "CraftsByAash",
+      "description": "E-commerce Platform",
+      "tech": [],
+      "colour": "#F54748",
+      "link": ""
     },
     {
-      "title": "Project Two",
-      "description": "Web Development",
-      "imageSrc": "",
-      "url": ""
+      "title": "P.E.P.P.E.R.",
+      "description": "A compassionate chatbot that delivers human-like responses, designed to alleviate loneliness among elderly individuals and patients experiencing social isolation",
+      "tech": [],
+      "colour": "#7952B3",
+      "link": "https://github.com/patel-aaryan/P.E.P.P.E.R."
     },
     {
-      "title": "Project Three",
-      "description": "Design",
-      "imageSrc": "",
-      "url": ""
+      "title": "Spotisize",
+      "description": "Web app that creatively visualizes users' Spotify data by categorizing and displaying their listening activity",
+      "tech": [],
+      "colour": "#1597BB",
+      "link": "https://github.com/patel-aaryan/SpotiSize"
     },
     {
-      "title": "Project Four",
-      "description": "Marketing",
-      "imageSrc": "",
-      "url": ""
+      "title": "NoiseRebel",
+      "description": "Automated soundboard for Discord servers and plays dynamics sounds in voice chat using event-based Discord APIs",
+      "tech": [],
+      "colour": "#185ADB",
+      "link": "https://github.com/patel-aaryan/NoiseRebel"
     },
     {
-      "title": "Project Five",
-      "description": "Development",
-      "imageSrc": "",
-      "url": ""
+      "title": "Ambulert",
+      "description": "Mobile app that notifies civilians of a nearby ambulance during emergencies, using the real-time locations of the civilian and the ambulance to enhance awareness and improve safety",
+      "tech": [],
+      "colour": "#FF616D",
+      "link": "https://github.com/patel-aaryan/Ambulert"
     },
     {
-      "title": "Project Six",
-      "description": "Design & Development",
-      "imageSrc": "",
-      "url": ""
-    }
-  ],
-  "services": [
-    {
-      "title": "Art Direction",
-      "description": "We help with the creation and development of online advertising ideas, with particular focus on their visual appearance."
-    },
-    {
-      "title": "Branding",
-      "description": "We design key brand elements such as the logo, color scheme, typography, and other design components that makes your brand stand out from competitors."
-    },
-    {
-      "title": "Web Design",
-      "description": "We build and optimize your online presence.  Website is the digital entry point into your business and a powerful revenue channel."
-    },
-    {
-      "title": "3D Design",
-      "description": "We combine creative design and technical skills to build striking 3D visualisations that bring your project to life."
+      "title": "Foodar",
+      "description": "Recommendation system that provides the top 3 restaurant recommendations based on location, helping university students make informed dietary choices",
+      "tech": [],
+      "colour": "#F54748",
+      "link": "https://github.com/patel-aaryan/Foodar"
     }
   ]
 }

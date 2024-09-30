@@ -3,12 +3,11 @@ import { useTheme } from "next-themes";
 
 interface ButtonProps {
   children: any;
-  type: string;
   onClick: (...args: any[]) => any;
   classes: string;
 }
 
-function ButtonComponent({ children, type, onClick, classes }: ButtonProps) {
+function ButtonComponent({ children, onClick, classes }: ButtonProps) {
   const { theme } = useTheme();
   const currentTheme = theme || "dark";
   return (

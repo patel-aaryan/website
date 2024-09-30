@@ -9,7 +9,7 @@ import Education from "../components/Education/";
 import Work from "../components/Work";
 import { EmblaOptionsType } from "embla-carousel";
 import Skills from "./../components/Skills/";
-import Projects from "../components/Projects";
+import Projects from "../components/Projects/";
 import {
   languages,
   frontend,
@@ -193,17 +193,13 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Tinder like swiping */}
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={projectsRef}>
           <h1 className="text-2xl text-bold">Projects</h1>
-          <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
-            {data.services.map((service, index) => (
-              <Projects
-                key={index}
-                name={service.title}
-                description={service.description}
-              />
-            ))}
+          <div
+            className="mt-5 tablet:m-10 flex justify-center
+            items-center flex-col w-full h-screen gap-6"
+          >
+            <Projects activeSlide={0} />
           </div>
         </div>
       </div>
