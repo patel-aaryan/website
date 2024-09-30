@@ -19,7 +19,7 @@
       "major": "Computer Science & Artificial Intelligence",
       "minor": "Minor in Economics",
       "location": "Waterloo, ON, Canada",
-      "colour": "#005DAA",
+      "colour": "#EAAB00",
       "courses": [
         {
           "code": "CS 135",
@@ -120,7 +120,7 @@
       "date": "2018 - 2022",
       "major": "International Baccalaureate",
       "location": "Mississauga, ON, Canada",
-      "colour": "#EAAB00",
+      "colour": "#005DAA",
       "clubs": [
         {
           "title": "STEM Club",
