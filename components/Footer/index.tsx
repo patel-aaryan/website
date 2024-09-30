@@ -27,7 +27,7 @@ interface FormErrors {
   message?: string;
 }
 
-function Footer() {
+function Contact() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -289,4 +289,4 @@ function Footer() {
   );
 }
 
-export default Footer;
+export default Contact;

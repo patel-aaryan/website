@@ -1,6 +1,5 @@
 import { Popover } from "@headlessui/react";
 import { useTheme } from "next-themes";
-import { useRouter } from "next/router";
 import React, { useEffect, useState } from "react";
 import ButtonComponent from "../Button";
 import data from "../../data/portfolio.json";

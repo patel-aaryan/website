@@ -4,7 +4,7 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
-function Contact() {
+function ContactCard() {
   const { theme } = useTheme();
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
@@ -54,4 +54,4 @@ function Contact() {
   );
 }
 
-export default Contact;
+export default ContactCard;

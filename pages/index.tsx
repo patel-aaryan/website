@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import Socials from "../components/Socials";
 import data from "../data/portfolio.json";
 import { stagger } from "../animations";
-import Footer from "../components/Footer";
+import Contact from "../components/Footer";
 import Image from "next/image";
 import Education from "../components/Education/";
 import Work from "../components/Work";
@@ -21,9 +21,8 @@ import { useTheme } from "next-themes";
 import { CourseInfo } from "../data/types";
 import CoursePanel from "../components/Education/course";
 import AchivementPanel from "../components/Education/achievements";
-import Contact from "../components/Contact";
-import { Card, Grid2 } from "@mui/material";
-import ProjectsMobile from "../components/Projects/mobile";
+import ContactCard from "../components/Contact";
+import { Grid2 } from "@mui/material";
 
 export default function Home() {
   const { theme } = useTheme();
@@ -217,11 +216,11 @@ export default function Home() {
           sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
         >
           <Grid2 size={{ xs: 12, sm: 8 }}>
-            <Footer />
+            <Contact />
           </Grid2>
 
           <Grid2 size={{ xs: 4 }} sx={{ display: { xs: "none", sm: "block" } }}>
-            <Contact />
+            <ContactCard />
           </Grid2>
         </Grid2>
       </div>
