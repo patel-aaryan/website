@@ -1,56 +1,57 @@
-import * as React from "react";
-import { styled } from "@mui/material/styles";
-import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
-import CardMedia from "@mui/material/CardMedia";
-import CardContent from "@mui/material/CardContent";
-import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
-import IconButton, { IconButtonProps } from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
-
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
-
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme }) => ({
-  marginLeft: "auto",
-  transition: theme.transitions.create("transform", {
-    duration: theme.transitions.duration.shortest,
-  }),
-  variants: [
-    {
-      props: ({ expand }) => !expand,
-      style: {
-        transform: "rotate(0deg)",
-      },
-    },
-    {
-      props: ({ expand }) => !!expand,
-      style: {
-        transform: "rotate(180deg)",
-      },
-    },
-  ],
-}));
+import { Card, CardContent, Typography, Button } from "@mui/material";
+import FooterSocials from "../Socials/footer";
+import Image from "next/image";
+import { useTheme } from "next-themes";
+import { useEffect, useState } from "react";
 
 function Contact() {
-  const [expanded, setExpanded] = React.useState(false);
+  const { theme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
+  if (!mounted) return null;
 
-  return <div></div>;
+  return (
+    <Card
+      className={`${
+        theme === "dark" ? "text-white" : "text-black"
+      } p-4 rounded-lg w-full h-full flex flex-col`}
+      sx={{
+        boxShadow: "rgba(23, 92, 230, 0.15) 0px 4px 24px",
+        background: `${theme === "dark" ? "#121313" : "white"}`,
+        border:
+          theme === "dark"
+            ? "1px solid rgba(255, 255, 255, 0.125)"
+            : "1px solid rgba(0, 0, 0, 0.15)",
+      }}
+    >
+      <CardContent className="flex-grow">
+        <h1>Aaryan Patel</h1>
+
+        <h1 className={theme === "dark" ? "text-gray-400" : "text-gray-600"}>
+          University of Waterloo
+        </h1>
+        <h2 className="text-gray-500">
+          Computer Science & Artificial Intelligence
+        </h2>
+        <h2 className="text-gray-500">Minor in Economics</h2>
+
+        <div className="flex justify-center my-4">
+          <Image
+            className="transition duration-300 ease-out"
+            src={"/profile.png"}
+            alt="profile"
+            width={169}
+            height={169}
+          />
+        </div>
+      </CardContent>
+
+      <FooterSocials />
+    </Card>
+  );
 }
 
 export default Contact;

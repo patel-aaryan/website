@@ -5,11 +5,11 @@ import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import GitHubIcon from "@mui/icons-material/GitHub";
 
-interface props {
+export interface ProjectsProps {
   activeSlide: number;
 }
 
-function Projects(props: props) {
+function Projects(props: ProjectsProps) {
   const [activeSlide, setactiveSlide] = useState(props.activeSlide);
 
   const next = () =>
@@ -71,7 +71,7 @@ function Projects(props: props) {
 
   return (
     <>
-      <div className="slideC">
+      <div className="slideC scale-50 tablet:scale-100">
         {data.projects.map((project, index) => (
           <React.Fragment key={index}>
             <div

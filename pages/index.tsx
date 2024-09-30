@@ -22,7 +22,8 @@ import { CourseInfo } from "../data/types";
 import CoursePanel from "../components/Education/course";
 import AchivementPanel from "../components/Education/achievements";
 import Contact from "../components/Contact";
-import { Grid2 } from "@mui/material";
+import { Card, Grid2 } from "@mui/material";
+import ProjectsMobile from "../components/Projects/mobile";
 
 export default function Home() {
   const { theme } = useTheme();
@@ -111,7 +112,7 @@ export default function Home() {
               {data.headerTaglineTwo}
             </h1>
           </div>
-          <Socials className="mt-2 laptop:mt-5" />
+          <Socials />
         </div>
 
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0 flex flex-col laptop:flex-row">
@@ -198,8 +199,8 @@ export default function Home() {
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={projectsRef}>
           <h1 className="text-2xl text-bold">Projects</h1>
           <div
-            className="mt-5 tablet:m-10 flex justify-center
-            items-center flex-col w-full h-screen gap-6"
+            className="mt-5 tablet:m-10 flex justify-center items-center
+            flex-col w-full h-3/4 gap-6"
           >
             <Projects activeSlide={0} />
           </div>
@@ -207,14 +208,20 @@ export default function Home() {
       </div>
 
       <div className="container mx-auto mb-10" ref={contactRef}>
-        <h1 className="text-4xl text-bold">Let&apos;s Connect!</h1>
-        <Grid2 container spacing={4}>
-          <Grid2 size={{ xs: 8 }}>
-              <Footer />
+        <h1 className="text-4xl text-bold mb-4 flex justify-center laptop:justify-start">
+          Let&apos;s Connect!
+        </h1>
+        <Grid2
+          container
+          spacing={4}
+          sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
+        >
+          <Grid2 size={{ xs: 12, sm: 8 }}>
+            <Footer />
           </Grid2>
 
-          <Grid2 size={{ xs: 4 }}>
-              <Contact />
+          <Grid2 size={{ xs: 4 }} sx={{ display: { xs: "none", sm: "block" } }}>
+            <Contact />
           </Grid2>
         </Grid2>
       </div>

@@ -146,15 +146,6 @@
   ],
   "experience": [
     {
-      "title": "TBD",
-      "company": "TBD",
-      "location": "TBD",
-      "description": [],
-      "date": "May 2025 - Aug. 2025",
-      "colour": "#06D6A0",
-      "icon": ""
-    },
-    {
       "title": "QTS Software Developer Intern",
       "company": "RBC Capital Markets",
       "location": "Toronto, ON, Canada",
@@ -209,7 +200,7 @@
       "title": "CraftsByAash",
       "description": "E-commerce Platform",
       "tech": [],
-      "colour": "#F54748",
+      "colour": "#96BD4A",
       "link": ""
     },
     {
@@ -223,7 +214,7 @@
       "title": "Spotisize",
       "description": "Web app that creatively visualizes users' Spotify data by categorizing and displaying their listening activity",
       "tech": [],
-      "colour": "#1597BB",
+      "colour": "#FF616D",
       "link": "https://github.com/patel-aaryan/SpotiSize"
     },
     {
@@ -237,7 +228,7 @@
       "title": "Ambulert",
       "description": "Mobile app that notifies civilians of a nearby ambulance during emergencies, using the real-time locations of the civilian and the ambulance to enhance awareness and improve safety",
       "tech": [],
-      "colour": "#FF616D",
+      "colour": "#1597BB",
       "link": "https://github.com/patel-aaryan/Ambulert"
     },
     {

@@ -1,15 +1,9 @@
 import React, { useEffect, useState } from "react";
 import ButtonComponent from "../Button";
 import data from "../../data/portfolio.json";
-import {
-  LinkedIn,
-  Github,
-  Devpost,
-  Instagram,
-  Email,
-} from "../../public/socials";
+import { LinkedIn, Instagram, Email } from "../../public/socials";
 
-function Socials() {
+function FooterSocials() {
   const animation =
     "rounded-lg transition-all duration-300 ease-out hover:scale-125";
 
@@ -20,26 +14,12 @@ function Socials() {
   if (!mounted) return null;
 
   return (
-    <div className="mt-2 laptop:mt-5 flex flex-wrap mob:flex-nowrap link">
+    <div className="flex justify-center flex-wrap mob:flex-nowrap link mt-auto">
       <ButtonComponent
         onClick={() => window.open(data.socials.linkedin)}
         classes={animation}
       >
         <LinkedIn />
-      </ButtonComponent>
-
-      <ButtonComponent
-        onClick={() => window.open(data.socials.github)}
-        classes={animation}
-      >
-        <Github />
-      </ButtonComponent>
-
-      <ButtonComponent
-        onClick={() => window.open(data.socials.devpost)}
-        classes={animation}
-      >
-        <Devpost />
       </ButtonComponent>
 
       <ButtonComponent
@@ -59,4 +39,4 @@ function Socials() {
   );
 }
 
-export default Socials;
+export default FooterSocials;

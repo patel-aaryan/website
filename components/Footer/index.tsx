@@ -4,10 +4,10 @@ import {
   Button,
   Box,
   FormControl,
-  FormHelperText,
   Typography,
   Alert,
   Grid2,
+  Card,
 } from "@mui/material";
 import { useTheme } from "next-themes";
 import SendIcon from "@mui/icons-material/Send";
@@ -29,7 +29,6 @@ interface FormErrors {
 
 function Footer() {
   const { theme } = useTheme();
-
   const [mounted, setMounted] = useState(false);
   useEffect(() => {
     setMounted(true);
@@ -120,93 +119,98 @@ function Footer() {
 
   if (!mounted) return null;
 
-  const formClass = "shadow-lg border-2";
-  const errorClass = "shadow-lg border-2 mt-1";
+  const AlertClass = "shadow-lg border-2 mt-1 rounded-lg";
 
-  const formStyle =
-    theme === "dark"
-      ? {
-          "& .MuiInputBase-input": {
-            color: "white",
-          },
-          "& .MuiFormLabel-root": {
-            color: "white",
-          },
-          "& .MuiFormHelperText-root": {
-            color: "red",
-          },
-          "& .MuiOutlinedInput-root": {
-            "& fieldset": {
-              borderColor: "white",
-              boxShadow: "rgba(23, 92, 230, 0.15) 0px 4px 24px",
-            },
-            "&:hover fieldset": {
-              borderColor: "white",
-            },
-            "&.Mui-focused fieldset": {
-              borderColor: "white",
-            },
-          },
-          boxShadow: "rgba(23, 92, 230, 0.15) 0px 4px 24px",
-        }
-      : null;
+  const formStyle = {
+    "& .MuiInputBase-input": {
+      color: theme === "dark" ? "rgba(255, 255, 255, 0.5)" : "inherit",
+    },
+    "& .MuiFormLabel-root": {
+      color: theme === "dark" ? "rgba(255, 255, 255, 0.5)" : "inherit",
+    },
+    "& .MuiFormHelperText-root": {
+      color: "red",
+    },
+    "& .MuiOutlinedInput-root": {
+      "& fieldset": {
+        borderColor:
+          theme === "dark" ? "rgba(255, 255, 255, 0.5)" : "rgba(0, 0, 0, 0.5)",
+        borderRadius: "8px",
+      },
+      "&:hover fieldset": {
+        borderColor: theme === "dark" ? "rgba(255, 255, 255, 0.5)" : "inherit",
+      },
+      "&.Mui-focused fieldset": {
+        borderColor: theme === "dark" ? "rgba(255, 255, 255, 0.5)" : "inherit",
+      },
+    },
+  };
 
   return (
-    <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 3 }}>
-      <Grid2 container spacing={2}>
-        <Grid2 size={{ xs: 12, sm: 6 }}>
-          <FormControl fullWidth margin="normal" error={!!errors.name}>
-            <TextField
-              label="Name"
-              name="name"
-              className={formClass}
-              value={formData.name}
-              onChange={handleChange}
-              onBlur={() => handleBlur("name")}
-              sx={formStyle}
-              required
-            />
-            <Fade in={!!errors.name && touched.name} timeout={500}>
-              <div>
-                {errors.name && touched.name && (
-                  <Alert severity="error" className={errorClass}>
-                    {errors.name}
-                  </Alert>
-                )}
-              </div>
-            </Fade>
-          </FormControl>
-        </Grid2>
+    <Card
+      className="p-8 rounded-lg"
+      sx={{
+        boxShadow: "rgba(23, 92, 230, 0.15) 0px 4px 24px",
+        background: `${theme === "dark" ? "#121313" : "white"}`,
+        border:
+          theme === "dark"
+            ? "1px solid rgba(255, 255, 255, 0.125)"
+            : "1px solid rgba(0, 0, 0, 0.15)",
+      }}
+    >
+      <Box component="form" onSubmit={handleSubmit} noValidate>
+        <Grid2 container spacing={2}>
+          <Grid2 size={{ xs: 12, sm: 6 }}>
+            <FormControl fullWidth margin="dense" error={!!errors.name}>
+              <TextField
+                label="Name"
+                name="name"
+                value={formData.name}
+                onChange={handleChange}
+                onBlur={() => handleBlur("name")}
+                sx={formStyle}
+                required
+              />
+              <Fade in={!!errors.name && touched.name} timeout={500}>
+                <div>
+                  {errors.name && touched.name && (
+                    <Alert severity="error" className={AlertClass}>
+                      {errors.name}
+                    </Alert>
+                  )}
+                </div>
+              </Fade>
+            </FormControl>
+          </Grid2>
 
-        <Grid2 size={{ xs: 12, sm: 6 }}>
-          <FormControl fullWidth margin="normal" error={!!errors.email}>
-            <TextField
-              label="Email"
-              name="email"
-              className={formClass}
-              value={formData.email}
-              onChange={handleChange}
-              onBlur={() => handleBlur("email")}
-              sx={formStyle}
-              required
-            />
-            <Fade in={!!errors.email && touched.email} timeout={500}>
-              <div>
-                {errors.email && touched.email && (
-                  <Alert severity="error" className={errorClass}>
-                    {errors.email}
-                  </Alert>
-                )}
-              </div>
-            </Fade>
-          </FormControl>
+          <Grid2 size={{ xs: 12, sm: 6 }}>
+            <FormControl fullWidth margin="dense" error={!!errors.email}>
+              <TextField
+                label="Email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                onBlur={() => handleBlur("email")}
+                sx={formStyle}
+                required
+              />
+              <Fade in={!!errors.email && touched.email} timeout={500}>
+                <div>
+                  {errors.email && touched.email && (
+                    <Alert severity="error" className={AlertClass}>
+                      {errors.email}
+                    </Alert>
+                  )}
+                </div>
+              </Fade>
+            </FormControl>
+          </Grid2>
         </Grid2>
 
         <FormControl fullWidth margin="normal" error={!!errors.subject}>
           <TextField
             label="Subject"
             name="subject"
-            className={formClass}
             value={formData.subject}
             onChange={handleChange}
             onBlur={() => handleBlur("subject")}
@@ -216,61 +220,72 @@ function Footer() {
           <Fade in={!!errors.subject && touched.subject} timeout={500}>
             <div>
               {errors.subject && touched.subject && (
-                <Alert severity="error" className={errorClass}>
+                <Alert severity="error" className={AlertClass}>
                   {errors.subject}
                 </Alert>
               )}
             </div>
           </Fade>
         </FormControl>
-      </Grid2>
 
-      <FormControl fullWidth margin="normal" error={!!errors.message}>
-        <TextField
-          label="Message"
-          name="message"
-          className={formClass}
-          value={formData.message}
-          onChange={handleChange}
-          onBlur={() => handleBlur("message")}
-          sx={formStyle}
-          multiline
-          rows={4}
-          required
-        />
-        <Fade in={!!errors.message && touched.message} timeout={500}>
+        <FormControl fullWidth margin="normal" error={!!errors.message}>
+          <TextField
+            label="Message"
+            name="message"
+            value={formData.message}
+            onChange={handleChange}
+            onBlur={() => handleBlur("message")}
+            sx={formStyle}
+            multiline
+            rows={4}
+            required
+          />
+          <Fade in={!!errors.message && touched.message} timeout={500}>
+            <div>
+              {errors.message && touched.message && (
+                <Alert severity="error" className={AlertClass}>
+                  {errors.message}
+                </Alert>
+              )}
+            </div>
+          </Fade>
+        </FormControl>
+
+        <div className="flex justify-center">
+          <Button
+            type="submit"
+            className={`w-full px-2 py-3 rounded-lg mt-2 text-sm tablet:text-base p-1
+            laptop:p-2 m-1 laptop:m-2 transition-all ease-out duration-500 ${
+              theme === "dark"
+                ? "hover:bg-slate-600 text-white"
+                : "hover:bg-slate-100"
+            } hover:scale-105 active:scale-100  tablet:first:ml-0 link`}
+            variant="contained"
+            color="success"
+            disabled={!isFormValid}
+            sx={{
+              "&.Mui-disabled": {
+                backgroundColor: "#D32F2F",
+                color: "white",
+              },
+            }}
+          >
+            <Typography className="mx-4">Send</Typography>
+            <SendIcon />
+          </Button>
+        </div>
+
+        <Fade in={!!successMessage} timeout={500}>
           <div>
-            {errors.message && touched.message && (
-              <Alert severity="error" className={errorClass}>
-                {errors.message}
+            {successMessage && (
+              <Alert severity="success" className={AlertClass}>
+                {successMessage}
               </Alert>
             )}
           </div>
         </Fade>
-      </FormControl>
-
-      <Button
-        type="submit"
-        className="w-full px-2 py-3"
-        variant="contained"
-        color="primary"
-      >
-        <div className="flex justify-between items-center">
-          <Typography className="mx-4">Send</Typography>
-          <SendIcon />
-        </div>
-      </Button>
-
-      <Fade in={!!successMessage} timeout={500}>
-        <div>
-          {successMessage && (
-            <Alert severity="success" className={errorClass}>
-              {successMessage}
-            </Alert>
-          )}
-        </div>
-      </Fade>
-    </Box>
+      </Box>
+    </Card>
   );
 }
 
