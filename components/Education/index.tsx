@@ -93,7 +93,7 @@ function Education({
             school.courses?.map((course, idx) => (
               <ButtonComponent
                 key={idx}
-                classes="rounded-full bg-red-600 w-1/6 justify-center"
+                classes="rounded-full bg-red-600 min-w-16 justify-center"
                 onClick={() => {
                   setIsOpen(true);
                   setIsCourseActive(true);
@@ -114,7 +114,7 @@ function Education({
           {school.clubs && school.courses && (
             <ButtonComponent
               classes="rounded-full px-4 py-2 scale-90 tablet:scale-100
-              bg-blue-500 w-1/5 justify-center"
+              bg-blue-500 min-w-16 justify-center"
               onClick={() => setClubsOrCourses(true)}
             >
               Clubs
@@ -123,7 +123,7 @@ function Education({
           {school.courses && school.clubs && (
             <ButtonComponent
               classes="rounded-full px-4 py-2 scale-90 tablet:scale-100
-              bg-blue-500 w-1/5 justify-center"
+              bg-blue-500 min-w-16 justify-center"
               onClick={() => setClubsOrCourses(false)}
             >
               Courses
@@ -131,7 +131,7 @@ function Education({
           )}
           <ButtonComponent
             classes="rounded-full px-4 py-2 scale-90 tablet:scale-100
-            bg-blue-500 w-1/5 justify-center"
+            bg-blue-500 min-w-16 justify-center"
             onClick={() => {
               setIsOpen(true);
               setIsMilestonesActive(true);
