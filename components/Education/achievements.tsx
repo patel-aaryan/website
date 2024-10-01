@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "@mui/material";
+import ButtonComponent from "../Button";
 
 interface AchivementPanelProps {
   achivementInfo: string[];
@@ -39,12 +39,13 @@ function AchivementPanel({
         ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
           <div className="bg-gray-800 text-white rounded-lg p-6 max-w-xl w-full relative">
-            <Button
+            <ButtonComponent
               onClick={() => setIsOpen(false)}
-              className="absolute text-lg top-2 right-2 text-gray-400 hover:text-gray-200"
+              classes="absolute rounded-lg text-lg top-2 right-2
+              text-gray-400 hover:text-gray-200"
             >
               &times;
-            </Button>
+            </ButtonComponent>
 
             <h2 className="text-2xl font-semibold">Achivements</h2>
             <ul className="list-disc space-y-2 pl-4">

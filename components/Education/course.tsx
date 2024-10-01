@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "@mui/material";
 import OpenInNewIcon from "@mui/icons-material/OpenInNew";
 import ButtonComponent from "../Button";
 import { CourseInfo } from "../../data/types";
@@ -44,12 +43,13 @@ function CoursePanel({
         ${isVisible ? "opacity-100" : "opacity-0"}`}
         >
           <div className="bg-gray-800 text-white rounded-lg p-6 max-w-xl w-full relative">
-            <Button
+            <ButtonComponent
               onClick={() => setIsOpen(false)}
-              className="absolute text-lg top-2 right-2 text-gray-400 hover:text-gray-200"
+              classes="absolute rounded-lg text-lg top-2 right-2
+              text-gray-400 hover:text-gray-200"
             >
               &times;
-            </Button>
+            </ButtonComponent>
 
             <div className="flex items-center -space-y-1">
               <h2 className="text-2xl font-semibold">{courseInfo.code}</h2>

@@ -7,6 +7,7 @@ import "react-vertical-timeline-component/style.min.css";
 import SchoolIcon from "@mui/icons-material/School";
 import { Button, Chip, Tooltip } from "@mui/material";
 import PlaceIcon from "@mui/icons-material/Place";
+import ButtonComponent from "../Button";
 
 interface EducationProps {
   school: School;
@@ -90,11 +91,9 @@ function Education({
             ))}
           {!clubsOrCourses &&
             school.courses?.map((course, idx) => (
-              <Button
-                className={`rounded-full ${animation}`}
+              <ButtonComponent
                 key={idx}
-                color="error"
-                variant="contained"
+                classes="rounded-full bg-red-600 w-1/6 justify-center"
                 onClick={() => {
                   setIsOpen(true);
                   setIsCourseActive(true);
@@ -107,35 +106,32 @@ function Education({
                 }}
               >
                 {course.code}
-              </Button>
+              </ButtonComponent>
             ))}
         </div>
 
         <div className="flex justify-evenly mt-4">
           {school.clubs && school.courses && (
-            <Button
-              className={`rounded-full ${animation} scale-90 tablet:scale-100`}
-              variant="contained"
-              color="primary"
+            <ButtonComponent
+              classes="rounded-full px-4 py-2 scale-90 tablet:scale-100
+              bg-blue-500 w-1/5 justify-center"
               onClick={() => setClubsOrCourses(true)}
             >
               Clubs
-            </Button>
+            </ButtonComponent>
           )}
           {school.courses && school.clubs && (
-            <Button
-              className={`rounded-full px-4 py-2 ${animation} scale-90 tablet:scale-100`}
-              variant="contained"
-              color="primary"
+            <ButtonComponent
+              classes="rounded-full px-4 py-2 scale-90 tablet:scale-100
+              bg-blue-500 w-1/5 justify-center"
               onClick={() => setClubsOrCourses(false)}
             >
               Courses
-            </Button>
+            </ButtonComponent>
           )}
-          <Button
-            className={`rounded-full px-4 py-2 ${animation} scale-90 tablet:scale-100`}
-            variant="contained"
-            color="primary"
+          <ButtonComponent
+            classes="rounded-full px-4 py-2 scale-90 tablet:scale-100
+            bg-blue-500 w-1/5 justify-center"
             onClick={() => {
               setIsOpen(true);
               setIsMilestonesActive(true);
@@ -143,7 +139,7 @@ function Education({
             }}
           >
             Milestones
-          </Button>
+          </ButtonComponent>
         </div>
       </VerticalTimelineElement>
     </>
