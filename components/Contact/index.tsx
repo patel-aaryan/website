@@ -28,7 +28,9 @@ function ContactCard() {
       }}
     >
       <CardContent className="flex-grow">
-        <h1>Aaryan Patel</h1>
+        <h1 className={theme === "dark" ? "text-white" : "text-black"}>
+          Aaryan Patel
+        </h1>
 
         <h1 className={theme === "dark" ? "text-gray-400" : "text-gray-600"}>
           University of Waterloo
