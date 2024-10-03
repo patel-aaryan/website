@@ -93,27 +93,36 @@ function Contact() {
     validate();
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validate()) {
-      console.log(formData);
-      setFormData({ name: "", email: "", subject: "", message: "" });
-      setSuccessMessage("Your message has been sent successfully!");
-      setErrors({});
-      setTouched({
-        name: false,
-        email: false,
-        subject: false,
-        message: false,
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
 
-      setIsFormValid(false);
+      if (response.ok) {
+        setFormData({ name: "", email: "", subject: "", message: "" });
+        setSuccessMessage("Your message has been sent successfully!");
+        setErrors({});
+        setTouched({
+          name: false,
+          email: false,
+          subject: false,
+          message: false,
+        });
 
-      setTimeout(() => {
-        setSuccessMessage("");
-      }, 3000);
-    } else {
-      alert("Error! A problem has occurred while submitting your data.");
+        setIsFormValid(false);
+
+        setTimeout(() => {
+          setSuccessMessage("");
+        }, 3000);
+      } else {
+        alert("Error! A problem has occurred while submitting your data.");
+      }
     }
   };
 
