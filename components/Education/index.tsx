@@ -29,7 +29,8 @@ function Education({
   const { theme } = useTheme();
   const [mounted, setMounted] = useState<boolean>(false);
   const [clubsOrCourses, setClubsOrCourses] = useState(true);
-  const animation = "transition-all duration-300 ease-out hover:scale-105";
+  const animation =
+    "transition-all duration-300 ease-out hover:scale-105 !important";
 
   useEffect(() => {
     setMounted(true);
