@@ -155,7 +155,12 @@
       "title": "QTS Software Developer Intern",
       "company": "RBC Capital Markets",
       "location": "Toronto, ON, Canada",
-      "description": [],
+      "description": [
+        "Full-stack development of a cutting-edge trading analytics platform using Next.js, Kuberentes, Python (for AI-driven smart portfolios), state management via Redux, React Query, and Nest.js",
+        "Implemented 6+ API integrations in generating and displaying analytical data supporting PDF & Excel export features, enhancing usability and enabling efficient data sharing and processing for traders",
+        "Introduced a new Liquidity Matrix feature that analyzes & visualizes the liquidity data of the foreign exchange market at different times of the trading day in an interactive and concise manner",
+        "Designed hover content using to provide contextual clarity and improve accessibility for over 150 users"
+      ],
       "date": "Sep. 2024 - Dec. 2024",
       "colour": "#005DAA",
       "icon": ""
