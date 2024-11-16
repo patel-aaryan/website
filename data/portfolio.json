@@ -156,10 +156,10 @@
       "company": "RBC Capital Markets",
       "location": "Toronto, ON, Canada",
       "description": [
-        "Full-stack development of a cutting-edge trading analytics platform using Next.js, Kuberentes, Python (for AI-driven smart portfolios), state management via Redux, React Query, and Nest.js",
-        "Implemented 6+ API integrations in generating and displaying analytical data supporting PDF & Excel export features, enhancing usability and enabling efficient data sharing and processing for traders",
-        "Introduced a new Liquidity Matrix feature that analyzes & visualizes the liquidity data of the foreign exchange market at different times of the trading day in an interactive and concise manner",
-        "Designed hover content using to provide contextual clarity and improve accessibility for over 150 users"
+        "Full-stack development of a cutting-edge trading analytics platform using Next.js, Kuberentes, and Nest.js, leveraging Redux and React Query for state management and Python for AI-driven smart portfolios",
+        "Implemented 6+ API integrations to generate and visualize analytical data, supporting PDF & Excel export functionality, streamlining data sharing and enhancing traders’ decision-making workflows",
+        "• Introduced a new Liquidity Matrix feature that analyzes & visualizes foreign exchange market liquidity at various trading hours, improving actionable insights with an interactive and concise interface",
+        "Enhanced user experience and market insights by integrating Bloomberg Terminal to expanded data sources and designing tool tips for improved accessibility and clarity in dynamic trading scenarios"
       ],
       "date": "Sep. 2024 - Dec. 2024",
       "colour": "#005DAA",
