@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { Fragment, useState } from "react";
 import data from "../../data/portfolio.json";
 import ButtonComponent from "../Button";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
@@ -73,7 +73,7 @@ function Projects(props: ProjectsProps) {
     <>
       <div className="slideC scale-50 tablet:scale-100">
         {data.projects.map((project, index) => (
-          <React.Fragment key={index}>
+          <Fragment key={index}>
             <div
               className="slide"
               style={{
@@ -95,11 +95,11 @@ function Projects(props: ProjectsProps) {
                 ...getStyles(index),
               }}
             />
-          </React.Fragment>
+          </Fragment>
         ))}
       </div>
 
-      <div className="flex justify-between mt-8">
+      <div className="flex justify-center mt-8">
         <ButtonComponent onClick={prev} classes="rounded-full">
           <ArrowBackIosNewIcon />
         </ButtonComponent>

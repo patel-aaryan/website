@@ -10,19 +10,18 @@ type UsePrevNextButtonsType = {
 };
 
 export const usePrevNextButtons = (
-  emblaApi: EmblaCarouselType | undefined
+  emblaApi: EmblaCarouselType | undefined,
+  n: number
 ): UsePrevNextButtonsType => {
   const onPrevButtonClick = useCallback(() => {
     if (!emblaApi) return;
-    emblaApi.scrollPrev();
-    emblaApi.scrollPrev();
-  }, [emblaApi]);
+    for (let i = 0; i < n; i++) emblaApi.scrollPrev();
+  }, [emblaApi, n]);
 
   const onNextButtonClick = useCallback(() => {
     if (!emblaApi) return;
-    emblaApi.scrollNext();
-    emblaApi.scrollNext();
-  }, [emblaApi]);
+    for (let i = 0; i < n; i++) emblaApi.scrollNext();
+  }, [emblaApi, n]);
 
   useEffect(() => {
     if (!emblaApi) return;

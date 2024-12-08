@@ -62,7 +62,10 @@ interface SkillsProps {
 
 function Skills({ options, categoryList }: SkillsProps) {
   const [emblaRef, emblaApi] = useEmblaCarousel(options);
-  const { onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(emblaApi);
+  const { onPrevButtonClick, onNextButtonClick } = usePrevNextButtons(
+    emblaApi,
+    2
+  );
 
   return (
     <div className="my-4 flex justify-center items-center">

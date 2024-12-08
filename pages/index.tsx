@@ -23,6 +23,7 @@ import CoursePanel from "../components/Education/course";
 import AchivementPanel from "../components/Education/achievements";
 import ContactCard from "../components/Contact";
 import { Grid2 } from "@mui/material";
+import ProjectsMobile from "../components/Projects/mobile";
 
 export default function Home() {
   const { theme } = useTheme();
@@ -64,7 +65,8 @@ export default function Home() {
     { name: "Backend", list: backend },
     { name: "DevOps", list: devops },
   ];
-  const OPTIONS: EmblaOptionsType = { dragFree: true, loop: true };
+  const SKILLS_OPTIONS: EmblaOptionsType = { dragFree: true, loop: true };
+  const PROJECTS_OPTIONS: EmblaOptionsType = {};
 
   const handleScroll = (ref: string) => {
     const refName = refMap.get(ref);
@@ -182,7 +184,7 @@ export default function Home() {
                 <h1 className="flex justify-center text-2xl text-bold mb-4">
                   {category.name}
                 </h1>
-                <Skills options={OPTIONS} categoryList={category.list} />
+                <Skills options={SKILLS_OPTIONS} categoryList={category.list} />
               </div>
             ))}
           </div>
@@ -201,7 +203,15 @@ export default function Home() {
             className="mt-5 tablet:m-10 flex justify-center items-center
             flex-col w-full h-3/4 gap-6"
           >
-            <Projects activeSlide={0} />
+            <div className="hidden tablet:block">
+              <Projects activeSlide={0} />
+            </div>
+            <div className="block tablet:hidden justify-center items-center">
+              <ProjectsMobile
+                projectList={data.projects}
+                options={PROJECTS_OPTIONS}
+              />
+            </div>
           </div>
         </div>
       </div>
