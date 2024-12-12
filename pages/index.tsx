@@ -2,7 +2,6 @@ import { useRef, useLayoutEffect, useEffect, useState } from "react";
 import Header from "../components/Header";
 import Socials from "../components/Socials";
 import data from "../data/portfolio.json";
-import { stagger } from "../animations";
 import Contact from "../components/Footer";
 import Image from "next/image";
 import Education from "../components/Education/";

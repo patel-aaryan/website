@@ -3,11 +3,9 @@ import { useTheme } from "next-themes";
 import React, { useEffect, useState } from "react";
 import ButtonComponent from "../Button";
 import data from "../../data/portfolio.json";
-import Socials from "../Socials";
 
 interface HeaderProps {
   handleScroll: (ref: string) => void;
-  // Corrected spelling from 'handlScroll' to 'handleScroll'
 }
 
 function Header({ handleScroll }: HeaderProps) {
