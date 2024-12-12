@@ -123,7 +123,10 @@ export default function Home() {
         </div>
 
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={eduRef}>
-          <h1 className="text-2xl text-bold" id="ed">
+          <h1
+            className="text-2xl text-bold text-center tablet:text-left"
+            id="ed"
+          >
             Education
           </h1>
           <div className="mt-5 tablet:m-10 gap-6 overflow-hidden">
@@ -165,7 +168,9 @@ export default function Home() {
         </div>
 
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={skillsRef}>
-          <h1 className="text-2xl text-bold">Skills</h1>
+          <h1 className="text-2xl text-bold text-center tablet:text-left">
+            Skills
+          </h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {skillsCategories.map((category, index) => (
               <div key={index} className="scale-60 tablet:scale-100">
@@ -179,14 +184,18 @@ export default function Home() {
         </div>
 
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={workRef}>
-          <h1 className="text-2xl text-bold">Work Experience</h1>
+          <h1 className="text-2xl text-bold text-center tablet:text-left">
+            Work Experience
+          </h1>
           <div className="mt-5 tablet:m-10 gap-6">
             <Work />
           </div>
         </div>
 
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0" ref={projectsRef}>
-          <h1 className="text-2xl text-bold">Projects</h1>
+          <h1 className="text-2xl text-bold text-center tablet:text-left">
+            Projects
+          </h1>
           <div
             className="mt-5 tablet:m-10 flex justify-center items-center
             flex-col w-full h-3/4 gap-6"
