@@ -101,14 +101,16 @@ export default function Home() {
             <h1
               ref={textOne}
               className="text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-6xl
-                          p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5"
+                          p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5
+                          text-center tablet:text-left"
             >
               {data.headerTaglineOne}
             </h1>
             <h1
               ref={textTwo}
               className="text-xl tablet:text-3xl laptop:text-3xl laptopl:text-4xl
-                          p-1 tablet:p-2 text-bold w-full laptop:w-4/5"
+                          p-1 tablet:p-2 text-bold w-full laptop:w-4/5
+                          text-center tablet:text-left"
             >
               {data.headerTaglineTwo}
             </h1>
@@ -118,8 +120,13 @@ export default function Home() {
 
         <div className="mt-10 laptop:mt-30 p-2 laptop:p-0 flex flex-col laptop:flex-row">
           <div className="laptop:w-3/5">
-            <h1 className="text-3xl text-bold">About Me</h1>
-            <p className="tablet:m-10 mt-2 text-xl laptop:text-xl w-3/4">
+            <h1 className="text-3xl text-bold text-center tablet:text-left">
+              About Me
+            </h1>
+            <p
+              className="tablet:m-10 mt-2 text-xl laptop:text-xl
+            text-center tablet:text-left tablet:w-3/4"
+            >
               {data.aboutMe}
             </p>
           </div>
@@ -138,7 +145,7 @@ export default function Home() {
           <h1 className="text-2xl text-bold" id="ed">
             Education
           </h1>
-          <div className="mt-5 tablet:m-10 gap-6">
+          <div className="mt-5 tablet:m-10 gap-6 overflow-hidden">
             <VerticalTimeline
               animate={true}
               lineColor={`${theme === "light" ? "#121313" : "white"}`}

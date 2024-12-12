@@ -5,7 +5,7 @@ import { CourseInfo, School } from "../../data/types";
 import { VerticalTimelineElement } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import SchoolIcon from "@mui/icons-material/School";
-import { Button, Chip, Tooltip } from "@mui/material";
+import { Chip, Tooltip } from "@mui/material";
 import PlaceIcon from "@mui/icons-material/Place";
 import ButtonComponent from "../Button";
 

@@ -21,7 +21,7 @@ function Work() {
   if (!mounted) return null;
 
   return (
-    <div>
+    <div className="overflow-hidden">
       <VerticalTimeline
         animate={true}
         lineColor={`${theme === "light" ? "#121313" : "white"}`}
