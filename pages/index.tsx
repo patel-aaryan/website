@@ -24,11 +24,10 @@ import AchivementPanel from "../components/Education/achievements";
 import ContactCard from "../components/Contact";
 import { Grid2 } from "@mui/material";
 import ProjectsMobile from "../components/Projects/mobile";
+import HeadlineSlider from "../components/HeadlineSlider";
 
 export default function Home() {
   const { theme } = useTheme();
-  const textOne = useRef<HTMLHeadingElement>(null);
-  const textTwo = useRef<HTMLHeadingElement>(null);
 
   const topRef = useRef<HTMLDivElement>(null);
   const eduRef = useRef<HTMLDivElement>(null);
@@ -81,14 +80,6 @@ export default function Home() {
   const useIsomorphicLayoutEffect =
     typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
-  useIsomorphicLayoutEffect(() => {
-    stagger(
-      [textOne.current, textTwo.current],
-      { y: 40, x: -10, transform: "scale(0.95) skew(10deg)" },
-      { y: 0, x: 0, transform: "scale(1)" }
-    );
-  }, []);
-
   return (
     <div className="relative content-center" ref={topRef}>
       <div className="gradient-circle"></div>
@@ -99,20 +90,10 @@ export default function Home() {
         <div className="laptop:mt-20 mt-10">
           <div className="mt-5">
             <h1
-              ref={textOne}
-              className="text-2xl tablet:text-4xl laptop:text-4xl laptopl:text-6xl
-                          p-1 tablet:p-2 text-bold w-4/5 mob:w-full laptop:w-4/5
-                          text-center tablet:text-left"
+              className="text-2xl tablet:text-3xl laptop:text-3xl laptopl:text-4xl
+              p-1 tablet:p-2 text-bold w-full laptop:w-4/5 flex justify-center"
             >
-              {data.headerTaglineOne}
-            </h1>
-            <h1
-              ref={textTwo}
-              className="text-xl tablet:text-3xl laptop:text-3xl laptopl:text-4xl
-                          p-1 tablet:p-2 text-bold w-full laptop:w-4/5
-                          text-center tablet:text-left"
-            >
-              {data.headerTaglineTwo}
+              <HeadlineSlider headlines={data.headerTaglineOne} />
             </h1>
           </div>
           <Socials />
@@ -137,6 +118,7 @@ export default function Home() {
               alt="profile"
               width={384}
               height={384}
+              priority
             />
           </div>
         </div>

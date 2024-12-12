@@ -1,8 +1,18 @@
 {
   "name": "Aaryan Patel",
   "email": "a52patel@uwaterloo.ca",
-  "headerTaglineOne": "Aaryan Patel",
-  "headerTaglineTwo": "Software Engineer",
+  "headerTaglineOne": [
+    "Computer Science Student",
+    "Life-Long Learner",
+    "Software Engineer",
+    "Algorithm Solver",
+    "Soccer Fanatic",
+    "Cloud Computing Advocate",
+    "AI/ML Enthusiast",
+    "Spider-Man Fan",
+    "Microservices Explorer",
+    "Mario Kart Tryhard"
+  ],
   "darkMode": true,
   "socials": {
     "linkedin": "https://www.linkedin.com/in/aaryan-patel-896179217/",
@@ -159,7 +169,8 @@
         "Full-stack development of a cutting-edge trading analytics platform using Next.js, Kuberentes, and Nest.js, leveraging Redux and React Query for state management and Python for AI-driven smart portfolios",
         "Implemented 6+ API integrations to generate and visualize analytical data, supporting PDF & Excel export functionality, streamlining data sharing and enhancing traders' decision-making workflows",
         "• Introduced a new Liquidity Matrix feature that analyzes & visualizes foreign exchange market liquidity at various trading hours, improving actionable insights with an interactive and concise interface",
-        "Introduced a new Liquidity Matrix feature that analyzes & visualizes foreign exchange market liquidity at various trading hours, improving actionable insights with an interactive and concise interface"
+        "Introduced a new Liquidity Matrix feature that analyzes & visualizes foreign exchange market liquidity at various trading hours, improving actionable insights with an interactive and concise interface",
+        "Enhanced user experience and market insights by implementing autocomplete filtering and designing tool tips for improved accessibility and clarity in dynamic trading scenarios"
       ],
       "date": "Sep. 2024 - Dec. 2024",
       "colour": "#005DAA",

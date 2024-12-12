@@ -20,7 +20,10 @@ function Socials() {
   if (!mounted) return null;
 
   return (
-    <div className="mt-2 laptop:mt-5 flex flex-wrap mob:flex-nowrap link justify-center tablet:justify-normal">
+    <div
+      className="mt-2 laptop:mt-5 flex flex-wrap mob:flex-nowrap
+    link justify-center tablet:justify-normal"
+    >
       <ButtonComponent
         onClick={() => window.open(data.socials.linkedin)}
         classes={animation}
