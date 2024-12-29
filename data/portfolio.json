@@ -166,11 +166,10 @@
       "company": "RBC Capital Markets",
       "location": "Toronto, ON, Canada",
       "description": [
-        "Full-stack development of a cutting-edge trading analytics platform using Next.js, Kuberentes, and Nest.js, leveraging Redux and React Query for state management and Python for AI-driven smart portfolios",
-        "Implemented 6+ API integrations to generate and visualize analytical data, supporting PDF & Excel export functionality, streamlining data sharing and enhancing traders' decision-making workflows",
-        "• Introduced a new Liquidity Matrix feature that analyzes & visualizes foreign exchange market liquidity at various trading hours, improving actionable insights with an interactive and concise interface",
-        "Introduced a new Liquidity Matrix feature that analyzes & visualizes foreign exchange market liquidity at various trading hours, improving actionable insights with an interactive and concise interface",
-        "Enhanced user experience and market insights by implementing autocomplete filtering and designing tool tips for improved accessibility and clarity in dynamic trading scenarios"
+        "Developed full-stack trading analytics platform using React, Next.js, Kuberentes, and MongoDB, leveraging AI-driven trade reports enhance market predictions and decision-making for traders",
+        "Utilized Redux for state management and React Query for API integration and caching, reducing API call latency by 40% and ensuring real-time updates for datasets exceeding 20K rows",
+        "Introduced interactive Liquidity Matrix feature to analyzes & visualizes FX market liquidity across 24 trading hours, providing actionable insights with an interactive and concise interface to improve trading decisions",
+        "Leveraged Highcharts, AG Grid, and React Virtualized to improve index analytics performance by 35% with dynamic visualizations & auto-complete filtering, delivering a seamless user experience"
       ],
       "date": "Sep. 2024 - Dec. 2024",
       "colour": "#005DAA",
