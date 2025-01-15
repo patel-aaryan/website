@@ -76,13 +76,10 @@ export default function Home() {
     }
   };
 
-  const useIsomorphicLayoutEffect =
-    typeof window !== "undefined" ? useLayoutEffect : useEffect;
-
   return (
-    <div className="relative content-center" ref={topRef}>
-      <div className="gradient-circle"></div>
-      <div className="gradient-circle-bottom"></div>
+    <div className="relative mx-auto px-4 content-center" ref={topRef}>
+      {/* <div className="gradient-circle"></div>
+      <div className="gradient-circle-bottom"></div> */}
 
       <div className="container mx-auto mb-10">
         <Header handleScroll={handleScroll} />
@@ -112,7 +109,7 @@ export default function Home() {
           </div>
           <div className="laptop:w-2/5 flex justify-center items-center mt-6 laptop:mt-[-250px]">
             <Image
-              className="transition duration-300 ease-out"
+              className="transition duration-300 ease-out w-auto h-auto max-w-full"
               src={"/profile.png"}
               alt="profile"
               width={384}
@@ -173,7 +170,11 @@ export default function Home() {
           </h1>
           <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
             {skillsCategories.map((category, index) => (
-              <div key={index} className="scale-60 tablet:scale-100">
+              <div
+                key={index}
+                className="scale-60 tablet:scale-90 laptop:scale-75
+                desktop:scale-95 laptopl:scale-100"
+              >
                 <h1 className="flex justify-center text-2xl text-bold mb-4">
                   {category.name}
                 </h1>
@@ -198,12 +199,13 @@ export default function Home() {
           </h1>
           <div
             className="mt-5 tablet:m-10 flex justify-center items-center
-            flex-col w-full h-3/4 gap-6"
+            flex-col h-3/4 gap-6"
           >
-            <div className="hidden tablet:block">
+            {/* AFFECTING SCROLL */}
+            <div className="hidden laptop:block laptop:scale-85 desktop:scale-100">
               <Projects activeSlide={0} />
             </div>
-            <div className="block tablet:hidden justify-center items-center">
+            <div className="block laptop:hidden justify-center items-center">
               <ProjectsMobile
                 projectList={data.projects}
                 options={PROJECTS_OPTIONS}

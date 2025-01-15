@@ -77,7 +77,7 @@ function ProjectsMobile({ options, projectList }: ProjectMobileProps) {
         </div>
       </section>
 
-      <div className="flex justify-center">
+      <div className="flex justify-center mt-2">
         <PrevButton click={onPrevButtonClick} />
         <NextButton click={onNextButtonClick} />
       </div>
