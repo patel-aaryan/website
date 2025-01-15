@@ -218,44 +218,158 @@
   ],
   "projects": [
     {
+      "title": "STYLit",
+      "description": "Virtually try on clothing in real time using AI-powered image segmentation and pose estimation, allowing users to visualize how clothes fit and personalize outfits before purchasing online",
+      "tech": [
+        {
+          "name": "Next.js",
+          "icon": ""
+        },
+        {
+          "name": "Express.js",
+          "icon": ""
+        },
+        {
+          "name": "MongoDB",
+          "icon": ""
+        },
+        {
+          "name": "MediaPipe",
+          "icon": ""
+        }
+      ],
+      "colour": "#FF616D",
+      "link": "https://github.com/patel-aaryan/STYLit"
+    },
+    {
       "title": "CraftsByAash (Coming Soon)",
       "description": "E-commerce platform showcasing Lippan Art Decor and allows users to register, explore products, and complete orders securely",
-      "tech": [],
+      "tech": [
+        {
+          "name": "Django",
+          "icon": ""
+        },
+        {
+          "name": "Next.js",
+          "icon": ""
+        },
+        {
+          "name": "MySQL",
+          "icon": ""
+        },
+        {
+          "name": "Stripe",
+          "icon": ""
+        },
+        {
+          "name": "Docker",
+          "icon": ""
+        }
+      ],
       "colour": "#96BD4A",
       "link": "https://github.com/patel-aaryan/CraftsByAash"
     },
     {
       "title": "P.E.P.P.E.R.",
       "description": "A compassionate chatbot that delivers human-like responses, designed to alleviate loneliness among elderly individuals and patients experiencing social isolation",
-      "tech": [],
+      "tech": [
+        {
+          "name": "Next.js",
+          "icon": ""
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": ""
+        },
+        {
+          "name": "Python",
+          "icon": ""
+        }
+      ],
       "colour": "#7952B3",
       "link": "https://github.com/patel-aaryan/P.E.P.P.E.R."
     },
     {
       "title": "Spotisize",
       "description": "Web app that creatively visualizes users' Spotify data by categorizing and displaying their listening activity",
-      "tech": [],
+      "tech": [
+        {
+          "name": "Next.js",
+          "icon": ""
+        },
+        {
+          "name": "Tailwind CSS",
+          "icon": ""
+        },
+        {
+          "name": "Spotify API",
+          "icon": ""
+        }
+      ],
       "colour": "#FF616D",
       "link": "https://github.com/patel-aaryan/SpotiSize"
     },
     {
       "title": "NoiseRebel",
       "description": "Automated soundboard for Discord servers and plays dynamics sounds in voice chat using event-based Discord APIs",
-      "tech": [],
+      "tech": [
+        {
+          "name": "JavaScript",
+          "icon": ""
+        },
+        {
+          "name": "Discord API",
+          "icon": ""
+        }
+      ],
       "colour": "#185ADB",
       "link": "https://github.com/patel-aaryan/NoiseRebel"
     },
     {
       "title": "Ambulert",
       "description": "Mobile app that notifies civilians of a nearby ambulance during emergencies, using the real-time locations of the civilian and the ambulance to enhance awareness and improve safety",
-      "tech": [],
+      "tech": [
+        {
+          "name": "Flutter",
+          "icon": ""
+        },
+        {
+          "name": "Dart",
+          "icon": ""
+        },
+        {
+          "name": "Flask",
+          "icon": ""
+        },
+        {
+          "name": "Python",
+          "icon": ""
+        }
+      ],
       "colour": "#1597BB",
       "link": "https://github.com/patel-aaryan/Ambulert"
     },
     {
       "title": "Foodar",
       "description": "Recommendation system that provides the top 3 restaurant recommendations based on location, helping university students make informed dietary choices",
-      "tech": [],
+      "tech": [
+        {
+          "name": "Angular",
+          "icon": ""
+        },
+        {
+          "name": "Python",
+          "icon": ""
+        },
+        {
+          "name": "NumPy",
+          "icon": ""
+        },
+        {
+          "name": "Pandas",
+          "icon": ""
+        }
+      ],
       "colour": "#F54748",
       "link": "https://github.com/patel-aaryan/Foodar"
     }

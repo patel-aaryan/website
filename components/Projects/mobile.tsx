@@ -1,19 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useTheme } from "@emotion/react";
 import useEmblaCarousel from "embla-carousel-react";
 import { EmblaOptionsType } from "embla-carousel";
 import ButtonComponent from "../Button";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import { usePrevNextButtons, PrevButton, NextButton } from "../Skills/slider";
+import { Project } from "../../data/types";
 
 interface SliderProps {
-  projects: {
-    title: string;
-    description: string;
-    tech: string[];
-    colour: string;
-    link: string;
-  }[];
+  projects: Project[];
 }
 
 function ProjectSlider({ projects }: SliderProps) {
@@ -51,13 +45,7 @@ function ProjectSlider({ projects }: SliderProps) {
 
 interface ProjectMobileProps {
   options: EmblaOptionsType;
-  projectList: {
-    title: string;
-    description: string;
-    tech: string[];
-    colour: string;
-    link: string;
-  }[];
+  projectList: Project[];
 }
 
 function ProjectsMobile({ options, projectList }: ProjectMobileProps) {

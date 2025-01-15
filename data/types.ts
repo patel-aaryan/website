@@ -24,3 +24,16 @@ export interface School {
   }[];
   milestones: string[];
 }
+
+interface tech {
+  name: string;
+  icon: string;
+}
+
+export interface Project {
+  title: string;
+  description: string;
+  tech: tech[];
+  colour: string;
+  link: string;
+}
