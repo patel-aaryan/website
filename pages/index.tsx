@@ -201,7 +201,6 @@ export default function Home() {
             className="mt-5 tablet:m-10 flex justify-center items-center
             flex-col h-3/4 gap-6"
           >
-            {/* AFFECTING SCROLL */}
             <div className="hidden laptop:block laptop:scale-85 desktop:scale-100">
               <Projects activeSlide={0} />
             </div>
