@@ -13,7 +13,9 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>{data.name}</title>
       </Head>
-      <Component {...pageProps} />
+      <div className="mx-4">
+        <Component {...pageProps} />
+      </div>
     </ThemeProvider>
   );
 }

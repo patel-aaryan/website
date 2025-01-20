@@ -12,9 +12,11 @@ export default async function handler(
   if (req.method === "POST") {
     const { name, email, subject, message } = req.body;
 
+    if (!process.env.TO_EMAIL || !process.env.FROM_EMAIL) return;
+
     const msg = {
-      to: "a52patel@uwaterloo.ca",
-      from: "aaryan.patel.website@gmail.com",
+      to: process.env.TO_EMAIL,
+      from: process.env.FROM_EMAIL,
       subject: `New message from ${name} - ${subject}`,
       text: message,
       html: `<p>You have a new contact form submission</p>
