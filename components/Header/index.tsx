@@ -21,7 +21,7 @@ function Header({ handleScroll }: HeaderProps) {
   return (
     <nav
       className={`sticky top-0 z-50 ${
-        theme === "dark" ? "bg-[#121313]" : "bg-white"
+        theme === "dark" ? "bg-black" : "bg-white"
       }`}
     >
       <Popover className="block tablet:hidden mt-5">

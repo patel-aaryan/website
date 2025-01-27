@@ -34,7 +34,6 @@ import {
   Gcp,
   Git,
   Jenkins,
-  Jira,
   Kube,
   Linux,
   Terraform,
@@ -177,9 +176,5 @@ export const devops = [
   {
     name: "Jenkins",
     component: () => <Jenkins />,
-  },
-  {
-    name: "Jira",
-    component: () => <Jira />,
   },
 ];

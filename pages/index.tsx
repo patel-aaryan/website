@@ -58,10 +58,26 @@ export default function Home() {
   });
 
   const skillsCategories = [
-    { name: "Languages", list: languages },
-    { name: "Frontend", list: frontend },
-    { name: "Backend", list: backend },
-    { name: "DevOps", list: devops },
+    {
+      name: "Languages",
+      list: languages,
+      gradient: "bg-gradient-to-br from-red-400 to-red-600",
+    },
+    {
+      name: "Frontend",
+      list: frontend,
+      gradient: "bg-gradient-to-br from-blue-400 to-blue-600",
+    },
+    {
+      name: "Backend",
+      list: backend,
+      gradient: "bg-gradient-to-br from-green-400 to-green-600",
+    },
+    {
+      name: "DevOps",
+      list: devops,
+      gradient: "bg-gradient-to-br from-purple-400 to-purple-600",
+    },
   ];
   const SKILLS_OPTIONS: EmblaOptionsType = { dragFree: true, loop: true };
   const PROJECTS_OPTIONS: EmblaOptionsType = {};
@@ -168,19 +184,8 @@ export default function Home() {
           <h1 className="text-2xl text-bold text-center tablet:text-left">
             Skills
           </h1>
-          <div className="mt-5 tablet:m-10 grid grid-cols-1 laptop:grid-cols-2 gap-6">
-            {skillsCategories.map((category, index) => (
-              <div
-                key={index}
-                className="scale-60 tablet:scale-90 laptop:scale-75
-                desktop:scale-95 laptopl:scale-100"
-              >
-                <h1 className="flex justify-center text-2xl text-bold mb-4">
-                  {category.name}
-                </h1>
-                <Skills options={SKILLS_OPTIONS} categoryList={category.list} />
-              </div>
-            ))}
+          <div className="mt-5 tablet:m-10">
+            <Skills categoryList={skillsCategories} />
           </div>
         </div>
 
