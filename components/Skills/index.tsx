@@ -28,12 +28,12 @@ export default function SkillsSlider({ categoryList }: SkillsProps) {
   };
 
   return (
-    <div className="w-full max-w-4xl mx-auto p-8">
+    <div className="w-full max-w-6xl mx-auto">
       <div className="relative">
         <div className="flex items-center justify-between">
           <PrevButton click={prevSlide} />
 
-          <div className="flex-1 overflow-hidden mx-4">
+          <div className="flex-1 overflow-hidden mx-2">
             <div
               className="flex transition-transform duration-500 ease-out"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -54,16 +54,19 @@ export default function SkillsSlider({ categoryList }: SkillsProps) {
                       </div>
                     </div>
 
-                    <div className="grid gap-2 tablet:grid-cols-2 tablet:gap-6">
+                    <div className="grid gap-2 grid-cols-2 tablet:gap-6">
                       {category.list.map((item, index) => (
                         <div
                           key={index}
-                          className="flex items-center space-x-3 bg-white/10
-                          rounded-lg p-1 tablet:p-3 backdrop-blur-sm transition-all
-                          duration-200 hover:bg-white/20"
+                          className="flex justify-center tablet:justify-normal
+                          items-center space-x-3 bg-white/10 rounded-lg p-1
+                          tablet:p-3 backdrop-blur-sm transition-all duration-200
+                          hover:bg-white/20"
                         >
                           <item.component />
-                          <span className="font-medium">{item.name}</span>
+                          <span className="font-medium hidden tablet:block">
+                            {item.name}
+                          </span>
                         </div>
                       ))}
                     </div>

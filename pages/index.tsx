@@ -226,13 +226,18 @@ export default function Home() {
         <Grid2
           container
           spacing={4}
-          sx={{ justifyContent: { xs: "center", sm: "flex-start" } }}
+          sx={{
+            justifyContent: { xs: "center", sm: "center", md: "flex-start" },
+          }}
         >
-          <Grid2 size={{ xs: 12, sm: 8 }}>
+          <Grid2 size={{ xs: 12, sm: 12, md: 8 }}>
             <Contact />
           </Grid2>
 
-          <Grid2 size={{ xs: 4 }} sx={{ display: { xs: "none", sm: "block" } }}>
+          <Grid2
+            size={{ xs: 4 }}
+            sx={{ display: { xs: "none", sm: "none", md: "block" } }}
+          >
             <ContactCard />
           </Grid2>
         </Grid2>
