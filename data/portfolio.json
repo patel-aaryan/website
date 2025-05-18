@@ -112,16 +112,12 @@
           "role": "Volunteer"
         },
         {
+          "title": "Data Science Club",
+          "role": "Developer"
+        },
+        {
           "title": "WATOnomous",
           "role": "Atonomous Software Division"
-        },
-        {
-          "title": "Data Science Club",
-          "role": "Member"
-        },
-        {
-          "title": "Raas Warriors",
-          "role": "Dancer"
         }
       ],
       "milestones": [
@@ -161,6 +157,15 @@
     }
   ],
   "experience": [
+    {
+      "title": "Backend/API Developer",
+      "company": "Scrawlr",
+      "location": "Vancouver, BC, Canada",
+      "description": [],
+      "date": "May. 2025 - Present",
+      "colour": "#196AFF",
+      "icon": ""
+    },
     {
       "title": "QTS Software Developer Intern",
       "company": "RBC Capital Markets",
@@ -242,7 +247,7 @@
       "link": "https://github.com/patel-aaryan/STYLit"
     },
     {
-      "title": "CraftsByAash (Coming Soon)",
+      "title": "CraftsByAash",
       "description": "E-commerce platform showcasing Lippan Art Decor and allows users to register, explore products, and complete orders securely",
       "tech": [
         {
