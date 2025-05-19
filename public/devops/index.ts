@@ -5,4 +5,4 @@ export { default as Git } from "./git.svg";
 export { default as Jenkins } from "./jenkins.svg";
 export { default as Kube } from "./kube.svg";
 export { default as Terraform } from "./terraform.svg";
-export { default as Linux } from "./linux.svg";
+export { default as CircleCI } from "./circleci.svg";

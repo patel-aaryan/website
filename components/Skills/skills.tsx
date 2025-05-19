@@ -10,23 +10,23 @@ import {
 } from "../../public/languages";
 import {
   Angular,
-  Bootstrap,
   Figma,
   Jquery,
   Next,
   React,
   Redux,
   Tailwind,
+  Vitest,
 } from "../../public/frontend";
 import {
   Djgnao,
   DotNet,
+  Fastify,
   Mongodb,
   Mysql,
   Nest,
   Node,
   Postgres,
-  Sqlserver,
 } from "../../public/backend";
 import {
   Aws,
@@ -35,7 +35,7 @@ import {
   Git,
   Jenkins,
   Kube,
-  Linux,
+  CircleCI,
   Terraform,
 } from "../../public/devops";
 
@@ -92,8 +92,8 @@ export const frontend = [
     component: () => <Tailwind />,
   },
   {
-    name: "Bootstrap",
-    component: () => <Bootstrap />,
+    name: "Vitest",
+    component: () => <Vitest />,
   },
   {
     name: "Figma",
@@ -135,8 +135,8 @@ export const backend = [
     component: () => <Postgres />,
   },
   {
-    name: "SQL Server",
-    component: () => <Sqlserver />,
+    name: "Fastify",
+    component: () => <Fastify />,
   },
   {
     name: "MongoDB",
@@ -166,8 +166,8 @@ export const devops = [
     component: () => <Gcp />,
   },
   {
-    name: "Linux",
-    component: () => <Linux />,
+    name: "CircleCI",
+    component: () => <CircleCI />,
   },
   {
     name: "AWS",
