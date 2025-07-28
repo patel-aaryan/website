@@ -8,16 +8,15 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Code,
-  Mail,
+  GitHub,
+  LinkedIn,
+  OpenInNew,
+  School,
+  Email,
   Download,
-  Github,
-  LinkedinIcon,
-  ExternalLink,
-  GraduationCap,
-  Briefcase,
-  MapPin,
-  Trophy,
-} from "lucide-react";
+  Work,
+  LocationOn,
+} from "@mui/icons-material";
 import { useState, useEffect } from "react";
 
 // Import portfolio data
@@ -116,7 +115,7 @@ export default function Home() {
                   className="hover:scale-105 transition-transform"
                 >
                   <Link href="/contact">
-                    <Mail className="mr-2 h-4 w-4" />
+                    <Email className="mr-2 h-4 w-4" />
                     Contact Me
                   </Link>
                 </Button>
@@ -140,24 +139,34 @@ export default function Home() {
                 transition={{ delay: 0.7 }}
                 className="flex gap-4 pt-4"
               >
-                <Button asChild variant="ghost" size="icon">
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="icon"
+                  className="hover:scale-115"
+                >
                   <Link href={portfolioData.socials.github} target="_blank">
-                    <Github className="h-10 w-10" />
+                    <GitHub className="h-12 w-12" />
                   </Link>
                 </Button>
-                <Button asChild variant="ghost" size="icon">
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="icon"
+                  className="hover:scale-115"
+                >
                   <Link href={portfolioData.socials.linkedin} target="_blank">
-                    <LinkedinIcon className="h-10 w-10" />
+                    <LinkedIn className="h-12 w-12" />
                   </Link>
                 </Button>
-                <Button asChild variant="ghost" size="icon">
-                  <Link href={portfolioData.socials.devpost} target="_blank">
-                    <Trophy className="h-10 w-10" />
-                  </Link>
-                </Button>
-                <Button asChild variant="ghost" size="icon">
+                <Button
+                  asChild
+                  variant="ghost"
+                  size="icon"
+                  className="hover:scale-115"
+                >
                   <Link href={portfolioData.socials.email}>
-                    <Mail className="h-10 w-10" />
+                    <Email className="h-12 w-12" />
                   </Link>
                 </Button>
               </motion.div>
@@ -203,7 +212,7 @@ export default function Home() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6 text-center">
                 <div className="w-12 h-12 bg-[#EAAB00]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <GraduationCap className="h-6 w-6 text-[#EAAB00]" />
+                  <School className="h-6 w-6 text-[#EAAB00]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">CS Student</h3>
                 <p className="text-muted-foreground">University of Waterloo</p>
@@ -217,7 +226,7 @@ export default function Home() {
             <Card className="hover:shadow-lg transition-shadow">
               <CardContent className="p-6 text-center">
                 <div className="w-12 h-12 bg-[#005DAA]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Briefcase className="h-6 w-6 text-[#005DAA]" />
+                  <Work className="h-6 w-6 text-[#005DAA]" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">4 Co-ops</h3>
                 <p className="text-muted-foreground">RBC, CGI, JANA</p>
@@ -277,7 +286,7 @@ export default function Home() {
                       />
                       <Button asChild variant="ghost" size="icon">
                         <Link href={project.link} target="_blank">
-                          <ExternalLink className="h-4 w-4" />
+                          <OpenInNew className="h-4 w-4" />
                         </Link>
                       </Button>
                     </div>
@@ -313,7 +322,7 @@ export default function Home() {
             <Button asChild size="lg" variant="outline">
               <Link href="/projects">
                 View All Projects
-                <ExternalLink className="ml-2 h-4 w-4" />
+                <OpenInNew className="ml-2 h-4 w-4" />
               </Link>
             </Button>
           </motion.div>
@@ -341,7 +350,7 @@ export default function Home() {
                 {currentExperience.company}
               </p>
               <div className="flex items-center justify-center gap-1 text-muted-foreground mb-6">
-                <MapPin className="h-4 w-4" />
+                <LocationOn className="h-4 w-4" />
                 <span>{currentExperience.location}</span>
               </div>
               <p className="text-muted-foreground mb-8 max-w-2xl mx-auto">
@@ -351,7 +360,7 @@ export default function Home() {
               <div className="flex flex-wrap gap-4 justify-center">
                 <Button asChild>
                   <Link href="/contact">
-                    <Mail className="mr-2 h-4 w-4" />
+                    <Email className="mr-2 h-4 w-4" />
                     Get In Touch
                   </Link>
                 </Button>

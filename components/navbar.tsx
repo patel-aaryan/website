@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Menu } from "lucide-react";
+import { Menu } from "@mui/icons-material";
 import {
   NavigationMenu,
   NavigationMenuItem,
