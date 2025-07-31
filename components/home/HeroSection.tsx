@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
@@ -52,11 +52,23 @@ export function HeroSection() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4 }}
-                className="h-16 flex items-center"
+                className="h-16 flex items-center overflow-hidden"
               >
-                <p className="text-xl sm:text-2xl text-muted-foreground">
-                  {portfolioData.headerTaglineOne[currentTagline]}
-                </p>
+                <AnimatePresence mode="wait">
+                  <motion.p
+                    key={currentTagline}
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 30 }}
+                    transition={{
+                      duration: 0.3,
+                      ease: "easeInOut",
+                    }}
+                    className="text-xl sm:text-2xl text-muted-foreground"
+                  >
+                    {portfolioData.headerTaglineOne[currentTagline]}
+                  </motion.p>
+                </AnimatePresence>
               </motion.div>
             </div>
 
