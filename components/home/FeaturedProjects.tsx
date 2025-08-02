@@ -76,7 +76,7 @@ export function FeaturedProjects() {
           <Button asChild size="lg" variant="outline">
             <Link href="/projects">
               View All Projects
-              <OpenInNew className="ml-2 h-4 w-4" />
+              <OpenInNew className="h-4 w-4" />
             </Link>
           </Button>
         </motion.div>

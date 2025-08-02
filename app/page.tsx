@@ -4,7 +4,7 @@ import {
   HeroSection,
   QuickHighlights,
   FeaturedProjects,
-  CurrentStatus,
+  RecentWorkExperience,
 } from "@/components/home";
 
 export default function Home() {
@@ -12,8 +12,8 @@ export default function Home() {
     <>
       <HeroSection />
       <QuickHighlights />
+      <RecentWorkExperience />
       <FeaturedProjects />
-      <CurrentStatus />
     </>
   );
 }
