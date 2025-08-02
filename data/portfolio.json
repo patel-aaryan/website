@@ -21,7 +21,7 @@
     "instagram": "https://www.instagram.com/aaryan.pat3l/",
     "email": "mailto:a52patel@uwaterloo.ca"
   },
-  "aboutMe": "I build systems that scale. Fluent in JavaScript, C++, and Python, I'm fascinated by distributed architectures, high-performance computing, and AI systems. From optimizing memory management and concurrent processing to designing fault-tolerant distributed systems and training models at scale, I live for the challenge of making complex systems run faster and more reliably. I thrive on solving problems that others find overwhelming.",
+  "aboutMe": "I build systems that scale. Fluent in JavaScript, C++, and Python, I'm fascinated by distributed architectures, high-performance computing, and AI systems. From optimizing memory management and concurrent processing to designing fault-tolerant distributed systems and training models at scale, I live for the challenge of making complex systems run faster and more reliably. I thrive on solving problems that better the lives of others.",
   "education": [
     {
       "name": "University of Waterloo",
@@ -223,158 +223,58 @@
   ],
   "projects": [
     {
+      "title": "G.R.A.C.E. (Coming Soon)",
+      "description": "An AI-powered social companion that engages isolated users through lifelike face-to-face conversations with real-time voice-to-avatar interactions. Features lip-synced 3D avatars and a comprehensive caregiver dashboard with conversation analytics.",
+      "tech": ["Next.js", "FastAPI", "Pipecat", "Deepgram"],
+      "colour": "#7952B3",
+      "link": "https://github.com/patel-aaryan/GRACE"
+    },
+    {
       "title": "STYLit",
       "description": "Virtually try on clothing in real time using AI-powered image segmentation and pose estimation, allowing users to visualize how clothes fit and personalize outfits before purchasing online",
-      "tech": [
-        {
-          "name": "Next.js",
-          "icon": ""
-        },
-        {
-          "name": "Express.js",
-          "icon": ""
-        },
-        {
-          "name": "MongoDB",
-          "icon": ""
-        },
-        {
-          "name": "MediaPipe",
-          "icon": ""
-        }
-      ],
+      "tech": ["Next.js", "Express.js", "MongoDB", "MediaPipe"],
       "colour": "#FF616D",
       "link": "https://github.com/patel-aaryan/STYLit"
     },
     {
       "title": "CraftsByAash",
       "description": "E-commerce platform showcasing Lippan Art Decor and allows users to register, explore products, and complete orders securely",
-      "tech": [
-        {
-          "name": "Django",
-          "icon": ""
-        },
-        {
-          "name": "Next.js",
-          "icon": ""
-        },
-        {
-          "name": "MySQL",
-          "icon": ""
-        },
-        {
-          "name": "Stripe",
-          "icon": ""
-        },
-        {
-          "name": "Docker",
-          "icon": ""
-        }
-      ],
+      "tech": ["Django", "Next.js", "MySQL", "Stripe", "Docker"],
       "colour": "#96BD4A",
       "link": "https://github.com/patel-aaryan/CraftsByAash"
     },
     {
       "title": "P.E.P.P.E.R.",
       "description": "A compassionate chatbot that delivers human-like responses, designed to alleviate loneliness among elderly individuals and patients experiencing social isolation",
-      "tech": [
-        {
-          "name": "Next.js",
-          "icon": ""
-        },
-        {
-          "name": "Tailwind CSS",
-          "icon": ""
-        },
-        {
-          "name": "Python",
-          "icon": ""
-        }
-      ],
+      "tech": ["Next.js", "Tailwind CSS", "Python"],
       "colour": "#7952B3",
       "link": "https://github.com/patel-aaryan/P.E.P.P.E.R."
     },
     {
       "title": "Spotisize",
       "description": "Web app that creatively visualizes users' Spotify data by categorizing and displaying their listening activity",
-      "tech": [
-        {
-          "name": "Next.js",
-          "icon": ""
-        },
-        {
-          "name": "Tailwind CSS",
-          "icon": ""
-        },
-        {
-          "name": "Spotify API",
-          "icon": ""
-        }
-      ],
+      "tech": ["Next.js", "Tailwind CSS", "Spotify API"],
       "colour": "#FF616D",
       "link": "https://github.com/patel-aaryan/SpotiSize"
     },
     {
       "title": "NoiseRebel",
       "description": "Automated soundboard for Discord servers and plays dynamics sounds in voice chat using event-based Discord APIs",
-      "tech": [
-        {
-          "name": "JavaScript",
-          "icon": ""
-        },
-        {
-          "name": "Discord API",
-          "icon": ""
-        }
-      ],
+      "tech": ["JavaScript", "Discord API"],
       "colour": "#185ADB",
       "link": "https://github.com/patel-aaryan/NoiseRebel"
     },
     {
       "title": "Ambulert",
       "description": "Mobile app that notifies civilians of a nearby ambulance during emergencies, using the real-time locations of the civilian and the ambulance to enhance awareness and improve safety",
-      "tech": [
-        {
-          "name": "Flutter",
-          "icon": ""
-        },
-        {
-          "name": "Dart",
-          "icon": ""
-        },
-        {
-          "name": "Flask",
-          "icon": ""
-        },
-        {
-          "name": "Python",
-          "icon": ""
-        }
-      ],
+      "tech": ["Flutter", "Dart", "Flask", "Python"],
       "colour": "#1597BB",
       "link": "https://github.com/patel-aaryan/Ambulert"
     },
     {
       "title": "Foodar",
       "description": "Recommendation system that provides the top 3 restaurant recommendations based on location, helping university students make informed dietary choices",
-      "tech": [
-        {
-          "name": "Angular",
-          "icon": ""
-        },
-        {
-          "name": "Python",
-          "icon": ""
-        },
-        {
-          "name": "NumPy",
-          "icon": ""
-        },
-        {
-          "name": "Pandas",
-          "icon": ""
-        }
-      ],
+      "tech": ["Angular", "Python", "NumPy", "Pandas"],
       "colour": "#F54748",
       "link": "https://github.com/patel-aaryan/Foodar"
     }

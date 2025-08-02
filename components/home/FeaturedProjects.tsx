@@ -56,12 +56,8 @@ export function FeaturedProjects() {
                   </p>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech) => (
-                      <Badge
-                        key={tech.name}
-                        variant="secondary"
-                        className="text-xs"
-                      >
-                        {tech.name}
+                      <Badge key={tech} variant="secondary" className="text-xs">
+                        {tech}
                       </Badge>
                     ))}
                   </div>

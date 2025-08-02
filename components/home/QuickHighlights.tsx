@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { School, Work, Code } from "@mui/icons-material";
+import { School, Work, SportsMma } from "@mui/icons-material";
 
 export function QuickHighlights() {
   return (
@@ -21,8 +21,9 @@ export function QuickHighlights() {
               <h3 className="text-xl font-semibold mb-2">CS Student</h3>
               <p className="text-muted-foreground">University of Waterloo</p>
               <p className="text-sm text-muted-foreground">
-                AI/ML Specialization
+                Artificial Intelligence Specialization
               </p>
+              <p className="text-sm text-muted-foreground">Economics Minor</p>
             </CardContent>
           </Card>
 
@@ -32,23 +33,32 @@ export function QuickHighlights() {
               <div className="w-12 h-12 bg-[#005DAA]/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Work className="h-6 w-6 text-[#005DAA]" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">4 Co-ops</h3>
-              <p className="text-muted-foreground">RBC, CGI, JANA</p>
+              <h3 className="text-xl font-semibold mb-2">1.5+ Years</h3>
+              <p className="text-muted-foreground">
+                Software Engineering experience in
+              </p>
               <p className="text-sm text-muted-foreground">
-                Full-stack Development
+                Scrawlr &bull; RBC &bull; CGI &bull; JANA
+              </p>
+              <p className="text-sm text-muted-foreground">
+                FinTech &bull; Consulting &bull; Energy
               </p>
             </CardContent>
           </Card>
 
-          {/* Current Status */}
+          {/* Sports & Fitness */}
           <Card className="hover:shadow-lg transition-shadow">
             <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Code className="h-6 w-6 text-primary" />
+              <div className="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <SportsMma className="h-6 w-6 text-green-500" />
               </div>
-              <h3 className="text-xl font-semibold mb-2">Full-Stack Dev</h3>
-              <p className="text-muted-foreground">React, Next.js, Python</p>
-              <p className="text-sm text-muted-foreground">Cloud & AI/ML</p>
+              <h3 className="text-xl font-semibold mb-2">Always Active</h3>
+              <p className="text-muted-foreground">
+                Boxing &bull; Muay Thai &bull; BJJ
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Soccer &bull; Volleyball
+              </p>
             </CardContent>
           </Card>
         </motion.div>
