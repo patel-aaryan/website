@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { OpenInNew } from "@mui/icons-material";
+import { GitHub, OpenInNew } from "@mui/icons-material";
 import portfolioData from "@/data/portfolio.json";
 
 export function FeaturedProjects() {
@@ -36,25 +36,45 @@ export function FeaturedProjects() {
               transition={{ duration: 0.6, delay: index * 0.1 }}
             >
               <Card className="h-full hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                <CardContent className="p-6">
+                <CardContent className="p-6 flex flex-col h-full">
+                  {/* Top section: dot, title, and icons */}
                   <div className="flex items-center justify-between mb-4">
-                    <div
-                      className="w-3 h-3 rounded-full"
-                      style={{ backgroundColor: project.colour }}
-                    />
-                    <Button asChild variant="ghost" size="icon">
-                      <Link href={project.link} target="_blank">
-                        <OpenInNew className="h-4 w-4" />
-                      </Link>
-                    </Button>
+                    <div className="flex items-center gap-3">
+                      <div
+                        className="w-3 h-3 rounded-full"
+                        style={{ backgroundColor: project.colour }}
+                      />
+                      {project.link ? (
+                        <Link href={project.link} target="_blank">
+                          <h3 className="text-xl font-semibold underline hover:text-blue-400 transition-colors cursor-pointer">
+                            {project.title}
+                          </h3>
+                        </Link>
+                      ) : (
+                        <h3 className="text-xl font-semibold">
+                          {project.title}
+                        </h3>
+                      )}
+                    </div>
+                    <div className="flex gap-1">
+                      <Button asChild variant="ghost" size="sm">
+                        <Link href={project.source} target="_blank">
+                          <span className="text-sm">Source</span>
+                          <GitHub className="h-4 w-4" />
+                        </Link>
+                      </Button>
+                    </div>
                   </div>
-                  <h3 className="text-xl font-semibold mb-3">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 text-sm leading-relaxed">
-                    {project.description}
-                  </p>
-                  <div className="flex flex-wrap gap-2">
+
+                  {/* Center section: description */}
+                  <div className="flex-1 flex items-center">
+                    <p className="text-muted-foreground text-sm leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  {/* Bottom section: tech stack */}
+                  <div className="flex flex-wrap gap-2 mt-4">
                     {project.tech.map((tech) => (
                       <Badge key={tech} variant="secondary" className="text-xs">
                         {tech}
