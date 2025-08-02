@@ -161,7 +161,11 @@
       "title": "Backend/API Developer",
       "company": "Scrawlr",
       "location": "Vancouver, BC, Canada",
-      "description": [],
+      "description": [
+        "Contributed to scalable backend APIs for browser-extension platform, using Node.js + Fastify with Postgres and Redis to layer real-time conversation and personalized content onto any webpage",
+        "Standardized codebase by authoring reusable Cursor rule packs that enforce layered architecture, uniform error handling, and code consistency, enabling faster, conflict-free feature rollouts across teams",
+        "Architected an AI-driven code-gen pipeline that ingests product docs & Cursor rules to auto-scaffold Fastify services, database schemas, cache layers, and Vitest tests, cutting API development from months to days"
+      ],
       "date": "May. 2025 - Present",
       "colour": "#196AFF",
       "icon": ""
