@@ -11,6 +11,11 @@ import portfolioData from "@/data/portfolio.json";
 export function HeroSection() {
   const [currentTagline, setCurrentTagline] = useState(0);
 
+  const scrollToSection = (sectionId: string) => {
+    const element = document.getElementById(sectionId);
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTagline(
@@ -88,14 +93,12 @@ export function HeroSection() {
               className="flex flex-wrap gap-4"
             >
               <Button
-                asChild
                 size="lg"
                 className="hover:scale-105 transition-transform"
+                onClick={() => scrollToSection("recent-work-experience")}
               >
-                <Link href="/projects">
-                  <Code className="mr-2 h-4 w-4" />
-                  View My Work
-                </Link>
+                <Code className="h-4 w-4" />
+                My Experience
               </Button>
               <Button
                 asChild

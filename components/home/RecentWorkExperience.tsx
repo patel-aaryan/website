@@ -15,7 +15,7 @@ export function RecentWorkExperience() {
   const recentExperience = portfolioData.experience.slice(0, 3);
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8">
+    <section id="recent-work-experience" className="py-16 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
