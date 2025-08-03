@@ -19,6 +19,7 @@ import {
 } from "@/components/ui/sheet";
 import Link from "next/link";
 import { useRouter, usePathname } from "next/navigation";
+import portfolioData from "@/data/portfolio.json";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -77,7 +78,7 @@ export default function Navbar() {
             href="/"
             className="text-xl font-bold text-foreground hover:text-foreground/80 transition-colors"
           >
-            Aaryan Patel
+            {portfolioData.name}
           </Link>
         </motion.div>
 
