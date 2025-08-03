@@ -58,7 +58,7 @@
       "Docker",
       "Kubernetes",
       "Terraform",
-      "Google Cloud Platform",
+      "Google Cloud",
       "CircleCI",
       "AWS",
       "Jenkins"
@@ -231,7 +231,7 @@
       "company": "CGI Inc",
       "location": "Toronto, ON, Canada",
       "description": [
-        "Specialized in building and managing cloud-based API ecosystems using Google Cloud Platform as well as deploying, monitoring, and managing enterprise solutions on the cloud",
+        "Specialized in building and managing cloud-based API ecosystems using Google Cloud as well as deploying, monitoring, and managing enterprise solutions on the cloud",
         "Designed and deployed a PostgreSQL database integrated with Keycloak, streamlining authentication process",
         "Leveraged Terraform to automate infrastructure provisioning, which optimized deployment time by up to 70%, significant enhancing operational efficiency"
       ],
