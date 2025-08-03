@@ -18,15 +18,34 @@ import {
   SheetClose,
 } from "@/components/ui/sheet";
 import Link from "next/link";
+import { useRouter, usePathname } from "next/navigation";
 
 const navItems = [
   { href: "/", label: "Home" },
+  { href: "#skills", label: "Skills" },
   { href: "/experience", label: "Experience" },
   { href: "/projects", label: "Projects" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
+
+  const scrollToSkills = () => {
+    if (pathname !== "/") {
+      router.push("/#skills");
+    } else {
+      const skillsSection = document.getElementById("skills");
+      if (skillsSection) {
+        skillsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }
+    setIsOpen(false);
+  };
 
   const scrollToContact = () => {
     const contactSection = document.getElementById("contact");
@@ -73,12 +92,22 @@ export default function Navbar() {
             <NavigationMenuList className="flex items-center space-x-6">
               {navItems.map((item) => (
                 <NavigationMenuItem key={item.href}>
-                  <Link
-                    href={item.href}
-                    className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md hover:bg-accent/50"
-                  >
-                    {item.label}
-                  </Link>
+                  {item.label === "Skills" ? (
+                    <Button
+                      onClick={scrollToSkills}
+                      variant="ghost"
+                      className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md hover:bg-accent/50 h-auto"
+                    >
+                      {item.label}
+                    </Button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md hover:bg-accent/50"
+                    >
+                      {item.label}
+                    </Link>
+                  )}
                 </NavigationMenuItem>
               ))}
               <NavigationMenuItem>
@@ -117,17 +146,28 @@ export default function Navbar() {
                 <SheetTitle className="text-left">Navigation</SheetTitle>
               </SheetHeader>
               <div className="flex flex-col space-y-4 mt-4">
-                {navItems.map((item) => (
-                  <SheetClose asChild key={item.href}>
-                    <Link
-                      href={item.href}
-                      className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md hover:bg-accent/50 text-left"
-                      onClick={() => setIsOpen(false)}
+                {navItems.map((item) =>
+                  item.label === "Skills" ? (
+                    <Button
+                      key={item.href}
+                      onClick={scrollToSkills}
+                      variant="ghost"
+                      className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md hover:bg-accent/50 text-left justify-start h-auto"
                     >
                       {item.label}
-                    </Link>
-                  </SheetClose>
-                ))}
+                    </Button>
+                  ) : (
+                    <SheetClose asChild key={item.href}>
+                      <Link
+                        href={item.href}
+                        className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md hover:bg-accent/50 text-left"
+                        onClick={() => setIsOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    </SheetClose>
+                  )
+                )}
                 <Button
                   onClick={scrollToContact}
                   variant="ghost"

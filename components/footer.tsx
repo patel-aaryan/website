@@ -47,7 +47,7 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: Email,
-      text: portfolioData.socials.email,
+      text: process.env.NEXT_PUBLIC_EMAIL,
       href: portfolioData.socials.email,
     },
     {
