@@ -217,7 +217,7 @@ export function SkillsBanner() {
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="text-center mt-12"
+          className="text-center mt-8"
         >
           <p className="text-sm text-muted-foreground">
             Always learning • Always evolving • Always building
