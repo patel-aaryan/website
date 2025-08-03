@@ -13,9 +13,9 @@ export default function Home() {
     <>
       <HeroSection />
       <QuickHighlights />
-      <SkillsBanner />
       <RecentWorkExperience />
       <FeaturedProjects />
+      <SkillsBanner />
     </>
   );
 }
