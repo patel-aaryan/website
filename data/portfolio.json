@@ -21,7 +21,49 @@
     "instagram": "https://www.instagram.com/aaryan.pat3l/",
     "email": "mailto:a52patel@uwaterloo.ca"
   },
-  "aboutMe": "I build systems that scale. Fluent in JavaScript, C++, and Python, I'm fascinated by distributed architectures, high-performance computing, and AI systems. From optimizing memory management and concurrent processing to designing fault-tolerant distributed systems and training models at scale, I live for the challenge of making complex systems run faster and more reliably. I thrive on solving problems that better the lives of others.",
+  "aboutMe": "I build systems that scale. Fluent in C++, Python, and JavaScript, I'm fascinated by distributed architectures, high-performance computing, and AI systems. From optimizing memory management and concurrent processing to designing fault-tolerant distributed systems and training models at scale, I live for the challenge of making complex systems run faster and more reliably. I thrive on solving problems that better the lives of others.",
+  "skills": {
+    "languages": [
+      "C++",
+      "Python",
+      "SQL",
+      "C#",
+      "TypeScript",
+      "Java",
+      "HTML",
+      "CSS"
+    ],
+    "frontend": [
+      "React",
+      "Angular",
+      "Next.js",
+      "Tailwind CSS",
+      "Vitest",
+      "Figma",
+      "Redux",
+      "jQuery"
+    ],
+    "backend": [
+      "ASP.NET",
+      "Django",
+      "Node.js",
+      "Nest.js",
+      "MySQL",
+      "PostgreSQL",
+      "Fastify",
+      "MongoDB"
+    ],
+    "devops": [
+      "Git",
+      "Docker",
+      "Kubernetes",
+      "Terraform",
+      "Google Cloud Platform",
+      "CircleCI",
+      "AWS",
+      "Jenkins"
+    ]
+  },
   "education": [
     {
       "name": "University of Waterloo",

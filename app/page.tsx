@@ -3,6 +3,7 @@
 import {
   HeroSection,
   QuickHighlights,
+  SkillsBanner,
   FeaturedProjects,
   RecentWorkExperience,
 } from "@/components/home";
@@ -12,6 +13,7 @@ export default function Home() {
     <>
       <HeroSection />
       <QuickHighlights />
+      <SkillsBanner />
       <RecentWorkExperience />
       <FeaturedProjects />
     </>

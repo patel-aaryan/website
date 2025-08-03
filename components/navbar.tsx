@@ -21,14 +21,23 @@ import Link from "next/link";
 
 const navItems = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/projects", label: "Projects" },
   { href: "/experience", label: "Experience" },
-  { href: "/contact", label: "Contact" },
+  { href: "/projects", label: "Projects" },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const scrollToContact = () => {
+    const contactSection = document.getElementById("contact");
+    if (contactSection) {
+      contactSection.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
+    setIsOpen(false);
+  };
 
   return (
     <motion.nav
@@ -72,6 +81,15 @@ export default function Navbar() {
                   </Link>
                 </NavigationMenuItem>
               ))}
+              <NavigationMenuItem>
+                <Button
+                  onClick={scrollToContact}
+                  variant="ghost"
+                  className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md hover:bg-accent/50 h-auto"
+                >
+                  Contact
+                </Button>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
         </motion.div>
@@ -110,6 +128,13 @@ export default function Navbar() {
                     </Link>
                   </SheetClose>
                 ))}
+                <Button
+                  onClick={scrollToContact}
+                  variant="ghost"
+                  className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md hover:bg-accent/50 text-left justify-start h-auto"
+                >
+                  Contact
+                </Button>
               </div>
             </SheetContent>
           </Sheet>
