@@ -210,7 +210,8 @@
       ],
       "date": "May. 2025 - Aug. 2025",
       "colour": "#196AFF",
-      "icon": ""
+      "icon": "",
+      "tech": ["Node.js", "Fastify", "PostgreSQL", "Redis", "Docker"]
     },
     {
       "title": "QTS Software Developer Intern",
@@ -224,7 +225,8 @@
       ],
       "date": "Sep. 2024 - Dec. 2024",
       "colour": "#005DAA",
-      "icon": ""
+      "icon": "",
+      "tech": ["Next.js", "Kubernetes", "MongoDB", "Redux"]
     },
     {
       "title": "Application Developer",
@@ -237,7 +239,8 @@
       ],
       "date": "Jan. 2024 - May 2024",
       "colour": "#E31937",
-      "icon": ""
+      "icon": "",
+      "tech": ["Google Cloud", "PostgreSQL", "Keycloak", "Terraform"]
     },
     {
       "title": "Junior Software Developer",
@@ -251,7 +254,8 @@
       ],
       "date": "May 2023 - Aug. 2023",
       "colour": "#6EB273",
-      "icon": ""
+      "icon": "",
+      "tech": ["C#", "ASP.NET", "SQL Server"]
     },
     {
       "title": "Junior Developer",
@@ -264,7 +268,8 @@
       ],
       "date": "Jun. 2022 - Sep. 2022",
       "colour": "#E31937",
-      "icon": ""
+      "icon": "",
+      "tech": ["Angular", "TypeScript", "HTML", "CSS"]
     }
   ],
   "projects": [
