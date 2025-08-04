@@ -55,7 +55,7 @@ ${message}
       { status: 200 }
     );
   } catch (error) {
-    console.error("SendGrid error:", error);
+    console.error("SendGrid error:", JSON.stringify(error, null, 2));
 
     return NextResponse.json(
       { error: "Failed to send email. Please try again later." },
