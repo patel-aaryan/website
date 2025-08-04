@@ -6,17 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { OpenInNew, GitHub } from "@mui/icons-material";
-
-interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-  colour: string;
-  link: string;
-  source: string;
-  features: string[];
-  thumbnail: string;
-}
+import { Project } from "@/data/types";
 
 interface ProjectDetailsProps {
   project: Project;
@@ -99,26 +89,50 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
             <div className="space-y-6">
               {/* Technologies */}
               <div>
-                <h2 className="text-lg font-semibold mb-3">
+                <h2 className="text-lg font-semibold mb-4">
                   Technologies Used
                 </h2>
-                <div className="flex flex-wrap gap-2">
-                  {project.tech.map((tech, index) => (
-                    <motion.div
-                      key={tech}
-                      initial={{ opacity: 0, scale: 0.8 }}
-                      animate={{ opacity: 1, scale: 1 }}
-                      transition={{ duration: 0.2, delay: index * 0.05 }}
-                    >
-                      <Badge
-                        variant="secondary"
-                        className="px-3 py-1 text-sm font-medium hover:scale-105 transition-transform"
-                        style={{ color: project.colour }}
+                <div className="space-y-4">
+                  {Object.entries(project.tech).map(
+                    ([category, techs], categoryIndex) => (
+                      <motion.div
+                        key={category}
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{
+                          duration: 0.3,
+                          delay: categoryIndex * 0.1,
+                        }}
                       >
-                        {tech}
-                      </Badge>
-                    </motion.div>
-                  ))}
+                        <h3 className="text-sm font-semibold text-muted-foreground mb-2">
+                          {category}
+                        </h3>
+                        <div className="flex flex-wrap gap-2">
+                          {techs.map((tech, techIndex) => (
+                            <motion.div
+                              key={tech}
+                              initial={{ opacity: 0, scale: 0.8 }}
+                              animate={{ opacity: 1, scale: 1 }}
+                              transition={{
+                                duration: 0.2,
+                                delay:
+                                  (categoryIndex * techs.length + techIndex) *
+                                  0.05,
+                              }}
+                            >
+                              <Badge
+                                variant="secondary"
+                                className="px-3 py-1 text-sm font-medium hover:scale-105 transition-transform"
+                                style={{ color: project.colour }}
+                              >
+                                {tech}
+                              </Badge>
+                            </motion.div>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )
+                  )}
                 </div>
               </div>
 

@@ -4,17 +4,7 @@ import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
-
-interface Project {
-  title: string;
-  description: string;
-  tech: string[];
-  colour: string;
-  link: string;
-  source: string;
-  features: string[];
-  thumbnail: string;
-}
+import { Project } from "@/data/types";
 
 interface ProjectsSidebarProps {
   projects: Project[];
@@ -31,7 +21,7 @@ export function ProjectsSidebar({
     <Card className="h-full">
       <CardContent className="p-4">
         <h2 className="text-xl font-semibold mb-4">All Projects</h2>
-        <ScrollArea className="h-[calc(100vh-280px)]">
+        <ScrollArea className="h-[calc(100vh-300px)]">
           <div className="space-y-3 p-1">
             {projects.map((project, index) => (
               <motion.div
@@ -64,7 +54,7 @@ export function ProjectsSidebar({
                     </p>
 
                     <div className="flex flex-wrap gap-1">
-                      {project.tech.slice(0, 2).map((tech) => (
+                      {project.mainTech.map((tech) => (
                         <Badge
                           key={tech}
                           variant="secondary"
@@ -73,14 +63,22 @@ export function ProjectsSidebar({
                           {tech}
                         </Badge>
                       ))}
-                      {project.tech.length > 2 && (
-                        <Badge
-                          variant="outline"
-                          className="text-xs px-1.5 py-0.5"
-                        >
-                          +{project.tech.length - 2}
-                        </Badge>
-                      )}
+                      {(() => {
+                        const totalTech = Object.values(project.tech).flat()
+                          .length;
+                        const remainingTech =
+                          totalTech - project.mainTech.length;
+                        return (
+                          remainingTech > 0 && (
+                            <Badge
+                              variant="outline"
+                              className="text-xs px-1.5 py-0.5"
+                            >
+                              +{remainingTech}
+                            </Badge>
+                          )
+                        );
+                      })()}
                     </div>
                   </CardContent>
                 </Card>

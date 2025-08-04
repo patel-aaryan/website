@@ -111,10 +111,7 @@ export function SkillsBanner() {
   }, [api]);
 
   return (
-    <section
-      id="skills"
-      className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-background via-muted/20 to-background"
-    >
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-background via-muted/20 to-background">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

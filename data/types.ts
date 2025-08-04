@@ -29,7 +29,8 @@ export interface School {
 export interface Project {
   title: string;
   description: string;
-  tech: string[];
+  tech: Record<string, string[]>;
+  mainTech: string[];
   colour: string;
   link: string;
   source: string;

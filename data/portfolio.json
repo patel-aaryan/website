@@ -146,55 +146,96 @@
             "Examines memory hierarchies and multiprocessors"
           ],
           "link": "https://uwflow.com/course/cs251"
+        },
+        {
+          "code": "CS 341",
+          "name": "Algorithms",
+          "desc": [
+            "Algorithm Design Techniques - Systematic study of design methods including greedy algorithms, dynamic programming, graph exploration approaches, backtracking, and branch and bound techniques",
+            "Algorithm Analysis - Review of divide and conquer approaches, solution of recurrence relations, and analysis of average case and worst case behaviors",
+            "Undecidability and Complexity Theory - Introduction to algorithmic reductions, undecidability of the halting problem, polynomial time complexity, and the relationship between P and NP classes",
+            "NP-Completeness - Study of polynomial reducibility, NP-Complete problems, and proofs of NP-hardness for various computational problems",
+            "Practical Problem Solving - Application of algorithmic techniques to commonly occurring problems in practice with implementation experience and related programming challenges"
+          ],
+          "link": "https://uwflow.com/course/cs341"
+        },
+        {
+          "code": "CS 350",
+          "name": "Operating Systems",
+          "desc": [
+            "Process and Thread Management - Understanding processes, threads, system calls, context switching, and different types of scheduling algorithms for managing processor time",
+            "Concurrency and Synchronization - Principles of concurrency, mutual exclusion, semaphores, deadlock detection and prevention mechanisms",
+            "Memory Management Systems - Virtual addressing, address translation, memory management techniques including partitioning, segmentation, paging, and caching strategies",
+            "Device and File System Management - Physical device properties, device control, buffering, disk scheduling, file naming, space allocation, and file system implementation strategies",
+            "Interprocess Communication - Message passing, pipes, sockets, signals, shared memory, and other communication mechanisms between processes"
+          ],
+          "link": "https://uwflow.com/course/cs350"
+        },
+        {
+          "code": "CS 348",
+          "name": "Introduction to Database Management",
+          "desc": [
+            "Relational Data Model and Languages - Fundamentals of relational databases, relational calculus and algebra, SQL DDL/DML, and database query languages including Query by Example (QBE)",
+            "Database Design Methodology - Logical data modeling using Entity-Relationship modeling, mapping ER models to relational models, and normalization to Boyce-Codd Normal Form",
+            "Database Application Development - Embedded SQL programming, transaction concepts, access granularity principles, and interfaces like ODBC and JDBC",
+            "Database Administration and Optimization - Database indexing for performance tuning, views and view management, database security and authorization mechanisms",
+            "Advanced Database Topics - Introduction to distributed databases, data warehouses, and data mining concepts",
+            "Database System Architecture - Understanding the architecture and internal workings of database management systems and their core components"
+          ],
+          "link": "https://uwflow.com/course/cs348"
+        },
+        {
+          "code": "CS 370",
+          "name": "Numerical Computation",
+          "desc": [
+            "Floating Point Number Systems - Understanding floating point representation, round-off error propagation, machine precision concepts, and stability analysis of numerical recursions",
+            "Interpolation and Approximation - Polynomial interpolation using Vandermonde matrix and Lagrange methods, cubic splines, B-splines, and applications like scalable fonts",
+            "Ordinary Differential Equations - Numerical methods including forward/backward Euler, modified Euler methods, local truncation error analysis, stability, and global error with applications to pursuit problems and disease propagation models",
+            "Discrete Fourier Analysis - Fourier series, Fast Fourier Transform (FFT) algorithms including the butterfly method, with applications to JPEG compression, image processing, and signal processing",
+            "Numerical Linear Algebra - LU decomposition, pivoting techniques, condition number analysis, QR decomposition, and large-scale applications like Google's PageRank algorithm",
+            "Scientific Computing Applications - Practical implementation using MATLAB, vectorization techniques, and real-world examples from engineering, graphics, and financial computing"
+          ],
+          "link": "https://uwflow.com/course/cs370"
         }
       ],
       "clubs": [
         {
-          "title": "HackTheNorth",
-          "role": "Volunteer"
+          "title": "Data Science Club",
+          "role": "VP Development",
+          "date": "2024 - 2025",
+          "desc": [
+            "Developed QR code check-in system and admin portal for seamless event management and member tracking",
+            "Built public calendar interface to visualize past and upcoming events with responsive frontend design",
+            "Led the development of the custom exec application portal to streamline future applicant recruitment and evaluation processes",
+            "Spearheaded the overhaul of the backend server architecture into clean, organized layers to improve code readability for new developers",
+            "Enhanced frontend responsiveness and established consistent design theme to reduce onboarding time for new members"
+          ]
         },
         {
-          "title": "Data Science Club",
-          "role": "Developer"
+          "title": "Raas Warriors",
+          "role": "Dancer",
+          "date": "2024 - 2025"
+        },
+        {
+          "title": "HackTheNorth",
+          "role": "Volunteer",
+          "date": "2024"
         },
         {
           "title": "WATOnomous",
-          "role": "Atonomous Software Division"
+          "role": "Autonomous Software Division",
+          "date": "2024",
+          "desc": [
+            "Learned ROS pub-sub architecture and messaging patterns for autonomous vehicle software communication",
+            "Gained exposure to multi-modal sensor data streams from LiDAR, cameras, radar, and GPS through ROS topics",
+            "Explored distributed system concepts for scalable autonomous driving software using decentralized ROS nodes",
+            "Studied robotics software patterns for real-world autonomous vehicle challenges and V2V/V2I communications"
+          ]
         }
       ],
       "milestones": [
         "Math National Scholarship",
-        "President’s Scholarship Of Distinction"
-      ]
-    },
-    {
-      "name": "St. Francis Xavier Secondary School",
-      "date": "2018 - 2022",
-      "major": "International Baccalaureate",
-      "location": "Mississauga, ON, Canada",
-      "colour": "#005DAA",
-      "clubs": [
-        {
-          "title": "STEM Club",
-          "role": "Co-founder"
-        },
-        {
-          "title": "Computer Science Club",
-          "role": "Member"
-        },
-        {
-          "title": "Math Club",
-          "role": "Member"
-        },
-        {
-          "title": "French Club",
-          "role": "Member"
-        }
-      ],
-      "milestones": [
-        "Canadian Computing Competition - Certificate of Distinction",
-        "Euclid Contest - Certificate of Distinction",
-        "Canadian Senior Mathematics Contest - Certificate of Distinction"
+        "President's Scholarship Of Distinction"
       ]
     }
   ],
@@ -326,19 +367,18 @@
     {
       "title": "G.R.A.C.E. (Coming Soon)",
       "description": "An AI-powered social companion that engages isolated users through lifelike face-to-face conversations with real-time voice-to-avatar interactions. Features lip-synced 3D avatars and a comprehensive caregiver dashboard with conversation analytics.",
-      "tech": [
-        "Next.js",
-        "TypeScript",
-        "FastAPI",
-        "Python",
-        "Pipecat",
-        "Deepgram",
-        "Socket.io",
-        "Node.js",
-        "Redis",
-        "Supabase",
-        "PostgreSQL"
-      ],
+      "tech": {
+        "Frontend": [
+          "Next.js",
+          "TypeScript",
+          "Tailwind CSS",
+          "Shadcn",
+          "Redux"
+        ],
+        "Backend": ["FastAPI", "Python", "Supabase", "Redis", "PostgreSQL"],
+        "AI/ML & Data Science": ["Pipecat", "Deepgram", "Cartesia", "Gemini"]
+      },
+      "mainTech": ["FastAPI", "Deepgram", "Cartesia"],
       "colour": "#7952B3",
       "link": "",
       "source": "https://github.com/patel-aaryan/GRACE",
@@ -354,16 +394,12 @@
     {
       "title": "AniTrack",
       "description": "Full-stack anime tracking application that allows users to discover popular anime, write reviews, add new titles, find friends with shared interests, and manage their watch history. Features comprehensive database management and community-driven content.",
-      "tech": [
-        "Next.js",
-        "TypeScript",
-        "Node.js",
-        "PostgreSQL",
-        "Prisma",
-        "NextAuth.js",
-        "Python",
-        "Tailwind CSS"
-      ],
+      "tech": {
+        "Frontend ": ["Next.js", "TypeScript", "Tailwind CSS"],
+        "Backend ": ["Node.js", "Python", "PostgreSQL"],
+        "Developer Tools": ["Prisma", "NextAuth.js"]
+      },
+      "mainTech": ["Node.js", "PostgreSQL", "Python"],
       "colour": "#FFC107",
       "link": "https://ani-track-zeta.vercel.app",
       "source": "https://github.com/patel-aaryan/AniTrack",
@@ -379,7 +415,12 @@
     {
       "title": "STYLit",
       "description": "Virtually try on clothing in real time using AI-powered image segmentation and pose estimation, allowing users to visualize how clothes fit and personalize outfits before purchasing online",
-      "tech": ["Next.js", "Express.js", "Node.js", "MongoDB", "MediaPipe"],
+      "tech": {
+        "Frontend ": ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn"],
+        "Backend ": ["Express.js", "Node.js", "MongoDB"],
+        "AI/ML & Data Science": ["MediaPipe"]
+      },
+      "mainTech": ["Node.js", "MediaPipe", "MongoDB"],
       "colour": "#FF616D",
       "link": "",
       "source": "https://github.com/patel-aaryan/STYLit",
@@ -395,19 +436,12 @@
     {
       "title": "CraftsByAash",
       "description": "E-commerce platform showcasing Lippan Art Decor and allows users to register, explore products, and complete orders securely",
-      "tech": [
-        "Django",
-        "Python",
-        "Next.js",
-        "TypeScript",
-        "React",
-        "MySQL",
-        "Stripe",
-        "Docker",
-        "Redux",
-        "Django REST Framework",
-        "AWS S3"
-      ],
+      "tech": {
+        "Frontend": ["Next.js", "TypeScript", "Redux", "MUI"],
+        "Backend": ["Django", "Python", "Django REST Framework", "MySQL"],
+        "Devops & Integration": ["Docker", "AWS S3", "Stripe"]
+      },
+      "mainTech": ["Django", "Next.js", "Stripe"],
       "colour": "#96BD4A",
       "link": "https://www.craftsbyaash.com/",
       "source": "https://github.com/patel-aaryan/CraftsByAash",
@@ -423,7 +457,11 @@
     {
       "title": "P.E.P.P.E.R.",
       "description": "A compassionate chatbot that delivers human-like responses, designed to alleviate loneliness among elderly individuals and patients experiencing social isolation",
-      "tech": ["Next.js", "TypeScript", "React", "OpenAI API", "Tailwind CSS"],
+      "tech": {
+        "Frontend": ["Next.js", "TypeScript", "Tailwind CSS"],
+        "Backend & AI/ML": ["OpenAI API", "Google Cloud Functions"]
+      },
+      "mainTech": ["Next.js", "OpenAI API", "Cloud Functions"],
       "colour": "#7952B3",
       "link": "https://pepper-phi.vercel.app/",
       "source": "https://github.com/patel-aaryan/PEPPER",
@@ -439,7 +477,12 @@
     {
       "title": "Spotisize",
       "description": "Web app that creatively visualizes users' Spotify data by categorizing and displaying their listening activity",
-      "tech": ["Next.js", "Spotify API", "OAuth 2.0", "D3.js", "Node.js"],
+      "tech": {
+        "Frontend": ["Next.js", "D3.js"],
+        "Backend": ["Node.js"],
+        "APIs & Integration": ["Spotify API", "OAuth 2.0"]
+      },
+      "mainTech": ["Next.js", "Spotify API", "D3.js"],
       "colour": "#FF616D",
       "link": "https://spotisize.vercel.app/",
       "source": "https://github.com/patel-aaryan/SpotiSize",
@@ -455,13 +498,12 @@
     {
       "title": "NoiseRebel",
       "description": "Automated soundboard for Discord servers and plays dynamics sounds in voice chat using event-based Discord APIs",
-      "tech": [
-        "JavaScript",
-        "Node.js",
-        "Discord API",
-        "FFmpeg",
-        "File System API"
-      ],
+      "tech": {
+        "Backend": ["JavaScript", "Node.js"],
+        "APIs & Integration": ["Discord API"],
+        "Developer Tools": ["FFmpeg", "File System API"]
+      },
+      "mainTech": ["Node.js", "Discord API", "FFmpeg"],
       "colour": "#185ADB",
       "link": "",
       "source": "https://github.com/patel-aaryan/NoiseRebel",
@@ -477,14 +519,12 @@
     {
       "title": "Ambulert",
       "description": "Mobile app that notifies civilians of a nearby ambulance during emergencies, using the real-time locations of the civilian and the ambulance to enhance awareness and improve safety",
-      "tech": [
-        "Flutter",
-        "Dart",
-        "Firebase",
-        "Flask",
-        "Python",
-        "Push Notifications"
-      ],
+      "tech": {
+        "Mobile": ["Flutter", "Dart"],
+        "Backend": ["Flask", "Python"],
+        "Cloud & Messaging": ["Firebase", "Push Notifications"]
+      },
+      "mainTech": ["Flutter", "Firebase", "Flask"],
       "colour": "#1597BB",
       "link": "",
       "source": "https://github.com/patel-aaryan/Ambulert",
@@ -500,14 +540,11 @@
     {
       "title": "Foodar",
       "description": "Recommendation system that provides the top 3 restaurant recommendations based on location, helping university students make informed dietary choices",
-      "tech": [
-        "Angular",
-        "TypeScript",
-        "Bootstrap",
-        "Python",
-        "NumPy",
-        "Pandas"
-      ],
+      "tech": {
+        "Frontend": ["Angular", "TypeScript", "Bootstrap"],
+        "Data Analytics & AI": ["Python", "NumPy", "Pandas"]
+      },
+      "mainTech": ["Angular", "Python", "Pandas"],
       "colour": "#F54748",
       "link": "",
       "source": "https://github.com/patel-aaryan/Foodar",

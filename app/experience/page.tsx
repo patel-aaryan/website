@@ -2,9 +2,6 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import { ArrowBack } from "@mui/icons-material";
 import { ExperienceSidebar, ExperienceTimeline } from "@/components/experience";
 import portfolioData from "@/data/portfolio.json";
 
@@ -46,7 +43,7 @@ export default function ExperiencePage() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="sticky top-0 z-50 bg-background/80 backdrop-blur-md mt-8"
+        className="mt-8"
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="text-center">
@@ -67,25 +64,6 @@ export default function ExperiencePage() {
 
           <ExperienceTimeline />
         </div>
-
-        {/* Bottom Navigation */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.5 }}
-          className="text-center mt-16 pt-8 border-t"
-        >
-          <Button
-            asChild
-            size="lg"
-            className="hover:scale-105 transition-transform"
-          >
-            <Link href="/">
-              <ArrowBack className="h-4 w-4" />
-              Back to Home
-            </Link>
-          </Button>
-        </motion.div>
       </div>
     </div>
   );

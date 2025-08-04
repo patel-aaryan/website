@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import { ProjectsSidebar } from "@/components/projects/ProjectsSidebar";
 import { ProjectDetails } from "@/components/projects/ProjectDetails";
 import portfolioData from "@/data/portfolio.json";
+import { Project } from "@/data/types";
 
 export default function ProjectsPage() {
-  const [selectedProject, setSelectedProject] = useState(
-    portfolioData.projects[0]
-  );
+  const projects = portfolioData.projects as unknown as Project[];
+  const [selectedProject, setSelectedProject] = useState<Project>(projects[0]);
 
   return (
     <div className="min-h-screen bg-background">
@@ -30,7 +30,7 @@ export default function ProjectsPage() {
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
           <div className="lg:col-span-1">
             <ProjectsSidebar
-              projects={portfolioData.projects}
+              projects={projects}
               selectedProject={selectedProject}
               onProjectSelect={setSelectedProject}
             />
