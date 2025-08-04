@@ -1,7 +1,12 @@
-import sgMail from "@sendgrid/mail";
+import formData from "form-data";
+import Mailgun from "mailgun.js";
 import { NextResponse } from "next/server";
 
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+const mailgun = new Mailgun(formData);
+const mg = mailgun.client({
+  username: "api",
+  key: process.env.MAILGUN_API_KEY || "",
+});
 
 export async function POST(request) {
   try {
@@ -16,9 +21,9 @@ export async function POST(request) {
     }
 
     // Email template
-    const msg = {
+    const emailData = {
+      from: `Portfolio Contact Form <${process.env.FROM_EMAIL}>`,
       to: process.env.TO_EMAIL,
-      from: { email: process.env.FROM_EMAIL, name: "Portfolio Contact Form" },
       subject: subject,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
@@ -45,28 +50,21 @@ ${message}
           </div>
         </div>
       `,
-      replyTo: email,
+      "h:Reply-To": email,
     };
 
-    await sgMail.send(msg);
+    await mg.messages.create(process.env.MAILGUN_DOMAIN || "", emailData);
 
     return NextResponse.json(
       { message: "Email sent successfully" },
       { status: 200 }
     );
   } catch (error) {
-    console.error("SendGrid error:", JSON.stringify(error, null, 2));
+    console.error("Mailgun error:", JSON.stringify(error, null, 2));
 
     return NextResponse.json(
       { error: "Failed to send email. Please try again later." },
       { status: 500 }
     );
   }
-}
-
-export async function GET() {
-  return NextResponse.json(
-    { message: "Contact API endpoint - POST only" },
-    { status: 405 }
-  );
 }
