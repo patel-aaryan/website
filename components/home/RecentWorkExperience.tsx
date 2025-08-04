@@ -8,7 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Link from "next/link";
-import { OpenInNew, LocationOn, BusinessCenter } from "@mui/icons-material";
+import { ChevronRight, LocationOn, BusinessCenter } from "@mui/icons-material";
 import portfolioData from "@/data/portfolio.json";
 
 export function RecentWorkExperience() {
@@ -161,7 +161,7 @@ export function RecentWorkExperience() {
           >
             <Link href="/experience">
               View All Experiences
-              <OpenInNew className="h-4 w-4" />
+              <ChevronRight className="h-4 w-4" />
             </Link>
           </Button>
         </motion.div>

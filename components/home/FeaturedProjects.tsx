@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
-import { GitHub, OpenInNew } from "@mui/icons-material";
+import { GitHub, ChevronRight } from "@mui/icons-material";
 import portfolioData from "@/data/portfolio.json";
 
 export function FeaturedProjects() {
-  const featuredProjects = portfolioData.projects.slice(0, 3);
+  const featuredProjects = portfolioData.featuredProjects;
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8">
@@ -96,7 +96,7 @@ export function FeaturedProjects() {
           <Button asChild size="lg" variant="outline">
             <Link href="/projects">
               View All Projects
-              <OpenInNew className="h-4 w-4" />
+              <ChevronRight className="h-4 w-4" />
             </Link>
           </Button>
         </motion.div>

@@ -25,15 +25,14 @@ export interface School {
   milestones: string[];
 }
 
-interface tech {
-  name: string;
-  icon: string;
-}
 
 export interface Project {
   title: string;
   description: string;
-  tech: tech[];
+  tech: string[];
   colour: string;
   link: string;
+  source: string;
+  features: string[];
+  thumbnail: string;
 }

@@ -272,14 +272,22 @@
       "tech": ["Angular", "TypeScript", "HTML", "CSS"]
     }
   ],
-  "projects": [
+  "featuredProjects": [
     {
       "title": "G.R.A.C.E. (Coming Soon)",
       "description": "An AI-powered social companion that engages isolated users through lifelike face-to-face conversations with real-time voice-to-avatar interactions. Features lip-synced 3D avatars and a comprehensive caregiver dashboard with conversation analytics.",
       "tech": ["Next.js", "FastAPI", "Pipecat", "Deepgram"],
       "colour": "#7952B3",
       "link": "",
-      "source": "https://github.com/patel-aaryan/GRACE"
+      "source": "https://github.com/patel-aaryan/GRACE",
+      "features": [
+        "Real-time voice-to-avatar conversations",
+        "Lip-synced 3D avatars for lifelike interactions",
+        "AI-powered social companion functionality",
+        "Comprehensive caregiver dashboard",
+        "Conversation analytics and insights"
+      ],
+      "thumbnail": ""
     },
     {
       "title": "AniTrack",
@@ -287,7 +295,15 @@
       "tech": ["Next.js", "TypeScript", "PostgreSQL", "Python"],
       "colour": "#FFC107",
       "link": "https://ani-track-zeta.vercel.app",
-      "source": "https://github.com/patel-aaryan/AniTrack"
+      "source": "https://github.com/patel-aaryan/AniTrack",
+      "features": [
+        "Discover trending and popular anime",
+        "Write and share anime reviews",
+        "Add new anime titles to the database",
+        "Find friends with similar anime interests",
+        "Track personal watch history and progress"
+      ],
+      "thumbnail": ""
     },
     {
       "title": "STYLit",
@@ -295,55 +311,214 @@
       "tech": ["Next.js", "Express.js", "MongoDB", "MediaPipe"],
       "colour": "#FF616D",
       "link": "",
-      "source": "https://github.com/patel-aaryan/STYLit"
+      "source": "https://github.com/patel-aaryan/STYLit",
+      "features": [
+        "Real-time virtual clothing try-on",
+        "AI-powered image segmentation",
+        "Pose estimation technology",
+        "Personalized outfit visualization",
+        "Pre-purchase clothing fitting simulation"
+      ],
+      "thumbnail": ""
+    }
+  ],
+  "projects": [
+    {
+      "title": "G.R.A.C.E. (Coming Soon)",
+      "description": "An AI-powered social companion that engages isolated users through lifelike face-to-face conversations with real-time voice-to-avatar interactions. Features lip-synced 3D avatars and a comprehensive caregiver dashboard with conversation analytics.",
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "FastAPI",
+        "Python",
+        "Pipecat",
+        "Deepgram",
+        "Socket.io",
+        "Node.js",
+        "Redis",
+        "Supabase",
+        "PostgreSQL"
+      ],
+      "colour": "#7952B3",
+      "link": "",
+      "source": "https://github.com/patel-aaryan/GRACE",
+      "features": [
+        "Real-time voice-to-avatar conversations",
+        "Lip-synced 3D avatars for lifelike interactions",
+        "AI-powered social companion functionality",
+        "Comprehensive caregiver dashboard",
+        "Conversation analytics and insights"
+      ],
+      "thumbnail": ""
+    },
+    {
+      "title": "AniTrack",
+      "description": "Full-stack anime tracking application that allows users to discover popular anime, write reviews, add new titles, find friends with shared interests, and manage their watch history. Features comprehensive database management and community-driven content.",
+      "tech": [
+        "Next.js",
+        "TypeScript",
+        "Node.js",
+        "PostgreSQL",
+        "Prisma",
+        "NextAuth.js",
+        "Python",
+        "Tailwind CSS"
+      ],
+      "colour": "#FFC107",
+      "link": "https://ani-track-zeta.vercel.app",
+      "source": "https://github.com/patel-aaryan/AniTrack",
+      "features": [
+        "Discover trending and popular anime",
+        "Write and share anime reviews",
+        "Add new anime titles to the database",
+        "Find friends with similar anime interests",
+        "Track personal watch history and progress"
+      ],
+      "thumbnail": ""
+    },
+    {
+      "title": "STYLit",
+      "description": "Virtually try on clothing in real time using AI-powered image segmentation and pose estimation, allowing users to visualize how clothes fit and personalize outfits before purchasing online",
+      "tech": ["Next.js", "Express.js", "Node.js", "MongoDB", "MediaPipe"],
+      "colour": "#FF616D",
+      "link": "",
+      "source": "https://github.com/patel-aaryan/STYLit",
+      "features": [
+        "Real-time virtual clothing try-on",
+        "AI-powered image segmentation",
+        "Pose estimation technology",
+        "Personalized outfit visualization",
+        "Pre-purchase clothing fitting simulation"
+      ],
+      "thumbnail": ""
     },
     {
       "title": "CraftsByAash",
       "description": "E-commerce platform showcasing Lippan Art Decor and allows users to register, explore products, and complete orders securely",
-      "tech": ["Django", "Next.js", "MySQL", "Stripe", "Docker"],
+      "tech": [
+        "Django",
+        "Python",
+        "Next.js",
+        "TypeScript",
+        "React",
+        "MySQL",
+        "Stripe",
+        "Docker",
+        "Redux",
+        "Django REST Framework",
+        "AWS S3"
+      ],
       "colour": "#96BD4A",
       "link": "https://www.craftsbyaash.com/",
-      "source": "https://github.com/patel-aaryan/CraftsByAash"
+      "source": "https://github.com/patel-aaryan/CraftsByAash",
+      "features": [
+        "User registration and authentication",
+        "Product catalog with Lippan Art Decor",
+        "Secure payment processing with Stripe",
+        "Order management system",
+        "Responsive e-commerce interface"
+      ],
+      "thumbnail": ""
     },
     {
       "title": "P.E.P.P.E.R.",
       "description": "A compassionate chatbot that delivers human-like responses, designed to alleviate loneliness among elderly individuals and patients experiencing social isolation",
-      "tech": ["Next.js", "Tailwind CSS", "Python"],
+      "tech": ["Next.js", "TypeScript", "React", "OpenAI API", "Tailwind CSS"],
       "colour": "#7952B3",
       "link": "https://pepper-phi.vercel.app/",
-      "source": "https://github.com/patel-aaryan/PEPPER"
+      "source": "https://github.com/patel-aaryan/PEPPER",
+      "features": [
+        "Human-like conversational responses",
+        "Designed for elderly users",
+        "Social isolation alleviation features",
+        "Compassionate interaction design",
+        "Patient-focused interface"
+      ],
+      "thumbnail": ""
     },
     {
       "title": "Spotisize",
       "description": "Web app that creatively visualizes users' Spotify data by categorizing and displaying their listening activity",
-      "tech": ["Next.js", "Tailwind CSS", "Spotify API"],
+      "tech": ["Next.js", "Spotify API", "OAuth 2.0", "D3.js", "Node.js"],
       "colour": "#FF616D",
       "link": "https://spotisize.vercel.app/",
-      "source": "https://github.com/patel-aaryan/SpotiSize"
+      "source": "https://github.com/patel-aaryan/SpotiSize",
+      "features": [
+        "Creative Spotify data visualization",
+        "Listening activity categorization",
+        "Personal music insights",
+        "Interactive data displays",
+        "Spotify API integration"
+      ],
+      "thumbnail": ""
     },
     {
       "title": "NoiseRebel",
       "description": "Automated soundboard for Discord servers and plays dynamics sounds in voice chat using event-based Discord APIs",
-      "tech": ["JavaScript", "Discord API"],
+      "tech": [
+        "JavaScript",
+        "Node.js",
+        "Discord API",
+        "FFmpeg",
+        "File System API"
+      ],
       "colour": "#185ADB",
       "link": "",
-      "source": "https://github.com/patel-aaryan/NoiseRebel"
+      "source": "https://github.com/patel-aaryan/NoiseRebel",
+      "features": [
+        "Automated Discord soundboard",
+        "Dynamic sound playback in voice chat",
+        "Event-based Discord API integration",
+        "Server-wide sound management",
+        "Real-time voice channel interaction"
+      ],
+      "thumbnail": ""
     },
     {
       "title": "Ambulert",
       "description": "Mobile app that notifies civilians of a nearby ambulance during emergencies, using the real-time locations of the civilian and the ambulance to enhance awareness and improve safety",
-      "tech": ["Flutter", "Dart", "Flask", "Python"],
+      "tech": [
+        "Flutter",
+        "Dart",
+        "Firebase",
+        "Flask",
+        "Python",
+        "Push Notifications"
+      ],
       "colour": "#1597BB",
       "link": "",
-      "source": "https://github.com/patel-aaryan/Ambulert"
+      "source": "https://github.com/patel-aaryan/Ambulert",
+      "features": [
+        "Real-time ambulance location tracking",
+        "Civilian notification system",
+        "Emergency awareness enhancement",
+        "Mobile app interface",
+        "Safety improvement features"
+      ],
+      "thumbnail": ""
     },
     {
       "title": "Foodar",
       "description": "Recommendation system that provides the top 3 restaurant recommendations based on location, helping university students make informed dietary choices",
-      "tech": ["Angular", "Python", "NumPy", "Pandas"],
+      "tech": [
+        "Angular",
+        "TypeScript",
+        "Bootstrap",
+        "Python",
+        "NumPy",
+        "Pandas"
+      ],
       "colour": "#F54748",
       "link": "",
-      "source": "https://github.com/patel-aaryan/Foodar"
+      "source": "https://github.com/patel-aaryan/Foodar",
+      "features": [
+        "Location-based restaurant recommendations",
+        "Top 3 recommendation system",
+        "University student focused",
+        "Informed dietary choice support",
+        "Data-driven suggestion engine"
+      ],
+      "thumbnail": ""
     }
   ]
 }
