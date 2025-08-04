@@ -23,7 +23,7 @@ export function EducationContent() {
   const education = portfolioData.education[0];
 
   return (
-    <div className="flex-1 lg:pl-8">
+    <div className="flex-1">
       <div className="space-y-12">
         {/* Overview Section */}
         <motion.section
@@ -46,7 +46,7 @@ export function EducationContent() {
                 style={{ backgroundColor: education.colour }}
               />
 
-              <div className="grid md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-4">
                   <div>
                     <h3 className="text-lg font-semibold">{education.name}</h3>

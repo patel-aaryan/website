@@ -90,20 +90,20 @@ export function HeroSection() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.6 }}
-              className="flex flex-wrap gap-4"
+              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
             >
               <Button
                 size="lg"
-                className="hover:scale-105 transition-transform"
+                className="hover:scale-105 transition-transform w-full sm:w-auto"
                 onClick={() => scrollToSection("recent-work-experience")}
               >
-                <Code className="h-4 w-4" />
+                <Code className="mr-2 h-4 w-4" />
                 My Experience
               </Button>
               <Button
                 variant="outline"
                 size="lg"
-                className="hover:scale-105 transition-transform"
+                className="hover:scale-105 transition-transform w-full sm:w-auto"
                 onClick={() => scrollToSection("contact")}
               >
                 <Email className="mr-2 h-4 w-4" />
@@ -113,7 +113,7 @@ export function HeroSection() {
                 asChild
                 variant="ghost"
                 size="lg"
-                className="hover:scale-105 transition-transform"
+                className="hover:scale-105 transition-transform w-full sm:w-auto"
               >
                 <Link href="/resume.pdf" target="_blank">
                   <Download className="mr-2 h-4 w-4" />
@@ -136,7 +136,7 @@ export function HeroSection() {
                 className="hover:scale-115"
               >
                 <Link href={portfolioData.socials.github} target="_blank">
-                  <GitHub className="h-12 w-12" />
+                  <GitHub className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12" />
                 </Link>
               </Button>
               <Button
@@ -146,7 +146,7 @@ export function HeroSection() {
                 className="hover:scale-115"
               >
                 <Link href={portfolioData.socials.linkedin} target="_blank">
-                  <LinkedIn className="h-12 w-12" />
+                  <LinkedIn className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12" />
                 </Link>
               </Button>
               <Button
@@ -156,7 +156,7 @@ export function HeroSection() {
                 className="hover:scale-115"
               >
                 <Link href={portfolioData.socials.email}>
-                  <Email className="h-12 w-12" />
+                  <Email className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12" />
                 </Link>
               </Button>
             </motion.div>
@@ -173,7 +173,7 @@ export function HeroSection() {
               <motion.div
                 whileHover={{ scale: 1.05 }}
                 transition={{ type: "spring", stiffness: 300 }}
-                className="relative w-80 h-80 sm:w-96 sm:h-96 overflow-hidden shadow-2xl"
+                className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 overflow-hidden shadow-2xl"
               >
                 <Image
                   src="/profile.png"

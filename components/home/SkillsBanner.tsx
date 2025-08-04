@@ -151,7 +151,7 @@ export function SkillsBanner() {
                       <h3 className="text-2xl font-bold">{category.title}</h3>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                       {category.skills.map((skill, skillIndex) => {
                         const iconPath = skillIcons[skill];
                         return (
@@ -168,10 +168,13 @@ export function SkillsBanner() {
                           >
                             <Badge
                               variant="secondary"
-                              className={`${category.color} hover:shadow-md transition-all duration-200 px-5 py-3 text-base font-medium flex items-center gap-4 w-full justify-start`}
+                              className={`${category.color} hover:shadow-md transition-all duration-200 px-3 sm:px-5 py-2 sm:py-3 text-sm sm:text-base font-medium flex items-center gap-2 sm:gap-4 w-full justify-start`}
                             >
                               {iconPath && (
-                                <SvgIcon src={iconPath} className="h-8 w-8" />
+                                <SvgIcon
+                                  src={iconPath}
+                                  className="h-6 w-6 sm:h-8 sm:w-8"
+                                />
                               )}
                               {skill}
                             </Badge>

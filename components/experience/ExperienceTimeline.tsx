@@ -10,7 +10,7 @@ export function ExperienceTimeline() {
   const experiences = portfolioData.experience;
 
   return (
-    <div className="flex-1 lg:pl-8">
+    <div className="flex-1">
       <div className="relative">
         {/* Timeline Line */}
         <motion.div

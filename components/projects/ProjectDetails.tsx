@@ -23,16 +23,16 @@ export function ProjectDetails({ project }: ProjectDetailsProps) {
     >
       <Card className="h-full">
         <CardHeader className="pb-4">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div className="flex items-center gap-3">
               <div
                 className="w-6 h-6 rounded-full"
                 style={{ backgroundColor: project.colour }}
               />
-              <h1 className="text-2xl font-bold">{project.title}</h1>
+              <h1 className="text-xl sm:text-2xl font-bold">{project.title}</h1>
             </div>
 
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {project.source && (
                 <Button
                   variant="outline"

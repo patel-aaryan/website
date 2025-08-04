@@ -72,7 +72,7 @@ export default function Footer() {
       className="bg-background/95 border-t border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60"
     >
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mx-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 md:mx-16 lg:mx-32">
           {/* Contact Info & Social Links */}
           <MotionDiv
             {...(mounted
@@ -165,7 +165,7 @@ export default function Footer() {
                   }
                 : {})}
             >
-              <Card className="border-border/20 bg-accent/30 hover:bg-accent/40 transition-colors w-3/4">
+              <Card className="border-border/20 bg-accent/30 hover:bg-accent/40 transition-colors w-full md:w-3/4">
                 <CardContent className="px-4 py-2">
                   <div className="flex items-center gap-3 mb-2">
                     <MotionDiv

@@ -28,7 +28,7 @@ export default function ProjectsPage() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 order-2 lg:order-1">
             <ProjectsSidebar
               projects={projects}
               selectedProject={selectedProject}
@@ -36,7 +36,7 @@ export default function ProjectsPage() {
             />
           </div>
 
-          <div className="lg:col-span-3">
+          <div className="lg:col-span-3 order-1 lg:order-2">
             <ProjectDetails project={selectedProject} />
           </div>
         </div>
