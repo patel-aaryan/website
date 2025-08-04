@@ -78,52 +78,6 @@ website/
 └── components.json      # shadcn/ui configuration
 ```
 
-## 🏃‍♂️ Getting Started
-
-### Prerequisites
-
-- Node.js 18+
-- npm
-
-### Installation
-
-1. **Clone the repository**
-
-   ```bash
-   git clone https://github.com/patel-aaryan/website.git
-   cd website
-   ```
-
-2. **Install dependencies**
-
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables**
-   Create a `.env.local` file in the root directory:
-
-   ```env
-   MAILGUN_API_KEY=your_mailgun_api_key
-   MAILGUN_DOMAIN=your_mailgun_domain
-   ```
-
-4. **Run the development server**
-
-   ```bash
-   npm run dev
-   ```
-
-5. **Open your browser**
-   Navigate to [http://localhost:3000](http://localhost:3000)
-
-### Available Scripts
-
-- `npm run dev` - Start development server with Turbopack
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
-
 ## 📝 Content Management
 
 The portfolio content is managed through the `data/portfolio.json` file, which includes:
