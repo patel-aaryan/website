@@ -38,12 +38,6 @@ Visit the live website: [https://www.aaryan-patel.com/](https://www.aaryan-patel
 - **Email Service**: Mailgun.js
 - **Contact API**: Next.js API routes
 
-### Development Tools
-
-- **Package Manager**: npm
-- **Linting**: ESLint with Next.js config
-- **Build Tool**: Next.js with Turbopack
-
 ## 📁 Project Structure
 
 ```
@@ -88,8 +82,6 @@ The portfolio content is managed through the `data/portfolio.json` file, which i
 - **Education** - University details, courses, clubs, milestones
 - **Experience** - Work history with descriptions and tech stacks
 - **Projects** - Featured and complete project listings
-
-To update content, simply modify the JSON file and redeploy.
 
 ## 🎨 Customization
 
