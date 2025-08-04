@@ -101,15 +101,13 @@ export function HeroSection() {
                 My Experience
               </Button>
               <Button
-                asChild
                 variant="outline"
                 size="lg"
                 className="hover:scale-105 transition-transform"
+                onClick={() => scrollToSection("contact")}
               >
-                <Link href="/contact">
-                  <Email className="mr-2 h-4 w-4" />
-                  Contact Me
-                </Link>
+                <Email className="mr-2 h-4 w-4" />
+                Contact Me
               </Button>
               <Button
                 asChild
