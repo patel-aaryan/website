@@ -166,31 +166,6 @@ The contact form uses:
 - Mailgun for email delivery
 - Next.js API routes for backend processing
 
-## 🚀 Deployment
-
-### Vercel (Recommended)
-
-1. Connect your GitHub repository to Vercel
-2. Set environment variables in Vercel dashboard
-3. Deploy automatically on push to main
-
-### Other Platforms
-
-The project can be deployed to any platform supporting Next.js:
-
-- Netlify
-- Railway
-- DigitalOcean App Platform
-
-## 🤝 Contributing
-
-While this is a personal portfolio, suggestions and improvements are welcome!
-
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
