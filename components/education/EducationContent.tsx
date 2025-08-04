@@ -1,7 +1,4 @@
-"use client";
-
 import { motion } from "framer-motion";
-import { useState } from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -16,7 +13,6 @@ import {
   CalendarToday,
   School,
   Code,
-  ExpandMore,
   Groups,
   EmojiEvents,
   Link as LinkIcon,
@@ -24,12 +20,7 @@ import {
 import portfolioData from "@/data/portfolio.json";
 
 export function EducationContent() {
-  const education = portfolioData.education[0]; // University of Waterloo
-  const [expandedCourse, setExpandedCourse] = useState<string | null>(null);
-
-  const toggleCourse = (courseCode: string) => {
-    setExpandedCourse(expandedCourse === courseCode ? null : courseCode);
-  };
+  const education = portfolioData.education[0];
 
   return (
     <div className="flex-1 lg:pl-8">
@@ -125,7 +116,7 @@ export function EducationContent() {
             </CardHeader>
             <CardContent>
               <Accordion type="single" collapsible className="w-full">
-                {education.courses.map((course, index) => (
+                {education.courses.map((course) => (
                   <AccordionItem key={course.code} value={course.code}>
                     <AccordionTrigger className="hover:no-underline">
                       <div className="flex items-center gap-4 text-left">
