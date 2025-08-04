@@ -67,7 +67,7 @@
   "education": [
     {
       "name": "University of Waterloo",
-      "date": "2022 - 2027",
+      "date": "Sep. 2022 - June 2027",
       "major": "Computer Science & Artificial Intelligence",
       "minor": "Minor in Economics",
       "location": "Waterloo, ON, Canada",
@@ -202,29 +202,29 @@
         {
           "title": "Data Science Club",
           "role": "VP Development",
-          "date": "2024 - 2025",
+          "date": "Sep. 2025 - Present",
           "desc": [
             "Developed QR code check-in system and admin portal for seamless event management and member tracking",
             "Built public calendar interface to visualize past and upcoming events with responsive frontend design",
             "Led the development of the custom exec application portal to streamline future applicant recruitment and evaluation processes",
-            "Spearheaded the overhaul of the backend server architecture into clean, organized layers to improve code readability for new developers",
+            "Spearheaded the overhaul of the server architecture into clean, organized layers to improve code readability for new developers",
             "Enhanced frontend responsiveness and established consistent design theme to reduce onboarding time for new members"
           ]
         },
         {
           "title": "Raas Warriors",
           "role": "Dancer",
-          "date": "2024 - 2025"
+          "date": "Sep. 2024 - Mar. 2025"
         },
         {
           "title": "HackTheNorth",
           "role": "Volunteer",
-          "date": "2024"
+          "date": "Sep. 2024"
         },
         {
           "title": "WATOnomous",
           "role": "Autonomous Software Division",
-          "date": "2024",
+          "date": "May 2024 - Aug. 2024",
           "desc": [
             "Learned ROS pub-sub architecture and messaging patterns for autonomous vehicle software communication",
             "Gained exposure to multi-modal sensor data streams from LiDAR, cameras, radar, and GPS through ROS topics",
@@ -234,7 +234,7 @@
         }
       ],
       "milestones": [
-        "Math National Scholarship",
+        "Mathematics National Scholarship",
         "President's Scholarship Of Distinction"
       ]
     }
