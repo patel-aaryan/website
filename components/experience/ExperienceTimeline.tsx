@@ -43,10 +43,6 @@ export function ExperienceTimeline() {
                           className="h-5 w-5"
                           style={{ color: experience.colour }}
                         />
-                        <div
-                          className="w-2 h-2 rounded-full sm:hidden"
-                          style={{ backgroundColor: experience.colour }}
-                        />
                       </div>
                       <h2 className="text-xl sm:text-2xl font-bold leading-tight">
                         {experience.title}
