@@ -10,8 +10,8 @@ export function ExperienceTimeline() {
   const experiences = portfolioData.experience;
 
   return (
-    <div className="flex-1">
-      <div className="relative">
+    <div className="w-full">
+      <div className="relative overflow-hidden">
         {/* Timeline Line */}
         <motion.div
           initial={{ scaleY: 0 }}
@@ -33,31 +33,33 @@ export function ExperienceTimeline() {
               className="relative pl-0 sm:pl-12"
             >
               {/* Experience Card */}
-              <Card className="hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur-sm border-2">
-                <CardContent className="p-6 sm:p-8">
+              <Card className="hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur-sm border-2 w-full">
+                <CardContent className="p-4 sm:p-6 lg:p-8">
                   {/* Header */}
                   <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
-                    <div className="space-y-2">
+                    <div className="space-y-2 min-w-0 flex-1">
                       <div className="flex items-center gap-2 mb-2">
                         <BusinessCenter
-                          className="h-5 w-5"
+                          className="h-5 w-5 flex-shrink-0"
                           style={{ color: experience.colour }}
                         />
                       </div>
-                      <h2 className="text-xl sm:text-2xl font-bold leading-tight">
+                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold leading-tight break-words">
                         {experience.title}
                       </h2>
-                      <p className="text-lg font-semibold text-primary">
+                      <p className="text-base sm:text-lg font-semibold text-primary break-words">
                         {experience.company}
                       </p>
                       <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1">
-                          <LocationOn className="h-4 w-4" />
-                          {experience.location}
+                        <div className="flex items-center gap-1 min-w-0">
+                          <LocationOn className="h-4 w-4 flex-shrink-0" />
+                          <span className="truncate">
+                            {experience.location}
+                          </span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <CalendarToday className="h-4 w-4" />
-                          {experience.date}
+                        <div className="flex items-center gap-1 min-w-0">
+                          <CalendarToday className="h-4 w-4 flex-shrink-0" />
+                          <span className="truncate">{experience.date}</span>
                         </div>
                       </div>
                     </div>
@@ -75,7 +77,7 @@ export function ExperienceTimeline() {
                       <h3 className="text-sm font-semibold text-muted-foreground mb-3">
                         Technologies Used
                       </h3>
-                      <div className="flex flex-wrap gap-2">
+                      <div className="flex flex-wrap gap-2 max-w-full">
                         {experience.tech.map((tech, techIndex) => (
                           <motion.div
                             key={tech}
@@ -87,10 +89,11 @@ export function ExperienceTimeline() {
                             }}
                             viewport={{}}
                             whileHover={{ scale: 1.05 }}
+                            className="min-w-0"
                           >
                             <Badge
                               variant="secondary"
-                              className="text-sm px-3 py-1 hover:bg-primary/10 transition-colors"
+                              className="text-xs sm:text-sm px-2 sm:px-3 py-1 hover:bg-primary/10 transition-colors break-words"
                             >
                               {tech}
                             </Badge>
@@ -125,7 +128,7 @@ export function ExperienceTimeline() {
                             className="w-2 h-2 rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform"
                             style={{ backgroundColor: experience.colour }}
                           />
-                          <p className="text-sm leading-relaxed text-muted-foreground group-hover:text-foreground transition-colors">
+                          <p className="text-sm leading-relaxed text-muted-foreground group-hover:text-foreground transition-colors break-words">
                             {desc}
                           </p>
                         </motion.div>
