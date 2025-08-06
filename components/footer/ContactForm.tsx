@@ -13,13 +13,22 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 
 const contactFormSchema = z.object({
-  name: z.string().min(2, "Name must be at least 2 characters"),
-  email: z.string().email("Please enter a valid email address"),
-  subject: z.string().min(3, "Subject must be at least 3 characters"),
+  name: z
+    .string()
+    .min(2, "Name must be at least 2 characters")
+    .max(25, "Name must be 25 characters or less"),
+  email: z
+    .string()
+    .email("Please enter a valid email address")
+    .max(50, "Email must be 50 characters or less"),
+  subject: z
+    .string()
+    .min(3, "Subject must be at least 3 characters")
+    .max(75, "Subject must be 75 characters or less"),
   message: z
     .string()
     .min(10, "Message must be at least 10 characters")
-    .max(1000, "Message must be 1000 characters or less"),
+    .max(400, "Message must be 400 characters or less"),
 });
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -114,6 +123,7 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
                   id="name"
                   type="text"
                   placeholder="Your full name"
+                  maxLength={25}
                   {...register("name")}
                   className={`focus:ring-2 focus:ring-primary/20 ${
                     errors.name ? "border-red-500" : ""
@@ -132,6 +142,7 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
                   id="email"
                   type="email"
                   placeholder="your.email@example.com"
+                  maxLength={50}
                   {...register("email")}
                   className={`focus:ring-2 focus:ring-primary/20 ${
                     errors.email ? "border-red-500" : ""
@@ -152,6 +163,7 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
                 id="subject"
                 type="text"
                 placeholder="What's this about?"
+                maxLength={75}
                 {...register("subject")}
                 className={`focus:ring-2 focus:ring-primary/20 ${
                   errors.subject ? "border-red-500" : ""
@@ -169,7 +181,7 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
               <Textarea
                 id="message"
                 placeholder="Tell me about your project or say hello..."
-                maxLength={1000}
+                maxLength={400}
                 {...register("message")}
                 className={`min-h-[120px] focus:ring-2 focus:ring-primary/20 ${
                   errors.message ? "border-red-500" : ""
@@ -185,12 +197,10 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
                 </div>
                 <p
                   className={`text-sm ${
-                    messageValue.length > 1000
-                      ? "text-red-500"
-                      : "text-gray-500"
+                    messageValue.length > 400 ? "text-red-500" : "text-gray-500"
                   }`}
                 >
-                  {messageValue.length}/1000
+                  {messageValue.length}/400
                 </p>
               </div>
             </div>
