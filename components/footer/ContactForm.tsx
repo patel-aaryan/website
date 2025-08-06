@@ -24,7 +24,7 @@ const contactFormSchema = z.object({
   subject: z
     .string()
     .min(3, "Subject must be at least 3 characters")
-    .max(75, "Subject must be 75 characters or less"),
+    .max(65, "Subject must be 65 characters or less"),
   message: z
     .string()
     .min(10, "Message must be at least 10 characters")
@@ -163,7 +163,7 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
                 id="subject"
                 type="text"
                 placeholder="What's this about?"
-                maxLength={75}
+                maxLength={65}
                 {...register("subject")}
                 className={`focus:ring-2 focus:ring-primary/20 ${
                   errors.subject ? "border-red-500" : ""
