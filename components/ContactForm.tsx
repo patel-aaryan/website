@@ -169,6 +169,7 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
               <Textarea
                 id="message"
                 placeholder="Tell me about your project or say hello..."
+                maxLength={1000}
                 {...register("message")}
                 className={`min-h-[120px] focus:ring-2 focus:ring-primary/20 ${
                   errors.message ? "border-red-500" : ""
