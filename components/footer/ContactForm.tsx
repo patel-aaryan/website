@@ -5,11 +5,7 @@ import { motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import {
-  Send,
-  CheckCircle,
-  Error,
-} from "@mui/icons-material";
+import { Send, CheckCircle, Error } from "@mui/icons-material";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -20,7 +16,10 @@ const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
   email: z.string().email("Please enter a valid email address"),
   subject: z.string().min(3, "Subject must be at least 3 characters"),
-  message: z.string().min(10, "Message must be at least 10 characters"),
+  message: z
+    .string()
+    .min(10, "Message must be at least 10 characters")
+    .max(1000, "Message must be 1000 characters or less"),
 });
 
 type ContactFormData = z.infer<typeof contactFormSchema>;
@@ -39,9 +38,12 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
+    watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
   });
+
+  const messageValue = watch("message") || "";
 
   // Auto-clear status messages after 5 seconds
   useEffect(() => {
@@ -98,8 +100,8 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
             Get In Touch
           </CardTitle>
           <p className="text-muted-foreground">
-            Have a project in mind or want to collaborate? I&apos;d love
-            to hear from you!
+            Have a project in mind or want to collaborate? I&apos;d love to hear
+            from you!
           </p>
         </CardHeader>
         <CardContent>
@@ -172,11 +174,24 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
                   errors.message ? "border-red-500" : ""
                 }`}
               />
-              {errors.message && (
-                <p className="text-sm text-red-500 mt-1">
-                  {errors.message.message}
+              <div className="flex justify-between items-center">
+                <div>
+                  {errors.message && (
+                    <p className="text-sm text-red-500">
+                      {errors.message.message}
+                    </p>
+                  )}
+                </div>
+                <p
+                  className={`text-sm ${
+                    messageValue.length > 1000
+                      ? "text-red-500"
+                      : "text-gray-500"
+                  }`}
+                >
+                  {messageValue.length}/1000
                 </p>
-              )}
+              </div>
             </div>
 
             {/* Status Messages */}
@@ -192,8 +207,7 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
               >
                 <CheckCircle className="h-5 w-5" />
                 <span className="text-sm font-medium">
-                  Message sent successfully! I&apos;ll get back to you
-                  soon.
+                  Message sent successfully! I&apos;ll get back to you soon.
                 </span>
               </MotionDiv>
             )}
@@ -210,8 +224,7 @@ export default function ContactForm({ mounted = true }: ContactFormProps) {
               >
                 <Error className="h-5 w-5" />
                 <span className="text-sm font-medium">
-                  Failed to send message. Please try again or email me
-                  directly.
+                  Failed to send message. Please try again or email me directly.
                 </span>
               </MotionDiv>
             )}
