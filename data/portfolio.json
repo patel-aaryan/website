@@ -124,6 +124,19 @@
           "link": "https://uwflow.com/course/cs370"
         },
         {
+          "code": "CS 246E",
+          "name": "Object-Oriented Software Development (Enriched)",
+          "desc": [
+            "Enriched introduction to object-oriented programming and tools for software development",
+            "Covers designing, coding, debugging, testing, and documenting medium-sized programs",
+            "Focuses on reading specifications and designing software to implement them",
+            "Involves selecting appropriate data structures and control structures",
+            "Emphasizes writing reusable code and reusing existing code",
+            "Introduces basic performance issues, debuggers, and test suites"
+          ],
+          "link": "https://uwflow.com/course/cs246e"
+        },
+        {
           "code": "CS 251",
           "name": "Computer Organization and Design",
           "desc": [
@@ -157,19 +170,6 @@
             "Covers specific topics like priority queues, sorting, dictionaries, and data structures for text processing"
           ],
           "link": "https://uwflow.com/course/cs240"
-        },
-        {
-          "code": "CS 246E",
-          "name": "Object-Oriented Software Development (Enriched)",
-          "desc": [
-            "Enriched introduction to object-oriented programming and tools for software development",
-            "Covers designing, coding, debugging, testing, and documenting medium-sized programs",
-            "Focuses on reading specifications and designing software to implement them",
-            "Involves selecting appropriate data structures and control structures",
-            "Emphasizes writing reusable code and reusing existing code",
-            "Introduces basic performance issues, debuggers, and test suites"
-          ],
-          "link": "https://uwflow.com/course/cs246e"
         },
         {
           "code": "CS 136",
