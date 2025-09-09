@@ -185,10 +185,13 @@ export default function Footer() {
                     <h4 className="font-semibold text-sm">Currently</h4>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Building scalable backend APIs at{" "}
-                    <span className="font-medium text-foreground">Scrawlr</span>{" "}
-                    and exploring AI-driven code generation. Always learning new
-                    ways to make systems faster and more reliable.
+                    Modernizing deployment infrastructure at{" "}
+                    <span className="font-medium text-foreground">
+                      RBC Capital Markets
+                    </span>{" "}
+                    as a DevOps Engineer Intern. Focusing on CI/CD pipelines,
+                    containerization, and scalable deployment solutions to
+                    support trading systems.
                   </p>
                 </CardContent>
               </Card>
