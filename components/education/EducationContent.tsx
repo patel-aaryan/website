@@ -94,6 +94,82 @@ export function EducationContent() {
           </Card>
         </motion.section>
 
+        {/* Activities Section */}
+        <motion.section
+          id="activities"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ margin: "-10%" }}
+        >
+          <Card className="hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur-sm border-2">
+            <CardHeader>
+              <div className="flex items-center gap-3 mb-2">
+                <Groups className="h-6 w-6 text-primary" />
+                <CardTitle className="text-2xl">
+                  Extracurricular Activities
+                </CardTitle>
+              </div>
+              <p className="text-sm text-muted-foreground">
+                Campus involvement and leadership experiences
+              </p>
+            </CardHeader>
+            <CardContent>
+              <div className="grid gap-6">
+                {education.clubs.map((club, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    viewport={{ margin: "-10%" }}
+                    className="p-4 rounded-lg border hover:shadow-md transition-all duration-200"
+                  >
+                    <div className="flex items-center justify-between mb-3">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="w-2 h-8 rounded-full"
+                          style={{ backgroundColor: education.colour }}
+                        />
+                        <div>
+                          <h3 className="font-semibold text-lg">
+                            {club.title}
+                          </h3>
+                          <p className="text-primary font-medium">
+                            {club.role}
+                          </p>
+                        </div>
+                      </div>
+                      <Badge variant="secondary" className="text-xs">
+                        {club.date}
+                      </Badge>
+                    </div>
+
+                    {club.desc && club.desc.length > 0 && (
+                      <div className="space-y-2">
+                        {club.desc.map((description, descIndex) => (
+                          <div
+                            key={descIndex}
+                            className="flex items-start gap-3"
+                          >
+                            <div
+                              className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
+                              style={{ backgroundColor: education.colour }}
+                            />
+                            <p className="text-sm leading-relaxed text-muted-foreground">
+                              {description}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </motion.div>
+                ))}
+              </div>
+            </CardContent>
+          </Card>
+        </motion.section>
+
         {/* Courses Section */}
         <motion.section
           id="courses"
@@ -197,82 +273,6 @@ export function EducationContent() {
                   </AccordionItem>
                 ))}
               </Accordion>
-            </CardContent>
-          </Card>
-        </motion.section>
-
-        {/* Activities Section */}
-        <motion.section
-          id="activities"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ margin: "-10%" }}
-        >
-          <Card className="hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur-sm border-2">
-            <CardHeader>
-              <div className="flex items-center gap-3 mb-2">
-                <Groups className="h-6 w-6 text-primary" />
-                <CardTitle className="text-2xl">
-                  Extracurricular Activities
-                </CardTitle>
-              </div>
-              <p className="text-sm text-muted-foreground">
-                Campus involvement and leadership experiences
-              </p>
-            </CardHeader>
-            <CardContent>
-              <div className="grid gap-6">
-                {education.clubs.map((club, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.1 }}
-                    viewport={{ margin: "-10%" }}
-                    className="p-4 rounded-lg border hover:shadow-md transition-all duration-200"
-                  >
-                    <div className="flex items-center justify-between mb-3">
-                      <div className="flex items-center gap-3">
-                        <div
-                          className="w-2 h-8 rounded-full"
-                          style={{ backgroundColor: education.colour }}
-                        />
-                        <div>
-                          <h3 className="font-semibold text-lg">
-                            {club.title}
-                          </h3>
-                          <p className="text-primary font-medium">
-                            {club.role}
-                          </p>
-                        </div>
-                      </div>
-                      <Badge variant="secondary" className="text-xs">
-                        {club.date}
-                      </Badge>
-                    </div>
-
-                    {club.desc && club.desc.length > 0 && (
-                      <div className="space-y-2">
-                        {club.desc.map((description, descIndex) => (
-                          <div
-                            key={descIndex}
-                            className="flex items-start gap-3"
-                          >
-                            <div
-                              className="w-1.5 h-1.5 rounded-full mt-2 flex-shrink-0"
-                              style={{ backgroundColor: education.colour }}
-                            />
-                            <p className="text-sm leading-relaxed text-muted-foreground">
-                              {description}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-                  </motion.div>
-                ))}
-              </div>
             </CardContent>
           </Card>
         </motion.section>
