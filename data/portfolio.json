@@ -74,78 +74,16 @@
       "colour": "#EAAB00",
       "courses": [
         {
-          "code": "CS 135",
-          "name": "Designing Functional Programs",
+          "code": "CS 350",
+          "name": "Operating Systems",
           "desc": [
-            "Introduction to the fundamentals of computer science through functional programming, emphasizing elementary programming patterns",
-            "Exploration of syntax, semantics, and tracing program execution using substitution methods",
-            "Coverage of software development practices, including design, testing, and documentation",
-            "Study of both linear and nonlinear data structures, with a focus on recursive data definitions",
-            "Examination of key principles like abstraction and encapsulation",
-            "Analysis of different types of recursion, specifically generative and structural",
-            "Contextualization within the historical evolution of functional programming"
+            "Process and Thread Management - Understanding processes, threads, system calls, context switching, and different types of scheduling algorithms for managing processor time",
+            "Concurrency and Synchronization - Principles of concurrency, mutual exclusion, semaphores, deadlock detection and prevention mechanisms",
+            "Memory Management Systems - Virtual addressing, address translation, memory management techniques including partitioning, segmentation, paging, and caching strategies",
+            "Device and File System Management - Physical device properties, device control, buffering, disk scheduling, file naming, space allocation, and file system implementation strategies",
+            "Interprocess Communication - Message passing, pipes, sockets, signals, shared memory, and other communication mechanisms between processes"
           ],
-          "link": "https://uwflow.com/course/cs135"
-        },
-        {
-          "code": "CS 136",
-          "name": "Elementary Algorithm Design and Data Abstraction",
-          "desc": [
-            "Builds on techniques and patterns from CS 135, transitioning to imperative programming",
-            "Introduces design and analysis of algorithms, information management, and implementation techniques",
-            "Covers iterative and recursive sorting algorithms",
-            "Discusses data structures like lists, stacks, queues, and trees",
-            "Focuses on abstract data types and their implementations"
-          ],
-          "link": "https://uwflow.com/course/cs136"
-        },
-        {
-          "code": "CS 246E",
-          "name": "Object-Oriented Software Development (Enriched)",
-          "desc": [
-            "Enriched introduction to object-oriented programming and tools for software development",
-            "Covers designing, coding, debugging, testing, and documenting medium-sized programs",
-            "Focuses on reading specifications and designing software to implement them",
-            "Involves selecting appropriate data structures and control structures",
-            "Emphasizes writing reusable code and reusing existing code",
-            "Introduces basic performance issues, debuggers, and test suites"
-          ],
-          "link": "https://uwflow.com/course/cs246e"
-        },
-        {
-          "code": "CS 240",
-          "name": "Data Structures and Data Management",
-          "desc": [
-            "Introduction to widely used and effective methods of data organization",
-            "Focuses on data structures, their algorithms, and algorithm performance",
-            "Covers specific topics like priority queues, sorting, dictionaries, and data structures for text processing"
-          ],
-          "link": "https://uwflow.com/course/cs240"
-        },
-        {
-          "code": "CS 241",
-          "name": "Foundations of Sequential Programs (Compilers)",
-          "desc": [
-            "Explores the relationship between high-level languages and the underlying computer architecture",
-            "Covers basic machine architecture and assemblers",
-            "Includes specification and translation of programming languages",
-            "Discusses linkers, loaders, and block-structured languages",
-            "Examines parameter passing mechanisms and comparison of programming languages"
-          ],
-          "link": "https://uwflow.com/course/cs241"
-        },
-        {
-          "code": "CS 251",
-          "name": "Computer Organization and Design",
-          "desc": [
-            "Overview of computer organization and performance",
-            "Covers basics of digital logic design",
-            "Discusses combinational and sequential elements",
-            "Explores data representation and manipulation",
-            "Introduces basics of processor design and pipelining",
-            "Examines memory hierarchies and multiprocessors"
-          ],
-          "link": "https://uwflow.com/course/cs251"
+          "link": "https://uwflow.com/course/cs350"
         },
         {
           "code": "CS 341",
@@ -158,18 +96,6 @@
             "Practical Problem Solving - Application of algorithmic techniques to commonly occurring problems in practice with implementation experience and related programming challenges"
           ],
           "link": "https://uwflow.com/course/cs341"
-        },
-        {
-          "code": "CS 350",
-          "name": "Operating Systems",
-          "desc": [
-            "Process and Thread Management - Understanding processes, threads, system calls, context switching, and different types of scheduling algorithms for managing processor time",
-            "Concurrency and Synchronization - Principles of concurrency, mutual exclusion, semaphores, deadlock detection and prevention mechanisms",
-            "Memory Management Systems - Virtual addressing, address translation, memory management techniques including partitioning, segmentation, paging, and caching strategies",
-            "Device and File System Management - Physical device properties, device control, buffering, disk scheduling, file naming, space allocation, and file system implementation strategies",
-            "Interprocess Communication - Message passing, pipes, sockets, signals, shared memory, and other communication mechanisms between processes"
-          ],
-          "link": "https://uwflow.com/course/cs350"
         },
         {
           "code": "CS 348",
@@ -196,6 +122,80 @@
             "Scientific Computing Applications - Practical implementation using MATLAB, vectorization techniques, and real-world examples from engineering, graphics, and financial computing"
           ],
           "link": "https://uwflow.com/course/cs370"
+        },
+        {
+          "code": "CS 251",
+          "name": "Computer Organization and Design",
+          "desc": [
+            "Overview of computer organization and performance",
+            "Covers basics of digital logic design",
+            "Discusses combinational and sequential elements",
+            "Explores data representation and manipulation",
+            "Introduces basics of processor design and pipelining",
+            "Examines memory hierarchies and multiprocessors"
+          ],
+          "link": "https://uwflow.com/course/cs251"
+        },
+        {
+          "code": "CS 241",
+          "name": "Foundations of Sequential Programs (Compilers)",
+          "desc": [
+            "Explores the relationship between high-level languages and the underlying computer architecture",
+            "Covers basic machine architecture and assemblers",
+            "Includes specification and translation of programming languages",
+            "Discusses linkers, loaders, and block-structured languages",
+            "Examines parameter passing mechanisms and comparison of programming languages"
+          ],
+          "link": "https://uwflow.com/course/cs241"
+        },
+        {
+          "code": "CS 240",
+          "name": "Data Structures and Data Management",
+          "desc": [
+            "Introduction to widely used and effective methods of data organization",
+            "Focuses on data structures, their algorithms, and algorithm performance",
+            "Covers specific topics like priority queues, sorting, dictionaries, and data structures for text processing"
+          ],
+          "link": "https://uwflow.com/course/cs240"
+        },
+        {
+          "code": "CS 246E",
+          "name": "Object-Oriented Software Development (Enriched)",
+          "desc": [
+            "Enriched introduction to object-oriented programming and tools for software development",
+            "Covers designing, coding, debugging, testing, and documenting medium-sized programs",
+            "Focuses on reading specifications and designing software to implement them",
+            "Involves selecting appropriate data structures and control structures",
+            "Emphasizes writing reusable code and reusing existing code",
+            "Introduces basic performance issues, debuggers, and test suites"
+          ],
+          "link": "https://uwflow.com/course/cs246e"
+        },
+        {
+          "code": "CS 136",
+          "name": "Elementary Algorithm Design and Data Abstraction",
+          "desc": [
+            "Builds on techniques and patterns from CS 135, transitioning to imperative programming",
+            "Introduces design and analysis of algorithms, information management, and implementation techniques",
+            "Covers iterative and recursive sorting algorithms",
+            "Discusses data structures like lists, stacks, queues, and trees",
+            "Focuses on abstract data types and their implementations"
+          ],
+          "link": "https://uwflow.com/course/cs136"
+        },
+        {
+          "code": "CS 135",
+          "name": "Designing Functional Programs",
+          "desc": [
+            "Introduction to the fundamentals of computer science through functional programming, emphasizing elementary programming patterns",
+            "Exploration of syntax, semantics, and tracing program execution using substitution methods",
+            "Coverage of software development practices, including design, testing, and documentation",
+            "Study of both linear and nonlinear data structures, with a focus on recursive data definitions",
+            "Examination of key principles like abstraction and encapsulation",
+            "Analysis of different types of recursion, specifically generative and structural",
+            "Contextualization within the historical evolution of functional programming"
+          ],
+          "link": "https://uwflow.com/course/cs135"
         }
       ],
       "clubs": [
@@ -259,7 +259,7 @@
       "company": "RBC Capital Markets",
       "location": "Toronto, ON, Canada",
       "description": [
-        "Developed full-stack trading analytics platform using React, Next.js, Kuberentes, and MongoDB, leveraging AI-driven trade reports enhance market predictions and decision-making for traders",
+        "Developed full-stack trading analytics platform using React, Next.js, Kubernetes, and MongoDB, leveraging AI-driven trade reports enhance market predictions and decision-making for traders",
         "Utilized Redux for state management and React Query for API integration and caching, reducing API call latency by 40% and ensuring real-time updates for datasets exceeding 20K rows",
         "Introduced interactive Liquidity Matrix feature to analyzes & visualizes FX market liquidity across 24 trading hours, providing actionable insights with an interactive and concise interface to improve trading decisions",
         "Leveraged Highcharts, AG Grid, and React Virtualized to improve index analytics performance by 35% with dynamic visualizations & auto-complete filtering, delivering a seamless user experience"
