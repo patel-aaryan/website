@@ -313,7 +313,7 @@
   ],
   "featuredProjects": [
     {
-      "title": "G.R.A.C.E. (Coming Soon)",
+      "title": "G.R.A.C.E.",
       "description": "An AI-powered social companion that engages isolated users through lifelike face-to-face conversations with real-time voice-to-avatar interactions. Features lip-synced 3D avatars and a comprehensive caregiver dashboard with conversation analytics.",
       "tech": ["Next.js", "FastAPI", "Pipecat", "Deepgram"],
       "colour": "#7952B3",
