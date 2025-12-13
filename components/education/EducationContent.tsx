@@ -53,9 +53,6 @@ export function EducationContent() {
                     <p className="text-primary font-medium">
                       {education.major}
                     </p>
-                    <p className="text-sm text-muted-foreground">
-                      {education.minor}
-                    </p>
                   </div>
 
                   <div className="space-y-2">

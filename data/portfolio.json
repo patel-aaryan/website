@@ -67,7 +67,6 @@
       "name": "University of Waterloo",
       "date": "Sep. 2022 - June 2027",
       "major": "Computer Science & Artificial Intelligence",
-      "minor": "Minor in Economics",
       "location": "Waterloo, ON, Canada",
       "colour": "#EAAB00",
       "courses": [
@@ -239,6 +238,20 @@
   ],
   "experience": [
     {
+      "title": "DevOps Engineer Intern",
+      "company": "RBC Capital Markets",
+      "location": "Toronto, ON, Canada",
+      "description": [
+        "Engineered a multi-cloud deployment architecture for distributed app across Azure and AWS clusters by using GitHub Actions pipelines and Helm charts to orchestrate the build and release of 3 Dockerized microservices",
+        "Accelerated container security scanning speeds by over 77% for Capital Markets teams by migrating legacy scanning protocols to Aqua SaaS Cloud, significantly reducing Jenkins CI/CD pipeline latency",
+        "Enabled verification of Docker image signatures for an application by provisioning Virtual Machines with custom CA bundles, ensuring only trusted code runs in production"
+      ],
+      "date": "Sep. 2025 - Dec. 2025",
+      "colour": "#005DAA",
+      "icon": "",
+      "tech": ["GitHub Actions", "Jenkins", "Helm", "Docker", "Aqua"]
+    },
+    {
       "title": "Backend/API Developer",
       "company": "Scrawlr",
       "location": "Vancouver, BC, Canada",
@@ -363,7 +376,28 @@
   ],
   "projects": [
     {
-      "title": "G.R.A.C.E. (Coming Soon)",
+      "title": "UW Data Science Club Website",
+      "description": "Monorepo for theofficial website for the UW Data Science Club.",
+      "tech": {
+        "Frontend": ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn"],
+        "Backend": ["Supabase", "PostgreSQL"],
+        "Developer Tools": ["Vercel", "GitHub Actions", "Infisical"]
+      },
+      "mainTech": ["Next.js", "Supabase", "PostgreSQL"],
+      "colour": "#3B82F6",
+      "link": "https://www.uwdatascience.ca/",
+      "source": "https://github.com/uw-datasci/uwdsc-website-v3",
+      "features": [
+        "Led team of 8+ developers across stack, enforcing CI rules and coding standards to ensure high code quality",
+        "Architected CI/CD with quality gates, centralized secret management, and agentic pipeline for docs syncing",
+        "Spearheaded adoption of monorepo architecture to unify shared UI, enforce consistency, and centralize CI/CD",
+        "Engineered a normalized, indexed PostgreSQL database supporting 500+ members and 25+ events",
+        "Redesigned API architecture with layered structure for improved modularity, maintainability, and scalability"
+      ],
+      "thumbnail": ""
+    },
+    {
+      "title": "G.R.A.C.E.",
       "description": "An AI-powered social companion that engages isolated users through lifelike face-to-face conversations with real-time voice-to-avatar interactions. Features lip-synced 3D avatars and a comprehensive caregiver dashboard with conversation analytics.",
       "tech": {
         "Frontend": [
