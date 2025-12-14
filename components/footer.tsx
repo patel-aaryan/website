@@ -185,13 +185,14 @@ export default function Footer() {
                     <h4 className="font-semibold text-sm">Currently</h4>
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">
-                    Modernizing deployment infrastructure at{" "}
+                    Back in school and taking courses on{" "}
                     <span className="font-medium text-foreground">
-                      RBC Capital Markets
-                    </span>{" "}
-                    as a DevOps Engineer Intern. Focusing on CI/CD pipelines,
-                    containerization, and scalable deployment solutions to
-                    support trading systems.
+                      distributed systems, networks, software architecture
+                    </span>
+                    {". "}
+                    Deep diving into computer networks, systems design, and
+                    building scalable, high-performance distributed
+                    applications.
                   </p>
                 </CardContent>
               </Card>
