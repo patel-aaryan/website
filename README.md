@@ -9,7 +9,7 @@ A modern, responsive portfolio website showcasing my education, work experience,
 
 ## 🚀 Live Demo
 
-Visit the live website: [https://www.aaryan-patel.com/](https://www.aaryan-patel.com/)
+Visit the live website: [https://www.aaryan-patel.com](https://www.aaryan-patel.com/)
 
 ## ✨ Features
 
