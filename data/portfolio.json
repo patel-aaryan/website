@@ -19,18 +19,9 @@
     "instagram": "https://www.instagram.com/aaryan.pat3l/",
     "email": "mailto:a52patel@uwaterloo.ca"
   },
-  "aboutMe": "I build systems that scale. Fluent in C++, Python, and JavaScript, I'm fascinated by distributed architectures, high-performance computing, and AI systems. From optimizing memory management and concurrent processing to designing fault-tolerant distributed systems and training models at scale, I live for the challenge of making complex systems run faster and more reliably. I thrive on solving problems that better the lives of others.",
+  "aboutMe": "CS student who really loves building software as much as I love MMA. I spend most of my free time working on projects and tinkering with my homelab, wehther it's full-stack apps, backend services, self-hosted tools, whatever looks interesting. I like picking up new tech and seeing how far I can push an idea.",
   "skills": {
-    "languages": [
-      "C++",
-      "Python",
-      "SQL",
-      "C#",
-      "TypeScript",
-      "Java",
-      "HTML",
-      "CSS"
-    ],
+    "languages": ["C++", "Python", "SQL", "C#", "TypeScript", "Java", "HTML", "CSS"],
     "frontend": [
       "React",
       "Angular",
@@ -377,7 +368,7 @@
   "projects": [
     {
       "title": "UW Data Science Club Website",
-      "description": "Monorepo for theofficial website for the UW Data Science Club.",
+      "description": "Monorepo for the UW Data Science Club's official website.",
       "tech": {
         "Frontend": ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn"],
         "Backend": ["Supabase", "PostgreSQL"],
@@ -400,13 +391,7 @@
       "title": "G.R.A.C.E.",
       "description": "An AI-powered social companion that engages isolated users through lifelike face-to-face conversations with real-time voice-to-avatar interactions. Features lip-synced 3D avatars and a comprehensive caregiver dashboard with conversation analytics.",
       "tech": {
-        "Frontend": [
-          "Next.js",
-          "TypeScript",
-          "Tailwind CSS",
-          "Shadcn",
-          "Redux"
-        ],
+        "Frontend": ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn", "Redux"],
         "Backend": ["FastAPI", "Python", "Supabase", "Redis", "PostgreSQL"],
         "AI/ML & Data Science": ["Pipecat", "Deepgram", "Cartesia", "Gemini"]
       },
