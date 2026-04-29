@@ -1,2 +1,2 @@
-export { EducationSidebar } from "./EducationSidebar";
-export { EducationContent } from "./EducationContent";
+export * from "./EducationSidebar";
+export * from "./EducationContent";

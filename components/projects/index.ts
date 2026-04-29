@@ -1,2 +1,3 @@
-export { ProjectsSidebar } from "./ProjectsSidebar";
-export { ProjectDetails } from "./ProjectDetails";
+export * from "./ProjectsSidebar";
+export * from "./ProjectDetails";
+export * from "./ProjectsPartnerCta";

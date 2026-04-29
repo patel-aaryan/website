@@ -12,9 +12,7 @@ const SMALL_PROJECT_INDICES = [4, 5, 6, 7];
 
 export function FeaturedProjects() {
   const [main, side, medium] = portfolioData.featuredProjects;
-  const smallProjects = SMALL_PROJECT_INDICES.map(
-    (i) => portfolioData.projects[i]
-  );
+  const smallProjects = SMALL_PROJECT_INDICES.map((i) => portfolioData.projects[i]);
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8">
@@ -86,7 +84,11 @@ export function FeaturedProjects() {
 
                 <div className="flex flex-wrap gap-2">
                   {main.tech.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="text-xs uppercase font-mono">
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="text-xs uppercase font-mono"
+                    >
                       {tech}
                     </Badge>
                   ))}
@@ -149,7 +151,11 @@ export function FeaturedProjects() {
 
                 <div className="flex flex-wrap gap-2">
                   {side.tech.map((tech) => (
-                    <Badge key={tech} variant="outline" className="text-[10px] uppercase font-mono">
+                    <Badge
+                      key={tech}
+                      variant="outline"
+                      className="text-[10px] uppercase font-mono"
+                    >
                       {tech}
                     </Badge>
                   ))}
@@ -158,7 +164,9 @@ export function FeaturedProjects() {
                 <div className="space-y-2 mt-auto">
                   <div className="flex items-center justify-between text-xs">
                     <span className="text-muted-foreground">Key Features</span>
-                    <span className="text-primary font-mono">{side.features.length} modules</span>
+                    <span className="text-primary font-mono">
+                      {side.features.length} modules
+                    </span>
                   </div>
                   <div className="h-1 bg-muted rounded-full overflow-hidden">
                     <div
@@ -170,7 +178,12 @@ export function FeaturedProjects() {
 
                 <div className="flex gap-2 pt-2">
                   {side.source && (
-                    <Button asChild variant="ghost" size="sm" className="text-xs text-primary px-0 hover:bg-transparent hover:underline">
+                    <Button
+                      asChild
+                      variant="ghost"
+                      size="sm"
+                      className="text-xs text-primary px-0 hover:bg-transparent hover:underline"
+                    >
                       <Link href={side.source} target="_blank">
                         Explore Source
                         <ChevronRight className="h-3 w-3 ml-1" />
@@ -178,7 +191,12 @@ export function FeaturedProjects() {
                     </Button>
                   )}
                   {side.link && (
-                    <Button asChild variant="ghost" size="sm" className="text-xs text-muted-foreground px-0 hover:bg-transparent hover:text-foreground">
+                    <Button
+                      asChild
+                      variant="ghost"
+                      size="sm"
+                      className="text-xs text-muted-foreground px-0 hover:bg-transparent hover:text-foreground"
+                    >
                       <Link href={side.link} target="_blank">
                         Live Demo
                         <OpenInNew className="h-3 w-3 ml-1" />
@@ -235,7 +253,11 @@ export function FeaturedProjects() {
 
                 <div className="flex flex-wrap gap-2">
                   {medium.tech.map((tech) => (
-                    <Badge key={tech} variant="secondary" className="text-[10px] uppercase font-mono">
+                    <Badge
+                      key={tech}
+                      variant="secondary"
+                      className="text-[10px] uppercase font-mono"
+                    >
                       {tech}
                     </Badge>
                   ))}
@@ -272,7 +294,7 @@ export function FeaturedProjects() {
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.05 }}
               >
                 <Card className="h-full group cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_20px_hsl(var(--primary)/0.08)] relative overflow-hidden">
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
+                  <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
                   <CardContent className="p-6 flex flex-col gap-3 h-full">
                     <h4 className="font-bold text-sm">{project.title}</h4>
                     <p className="text-[12px] text-muted-foreground leading-relaxed flex-1 line-clamp-3">

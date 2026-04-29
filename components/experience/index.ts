@@ -1,2 +1,2 @@
-export { ExperienceSidebar } from "./ExperienceSidebar";
-export { ExperienceTimeline } from "./ExperienceTimeline";
+export * from "./ExperienceSidebar";
+export * from "./ExperienceTimeline";

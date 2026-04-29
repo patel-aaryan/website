@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { ProjectsSidebar } from "@/components/projects/ProjectsSidebar";
 import { ProjectDetails } from "@/components/projects/ProjectDetails";
+import { ProjectsPartnerCta } from "@/components/projects/ProjectsPartnerCta";
+import { ProjectsSidebar } from "@/components/projects/ProjectsSidebar";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -87,6 +88,8 @@ export default function ProjectsPage() {
             <ProjectDetails project={selectedProject} />
           </div>
         </div>
+
+        <ProjectsPartnerCta className="mt-10" />
       </div>
     </div>
   );
