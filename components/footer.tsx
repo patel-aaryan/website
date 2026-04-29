@@ -26,21 +26,26 @@ export default function Footer() {
       icon: GitHub,
       href: portfolioData.socials.github,
       label: "GitHub",
+      iconHoverClassName:
+        "group-hover:text-[#181717] dark:group-hover:text-white",
     },
     {
       icon: LinkedIn,
       href: portfolioData.socials.linkedin,
       label: "LinkedIn",
+      iconHoverClassName: "group-hover:text-[#0A66C2]",
     },
     {
       icon: Instagram,
       href: portfolioData.socials.instagram,
       label: "Instagram",
+      iconHoverClassName: "group-hover:text-[#E1306C]",
     },
     {
       icon: Email,
       href: portfolioData.socials.email,
       label: "Email",
+      iconHoverClassName: "group-hover:text-[#EA4335]",
     },
   ];
 
@@ -133,7 +138,9 @@ export default function Footer() {
                       className="p-3 rounded-lg bg-accent/50 hover:bg-accent border border-border/20 hover:border-border/40 transition-all duration-200 group"
                       aria-label={social.label}
                     >
-                      <social.icon className="h-6 w-6 text-muted-foreground group-hover:text-primary transition-colors" />
+                      <social.icon
+                        className={`h-6 w-6 text-muted-foreground transition-colors duration-200 ${social.iconHoverClassName}`}
+                      />
                     </MotionA>
                   ))}
                 </div>

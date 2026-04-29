@@ -34,9 +34,7 @@ export function QuickHighlights() {
                 <Work className="h-6 w-6 text-[#005DAA]" />
               </div>
               <h3 className="text-xl font-semibold mb-2">1.5+ Years</h3>
-              <p className="text-muted-foreground">
-                Software Engineering experience in
-              </p>
+              <p className="text-muted-foreground">Software Engineering experience in</p>
               <p className="text-sm text-muted-foreground">
                 Scrawlr &bull; RBC &bull; CGI &bull; JANA
               </p>
@@ -53,12 +51,8 @@ export function QuickHighlights() {
                 <SportsMma className="h-6 w-6 text-green-500" />
               </div>
               <h3 className="text-xl font-semibold mb-2">Always Active</h3>
-              <p className="text-muted-foreground">
-                Boxing &bull; Muay Thai &bull; BJJ
-              </p>
-              <p className="text-sm text-muted-foreground">
-                Soccer &bull; Volleyball
-              </p>
+              <p className="text-muted-foreground">Boxing &bull; Muay Thai &bull; BJJ</p>
+              <p className="text-sm text-muted-foreground">Soccer &bull; Volleyball</p>
             </CardContent>
           </Card>
         </motion.div>

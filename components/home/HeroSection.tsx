@@ -14,7 +14,6 @@ type SocialIconLinkProps = {
   label: string;
   target?: string;
   Icon: ComponentType<SvgIconProps>;
-  /** Tailwind classes applied on hover (icon transitions from muted foreground). */
   iconHoverClassName: string;
 };
 
@@ -30,7 +29,7 @@ function SocialIconLink({
   return (
     <div className="relative flex flex-col items-center">
       <AnimatePresence>
-        {hovered ? (
+        {hovered && (
           <motion.span
             key={label}
             initial={{ opacity: 0, y: 6 }}
@@ -41,17 +40,14 @@ function SocialIconLink({
           >
             {label}
           </motion.span>
-        ) : null}
+        )}
       </AnimatePresence>
-      <motion.div
-        onHoverStart={() => setHovered(true)}
-        onHoverEnd={() => setHovered(false)}
-      >
+      <motion.div onHoverStart={() => setHovered(true)} onHoverEnd={() => setHovered(false)}>
         <Button
           asChild
           variant="ghost"
           size="icon"
-          className="hover:scale-115 rounded-full"
+          className="hover:scale-115 rounded-full text-white/70 hover:text-white hover:bg-white/10"
         >
           <Link
             href={href}
@@ -60,9 +56,7 @@ function SocialIconLink({
             aria-label={label}
             className="group"
           >
-            <Icon
-              className={`h-8 w-8 text-muted-foreground transition-colors duration-200 sm:h-10 sm:w-10 lg:h-12 lg:w-12 ${iconHoverClassName}`}
-            />
+            <Icon className={`h-5 w-5 transition-colors duration-200 ${iconHoverClassName}`} />
           </Link>
         </Button>
       </motion.div>
@@ -86,75 +80,88 @@ export function HeroSection() {
   }, []);
 
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left side - Text content */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
-            className="space-y-6"
-          >
-            <div className="space-y-4">
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2 }}
-                className="text-lg text-muted-foreground"
-              >
-                Hi, I&apos;m
-              </motion.p>
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3 }}
-                className="text-5xl sm:text-6xl lg:text-7xl font-bold text-foreground"
-              >
-                {portfolioData.name}
-              </motion.h1>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4 }}
-                className="h-16 flex items-center overflow-hidden"
-              >
-                <AnimatePresence mode="wait">
-                  <motion.p
-                    key={currentTagline}
-                    initial={{ opacity: 0, y: 30 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: 30 }}
-                    transition={{
-                      duration: 0.3,
-                      ease: "easeInOut",
-                    }}
-                    className="text-xl sm:text-2xl text-muted-foreground"
-                  >
-                    {portfolioData.headerTaglineOne[currentTagline]}
-                  </motion.p>
-                </AnimatePresence>
-              </motion.div>
-            </div>
+    <section className="relative min-h-[92vh] flex flex-col overflow-hidden">
+      {/* Background image */}
+      <div className="absolute inset-0">
+        <Image
+          src="/profile.jpg"
+          alt=""
+          fill
+          className="object-cover object-[65%_top]"
+          priority
+          quality={90}
+        />
 
+        {/* Left gradient — text readability */}
+        <div className="absolute inset-0 bg-linear-to-r from-background via-background/60 to-transparent" />
+
+        {/* Bottom fade into page */}
+        <div className="absolute inset-0 bg-linear-to-b from-transparent via-transparent to-background" />
+
+        {/* Top fade for nav */}
+        <div className="absolute inset-x-0 top-0 h-24 bg-linear-to-b from-background/70 to-transparent" />
+      </div>
+
+      {/* Content — bottom-left, matching photo composition */}
+      <div className="relative z-10 flex flex-col justify-end flex-1 pb-24 pt-32 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto w-full">
+          <div className="max-w-lg">
             <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.5 }}
+              className="text-sm text-white/60 mb-3 tracking-widest uppercase font-mono"
+            >
+              Hi, I&apos;m
+            </motion.p>
+
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              className="text-lg text-muted-foreground max-w-xl leading-relaxed"
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="text-6xl sm:text-7xl lg:text-8xl font-bold text-white tracking-tight mb-4"
+            >
+              {portfolioData.name}
+            </motion.h1>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.3, duration: 0.5 }}
+              className="h-8 flex items-center mb-6 overflow-hidden"
+            >
+              <AnimatePresence mode="wait">
+                <motion.p
+                  key={currentTagline}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                  className="text-lg sm:text-xl text-white/70 font-mono"
+                >
+                  {portfolioData.headerTaglineOne[currentTagline]}
+                </motion.p>
+              </AnimatePresence>
+            </motion.div>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.5 }}
+              className="text-white/60 leading-relaxed mb-8 text-sm sm:text-base"
             >
               {portfolioData.aboutMe}
             </motion.p>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6 }}
-              className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4"
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="flex flex-wrap gap-3 mb-8"
             >
               <Button
                 size="lg"
-                className="hover:scale-105 transition-transform w-full sm:w-auto"
+                className="hover:scale-105 transition-transform"
                 onClick={() => scrollToSection("recent-work-experience")}
               >
                 <Code className="mr-2 h-4 w-4" />
@@ -164,7 +171,7 @@ export function HeroSection() {
               <Button
                 variant="outline"
                 size="lg"
-                className="hover:scale-105 transition-transform w-full sm:w-auto"
+                className="hover:scale-105 transition-transform bg-white/5 border-white/20 text-white hover:bg-white/10 hover:text-white"
                 onClick={() => scrollToSection("contact")}
               >
                 <Email className="mr-2 h-4 w-4" />
@@ -175,7 +182,7 @@ export function HeroSection() {
                 asChild
                 variant="ghost"
                 size="lg"
-                className="hover:scale-105 transition-transform w-full sm:w-auto"
+                className="hover:scale-105 transition-transform text-white/70 hover:text-white hover:bg-white/10"
               >
                 <Link href="/resume.pdf" target="_blank">
                   <Download className="mr-2 h-4 w-4" />
@@ -184,19 +191,18 @@ export function HeroSection() {
               </Button>
             </motion.div>
 
-            {/* Social Links */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7 }}
-              className="flex gap-4 pt-4"
+              transition={{ delay: 0.6, duration: 0.5 }}
+              className="flex gap-4"
             >
               <SocialIconLink
                 href={portfolioData.socials.github}
                 label="GitHub"
                 target="_blank"
                 Icon={GitHub}
-                iconHoverClassName="group-hover:text-[#24292f] dark:group-hover:text-[#f0f6fc]"
+                iconHoverClassName="group-hover:text-white"
               />
               <SocialIconLink
                 href={portfolioData.socials.linkedin}
@@ -212,32 +218,7 @@ export function HeroSection() {
                 iconHoverClassName="group-hover:text-[#EA4335]"
               />
             </motion.div>
-          </motion.div>
-
-          {/* Right side - Profile photo */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex justify-center lg:justify-end"
-          >
-            <div className="relative">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                transition={{ type: "spring", stiffness: 300 }}
-                className="relative w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 overflow-hidden shadow-2xl"
-              >
-                <Image
-                  src="/profile.png"
-                  alt={portfolioData.name}
-                  fill
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  className="object-cover"
-                  priority
-                />
-              </motion.div>
-            </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
