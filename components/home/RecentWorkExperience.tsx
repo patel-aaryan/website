@@ -8,7 +8,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import Link from "next/link";
-import { ChevronRight, LocationOn, BusinessCenter } from "@mui/icons-material";
+import { ChevronRight, LocationOn } from "@mui/icons-material";
 import portfolioData from "@/data/portfolio.json";
 
 export function RecentWorkExperience() {
@@ -23,12 +23,10 @@ export function RecentWorkExperience() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Recent Work Experience
-          </h2>
+          <h2 className="text-3xl sm:text-4xl font-bold mb-4">Recent Work Experience</h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Professional journey across leading tech companies and innovative
-            startups, building scalable solutions and impactful software
+            Professional journey across leading tech companies and innovative startups, building
+            scalable solutions and impactful software
           </p>
         </motion.div>
 
@@ -39,7 +37,7 @@ export function RecentWorkExperience() {
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             transition={{ duration: 1.2, delay: 0.3 }}
-            className="absolute top-20 left-0 right-0 h-0.5 bg-gradient-to-r from-primary/20 via-primary to-primary/20 origin-left hidden lg:block"
+            className="absolute top-20 left-0 right-0 h-0.5 bg-linear-to-r from-primary/20 via-primary to-primary/20 origin-left hidden lg:block"
           />
 
           {/* Timeline Items */}
@@ -68,18 +66,6 @@ export function RecentWorkExperience() {
                 {/* Experience Card */}
                 <Card className="hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur-sm border-2">
                   <CardContent className="px-6 py-2">
-                    {/* Header */}
-                    <div className="flex items-center justify-center mb-4">
-                      <div
-                        className="w-3 h-3 rounded-full lg:hidden"
-                        style={{ backgroundColor: experience.colour }}
-                      />
-                      <BusinessCenter
-                        className="h-5 w-5 text-muted-foreground"
-                        style={{ color: experience.colour }}
-                      />
-                    </div>
-
                     {/* Content */}
                     <div className="space-y-3">
                       <div className="text-center">
@@ -102,16 +88,9 @@ export function RecentWorkExperience() {
                       <div className="pt-2">
                         {/* Accordion for all achievements */}
                         {experience.description.length > 0 && (
-                          <Accordion
-                            type="single"
-                            collapsible
-                            className="w-full"
-                          >
-                            <AccordionItem
-                              value="achievements"
-                              className="border-none"
-                            >
-                              <AccordionTrigger className="text-xs text-muted-foreground/80 hover:text-muted-foreground hover:bg-muted/30 hover:scale-110 py-2 px-3 font-medium items-center gap-1 justify-center rounded-xl transition-all duration-200 cursor-pointer" />
+                          <Accordion type="single" collapsible className="w-full">
+                            <AccordionItem value="achievements" className="border-none">
+                              <AccordionTrigger className="text-xs text-muted-foreground/80 hover:text-muted-foreground hover:bg-muted/30 hover:scale-110 py-2 px-3 font-medium items-center justify-center gap-1 rounded-xl transition-all duration-200 cursor-pointer **:data-[slot=accordion-trigger-icon]:ml-0" />
                               <AccordionContent className="pt-2 pb-0">
                                 <div className="space-y-2">
                                   {experience.description.map((desc, idx) => (
@@ -138,7 +117,7 @@ export function RecentWorkExperience() {
                     initial={{ scaleY: 0 }}
                     whileInView={{ scaleY: 1 }}
                     transition={{ duration: 0.6, delay: index * 0.2 + 0.8 }}
-                    className="lg:hidden w-0.5 h-8 bg-gradient-to-b from-primary to-primary/50 mx-auto mt-4 origin-top"
+                    className="lg:hidden w-0.5 h-8 bg-linear-to-b from-primary to-primary/50 mx-auto mt-4 origin-top"
                   />
                 )}
               </motion.div>

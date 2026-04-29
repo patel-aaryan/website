@@ -69,7 +69,7 @@ export default function Footer() {
   return (
     <footer
       id="contact"
-      className="bg-background/95 border-t border-border/40 backdrop-blur supports-[backdrop-filter]:bg-background/60"
+      className="bg-background/95 border-t border-border/40 backdrop-blur supports-backdrop-filter:bg-background/60"
     >
       <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 md:mx-16 lg:mx-32">
@@ -85,12 +85,10 @@ export default function Footer() {
               : {})}
             className="flex flex-col space-y-8"
           >
-            <div className="flex-grow space-y-8">
+            <div className="grow space-y-8">
               {/* Contact Information */}
               <div>
-                <h3 className="text-xl font-semibold mb-6">
-                  Contact Information
-                </h3>
+                <h3 className="text-xl font-semibold mb-6">Contact Information</h3>
                 <div className="space-y-4">
                   {contactInfo.map((item, index) => (
                     <MotionDiv
@@ -103,14 +101,8 @@ export default function Footer() {
                         <a
                           href={item.href}
                           className="hover:underline"
-                          target={
-                            item.href.startsWith("mailto:") ? "_self" : "_blank"
-                          }
-                          rel={
-                            item.href.startsWith("mailto:")
-                              ? ""
-                              : "noopener noreferrer"
-                          }
+                          target={item.href.startsWith("mailto:") ? "_self" : "_blank"}
+                          rel={item.href.startsWith("mailto:") ? "" : "noopener noreferrer"}
                         >
                           {item.text}
                         </a>
@@ -130,14 +122,8 @@ export default function Footer() {
                     <MotionA
                       key={index}
                       href={social.href}
-                      target={
-                        social.href.startsWith("mailto:") ? "_self" : "_blank"
-                      }
-                      rel={
-                        social.href.startsWith("mailto:")
-                          ? ""
-                          : "noopener noreferrer"
-                      }
+                      target={social.href.startsWith("mailto:") ? "_self" : "_blank"}
+                      rel={social.href.startsWith("mailto:") ? "" : "noopener noreferrer"}
                       {...(mounted
                         ? {
                             whileHover: { scale: 1.1, rotate: 5 },
@@ -190,9 +176,8 @@ export default function Footer() {
                       distributed systems, networks, software architecture
                     </span>
                     {". "}
-                    Deep diving into computer networks, systems design, and
-                    building scalable, high-performance distributed
-                    applications.
+                    Deep diving into computer networks, systems design, and building scalable,
+                    high-performance distributed applications.
                   </p>
                 </CardContent>
               </Card>
@@ -202,23 +187,6 @@ export default function Footer() {
           {/* Contact Form */}
           <ContactForm mounted={mounted} />
         </div>
-
-        {/* Copyright */}
-        <MotionDiv
-          {...(mounted
-            ? {
-                initial: { opacity: 0 },
-                whileInView: { opacity: 1 },
-                transition: { duration: 0.6, delay: 0.4 },
-                viewport: { once: true },
-              }
-            : {})}
-          className="mt-12 pt-8 border-t border-border/20 text-center text-sm text-muted-foreground"
-        >
-          <p>
-            &copy; {new Date().getFullYear()} Aaryan Patel. All rights reserved.
-          </p>
-        </MotionDiv>
       </div>
     </footer>
   );

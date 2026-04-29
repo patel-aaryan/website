@@ -5,8 +5,70 @@ import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import { Code, GitHub, LinkedIn, Email, Download } from "@mui/icons-material";
-import { useState, useEffect } from "react";
+import type { SvgIconProps } from "@mui/material/SvgIcon";
+import { useState, useEffect, type ComponentType } from "react";
 import portfolioData from "@/data/portfolio.json";
+
+type SocialIconLinkProps = {
+  href: string;
+  label: string;
+  target?: string;
+  Icon: ComponentType<SvgIconProps>;
+  /** Tailwind classes applied on hover (icon transitions from muted foreground). */
+  iconHoverClassName: string;
+};
+
+function SocialIconLink({
+  href,
+  label,
+  target,
+  Icon,
+  iconHoverClassName,
+}: Readonly<SocialIconLinkProps>) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <div className="relative flex flex-col items-center">
+      <AnimatePresence>
+        {hovered ? (
+          <motion.span
+            key={label}
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: 6 }}
+            transition={{ type: "spring", stiffness: 400, damping: 30 }}
+            className="pointer-events-none absolute bottom-full left-1/2 z-10 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md bg-popover px-2.5 py-1 text-xs font-medium text-popover-foreground shadow-md ring-1 ring-border"
+          >
+            {label}
+          </motion.span>
+        ) : null}
+      </AnimatePresence>
+      <motion.div
+        onHoverStart={() => setHovered(true)}
+        onHoverEnd={() => setHovered(false)}
+      >
+        <Button
+          asChild
+          variant="ghost"
+          size="icon"
+          className="hover:scale-115 rounded-full"
+        >
+          <Link
+            href={href}
+            target={target}
+            rel={target === "_blank" ? "noopener noreferrer" : undefined}
+            aria-label={label}
+            className="group"
+          >
+            <Icon
+              className={`h-8 w-8 text-muted-foreground transition-colors duration-200 sm:h-10 sm:w-10 lg:h-12 lg:w-12 ${iconHoverClassName}`}
+            />
+          </Link>
+        </Button>
+      </motion.div>
+    </div>
+  );
+}
 
 export function HeroSection() {
   const [currentTagline, setCurrentTagline] = useState(0);
@@ -18,9 +80,7 @@ export function HeroSection() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentTagline(
-        (prev) => (prev + 1) % portfolioData.headerTaglineOne.length
-      );
+      setCurrentTagline((prev) => (prev + 1) % portfolioData.headerTaglineOne.length);
     }, 3000);
     return () => clearInterval(interval);
   }, []);
@@ -100,6 +160,7 @@ export function HeroSection() {
                 <Code className="mr-2 h-4 w-4" />
                 My Experience
               </Button>
+
               <Button
                 variant="outline"
                 size="lg"
@@ -109,6 +170,7 @@ export function HeroSection() {
                 <Email className="mr-2 h-4 w-4" />
                 Contact Me
               </Button>
+
               <Button
                 asChild
                 variant="ghost"
@@ -129,36 +191,26 @@ export function HeroSection() {
               transition={{ delay: 0.7 }}
               className="flex gap-4 pt-4"
             >
-              <Button
-                asChild
-                variant="ghost"
-                size="icon"
-                className="hover:scale-115"
-              >
-                <Link href={portfolioData.socials.github} target="_blank">
-                  <GitHub className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="ghost"
-                size="icon"
-                className="hover:scale-115"
-              >
-                <Link href={portfolioData.socials.linkedin} target="_blank">
-                  <LinkedIn className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12" />
-                </Link>
-              </Button>
-              <Button
-                asChild
-                variant="ghost"
-                size="icon"
-                className="hover:scale-115"
-              >
-                <Link href={portfolioData.socials.email}>
-                  <Email className="h-8 w-8 sm:h-10 sm:w-10 lg:h-12 lg:w-12" />
-                </Link>
-              </Button>
+              <SocialIconLink
+                href={portfolioData.socials.github}
+                label="GitHub"
+                target="_blank"
+                Icon={GitHub}
+                iconHoverClassName="group-hover:text-[#24292f] dark:group-hover:text-[#f0f6fc]"
+              />
+              <SocialIconLink
+                href={portfolioData.socials.linkedin}
+                label="LinkedIn"
+                target="_blank"
+                Icon={LinkedIn}
+                iconHoverClassName="group-hover:text-[#0A66C2]"
+              />
+              <SocialIconLink
+                href={portfolioData.socials.email}
+                label="Email"
+                Icon={Email}
+                iconHoverClassName="group-hover:text-[#EA4335]"
+              />
             </motion.div>
           </motion.div>
 

@@ -2,7 +2,6 @@
 
 import React from "react";
 import { motion } from "framer-motion";
-import { Badge } from "@/components/ui/badge";
 import {
   Carousel,
   CarouselContent,
@@ -14,12 +13,11 @@ import {
 import { Code, Web, Storage, Cloud } from "@mui/icons-material";
 import portfolioData from "@/data/portfolio.json";
 import Image from "next/image";
+import { cn } from "@/lib/utils";
 
 // SVG Icon component for loading icons from public folder
 const SvgIcon = ({ src, className }: { src: string; className?: string }) => {
-  return (
-    <Image src={src} alt="" width={16} height={16} className={className} />
-  );
+  return <Image src={src} alt="" width={16} height={16} className={className} />;
 };
 
 // Skill name to icon path mapping
@@ -70,28 +68,36 @@ const skillCategories = [
     title: "Languages",
     icon: Code,
     skills: portfolioData.skills.languages,
-    color: "bg-blue-500/10 text-blue-600",
+    headerTint: "bg-blue-500/10",
+    chipChrome:
+      "border border-blue-500/20 shadow-xs hover:bg-blue-500/20 dark:border-blue-400/25 dark:hover:bg-blue-500/25",
     iconColor: "text-blue-500",
   },
   {
     title: "Frontend",
     icon: Web,
     skills: portfolioData.skills.frontend,
-    color: "bg-green-500/10 text-green-600",
+    headerTint: "bg-green-500/10",
+    chipChrome:
+      "border border-green-500/20 shadow-xs hover:bg-green-500/20 dark:border-green-400/25 dark:hover:bg-green-500/25",
     iconColor: "text-green-500",
   },
   {
     title: "Backend",
     icon: Storage,
     skills: portfolioData.skills.backend,
-    color: "bg-purple-500/10 text-purple-600",
+    headerTint: "bg-purple-500/10",
+    chipChrome:
+      "border border-purple-500/20 shadow-xs hover:bg-purple-500/20 dark:border-purple-400/25 dark:hover:bg-purple-500/25",
     iconColor: "text-purple-500",
   },
   {
     title: "DevOps",
     icon: Cloud,
     skills: portfolioData.skills.devops,
-    color: "bg-orange-500/10 text-orange-600",
+    headerTint: "bg-orange-500/10",
+    chipChrome:
+      "border border-orange-500/20 shadow-xs hover:bg-orange-500/20 dark:border-orange-400/25 dark:hover:bg-orange-500/25",
     iconColor: "text-orange-500",
   },
 ];
@@ -111,7 +117,7 @@ export function SkillsBanner() {
   }, [api]);
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-background via-muted/20 to-background">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-linear-to-r from-background via-muted/20 to-background">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -120,9 +126,7 @@ export function SkillsBanner() {
           className="text-center mb-12"
         >
           <h2 className="text-3xl font-bold mb-4">Technical Skills</h2>
-          <p className="text-muted-foreground text-lg">
-            Tools and technologies I work with
-          </p>
+          <p className="text-muted-foreground text-lg">Tools and technologies I work with</p>
         </motion.div>
 
         <Carousel
@@ -142,11 +146,12 @@ export function SkillsBanner() {
                   <div className="bg-card rounded-xl p-8 shadow-lg border h-full">
                     <div className="flex items-center gap-4 mb-8">
                       <div
-                        className={`w-12 h-12 rounded-lg ${category.color} flex items-center justify-center`}
+                        className={cn(
+                          "flex h-12 w-12 items-center justify-center rounded-lg",
+                          category.headerTint,
+                        )}
                       >
-                        <category.icon
-                          className={`h-6 w-6 ${category.iconColor}`}
-                        />
+                        <category.icon className={`h-6 w-6 ${category.iconColor}`} />
                       </div>
                       <h3 className="text-2xl font-bold">{category.title}</h3>
                     </div>
@@ -163,21 +168,27 @@ export function SkillsBanner() {
                               duration: 0.3,
                               delay: skillIndex * 0.05,
                             }}
-                            whileHover={{ scale: 1.05 }}
+                            whileHover={{ scale: 1.02 }}
                             className="cursor-default"
                           >
-                            <Badge
-                              variant="secondary"
-                              className={`${category.color} hover:shadow-md transition-all duration-200 px-3 sm:px-5 py-2 sm:py-3 text-sm sm:text-base font-medium flex items-center gap-2 sm:gap-4 w-full justify-start`}
+                            <div
+                              className={cn(
+                                "flex w-full items-center justify-start gap-3 rounded-md px-4 py-3.5 text-sm font-medium transition-all duration-200",
+                                "sm:gap-4 sm:px-5 sm:py-4 sm:text-base",
+                                category.headerTint,
+                                category.chipChrome
+                              )}
                             >
                               {iconPath && (
                                 <SvgIcon
                                   src={iconPath}
-                                  className="h-6 w-6 sm:h-8 sm:w-8"
+                                  className="h-6 w-6 shrink-0 sm:h-8 sm:w-8"
                                 />
                               )}
-                              {skill}
-                            </Badge>
+                              <span className="text-left font-mono leading-snug text-muted-foreground">
+                                {skill}
+                              </span>
+                            </div>
                           </motion.div>
                         );
                       })}
