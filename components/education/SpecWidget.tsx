@@ -11,12 +11,12 @@ export function SpecWidget() {
       transition={{ duration: 0.5, delay: 0.15 }}
       className={cn(
         widgetBase,
-        "col-span-12 md:col-span-5 md:row-span-2 flex flex-col justify-between p-5",
+        "col-span-12 md:col-span-5 md:row-span-2 flex h-full min-h-0 flex-col justify-between p-5",
       )}
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        <Psychology className="h-4 w-4 text-primary" />
         <WidgetLabel>[specialization]</WidgetLabel>
-        <Psychology className="h-4 w-4 text-primary/70" />
       </div>
       <div>
         <p className="font-mono text-3xl font-bold leading-none tracking-tighter sm:text-4xl md:text-5xl">

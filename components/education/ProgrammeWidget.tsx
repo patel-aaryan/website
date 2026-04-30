@@ -11,12 +11,12 @@ export function ProgrammeWidget() {
       transition={{ duration: 0.5, delay: 0.05 }}
       className={cn(
         widgetBase,
-        "col-span-12 md:col-span-5 md:row-span-1 flex flex-col justify-between gap-2 p-5",
+        "col-span-12 md:col-span-5 md:row-span-1 flex h-full min-h-0 flex-col justify-between gap-2 p-5",
       )}
     >
-      <div className="flex items-center justify-between">
+      <div className="flex items-center gap-2">
+        <Terminal className="h-3.5 w-3.5 text-primary" />
         <WidgetLabel>[programme]</WidgetLabel>
-        <Terminal className="h-3.5 w-3.5 text-muted-foreground/60" />
       </div>
       <div>
         <p className="text-sm font-semibold leading-tight">Bachelor of Computer Science</p>

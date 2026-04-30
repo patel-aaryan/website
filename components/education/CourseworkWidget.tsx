@@ -11,19 +11,19 @@ export function CourseworkWidget({ ed }: Readonly<{ ed: Education }>) {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.32, delay: 0.08 }}
-      className={cn(widgetBase, "col-span-12 md:row-span-3 flex flex-col p-5 md:p-6")}
+      className={cn(
+        widgetBase,
+        "col-span-12 flex h-full min-h-0 min-w-0 w-full flex-col md:col-span-8 p-5 md:p-6",
+      )}
     >
       <div className="mb-4 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <MenuBook className="h-4 w-4 text-primary" />
           <WidgetLabel>[core_coursework]</WidgetLabel>
         </div>
-        <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-          {courses.length} units
-        </span>
       </div>
 
-      <div className="grid auto-rows-fr grid-cols-2 gap-2.5 sm:grid-cols-3 lg:grid-cols-5">
+      <div className="grid min-h-0 flex-1 auto-rows-min grid-cols-2 content-start gap-2.5 sm:grid-cols-3">
         {courses.map((c, i) => (
           <motion.div
             key={c.code}

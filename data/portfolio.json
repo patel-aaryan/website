@@ -60,6 +60,13 @@
       "location": "Waterloo, ON, Canada",
       "colour": "#EAAB00",
       "courses": [
+        { "code": "CS 486", "name": "Artificial Intelligence" },
+        { "code": "CS 480", "name": "Machine Learning" },
+        { "code": "CS 459", "name": "Privacy, Cryptography, Network and Data Security" },
+        { "code": "CS 456", "name": "Computer Networks" },
+        { "code": "CS 454", "name": "Distributed Systems" },
+        { "code": "CS 451", "name": "Data-Intensive Distributed Computing (Big Data)" },
+        { "code": "CS 446", "name": "Software Design and Architecture" },
         { "code": "CS 350", "name": "Operating Systems" },
         { "code": "CS 341", "name": "Algorithms" },
         { "code": "CS 348", "name": "Introduction to Database Management" },
@@ -67,22 +74,23 @@
         { "code": "CS 246E", "name": "Object-Oriented Software Development (Enriched)" },
         { "code": "CS 251", "name": "Computer Organization and Design" },
         { "code": "CS 241", "name": "Foundations of Sequential Programs (Compilers)" },
-        { "code": "CS 240", "name": "Data Structures and Data Management" },
-        { "code": "CS 136", "name": "Elementary Algorithm Design and Data Abstraction" },
-        { "code": "CS 135", "name": "Designing Functional Programs" }
+        { "code": "CS 240", "name": "Data Structures and Data Management" }
       ],
       "clubs": [
         {
           "title": "Data Science Club",
-          "role": "VP Development",
-          "date": "Sep 2025 - Present",
-          "desc": [
-            "Developed QR code check-in system and admin portal for seamless event management and member tracking",
-            "Built public calendar interface to visualize past and upcoming events with responsive frontend design",
-            "Led the development of the custom exec application portal to streamline future applicant recruitment and evaluation processes",
-            "Spearheaded the overhaul of the server architecture into clean, organized layers to improve code readability for new developers",
-            "Enhanced frontend responsiveness and established consistent design theme to reduce onboarding time for new members"
-          ]
+          "role": "VP of Development",
+          "date": "Sep 2025 - Present"
+        },
+        {
+          "title": "Navrangi Radhikas",
+          "role": "Dancer",
+          "date": "Oct 2025 - Jan 2026"
+        },
+        {
+          "title": "Data Science Club",
+          "role": "Developer",
+          "date": "Jan 2025 - Aug 2025"
         },
         {
           "title": "Raas Warriors",
@@ -92,18 +100,12 @@
         {
           "title": "HackTheNorth",
           "role": "Volunteer",
-          "date": "Sep 2024"
+          "date": "Aug 2024 - Sep 2024"
         },
         {
           "title": "WATOnomous",
-          "role": "Autonomous Software Division",
-          "date": "May 2024 - Aug 2024",
-          "desc": [
-            "Learned ROS pub-sub architecture and messaging patterns for autonomous vehicle software communication",
-            "Gained exposure to multi-modal sensor data streams from LiDAR, cameras, radar, and GPS through ROS topics",
-            "Explored distributed system concepts for scalable autonomous driving software using decentralized ROS nodes",
-            "Studied robotics software patterns for real-world autonomous vehicle challenges and V2V/V2I communications"
-          ]
+          "role": "Autonomous Software Team",
+          "date": "May 2024 - Aug 2024"
         }
       ],
       "milestones": [

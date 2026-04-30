@@ -55,14 +55,21 @@ export default function EducationPage() {
           </p>
         </motion.div>
 
-        {/* Dashboard */}
-        <div className="grid auto-rows-[120px] grid-cols-12 gap-3 md:gap-4">
-          <HeroWidget ed={ed} progress={progress} termIndex={termIndex} />
-          <ProgrammeWidget />
-          <SpecWidget />
-          <CourseworkWidget ed={ed} />
-          <ActivitiesWidget ed={ed} />
-          <AwardsWidget ed={ed} />
+        {/* Dashboard — top row band uses fixed row tracks for bento rhythm; below uses flexible rows */}
+        <div className="flex flex-col gap-3 md:gap-4">
+          <div className="grid auto-rows-[minmax(108px,auto)] grid-cols-12 gap-3 md:auto-rows-[108px] md:gap-4">
+            <HeroWidget ed={ed} progress={progress} termIndex={termIndex} />
+            <ProgrammeWidget />
+            <SpecWidget />
+          </div>
+
+          <div className="grid auto-rows-[minmax(108px,auto)] grid-cols-12 items-start gap-3 md:gap-4">
+            <div className="col-span-12 grid min-h-0 grid-cols-1 items-stretch gap-3 md:grid-cols-12 md:gap-4">
+              <ActivitiesWidget ed={ed} />
+              <CourseworkWidget ed={ed} />
+            </div>
+            <AwardsWidget ed={ed} />
+          </div>
         </div>
       </div>
     </main>

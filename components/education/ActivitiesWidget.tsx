@@ -12,20 +12,15 @@ export function ActivitiesWidget({ ed }: Readonly<{ ed: Education }>) {
       transition={{ duration: 0.55, delay: 0.3 }}
       className={cn(
         widgetBase,
-        "col-span-12 md:col-span-8 md:row-span-3 flex flex-col p-5 md:p-6",
+        "col-span-12 flex h-full min-h-0 w-full min-w-0 flex-col p-5 md:col-span-4 md:p-6",
       )}
     >
-      <div className="mb-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <Groups className="h-4 w-4 text-primary" />
-          <WidgetLabel>[extracurricular]</WidgetLabel>
-        </div>
-        <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
-          {ed.clubs.length} engagements
-        </span>
+      <div className="flex items-center gap-2 mb-4">
+        <Groups className="h-4 w-4 text-primary" />
+        <WidgetLabel>[extracurricular]</WidgetLabel>
       </div>
 
-      <div className="grid flex-1 grid-cols-1 gap-3 sm:grid-cols-2">
+      <div className="grid min-h-0 flex-1 grid-cols-1 content-start items-stretch gap-3">
         {ed.clubs.map((club, i) => (
           <motion.div
             key={`${club.title}-${i}`}

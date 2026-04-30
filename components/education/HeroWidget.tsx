@@ -20,7 +20,7 @@ export function HeroWidget({ ed, progress, termIndex }: Readonly<HeroWidgetProps
       transition={{ duration: 0.55 }}
       className={cn(
         widgetBase,
-        "col-span-12 md:col-span-7 md:row-span-3 flex flex-col justify-between p-6 md:p-7",
+        "col-span-12 md:col-span-7 md:row-span-3 flex h-full min-h-0 flex-col justify-between p-6 md:p-7",
       )}
     >
       <div
