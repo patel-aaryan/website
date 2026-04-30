@@ -80,8 +80,8 @@ export function QuickHighlights() {
           transition={{ duration: 0.55 }}
           className="mb-10 flex flex-col gap-4 border-b border-border/50 pb-6 sm:flex-row sm:items-end sm:justify-between"
         >
-          <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
-            Core_Identity
+          <h2 className="font-heading text-2xl tracking-tight text-foreground sm:text-3xl">
+            CORE_IDENTITY
           </h2>
           <p className="font-heading text-[10px] font-medium uppercase tracking-[0.25em] text-muted-foreground">
             PARAMS_03

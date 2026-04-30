@@ -1,19 +1,19 @@
 "use client";
 
 import {
-  HeroSection,
+  Hero,
   QuickHighlights,
   SkillsBanner,
   FeaturedProjects,
-  RecentWorkExperience,
+  MyJourney,
 } from "@/components/home";
 
 export default function Home() {
   return (
     <>
-      <HeroSection />
+      <Hero />
       <QuickHighlights />
-      <RecentWorkExperience />
+      <MyJourney />
       <FeaturedProjects />
       <SkillsBanner />
     </>

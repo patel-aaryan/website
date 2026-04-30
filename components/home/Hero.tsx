@@ -64,7 +64,7 @@ function SocialIconLink({
   );
 }
 
-export function HeroSection() {
+export function Hero() {
   const [currentTagline, setCurrentTagline] = useState(0);
 
   const scrollToSection = (sectionId: string) => {

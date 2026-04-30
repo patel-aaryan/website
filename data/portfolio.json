@@ -1,5 +1,5 @@
 {
-  "name": "Aaryan Patel",
+  "name": "AARYAN PATEL",
   "email": "a52patel@uwaterloo.ca",
   "headerTaglineOne": [
     "Computer Science Student",
@@ -114,9 +114,11 @@
   ],
   "experience": [
     {
+      "label": "RBC - Sep 2025",
       "title": "DevOps Engineer Intern",
       "company": "RBC Capital Markets",
       "location": "Toronto, ON, Canada",
+      "summary": "Shipped multi-cloud CI/CD with Helm and GitHub Actions, sped up container security scanning with Aqua, and enforced trusted Docker image signing in production.",
       "description": [
         "Engineered a multi-cloud deployment architecture for distributed app across Azure and AWS clusters by using GitHub Actions pipelines and Helm charts to orchestrate the build and release of 3 Dockerized microservices",
         "Accelerated container security scanning speeds by over 77% for Capital Markets teams by migrating legacy scanning protocols to Aqua SaaS Cloud, significantly reducing Jenkins CI/CD pipeline latency",
@@ -124,13 +126,14 @@
       ],
       "date": "Sep 2025 - Dec 2025",
       "colour": "#005DAA",
-      "icon": "",
       "tech": ["GitHub Actions", "Jenkins", "Helm", "Docker", "Aqua"]
     },
     {
+      "label": "Scrawlr - May 2025",
       "title": "Backend/API Developer",
       "company": "Scrawlr",
       "location": "Vancouver, BC, Canada",
+      "summary": "Built Fastify/Postgres/Redis APIs for the browser-extension platform, standardized engineering with Cursor rule packs, and cut API scaffolding time with an AI-driven codegen pipeline.",
       "description": [
         "Contributed to scalable backend APIs for browser-extension platform, using Node.js + Fastify with Postgres and Redis to layer real-time conversation and personalized content onto any webpage",
         "Standardized codebase by authoring reusable Cursor rule packs that enforce layered architecture, uniform error handling, and code consistency, enabling faster, conflict-free feature rollouts across teams",
@@ -138,13 +141,14 @@
       ],
       "date": "May 2025 - Aug 2025",
       "colour": "#196AFF",
-      "icon": "",
       "tech": ["Node.js", "Fastify", "PostgreSQL", "Redis", "Docker"]
     },
     {
+      "label": "RBC - Sep 2024",
       "title": "Software Engineer Intern",
       "company": "RBC Capital Markets",
       "location": "Toronto, ON, Canada",
+      "summary": "Delivered a React/Next.js trading analytics stack with interactive FX liquidity tooling and high-performance grids so traders could act on large live datasets faster.",
       "description": [
         "Developed full-stack trading analytics platform using React, Next.js, Kubernetes, and MongoDB, leveraging AI-driven trade reports enhance market predictions and decision-making for traders",
         "Utilized Redux for state management and React Query for API integration and caching, reducing API call latency by 40% and ensuring real-time updates for datasets exceeding 20K rows",
@@ -153,13 +157,14 @@
       ],
       "date": "Sep 2024 - Dec 2024",
       "colour": "#005DAA",
-      "icon": "",
       "tech": ["Next.js", "Kubernetes", "MongoDB", "Redux"]
     },
     {
+      "label": "CGI Inc - Jan 2024",
       "title": "Application Developer",
       "company": "CGI Inc",
       "location": "Toronto, ON, Canada",
+      "summary": "Provisioned GCP APIs and infrastructure with Terraform and wired PostgreSQL to Keycloak for streamlined enterprise authentication.",
       "description": [
         "Specialized in building and managing cloud-based API ecosystems using Google Cloud as well as deploying, monitoring, and managing enterprise solutions on the cloud",
         "Designed and deployed a PostgreSQL database integrated with Keycloak, streamlining authentication process",
@@ -167,13 +172,14 @@
       ],
       "date": "Jan 2024 - May 2024",
       "colour": "#E31937",
-      "icon": "",
       "tech": ["Google Cloud", "PostgreSQL", "Keycloak", "Terraform"]
     },
     {
+      "label": "JANA - May 2023",
       "title": "Software Developer",
       "company": "JANA Corporation",
       "location": "Aurora, ON, Canada",
+      "summary": "Built C#/ASP.NET/SQL Server pipeline-integrity services, tuned REST APIs and queries, and shipped risk visualization features for operations teams.",
       "description": [
         "Developed backend solutions using C#, ASP.NET, and SQL Server, contributing to the architecture, implementation, and maintenance of pipeline integrity management application",
         "Led the optimization of SQL queries, significantly enhancing the performance of the data management REST API, which improved dynamic data retrieval and display",
@@ -182,13 +188,14 @@
       ],
       "date": "May 2023 - Aug 2023",
       "colour": "#6EB273",
-      "icon": "",
       "tech": ["C#", "ASP.NET", "SQL Server"]
     },
     {
+      "label": "CGI Inc - Jun 2022",
       "title": "Junior Developer",
       "company": "CGI Inc",
       "location": "Mississauga, ON, Canada",
+      "summary": "Extended an Angular/TypeScript POS app for a telecom client and improved inventory flows via REST integrations.",
       "description": [
         "Development using Angular, TypeScript, HTML & CSS, improving overall application functionality",
         "Lead the redesigning of a POS inventory application to better meet the specific needs of a telecom client, enhancing user satisfaction and operational efficiency",
@@ -196,7 +203,6 @@
       ],
       "date": "Jun 2022 - Sep 2022",
       "colour": "#E31937",
-      "icon": "",
       "tech": ["Angular", "TypeScript", "HTML", "CSS"]
     }
   ],

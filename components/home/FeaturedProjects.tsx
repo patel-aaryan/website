@@ -23,11 +23,12 @@ export function FeaturedProjects() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-16 space-y-2"
         >
-          <h2 className="text-5xl md:text-6xl font-bold tracking-tighter mb-3 uppercase">
-            Featured Projects
+          <h2 className="font-heading text-3xl tracking-tight sm:text-4xl">
+            FEATURED_PROJECTS
           </h2>
+
           <p className="text-xs uppercase tracking-widest text-muted-foreground">
             [SELECTED_WORK] — FULL-STACK DEVELOPMENT, AI/ML, AND CLOUD TECHNOLOGIES
           </p>

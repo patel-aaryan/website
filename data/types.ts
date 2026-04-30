@@ -23,13 +23,14 @@ export interface Education {
 }
 
 export interface Experience {
+  label: string;
   title: string;
   company: string;
   location: string;
+  summary: string;
   description: string[];
   date: string;
   colour: string;
-  icon: string;
   tech: string[];
   active?: boolean;
 }
