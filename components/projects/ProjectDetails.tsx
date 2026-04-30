@@ -39,10 +39,7 @@ function LiveStatusDot() {
   };
 
   return (
-    <span
-      className="relative grid h-3 w-3 shrink-0 place-items-center"
-      aria-hidden
-    >
+    <span className="relative grid h-3 w-3 shrink-0 place-items-center" aria-hidden>
       <motion.span
         className="absolute aspect-square w-[7px] rounded-full bg-primary"
         initial={false}
@@ -120,7 +117,7 @@ export function ProjectDetails({ project, index, total }: Readonly<ProjectDetail
               <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/40" />
             )}
             <span className={cn(isLive && "font-semibold tracking-[0.12em]")}>
-              {isLive ? "Live" : "Source Only"}
+              {isLive ? "Live" : "Source available"}
             </span>
           </span>
         </div>

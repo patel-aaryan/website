@@ -292,7 +292,7 @@
       "mainTech": ["AWS", "Stripe", "Redis"],
       "colour": "#E1A730",
       "link": "https://www.atrangieventz.com/",
-      "source": "https://github.com/arkinflow/atrangi-eventz-v2",
+      "source": "",
       "features": [
         "High-performance, cost-efficient ticketing: card checkout, receipts, confirmations, secure payments",
         "Drop-day traffic: accurate seats under concurrent buyers, no overselling, lean infrastructure",
