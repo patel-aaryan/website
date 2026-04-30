@@ -1,5 +1,5 @@
 export * from "./Hero";
 export * from "./QuickHighlights";
-export * from "./SkillsBanner";
+export * from "./SkillsTerminals";
 export * from "./FeaturedProjects";
 export * from "./MyJourney";

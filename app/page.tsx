@@ -3,7 +3,7 @@
 import {
   Hero,
   QuickHighlights,
-  SkillsBanner,
+  SkillsTerminals,
   FeaturedProjects,
   MyJourney,
 } from "@/components/home";
@@ -15,7 +15,7 @@ export default function Home() {
       <QuickHighlights />
       <MyJourney />
       <FeaturedProjects />
-      <SkillsBanner />
+      <SkillsTerminals />
     </>
   );
 }
