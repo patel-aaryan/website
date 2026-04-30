@@ -44,5 +44,4 @@ export interface Project {
   link: string;
   source: string;
   features: string[];
-  thumbnail: string;
 }

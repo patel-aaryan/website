@@ -222,8 +222,7 @@
         "AI-powered social companion functionality",
         "Comprehensive caregiver dashboard",
         "Conversation analytics and insights"
-      ],
-      "thumbnail": ""
+      ]
     },
     {
       "title": "AniTrack",
@@ -238,8 +237,7 @@
         "Add new anime titles to the database",
         "Find friends with similar anime interests",
         "Track personal watch history and progress"
-      ],
-      "thumbnail": ""
+      ]
     },
     {
       "title": "STYLit",
@@ -254,17 +252,56 @@
         "Pose estimation technology",
         "Personalized outfit visualization",
         "Pre-purchase clothing fitting simulation"
-      ],
-      "thumbnail": ""
+      ]
     }
   ],
   "projects": [
     {
-      "title": "UW Data Science Club Website",
+      "title": "RTSP Secure Sync",
+      "description": "Archives remote RTSP on a home NAS: an edge node chunks and buffers locally, syncs over a private tunnel, and the server reassembles segments into uninterrupted playback—so links can drop without losing footage or breaking the viewing experience.",
+      "tech": {
+        "Frontend": ["Svelte"],
+        "Backend": ["Go"],
+        "DevOps": ["Docker"]
+      },
+      "mainTech": ["Go", "Svelte", "Docker"],
+      "colour": "#0F4C81",
+      "link": "",
+      "source": "https://github.com/patel-aaryan/rtsp-secure-sync",
+      "features": [
+        "Tailscale VPN between the remote property and home network for encrypted, peer-to-peer transit",
+        "Pi edge gateway: intercepts RTSP, chunks to an external drive, and rsyncs with backlog catch-up after outages",
+        "Go stack watches the ingest directory, stitches .mp4 chunks into one timeline, and serves reassembled streams",
+        "Svelte UI for browsing the indexed timeline and watching footage as if it were a single file",
+        "Runs on OpenMediaVault under a dedicated camera_service account with strict permissions on archives"
+      ]
+    },
+    {
+      "title": "Atrangi Eventz",
+      "description": "",
+      "tech": {},
+      "mainTech": [],
+      "colour": "",
+      "link": "https://www.atrangieventz.com/",
+      "source": "",
+      "features": []
+    },
+    {
+      "title": "Memento",
+      "description": "",
+      "tech": {},
+      "mainTech": [],
+      "colour": "",
+      "link": "",
+      "source": "https://github.com/patel-aaryan/memento",
+      "features": []
+    },
+    {
+      "title": "UWDSC Website",
       "description": "Monorepo for the UW Data Science Club's official website.",
       "tech": {
         "Frontend": ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn"],
-        "Backend": ["Supabase", "PostgreSQL"],
+        "Backend": ["Node.js", "Supabase", "PostgreSQL"],
         "Developer Tools": ["Vercel", "GitHub Actions", "Infisical"]
       },
       "mainTech": ["Next.js", "Supabase", "PostgreSQL"],
@@ -272,13 +309,13 @@
       "link": "https://www.uwdatascience.ca/",
       "source": "https://github.com/uw-datasci/uwdsc-website-v3",
       "features": [
-        "Led team of 8+ developers across stack, enforcing CI rules and coding standards to ensure high code quality",
-        "Architected CI/CD with quality gates, centralized secret management, and agentic pipeline for docs syncing",
-        "Spearheaded adoption of monorepo architecture to unify shared UI, enforce consistency, and centralize CI/CD",
-        "Engineered a normalized, indexed PostgreSQL database supporting 500+ members and 25+ events",
-        "Redesigned API architecture with layered structure for improved modularity, maintainability, and scalability"
-      ],
-      "thumbnail": ""
+        "One-tap event check-in with instant attendance synced to PostgreSQL",
+        "Check-in gated on membership, MathSoc status, and buffered event start/end windows",
+        "QR codes for membership payment that deep-link execs to admin mark-paid actions",
+        "Monorepo with shared UI packages, web and admin apps, and unified CI/CD",
+        "Internal developer portal with automation for infrastructure and deployment",
+        "Private Node.js package for unified API responses and aggregated error reporting"
+      ]
     },
     {
       "title": "G.R.A.C.E.",
@@ -298,8 +335,7 @@
         "AI-powered social companion functionality",
         "Comprehensive caregiver dashboard",
         "Conversation analytics and insights"
-      ],
-      "thumbnail": ""
+      ]
     },
     {
       "title": "AniTrack",
@@ -319,8 +355,7 @@
         "Add new anime titles to the database",
         "Find friends with similar anime interests",
         "Track personal watch history and progress"
-      ],
-      "thumbnail": ""
+      ]
     },
     {
       "title": "STYLit",
@@ -340,8 +375,7 @@
         "Pose estimation technology",
         "Personalized outfit visualization",
         "Pre-purchase clothing fitting simulation"
-      ],
-      "thumbnail": ""
+      ]
     },
     {
       "title": "CraftsByAash",
@@ -361,8 +395,7 @@
         "Secure payment processing with Stripe",
         "Order management system",
         "Responsive e-commerce interface"
-      ],
-      "thumbnail": ""
+      ]
     },
     {
       "title": "P.E.P.P.E.R.",
@@ -381,8 +414,7 @@
         "Social isolation alleviation features",
         "Compassionate interaction design",
         "Patient-focused interface"
-      ],
-      "thumbnail": ""
+      ]
     },
     {
       "title": "Spotisize",
@@ -402,8 +434,7 @@
         "Personal music insights",
         "Interactive data displays",
         "Spotify API integration"
-      ],
-      "thumbnail": ""
+      ]
     },
     {
       "title": "NoiseRebel",
@@ -423,8 +454,7 @@
         "Event-based Discord API integration",
         "Server-wide sound management",
         "Real-time voice channel interaction"
-      ],
-      "thumbnail": ""
+      ]
     },
     {
       "title": "Ambulert",
@@ -444,8 +474,7 @@
         "Emergency awareness enhancement",
         "Mobile app interface",
         "Safety improvement features"
-      ],
-      "thumbnail": ""
+      ]
     },
     {
       "title": "Foodar",
@@ -463,8 +492,7 @@
         "University student focused",
         "Informed dietary choice support",
         "Data-driven suggestion engine"
-      ],
-      "thumbnail": ""
+      ]
     }
   ]
 }
