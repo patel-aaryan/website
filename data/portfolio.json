@@ -18,7 +18,7 @@
     "instagram": "https://www.instagram.com/aaryan.pat3l/",
     "email": "mailto:a52patel@uwaterloo.ca"
   },
-  "aboutMe": "I spend most of my free time working on projects and tinkering with my homelab, whatever looks interesting. I like picking up new tech and seeing how far I can push an idea. When I'm not coding, I'm usually at the gym or watching UFC.",
+  "aboutMe": "I spend most of my free time working on projects and tinkering with my homelab, whatever looks interesting. I like picking up new tech and seeing how far I can push an idea. When I'm not coding or building something new, I'm usually at the gym or watching UFC.",
   "skills": {
     "languages": ["C++", "Python", "SQL", "C#", "TypeScript", "Java", "HTML", "CSS"],
     "frontend": [
@@ -55,141 +55,27 @@
   "education": [
     {
       "name": "University of Waterloo",
-      "date": "Sep. 2022 - June 2027",
+      "date": "Sep 2022 - June 2027",
       "major": "Computer Science & Artificial Intelligence",
       "location": "Waterloo, ON, Canada",
       "colour": "#EAAB00",
       "courses": [
-        {
-          "code": "CS 350",
-          "name": "Operating Systems",
-          "desc": [
-            "Process and Thread Management - Understanding processes, threads, system calls, context switching, and different types of scheduling algorithms for managing processor time",
-            "Concurrency and Synchronization - Principles of concurrency, mutual exclusion, semaphores, deadlock detection and prevention mechanisms",
-            "Memory Management Systems - Virtual addressing, address translation, memory management techniques including partitioning, segmentation, paging, and caching strategies",
-            "Device and File System Management - Physical device properties, device control, buffering, disk scheduling, file naming, space allocation, and file system implementation strategies",
-            "Interprocess Communication - Message passing, pipes, sockets, signals, shared memory, and other communication mechanisms between processes"
-          ],
-          "link": "https://uwflow.com/course/cs350"
-        },
-        {
-          "code": "CS 341",
-          "name": "Algorithms",
-          "desc": [
-            "Algorithm Design Techniques - Systematic study of design methods including greedy algorithms, dynamic programming, graph exploration approaches, backtracking, and branch and bound techniques",
-            "Algorithm Analysis - Review of divide and conquer approaches, solution of recurrence relations, and analysis of average case and worst case behaviors",
-            "Undecidability and Complexity Theory - Introduction to algorithmic reductions, undecidability of the halting problem, polynomial time complexity, and the relationship between P and NP classes",
-            "NP-Completeness - Study of polynomial reducibility, NP-Complete problems, and proofs of NP-hardness for various computational problems",
-            "Practical Problem Solving - Application of algorithmic techniques to commonly occurring problems in practice with implementation experience and related programming challenges"
-          ],
-          "link": "https://uwflow.com/course/cs341"
-        },
-        {
-          "code": "CS 348",
-          "name": "Introduction to Database Management",
-          "desc": [
-            "Relational Data Model and Languages - Fundamentals of relational databases, relational calculus and algebra, SQL DDL/DML, and database query languages including Query by Example (QBE)",
-            "Database Design Methodology - Logical data modeling using Entity-Relationship modeling, mapping ER models to relational models, and normalization to Boyce-Codd Normal Form",
-            "Database Application Development - Embedded SQL programming, transaction concepts, access granularity principles, and interfaces like ODBC and JDBC",
-            "Database Administration and Optimization - Database indexing for performance tuning, views and view management, database security and authorization mechanisms",
-            "Advanced Database Topics - Introduction to distributed databases, data warehouses, and data mining concepts",
-            "Database System Architecture - Understanding the architecture and internal workings of database management systems and their core components"
-          ],
-          "link": "https://uwflow.com/course/cs348"
-        },
-        {
-          "code": "CS 370",
-          "name": "Numerical Computation",
-          "desc": [
-            "Floating Point Number Systems - Understanding floating point representation, round-off error propagation, machine precision concepts, and stability analysis of numerical recursions",
-            "Interpolation and Approximation - Polynomial interpolation using Vandermonde matrix and Lagrange methods, cubic splines, B-splines, and applications like scalable fonts",
-            "Ordinary Differential Equations - Numerical methods including forward/backward Euler, modified Euler methods, local truncation error analysis, stability, and global error with applications to pursuit problems and disease propagation models",
-            "Discrete Fourier Analysis - Fourier series, Fast Fourier Transform (FFT) algorithms including the butterfly method, with applications to JPEG compression, image processing, and signal processing",
-            "Numerical Linear Algebra - LU decomposition, pivoting techniques, condition number analysis, QR decomposition, and large-scale applications like Google's PageRank algorithm",
-            "Scientific Computing Applications - Practical implementation using MATLAB, vectorization techniques, and real-world examples from engineering, graphics, and financial computing"
-          ],
-          "link": "https://uwflow.com/course/cs370"
-        },
-        {
-          "code": "CS 246E",
-          "name": "Object-Oriented Software Development (Enriched)",
-          "desc": [
-            "Enriched introduction to object-oriented programming and tools for software development",
-            "Covers designing, coding, debugging, testing, and documenting medium-sized programs",
-            "Focuses on reading specifications and designing software to implement them",
-            "Involves selecting appropriate data structures and control structures",
-            "Emphasizes writing reusable code and reusing existing code",
-            "Introduces basic performance issues, debuggers, and test suites"
-          ],
-          "link": "https://uwflow.com/course/cs246e"
-        },
-        {
-          "code": "CS 251",
-          "name": "Computer Organization and Design",
-          "desc": [
-            "Overview of computer organization and performance",
-            "Covers basics of digital logic design",
-            "Discusses combinational and sequential elements",
-            "Explores data representation and manipulation",
-            "Introduces basics of processor design and pipelining",
-            "Examines memory hierarchies and multiprocessors"
-          ],
-          "link": "https://uwflow.com/course/cs251"
-        },
-        {
-          "code": "CS 241",
-          "name": "Foundations of Sequential Programs (Compilers)",
-          "desc": [
-            "Explores the relationship between high-level languages and the underlying computer architecture",
-            "Covers basic machine architecture and assemblers",
-            "Includes specification and translation of programming languages",
-            "Discusses linkers, loaders, and block-structured languages",
-            "Examines parameter passing mechanisms and comparison of programming languages"
-          ],
-          "link": "https://uwflow.com/course/cs241"
-        },
-        {
-          "code": "CS 240",
-          "name": "Data Structures and Data Management",
-          "desc": [
-            "Introduction to widely used and effective methods of data organization",
-            "Focuses on data structures, their algorithms, and algorithm performance",
-            "Covers specific topics like priority queues, sorting, dictionaries, and data structures for text processing"
-          ],
-          "link": "https://uwflow.com/course/cs240"
-        },
-        {
-          "code": "CS 136",
-          "name": "Elementary Algorithm Design and Data Abstraction",
-          "desc": [
-            "Builds on techniques and patterns from CS 135, transitioning to imperative programming",
-            "Introduces design and analysis of algorithms, information management, and implementation techniques",
-            "Covers iterative and recursive sorting algorithms",
-            "Discusses data structures like lists, stacks, queues, and trees",
-            "Focuses on abstract data types and their implementations"
-          ],
-          "link": "https://uwflow.com/course/cs136"
-        },
-        {
-          "code": "CS 135",
-          "name": "Designing Functional Programs",
-          "desc": [
-            "Introduction to the fundamentals of computer science through functional programming, emphasizing elementary programming patterns",
-            "Exploration of syntax, semantics, and tracing program execution using substitution methods",
-            "Coverage of software development practices, including design, testing, and documentation",
-            "Study of both linear and nonlinear data structures, with a focus on recursive data definitions",
-            "Examination of key principles like abstraction and encapsulation",
-            "Analysis of different types of recursion, specifically generative and structural",
-            "Contextualization within the historical evolution of functional programming"
-          ],
-          "link": "https://uwflow.com/course/cs135"
-        }
+        { "code": "CS 350", "name": "Operating Systems" },
+        { "code": "CS 341", "name": "Algorithms" },
+        { "code": "CS 348", "name": "Introduction to Database Management" },
+        { "code": "CS 370", "name": "Numerical Computation" },
+        { "code": "CS 246E", "name": "Object-Oriented Software Development (Enriched)" },
+        { "code": "CS 251", "name": "Computer Organization and Design" },
+        { "code": "CS 241", "name": "Foundations of Sequential Programs (Compilers)" },
+        { "code": "CS 240", "name": "Data Structures and Data Management" },
+        { "code": "CS 136", "name": "Elementary Algorithm Design and Data Abstraction" },
+        { "code": "CS 135", "name": "Designing Functional Programs" }
       ],
       "clubs": [
         {
           "title": "Data Science Club",
           "role": "VP Development",
-          "date": "Sep. 2025 - Present",
+          "date": "Sep 2025 - Present",
           "desc": [
             "Developed QR code check-in system and admin portal for seamless event management and member tracking",
             "Built public calendar interface to visualize past and upcoming events with responsive frontend design",
@@ -201,17 +87,17 @@
         {
           "title": "Raas Warriors",
           "role": "Dancer",
-          "date": "Sep. 2024 - Mar. 2025"
+          "date": "Sep 2024 - Mar 2025"
         },
         {
           "title": "HackTheNorth",
           "role": "Volunteer",
-          "date": "Sep. 2024"
+          "date": "Sep 2024"
         },
         {
           "title": "WATOnomous",
           "role": "Autonomous Software Division",
-          "date": "May 2024 - Aug. 2024",
+          "date": "May 2024 - Aug 2024",
           "desc": [
             "Learned ROS pub-sub architecture and messaging patterns for autonomous vehicle software communication",
             "Gained exposure to multi-modal sensor data streams from LiDAR, cameras, radar, and GPS through ROS topics",
@@ -236,7 +122,7 @@
         "Accelerated container security scanning speeds by over 77% for Capital Markets teams by migrating legacy scanning protocols to Aqua SaaS Cloud, significantly reducing Jenkins CI/CD pipeline latency",
         "Enabled verification of Docker image signatures for an application by provisioning Virtual Machines with custom CA bundles, ensuring only trusted code runs in production"
       ],
-      "date": "Sep. 2025 - Dec. 2025",
+      "date": "Sep 2025 - Dec 2025",
       "colour": "#005DAA",
       "icon": "",
       "tech": ["GitHub Actions", "Jenkins", "Helm", "Docker", "Aqua"]
@@ -250,7 +136,7 @@
         "Standardized codebase by authoring reusable Cursor rule packs that enforce layered architecture, uniform error handling, and code consistency, enabling faster, conflict-free feature rollouts across teams",
         "Architected an AI-driven code-gen pipeline that ingests product docs & Cursor rules to auto-scaffold Fastify services, database schemas, cache layers, and Vitest tests, cutting API development from months to days"
       ],
-      "date": "May. 2025 - Aug. 2025",
+      "date": "May 2025 - Aug 2025",
       "colour": "#196AFF",
       "icon": "",
       "tech": ["Node.js", "Fastify", "PostgreSQL", "Redis", "Docker"]
@@ -265,7 +151,7 @@
         "Introduced interactive Liquidity Matrix feature to analyzes & visualizes FX market liquidity across 24 trading hours, providing actionable insights with an interactive and concise interface to improve trading decisions",
         "Leveraged Highcharts, AG Grid, and React Virtualized to improve index analytics performance by 35% with dynamic visualizations & auto-complete filtering, delivering a seamless user experience"
       ],
-      "date": "Sep. 2024 - Dec. 2024",
+      "date": "Sep 2024 - Dec 2024",
       "colour": "#005DAA",
       "icon": "",
       "tech": ["Next.js", "Kubernetes", "MongoDB", "Redux"]
@@ -279,7 +165,7 @@
         "Designed and deployed a PostgreSQL database integrated with Keycloak, streamlining authentication process",
         "Leveraged Terraform to automate infrastructure provisioning, which optimized deployment time by up to 70%, significant enhancing operational efficiency"
       ],
-      "date": "Jan. 2024 - May 2024",
+      "date": "Jan 2024 - May 2024",
       "colour": "#E31937",
       "icon": "",
       "tech": ["Google Cloud", "PostgreSQL", "Keycloak", "Terraform"]
@@ -294,7 +180,7 @@
         "Introduced new visualization feature that displayed risk level results for predictive risk analysis, aiding in better decision-making for pipeline integrity management",
         "Lead migration of APIs to a high-performance serialization library, boosting API performance by up to 50%"
       ],
-      "date": "May 2023 - Aug. 2023",
+      "date": "May 2023 - Aug 2023",
       "colour": "#6EB273",
       "icon": "",
       "tech": ["C#", "ASP.NET", "SQL Server"]
@@ -308,7 +194,7 @@
         "Lead the redesigning of a POS inventory application to better meet the specific needs of a telecom client, enhancing user satisfaction and operational efficiency",
         "Improved inventory management functionalities using RESTful APIs, resulting in a more intuitive user experience"
       ],
-      "date": "Jun. 2022 - Sep. 2022",
+      "date": "Jun 2022 - Sep 2022",
       "colour": "#E31937",
       "icon": "",
       "tech": ["Angular", "TypeScript", "HTML", "CSS"]
@@ -336,7 +222,7 @@
       "description": "Full-stack anime tracking application that allows users to discover popular anime, write reviews, add new titles, find friends with shared interests, and manage their watch history. Features comprehensive database management and community-driven content.",
       "tech": ["Next.js", "TypeScript", "PostgreSQL", "Python"],
       "colour": "#FFC107",
-      "link": "https://ani-track-zeta.vercel.app",
+      "link": "https://ani-track-kappa.vercel.app",
       "source": "https://github.com/patel-aaryan/AniTrack",
       "features": [
         "Discover trending and popular anime",
@@ -417,7 +303,7 @@
       },
       "mainTech": ["Node.js", "PostgreSQL", "Python"],
       "colour": "#FFC107",
-      "link": "https://ani-track-zeta.vercel.app",
+      "link": "https://ani-track-kappa.vercel.app",
       "source": "https://github.com/patel-aaryan/AniTrack",
       "features": [
         "Discover trending and popular anime",
@@ -434,7 +320,7 @@
       "tech": {
         "Frontend ": ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn"],
         "Backend ": ["Express.js", "Node.js", "MongoDB"],
-        "AI/ML & Data Science": ["MediaPipe"]
+        "AI/ML Tools": ["MediaPipe"]
       },
       "mainTech": ["Node.js", "MediaPipe", "MongoDB"],
       "colour": "#FF616D",
@@ -454,8 +340,8 @@
       "description": "E-commerce platform showcasing Lippan Art Decor and allows users to register, explore products, and complete orders securely",
       "tech": {
         "Frontend": ["Next.js", "TypeScript", "Redux", "MUI"],
-        "Backend": ["Django", "Python", "Django REST Framework", "MySQL"],
-        "Devops & Integration": ["Docker", "AWS S3", "Stripe"]
+        "Backend": ["Django", "Python", "MySQL"],
+        "DevOps & Integration": ["Docker", "AWS S3", "Stripe"]
       },
       "mainTech": ["Django", "Next.js", "Stripe"],
       "colour": "#96BD4A",
@@ -565,8 +451,7 @@
       "link": "",
       "source": "https://github.com/patel-aaryan/Foodar",
       "features": [
-        "Location-based restaurant recommendations",
-        "Top 3 recommendation system",
+        "Location-based restaurant recommendation system",
         "University student focused",
         "Informed dietary choice support",
         "Data-driven suggestion engine"

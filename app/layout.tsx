@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 import { Analytics } from "@vercel/analytics/next";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cn } from "@/lib/utils";
+import { createMetadata } from "@/lib/metadata";
 
 const geistMono = Geist_Mono({subsets:['latin'],variable:'--font-mono'});
 
@@ -18,10 +19,7 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-export const metadata: Metadata = {
-  title: "Aaryan Patel",
-  description: "Aaryan Patel's Portfolio",
-};
+export const metadata: Metadata = createMetadata();
 
 export const viewport: Viewport = {
   width: "device-width",

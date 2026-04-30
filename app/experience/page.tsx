@@ -1,72 +1,41 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useState, useEffect } from "react";
-import { ExperienceSidebar, ExperienceTimeline } from "@/components/experience";
-import portfolioData from "@/data/portfolio.json";
+import { ExperienceTimeline } from "@/components/experience";
 
 export default function ExperiencePage() {
-  const [activeExperience, setActiveExperience] = useState<string>("");
-  const experiences = portfolioData.experience;
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveExperience(entry.target.id);
-          }
-        });
-      },
-      { threshold: 0.5, rootMargin: "-20% 0px -20% 0px" }
-    );
-
-    experiences.forEach((_, index) => {
-      const element = document.getElementById(`experience-${index}`);
-      if (element) observer.observe(element);
-    });
-
-    return () => observer.disconnect();
-  }, [experiences]);
-
-  const scrollToExperience = (index: number) => {
-    const element = document.getElementById(`experience-${index}`);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  };
-
   return (
-    <div className="min-h-screen bg-background">
-      {/* Header */}
-      <motion.div
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="mt-8"
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="text-center">
-            <h1 className="text-2xl sm:text-3xl font-bold">Work Experience</h1>
-            <p className="text-sm text-muted-foreground">
-              Professional journey across {experiences.length} companies
-            </p>
-          </div>
-        </div>
-      </motion.div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="flex flex-col lg:flex-row gap-6 min-w-0">
-          <ExperienceSidebar
-            activeExperience={activeExperience}
-            onExperienceClick={scrollToExperience}
-          />
-
-          <div className="flex-1 min-w-0">
-            <ExperienceTimeline />
-          </div>
-        </div>
+    <main className="relative min-h-screen bg-background">
+      {/* Background decals */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-32 right-0 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
+        <div className="absolute bottom-1/3 left-0 h-[400px] w-[400px] rounded-full bg-primary/5 blur-[100px]" />
       </div>
-    </div>
+
+      <div className="relative mx-auto max-w-7xl px-3 py-16 sm:px-5 lg:px-6 lg:py-20">
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-12 md:mb-16"
+        >
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.4em] text-primary">
+            [DEPLOYMENT_HISTORY]
+          </p>
+          <h1 className="mb-4 text-5xl font-bold uppercase tracking-tighter md:text-6xl lg:text-7xl">
+            Operational Timeline
+          </h1>
+          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
+            A record of professional engagements, engineering initiatives, and the
+            teams I&apos;ve shipped with — across capital markets, early stage startups,
+            enterprise consulting, and clubs.
+          </p>
+        </motion.div>
+
+        {/* Timeline */}
+        <ExperienceTimeline />
+      </div>
+    </main>
   );
 }

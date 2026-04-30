@@ -1,60 +1,150 @@
+"use client";
+
+import type { ComponentType } from "react";
 import { motion } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
-import { School, Work, SportsMma } from "@mui/icons-material";
+import { cn } from "@/lib/utils";
+import { Globe, Layers, Rocket, Footprints, Wrench } from "lucide-react";
+import { SportsMma } from "@mui/icons-material";
+
+type Accent = "violet" | "cyan" | "rose";
+type AccentConfig = {
+  borderTop: string;
+  iconShell: string;
+  watermark: string;
+};
+
+const ACCENT_MAP: Record<Accent, AccentConfig> = {
+  violet: {
+    borderTop: "border-t-violet-500",
+    iconShell: "bg-violet-500/10 text-violet-400 ring-1 ring-inset ring-violet-500/25",
+    watermark: "text-violet-500",
+  },
+  cyan: {
+    borderTop: "border-t-cyan-500",
+    iconShell: "bg-cyan-500/10 text-cyan-400 ring-1 ring-inset ring-cyan-500/25",
+    watermark: "text-cyan-500",
+  },
+  rose: {
+    borderTop: "border-t-rose-500",
+    iconShell: "bg-rose-500/10 text-rose-400 ring-1 ring-inset ring-rose-500/25",
+    watermark: "text-rose-500",
+  },
+};
+
+const CARDS: Array<{
+  accent: Accent;
+  title: string;
+  subtitle: string;
+  description: string;
+  Icon: ComponentType<{ className?: string }>;
+  Watermark: ComponentType<{ className?: string }>;
+}> = [
+  {
+    accent: "violet",
+    title: "The Builder",
+    subtitle: "CS @ Waterloo · Homelabber",
+    description:
+      "Building a strong CS foundation in the classroom and stretching it in my home lab, turning spare hardware and weekend experiments into personal services and systems.",
+    Icon: Layers,
+    Watermark: Wrench,
+  },
+  {
+    accent: "cyan",
+    title: "The Leader",
+    subtitle: "Arkin · UW Data Science Club",
+    description:
+      "Building Arkin to deliver modern web solutions end-to-end for clients, while bulding technical infrastructure as VP of Development for the UW Data Science Club.",
+    Icon: Rocket,
+    Watermark: Globe,
+  },
+  {
+    accent: "rose",
+    title: "The Artist",
+    subtitle: "Mixed Martial Arts · Dance",
+    description:
+      "Building functional strength & discipline through Muay Thai, Boxing, and Brazilian Jiu-Jitsu, while competing in dance competitions in Garba Raas.",
+    Icon: SportsMma,
+    Watermark: Footprints,
+  },
+];
 
 export function QuickHighlights() {
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-muted/30">
-      <div className="max-w-7xl mx-auto">
+    <section className="border-t border-border/40 bg-muted/5 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          viewport={{ once: true }}
+          transition={{ duration: 0.55 }}
+          className="mb-10 flex flex-col gap-4 border-b border-border/50 pb-6 sm:flex-row sm:items-end sm:justify-between"
         >
-          {/* Education */}
-          <Card className="hover:shadow-lg transition-shadow">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-[#EAAB00]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <School className="h-6 w-6 text-[#EAAB00]" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">CS Student</h3>
-              <p className="text-muted-foreground">University of Waterloo</p>
-              <p className="text-sm text-muted-foreground">
-                Artificial Intelligence Specialization
-              </p>
-              <p className="text-sm text-muted-foreground">Economics Minor</p>
-            </CardContent>
-          </Card>
+          <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground sm:text-3xl">
+            Core_Identity
+          </h2>
+          <p className="font-heading text-[10px] font-medium uppercase tracking-[0.25em] text-muted-foreground">
+            PARAMS_03
+          </p>
+        </motion.div>
 
-          {/* Experience */}
-          <Card className="hover:shadow-lg transition-shadow">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-[#005DAA]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Work className="h-6 w-6 text-[#005DAA]" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">1.5+ Years</h3>
-              <p className="text-muted-foreground">Software Engineering experience in</p>
-              <p className="text-sm text-muted-foreground">
-                Scrawlr &bull; RBC &bull; CGI &bull; JANA
-              </p>
-              <p className="text-sm text-muted-foreground">
-                FinTech &bull; Consulting &bull; Energy
-              </p>
-            </CardContent>
-          </Card>
-
-          {/* Sports & Fitness */}
-          <Card className="hover:shadow-lg transition-shadow">
-            <CardContent className="p-6 text-center">
-              <div className="w-12 h-12 bg-green-500/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <SportsMma className="h-6 w-6 text-green-500" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Always Active</h3>
-              <p className="text-muted-foreground">Boxing &bull; Muay Thai &bull; BJJ</p>
-              <p className="text-sm text-muted-foreground">Soccer &bull; Volleyball</p>
-            </CardContent>
-          </Card>
+        <motion.div
+          initial={{ opacity: 0, y: 28 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.55, delay: 0.08 }}
+          className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8"
+        >
+          {CARDS.map(({ accent, title, subtitle, description, Icon, Watermark }, index) => {
+            const styles = ACCENT_MAP[accent];
+            return (
+              <motion.div
+                key={title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.45, delay: index * 0.1 }}
+              >
+                <Card
+                  className={cn(
+                    "group relative h-full overflow-hidden border-t-2 py-0 shadow-none ring-1 ring-border/60 transition-colors hover:ring-border",
+                    styles.borderTop,
+                  )}
+                >
+                  <Watermark
+                    className={cn(
+                      "pointer-events-none absolute -right-1 -top-1 size-28 -rotate-6 opacity-[0.08] transition-opacity group-hover:opacity-[0.12]",
+                      styles.watermark,
+                    )}
+                    aria-hidden
+                  />
+                  <CardContent className="relative p-6 pt-7">
+                    <div className="flex gap-4">
+                      <div
+                        className={cn(
+                          "flex size-10 shrink-0 items-center justify-center rounded-md",
+                          styles.iconShell,
+                        )}
+                      >
+                        <Icon className="size-5" aria-hidden />
+                      </div>
+                      <div className="min-w-0 flex-1 space-y-2">
+                        <h3 className="font-heading text-lg font-semibold leading-snug text-card-foreground">
+                          {title}
+                        </h3>
+                        <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                          {subtitle}
+                        </p>
+                        <p className="text-sm leading-relaxed text-muted-foreground">
+                          {description}
+                        </p>
+                      </div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </motion.div>
+            );
+          })}
         </motion.div>
       </div>
     </section>

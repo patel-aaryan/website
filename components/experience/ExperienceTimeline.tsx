@@ -1,146 +1,211 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { LocationOn, BusinessCenter, CalendarToday } from "@mui/icons-material";
+import { Card, CardContent } from "@/components/ui/card";
+import { LocationOn } from "@mui/icons-material";
 import portfolioData from "@/data/portfolio.json";
+import { cn } from "@/lib/utils";
 
-export function ExperienceTimeline() {
-  const experiences = portfolioData.experience;
+interface Experience {
+  title: string;
+  company: string;
+  location: string;
+  description: string[];
+  date: string;
+  colour: string;
+  tech: string[];
+}
+
+interface YearBlockProps {
+  date: string;
+  alignRight?: boolean;
+}
+
+function YearBlock({ date, alignRight }: Readonly<YearBlockProps>) {
+  return (
+    <div className={cn("space-y-1", alignRight && "md:text-right")}>
+      <p className="font-mono text-xl md:text-2xl lg:text-3xl font-bold leading-none tracking-tight text-muted-foreground/25">
+        {date}
+      </p>
+      <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70">
+        Operational Window
+      </p>
+    </div>
+  );
+}
+
+interface ExperienceCardProps {
+  exp: Experience;
+  index: number;
+  active: boolean;
+}
+
+function ExperienceCard({ exp, index, active }: Readonly<ExperienceCardProps>) {
+  const ref = String(index + 1).padStart(3, "0");
 
   return (
-    <div className="w-full">
-      <div className="relative overflow-hidden">
-        {/* Timeline Line */}
-        <motion.div
-          initial={{ scaleY: 0 }}
-          animate={{ scaleY: 1 }}
-          transition={{ duration: 1.5, delay: 0.5 }}
-          className="absolute left-4 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-primary/20 origin-top hidden sm:block"
-        />
-
-        {/* Experience Items */}
-        <div className="space-y-12">
-          {experiences.map((experience, index) => (
-            <motion.div
-              key={index}
-              id={`experience-${index}`}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-              viewport={{ margin: "-10%" }}
-              className="relative pl-0 sm:pl-12"
+    <Card className="group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.08)]">
+      <CardContent className="flex flex-col gap-5 p-4 sm:p-5 md:p-6">
+        {/* Header */}
+        <div className="flex items-start justify-between gap-3">
+          <div className="min-w-0 space-y-1.5">
+            <p className="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
+              Op_Ref: #{ref}
+            </p>
+            <h3 className="text-xl font-bold leading-tight tracking-tight md:text-2xl">
+              {exp.title}
+            </h3>
+            <p
+              className="font-mono text-sm uppercase tracking-wider"
+              style={{ color: exp.colour }}
             >
-              {/* Experience Card */}
-              <Card className="hover:shadow-xl transition-all duration-300 bg-card/50 backdrop-blur-sm border-2 w-full">
-                <CardContent className="p-4 sm:p-6 lg:p-8">
-                  {/* Header */}
-                  <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4 mb-6">
-                    <div className="space-y-2 min-w-0 flex-1">
-                      <div className="flex items-center gap-2 mb-2">
-                        <BusinessCenter
-                          className="h-5 w-5 flex-shrink-0"
-                          style={{ color: experience.colour }}
-                        />
-                      </div>
-                      <h2 className="text-lg sm:text-xl lg:text-2xl font-bold leading-tight break-words">
-                        {experience.title}
-                      </h2>
-                      <p className="text-base sm:text-lg font-semibold text-primary break-words">
-                        {experience.company}
-                      </p>
-                      <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-sm text-muted-foreground">
-                        <div className="flex items-center gap-1 min-w-0">
-                          <LocationOn className="h-4 w-4 flex-shrink-0" />
-                          <span className="truncate">
-                            {experience.location}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-1 min-w-0">
-                          <CalendarToday className="h-4 w-4 flex-shrink-0" />
-                          <span className="truncate">{experience.date}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
+              {exp.company}
+            </p>
+          </div>
 
-                  {/* Tech Stack */}
-                  {experience.tech && experience.tech.length > 0 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      transition={{ duration: 0.4, delay: 0.2 }}
-                      viewport={{}}
-                      className="mb-6"
-                    >
-                      <h3 className="text-sm font-semibold text-muted-foreground mb-3">
-                        Technologies Used
-                      </h3>
-                      <div className="flex flex-wrap gap-2 max-w-full">
-                        {experience.tech.map((tech, techIndex) => (
-                          <motion.div
-                            key={tech}
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            transition={{
-                              duration: 0.3,
-                              delay: techIndex * 0.05,
-                            }}
-                            viewport={{}}
-                            whileHover={{ scale: 1.05 }}
-                            className="min-w-0"
-                          >
-                            <Badge
-                              variant="secondary"
-                              className="text-xs sm:text-sm px-2 sm:px-3 py-1 hover:bg-primary/10 transition-colors break-words"
-                            >
-                              {tech}
-                            </Badge>
-                          </motion.div>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
+          <Badge
+            variant="outline"
+            className={cn(
+              "shrink-0 gap-1.5 font-mono text-[10px] uppercase tracking-widest",
+              active
+                ? "border-primary/40 bg-primary/5 text-primary"
+                : "border-border text-muted-foreground",
+            )}
+          >
+            <span
+              className={cn(
+                "h-1.5 w-1.5 rounded-full",
+                active
+                  ? "bg-primary shadow-[0_0_6px_hsl(var(--primary)/0.7)]"
+                  : "bg-muted-foreground/40",
+              )}
+            />
+            {active ? "Active" : "Completed"}
+          </Badge>
+        </div>
 
-                  {/* Key Achievements */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.4, delay: 0.3 }}
-                    viewport={{}}
-                    className="space-y-4"
-                  >
-                    <div className="space-y-3">
-                      {experience.description.map((desc, descIndex) => (
-                        <motion.div
-                          key={descIndex}
-                          initial={{ opacity: 0, x: -10 }}
-                          whileInView={{ opacity: 1, x: 0 }}
-                          transition={{
-                            duration: 0.3,
-                            delay: descIndex * 0.1 + 0.4,
-                          }}
-                          viewport={{}}
-                          className="flex items-start gap-3 group"
-                        >
-                          <div
-                            className="w-2 h-2 rounded-full mt-2 flex-shrink-0 group-hover:scale-125 transition-transform"
-                            style={{ backgroundColor: experience.colour }}
-                          />
-                          <p className="text-sm leading-relaxed text-muted-foreground group-hover:text-foreground transition-colors break-words">
-                            {desc}
-                          </p>
-                        </motion.div>
-                      ))}
-                    </div>
-                  </motion.div>
-                </CardContent>
-              </Card>
-            </motion.div>
+        {/* Op log meta strip */}
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1 rounded-md border border-border/60 bg-muted/30 px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+          <span className="text-primary/70">{"// op_log"}</span>
+          <span className="flex items-center gap-1">
+            <LocationOn className="h-3 w-3" />
+            {exp.location}
+          </span>
+          <span className="md:hidden">{exp.date}</span>
+          <span>{exp.tech.length} libs</span>
+        </div>
+
+        {/* Achievements as numbered log entries */}
+        <ul className="space-y-2.5">
+          {exp.description.map((desc, i) => (
+            <motion.li
+              key={i}
+              initial={{ opacity: 0, x: -8 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-5%" }}
+              transition={{ duration: 0.35, delay: 0.15 + i * 0.05 }}
+              className="flex gap-3"
+            >
+              <span className="mt-[3px] shrink-0 font-mono text-[11px] tracking-tight text-primary/60">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="text-sm leading-relaxed text-muted-foreground transition-colors group-hover:text-foreground/85">
+                {desc}
+              </span>
+            </motion.li>
           ))}
+        </ul>
+
+        {/* Tech */}
+        {exp.tech?.length > 0 && (
+          <div className="flex flex-wrap gap-1.5 pt-1">
+            {exp.tech.map((t) => (
+              <Badge
+                key={t}
+                variant="secondary"
+                className="font-mono text-[10px] uppercase tracking-wider"
+              >
+                {t}
+              </Badge>
+            ))}
+          </div>
+        )}
+      </CardContent>
+    </Card>
+  );
+}
+
+export function ExperienceTimeline() {
+  const experiences = portfolioData.experience as Experience[];
+
+  return (
+    <section className="relative">
+      {/* Timeline line */}
+      <motion.div
+        initial={{ scaleY: 0 }}
+        whileInView={{ scaleY: 1 }}
+        viewport={{ once: true, margin: "-5%" }}
+        transition={{ duration: 1.4, ease: "easeOut" }}
+        className="pointer-events-none absolute bottom-0 left-4 top-0 z-0 w-px origin-top bg-linear-to-b from-primary/40 via-border to-transparent md:left-1/2 md:-translate-x-1/2"
+      />
+
+      <div className="space-y-14 md:space-y-24">
+        {experiences.map((exp, i) => {
+          const isActive = i === 0;
+          const cardOnLeft = i % 2 === 1;
+
+          return (
+            <div
+              key={`${exp.company}-${exp.title}-${i}`}
+              className="relative flex flex-col md:flex-row md:items-start"
+            >
+              {/* Year side (desktop only) */}
+              <div
+                className={cn(
+                  "hidden md:flex md:w-1/2 md:pt-6",
+                  cardOnLeft
+                    ? "md:order-2 md:justify-start md:pl-16"
+                    : "md:order-1 md:justify-end md:pr-16",
+                )}
+              >
+                <motion.div
+                  initial={{ opacity: 0, x: cardOnLeft ? 16 : -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-5%" }}
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                >
+                  <YearBlock date={exp.date} alignRight={!cardOnLeft} />
+                </motion.div>
+              </div>
+
+              {/* Card side */}
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-5%" }}
+                transition={{ duration: 0.55 }}
+                className={cn(
+                  "pl-12 md:w-1/2 md:pl-0",
+                  cardOnLeft ? "md:order-1 md:pr-0" : "md:order-2 md:pl-0",
+                )}
+              >
+                <ExperienceCard exp={exp} index={i} active={isActive} />
+              </motion.div>
+            </div>
+          );
+        })}
+
+        {/* End-of-timeline cap */}
+        <div className="relative">
+          <div className="absolute left-4 top-0 z-10 -translate-x-1/2 md:left-1/2">
+            <div className="h-3 w-3 rotate-45 border border-border bg-background" />
+          </div>
+          <p className="ml-12 pt-1 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 md:ml-0 md:text-center">
+            [end_of_timeline]
+          </p>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

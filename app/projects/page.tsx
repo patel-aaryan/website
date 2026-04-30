@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu } from "@mui/icons-material";
 import { ProjectDetails } from "@/components/projects/ProjectDetails";
 import { ProjectsPartnerCta } from "@/components/projects/ProjectsPartnerCta";
 import { ProjectsSidebar } from "@/components/projects/ProjectsSidebar";
@@ -13,84 +14,112 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
-import { Menu } from "@mui/icons-material";
 import portfolioData from "@/data/portfolio.json";
 import { Project } from "@/data/types";
 
 export default function ProjectsPage() {
   const projects = portfolioData.projects as unknown as Project[];
-  const [selectedProject, setSelectedProject] = useState<Project>(projects[0]);
+  const [selectedIndex, setSelectedIndex] = useState(0);
   const [isSheetOpen, setIsSheetOpen] = useState(false);
 
-  const handleProjectSelect = (project: Project) => {
-    setSelectedProject(project);
-    setIsSheetOpen(false); // Close mobile sheet when project is selected
+  const selectedProject = projects[selectedIndex];
+
+  const handleSelect = (index: number) => {
+    setSelectedIndex(index);
+    setIsSheetOpen(false);
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
+    <main className="relative min-h-screen bg-background">
+      {/* Background decals */}
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        <div className="absolute -top-32 right-0 h-[500px] w-[500px] rounded-full bg-primary/10 blur-[120px]" />
+        <div className="absolute bottom-1/3 left-0 h-[400px] w-[400px] rounded-full bg-primary/5 blur-[100px]" />
+      </div>
+
+      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+        {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="mb-8"
+          className="mb-10 md:mb-14"
         >
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-4xl font-bold text-foreground">Projects</h1>
+          <p className="mb-4 font-mono text-xs uppercase tracking-[0.4em] text-primary">
+            [build_archive]
+          </p>
+          <h1 className="mb-4 text-5xl font-bold uppercase tracking-tighter md:text-6xl lg:text-7xl">
+            Project Catalog
+          </h1>
+          <p className="max-w-2xl text-base leading-relaxed text-muted-foreground">
+            A curated index of personal builds and shipped products — spanning full-stack
+            platforms, AI experiments, and developer tooling. Select an entry to inspect the
+            stack and feature set.
+          </p>
 
-            {/* Mobile Menu Button */}
+          {/* Mobile sheet trigger */}
+          <div className="mt-6 lg:hidden">
             <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
               <SheetTrigger asChild>
                 <Button
                   variant="outline"
                   size="sm"
-                  className="lg:hidden hover:scale-105 transition-transform"
+                  className="font-mono text-[11px] uppercase tracking-[0.2em]"
                 >
-                  <Menu className="h-4 w-4 mr-2" />
-                  Browse Projects
+                  <Menu className="mr-2 h-4 w-4" />
+                  Browse Index ({projects.length})
                 </Button>
               </SheetTrigger>
-              <SheetContent side="left" className="w-[300px] sm:w-[400px]">
+              <SheetContent
+                side="left"
+                className="w-[320px] overflow-y-auto sm:w-[400px]"
+              >
                 <SheetHeader>
-                  <SheetTitle>All Projects</SheetTitle>
+                  <SheetTitle className="font-mono text-xs uppercase tracking-[0.3em] text-primary">
+                    [build_archive]
+                  </SheetTitle>
                 </SheetHeader>
                 <div className="mt-4">
                   <ProjectsSidebar
                     projects={projects}
-                    selectedProject={selectedProject}
-                    onProjectSelect={handleProjectSelect}
-                    isMobile={true}
+                    selectedIndex={selectedIndex}
+                    onSelect={handleSelect}
+                    embedded
                   />
                 </div>
               </SheetContent>
             </Sheet>
           </div>
-
-          <p className="text-muted-foreground text-lg">
-            Explore my collection of projects spanning web development, AI,
-            mobile apps, and more.
-          </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {/* Desktop Sidebar - Hidden on mobile */}
-          <div className="hidden lg:block lg:col-span-1">
-            <ProjectsSidebar
-              projects={projects}
-              selectedProject={selectedProject}
-              onProjectSelect={setSelectedProject}
-            />
-          </div>
+        {/* Master / detail */}
+        <div className="grid grid-cols-1 gap-4 md:gap-5 lg:grid-cols-12">
+          {/* Sidebar (master) */}
+          <aside className="hidden lg:col-span-5 lg:block xl:col-span-4">
+            <div className="sticky top-24">
+              <ProjectsSidebar
+                projects={projects}
+                selectedIndex={selectedIndex}
+                onSelect={handleSelect}
+              />
+            </div>
+          </aside>
 
-          {/* Project Details - Full width on mobile, 3/4 width on desktop */}
-          <div className="lg:col-span-3">
-            <ProjectDetails project={selectedProject} />
+          {/* Details (detail) */}
+          <div className="lg:col-span-7 xl:col-span-8">
+            <AnimatePresence mode="wait">
+              <ProjectDetails
+                key={selectedProject.title}
+                project={selectedProject}
+                index={selectedIndex}
+                total={projects.length}
+              />
+            </AnimatePresence>
           </div>
         </div>
 
-        <ProjectsPartnerCta className="mt-10" />
+        <ProjectsPartnerCta className="mt-12 md:mt-16" />
       </div>
-    </div>
+    </main>
   );
 }

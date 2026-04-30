@@ -1,105 +1,135 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Project } from "@/data/types";
+import { cn } from "@/lib/utils";
 
 interface ProjectsSidebarProps {
   projects: Project[];
-  selectedProject: Project;
-  onProjectSelect: (project: Project) => void;
-  isMobile?: boolean;
+  selectedIndex: number;
+  onSelect: (index: number) => void;
+  embedded?: boolean;
 }
 
 export function ProjectsSidebar({
   projects,
-  selectedProject,
-  onProjectSelect,
-  isMobile = false,
-}: ProjectsSidebarProps) {
-  const content = (
-    <>
-      {!isMobile && (
-        <h2 className="text-xl font-semibold mb-4">All Projects</h2>
-      )}
-      <ScrollArea
-        className={isMobile ? "h-[calc(100vh-200px)]" : "h-[calc(100vh-300px)]"}
-      >
-        <div className="space-y-3 p-1">
-          {projects.map((project, index) => (
-            <motion.div
-              key={project.title}
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-            >
-              <Card
-                className={`cursor-pointer transition-all duration-200 hover:shadow-md ${
-                  selectedProject.title === project.title
-                    ? "ring-2 ring-primary bg-accent"
-                    : "hover:bg-accent/50"
-                }`}
-                onClick={() => onProjectSelect(project)}
+  selectedIndex,
+  onSelect,
+  embedded = false,
+}: Readonly<ProjectsSidebarProps>) {
+  const list = (
+    <div className="flex flex-col">
+      <div className="flex items-center justify-between px-1 pb-3">
+        <p className="font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+          [index]
+        </p>
+        <span className="font-mono text-[10px] uppercase tracking-wider text-muted-foreground">
+          {projects.length} builds
+        </span>
+      </div>
+
+      <ScrollArea className="h-[calc(100vh-220px)]">
+        <ol className="space-y-2 pr-2">
+          {projects.map((project, index) => {
+            const ref = String(index + 1).padStart(3, "0");
+            const isActive = index === selectedIndex;
+
+            return (
+              <motion.li
+                key={project.title}
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.04 }}
               >
-                <CardContent className="p-4">
-                  <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-medium text-sm leading-tight">
-                      {project.title}
-                    </h3>
-                    <div
-                      className="w-3 h-3 rounded-full flex-shrink-0 ml-2"
-                      style={{ backgroundColor: project.colour }}
-                    />
+                <button
+                  type="button"
+                  onClick={() => onSelect(index)}
+                  className={cn(
+                    "group/entry relative w-full overflow-hidden rounded-lg border bg-background/40 p-3 text-left transition-all duration-200",
+                    isActive
+                      ? "border-primary/50 bg-primary/5 shadow-[0_0_20px_hsl(var(--primary)/0.08)]"
+                      : "border-border hover:border-primary/30 hover:bg-card/60",
+                  )}
+                >
+                  {/* Active rail */}
+                  <span
+                    aria-hidden
+                    className={cn(
+                      "absolute left-0 top-0 h-full w-0.5 transition-all duration-200",
+                      isActive
+                        ? "w-1 bg-primary"
+                        : "bg-transparent group-hover/entry:bg-primary/40",
+                    )}
+                  />
+
+                  <div className="flex items-start justify-between gap-2">
+                    <div className="min-w-0 flex-1">
+                      <div className="mb-1 flex items-center gap-2">
+                        <span
+                          className={cn(
+                            "font-mono text-[10px] uppercase tracking-[0.2em]",
+                            isActive
+                              ? "text-primary"
+                              : "text-muted-foreground/70",
+                          )}
+                        >
+                          #{ref}
+                        </span>
+                        <span
+                          className="h-1.5 w-1.5 shrink-0 rounded-full"
+                          style={{ backgroundColor: project.colour }}
+                        />
+                        {project.link && (
+                          <span className="font-mono text-[9px] uppercase tracking-wider text-muted-foreground/60">
+                            · live
+                          </span>
+                        )}
+                      </div>
+                      <h3
+                        className={cn(
+                          "truncate text-sm font-semibold leading-tight tracking-tight",
+                          isActive
+                            ? "text-foreground"
+                            : "text-foreground/90 group-hover/entry:text-foreground",
+                        )}
+                      >
+                        {project.title}
+                      </h3>
+                    </div>
                   </div>
 
-                  <p className="text-xs text-muted-foreground mb-3 line-clamp-2">
-                    {project.description}
-                  </p>
-
-                  <div className="flex flex-wrap gap-1">
-                    {project.mainTech.map((tech) => (
-                      <Badge
+                  <div className="mt-2 flex flex-wrap gap-1">
+                    {project.mainTech.slice(0, 3).map((tech) => (
+                      <span
                         key={tech}
-                        variant="secondary"
-                        className="text-xs px-1.5 py-0.5"
+                        className={cn(
+                          "rounded border px-1.5 py-0.5 font-mono text-[9px] uppercase tracking-wider",
+                          isActive
+                            ? "border-primary/30 bg-primary/5 text-primary/90"
+                            : "border-border/70 bg-muted/40 text-muted-foreground",
+                        )}
                       >
                         {tech}
-                      </Badge>
+                      </span>
                     ))}
-                    {(() => {
-                      const totalTech = Object.values(project.tech).flat()
-                        .length;
-                      const remainingTech = totalTech - project.mainTech.length;
-                      return (
-                        remainingTech > 0 && (
-                          <Badge
-                            variant="outline"
-                            className="text-xs px-1.5 py-0.5"
-                          >
-                            +{remainingTech}
-                          </Badge>
-                        )
-                      );
-                    })()}
                   </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+                </button>
+              </motion.li>
+            );
+          })}
+        </ol>
       </ScrollArea>
-    </>
+    </div>
   );
 
-  if (isMobile) {
-    return <div>{content}</div>;
+  if (embedded) {
+    return list;
   }
 
   return (
-    <Card className="h-full">
-      <CardContent className="p-4">{content}</CardContent>
-    </Card>
+    <div className="rounded-xl border border-border bg-card/60 p-4 backdrop-blur-sm">
+      {list}
+    </div>
   );
 }

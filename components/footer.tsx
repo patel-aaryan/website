@@ -14,6 +14,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import ContactForm from "@/components/footer/ContactForm";
 import portfolioData from "@/data/portfolio.json";
+import { clientConfig } from "@/config/client";
 
 export default function Footer() {
   const [mounted, setMounted] = useState(false);
@@ -26,8 +27,7 @@ export default function Footer() {
       icon: GitHub,
       href: portfolioData.socials.github,
       label: "GitHub",
-      iconHoverClassName:
-        "group-hover:text-[#181717] dark:group-hover:text-white",
+      iconHoverClassName: "group-hover:text-[#181717] dark:group-hover:text-white",
     },
     {
       icon: LinkedIn,
@@ -52,7 +52,7 @@ export default function Footer() {
   const contactInfo = [
     {
       icon: Email,
-      text: process.env.NEXT_PUBLIC_EMAIL,
+      text: clientConfig.nextPublicEmail,
       href: portfolioData.socials.email,
     },
     {

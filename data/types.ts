@@ -1,30 +1,26 @@
 export interface CourseInfo {
   code: string;
   name: string;
-  desc: string[];
-  link: string;
 }
 
-export interface School {
+export interface Club {
+  title: string;
+  role: string;
+  date: string;
+  desc?: string[];
+}
+
+export interface Education {
   name: string;
   date: string;
   major: string;
   minor?: string;
   location: string;
   colour: string;
-  courses?: {
-    code: string;
-    name: string;
-    desc: string[];
-    link: string;
-  }[];
-  clubs: {
-    title: string;
-    role: string;
-  }[];
+  courses?: CourseInfo[];
+  clubs: Club[];
   milestones: string[];
 }
-
 
 export interface Project {
   title: string;
