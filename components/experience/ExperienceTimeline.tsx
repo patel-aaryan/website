@@ -84,7 +84,6 @@ function ExperienceCard({ exp, index }: Readonly<ExperienceCardProps>) {
             {exp.location}
           </span>
           <span className="md:hidden">{exp.date}</span>
-          <span>{exp.tech.length} libs</span>
         </div>
 
         {/* Achievements as numbered log entries */}
