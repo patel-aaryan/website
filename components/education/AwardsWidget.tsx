@@ -14,7 +14,7 @@ export function AwardsWidget({ ed }: Readonly<{ ed: Education }>) {
     >
       <div className="mb-4 flex items-center gap-2">
         <EmojiEvents className="h-4 w-4 text-primary" />
-        <WidgetLabel>[honors]</WidgetLabel>
+        <WidgetLabel>[awards]</WidgetLabel>
       </div>
 
       <div className="grid grid-cols-1 gap-2.5 sm:grid-cols-2 sm:gap-3">
