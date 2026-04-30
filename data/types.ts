@@ -22,6 +22,18 @@ export interface Education {
   milestones: string[];
 }
 
+export interface Experience {
+  title: string;
+  company: string;
+  location: string;
+  description: string[];
+  date: string;
+  colour: string;
+  icon: string;
+  tech: string[];
+  active?: boolean;
+}
+
 export interface Project {
   title: string;
   description: string;

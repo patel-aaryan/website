@@ -5,17 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { LocationOn } from "@mui/icons-material";
 import portfolioData from "@/data/portfolio.json";
+import type { Experience } from "@/data/types";
 import { cn } from "@/lib/utils";
-
-interface Experience {
-  title: string;
-  company: string;
-  location: string;
-  description: string[];
-  date: string;
-  colour: string;
-  tech: string[];
-}
 
 interface YearBlockProps {
   date: string;
@@ -38,11 +29,11 @@ function YearBlock({ date, alignRight }: Readonly<YearBlockProps>) {
 interface ExperienceCardProps {
   exp: Experience;
   index: number;
-  active: boolean;
 }
 
-function ExperienceCard({ exp, index, active }: Readonly<ExperienceCardProps>) {
+function ExperienceCard({ exp, index }: Readonly<ExperienceCardProps>) {
   const ref = String(index + 1).padStart(3, "0");
+  const active = exp.active ?? false;
 
   return (
     <Card className="group relative overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.08)]">
@@ -140,72 +131,74 @@ export function ExperienceTimeline() {
   const experiences = portfolioData.experience as Experience[];
 
   return (
-    <section className="relative">
-      {/* Timeline line */}
-      <motion.div
-        initial={{ scaleY: 0 }}
-        whileInView={{ scaleY: 1 }}
-        viewport={{ once: true, margin: "-5%" }}
-        transition={{ duration: 1.4, ease: "easeOut" }}
-        className="pointer-events-none absolute bottom-0 left-4 top-0 z-0 w-px origin-top bg-linear-to-b from-primary/40 via-border to-transparent md:left-1/2 md:-translate-x-1/2"
-      />
+    <section>
+      <div className="relative">
+        {/* Timeline line */}
+        <motion.div
+          initial={{ scaleY: 0 }}
+          whileInView={{ scaleY: 1 }}
+          viewport={{ once: true, margin: "-5%" }}
+          transition={{ duration: 1.4, ease: "easeOut" }}
+          className="pointer-events-none absolute bottom-0 left-4 top-0 z-0 w-px origin-top bg-border md:left-1/2 md:-translate-x-1/2"
+        />
 
-      <div className="space-y-14 md:space-y-24">
-        {experiences.map((exp, i) => {
-          const isActive = i === 0;
-          const cardOnLeft = i % 2 === 1;
+        <div className="space-y-14 md:space-y-24">
+          {experiences.map((exp, i) => {
+            const cardOnLeft = i % 2 === 1;
 
-          return (
-            <div
-              key={`${exp.company}-${exp.title}-${i}`}
-              className="relative flex flex-col md:flex-row md:items-start"
-            >
-              {/* Year side (desktop only) */}
+            return (
               <div
-                className={cn(
-                  "hidden md:flex md:w-1/2 md:pt-6",
-                  cardOnLeft
-                    ? "md:order-2 md:justify-start md:pl-16"
-                    : "md:order-1 md:justify-end md:pr-16",
-                )}
+                key={`${exp.company}-${exp.title}-${i}`}
+                className="relative flex flex-col md:flex-row md:items-start"
               >
-                <motion.div
-                  initial={{ opacity: 0, x: cardOnLeft ? 16 : -16 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-5%" }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
+                {/* Year side (desktop only) */}
+                <div
+                  className={cn(
+                    "hidden md:flex md:w-1/2 md:pt-6",
+                    cardOnLeft
+                      ? "md:order-2 md:justify-start md:pl-16"
+                      : "md:order-1 md:justify-end md:pr-16",
+                  )}
                 >
-                  <YearBlock date={exp.date} alignRight={!cardOnLeft} />
+                  <motion.div
+                    initial={{ opacity: 0, x: cardOnLeft ? 16 : -16 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, margin: "-5%" }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <YearBlock date={exp.date} alignRight={!cardOnLeft} />
+                  </motion.div>
+                </div>
+
+                {/* Card side */}
+                <motion.div
+                  initial={{ opacity: 0, y: 24 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-5%" }}
+                  transition={{ duration: 0.55 }}
+                  className={cn(
+                    "pl-12 md:w-1/2 md:pl-0",
+                    cardOnLeft ? "md:order-1 md:pr-16" : "md:order-2 md:pl-16",
+                  )}
+                >
+                  <ExperienceCard exp={exp} index={i} />
                 </motion.div>
               </div>
+            );
+          })}
+        </div>
 
-              {/* Card side */}
-              <motion.div
-                initial={{ opacity: 0, y: 24 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-5%" }}
-                transition={{ duration: 0.55 }}
-                className={cn(
-                  "pl-12 md:w-1/2 md:pl-0",
-                  cardOnLeft ? "md:order-1 md:pr-16" : "md:order-2 md:pl-16",
-                )}
-              >
-                <ExperienceCard exp={exp} index={i} active={isActive} />
-              </motion.div>
-            </div>
-          );
-        })}
-
-        {/* End-of-timeline cap */}
-        <div className="relative">
-          <div className="absolute left-4 top-0 z-10 -translate-x-1/2 md:left-1/2">
+        {/* End-of-timeline marker */}
+        <div className="relative h-4 w-full shrink-0">
+          <div className="absolute left-4 top-1/2 z-10 -translate-x-1/2 -translate-y-1/2 md:left-1/2">
             <div className="h-3 w-3 rotate-45 border border-border bg-background" />
           </div>
-          <p className="ml-12 pt-1 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 md:ml-0 md:text-center">
-            [end_of_timeline]
-          </p>
         </div>
       </div>
+
+      <p className="ml-12 mt-3 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground/70 md:ml-0 md:text-center">
+        [end_of_timeline]
+      </p>
     </section>
   );
 }
