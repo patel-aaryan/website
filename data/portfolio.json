@@ -257,7 +257,7 @@
   ],
   "projects": [
     {
-      "title": "RTSP Secure Sync",
+      "title": "CCTV Dashboard",
       "description": "Archives remote RTSP on a home NAS: an edge node chunks and buffers locally, syncs over a private tunnel, and the server reassembles segments into uninterrupted playback—so links can drop without losing footage or breaking the viewing experience.",
       "tech": {
         "Frontend": ["Svelte"],
@@ -267,7 +267,7 @@
       "mainTech": ["Go", "Svelte", "Docker"],
       "colour": "#0F4C81",
       "link": "",
-      "source": "https://github.com/patel-aaryan/rtsp-secure-sync",
+      "source": "https://github.com/patel-aaryan/cctv-dashboard",
       "features": [
         "Tailscale VPN between the remote property and home network for encrypted, peer-to-peer transit",
         "Pi edge gateway: intercepts RTSP, chunks to an external drive, and rsyncs with backlog catch-up after outages",
