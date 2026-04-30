@@ -187,7 +187,7 @@ export function ExperienceTimeline() {
                 transition={{ duration: 0.55 }}
                 className={cn(
                   "pl-12 md:w-1/2 md:pl-0",
-                  cardOnLeft ? "md:order-1 md:pr-0" : "md:order-2 md:pl-0",
+                  cardOnLeft ? "md:order-1 md:pr-16" : "md:order-2 md:pl-16",
                 )}
               >
                 <ExperienceCard exp={exp} index={i} active={isActive} />
