@@ -1,22 +1,18 @@
+"use client";
+
 import Link from "next/link";
 import { Download, QrCode } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardTitle,
-} from "@/components/ui/card";
+import { scrollToContact } from "@/lib/scroll";
+import { Card, CardContent, CardDescription, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
-export function ProjectsPartnerCta({
-  className,
-}: Readonly<{ className?: string }>) {
+export function ProjectsPartnerCta({ className }: Readonly<{ className?: string }>) {
   return (
     <Card
       className={cn(
         "bg-card bg-[linear-gradient(to_right,var(--border)_1px,transparent_1px),linear-gradient(to_bottom,var(--border)_1px,transparent_1px)] bg-size-[24px_24px]",
-        className
+        className,
       )}
     >
       <CardContent className="flex flex-col gap-8 p-6 sm:p-8 lg:flex-row lg:items-center lg:justify-between lg:gap-10">
@@ -25,14 +21,14 @@ export function ProjectsPartnerCta({
             <CardTitle className="text-balance text-xl font-semibold tracking-tight sm:text-2xl">
               Looking for a technical partner?
             </CardTitle>
-            <CardDescription className="text-base leading-relaxed">
-              I am currently available for high-complexity engineering roles and
-              research collaborations in the distributed systems space.
+            <CardDescription className="text-base leading-relaxed max-w-2xl">
+              I am currently available for high-complexity engineering roles and research
+              collaborations in the distributed systems space.
             </CardDescription>
           </div>
           <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-            <Button asChild size="lg">
-              <Link href="/#contact">Initialize contact</Link>
+            <Button size="lg" onClick={scrollToContact}>
+              Initialize contact
             </Button>
             <Button
               asChild
@@ -40,11 +36,7 @@ export function ProjectsPartnerCta({
               size="lg"
               className="text-muted-foreground hover:text-foreground"
             >
-              <Link
-                href="/resume.pdf"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer">
                 <Download className="size-4" />
                 Download resume.pdf
               </Link>

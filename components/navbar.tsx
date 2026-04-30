@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { Menu } from "@mui/icons-material";
 import { cn } from "@/lib/utils";
+import { scrollToContact } from "@/lib/scroll";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -38,14 +39,8 @@ export default function Navbar() {
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
 
-  const scrollToContact = () => {
-    const contactSection = document.getElementById("contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+  const handleContactClick = () => {
+    scrollToContact();
     setIsOpen(false);
   };
 
@@ -102,7 +97,7 @@ export default function Navbar() {
               })}
               <NavigationMenuItem>
                 <Button
-                  onClick={scrollToContact}
+                  onClick={handleContactClick}
                   variant="ghost"
                   className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md hover:bg-accent/50 h-auto"
                 >
@@ -152,7 +147,7 @@ export default function Navbar() {
                   );
                 })}
                 <Button
-                  onClick={scrollToContact}
+                  onClick={handleContactClick}
                   variant="ghost"
                   className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors px-3 py-2 rounded-md hover:bg-accent/50 text-left justify-start h-auto"
                 >
