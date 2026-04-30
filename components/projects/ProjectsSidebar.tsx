@@ -32,7 +32,7 @@ export function ProjectsSidebar({
       <ScrollArea className="h-[calc(100vh-220px)]">
         <ol className="space-y-2 pr-2">
           {projects.map((project, index) => {
-            const ref = String(index + 1).padStart(3, "0");
+            const ref = String(projects.length - index).padStart(3, "0");
             const isActive = index === selectedIndex;
 
             return (

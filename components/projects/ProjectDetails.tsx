@@ -28,18 +28,53 @@ function SectionLabel({
   );
 }
 
-export function ProjectDetails({
-  project,
-  index,
-  total,
-}: Readonly<ProjectDetailsProps>) {
-  const ref = String(index + 1).padStart(3, "0");
+/** Broadcast-style live dot: staggered ripples + core “breathing” pulse (primary only). */
+function LiveStatusDot() {
+  const rippleEase = [0.22, 1, 0.36, 1] as const;
+  const rippleTransition = {
+    duration: 1.35,
+    repeat: Infinity,
+    ease: rippleEase,
+    repeatDelay: 0.15,
+  };
+
+  return (
+    <span
+      className="relative grid h-3 w-3 shrink-0 place-items-center"
+      aria-hidden
+    >
+      <motion.span
+        className="absolute aspect-square w-[7px] rounded-full bg-primary"
+        initial={false}
+        animate={{ scale: [1, 3.2], opacity: [0.85, 0] }}
+        transition={{ ...rippleTransition, delay: 0 }}
+      />
+      <motion.span
+        className="absolute aspect-square w-[7px] rounded-full bg-primary"
+        initial={false}
+        animate={{ scale: [1, 3.2], opacity: [0.85, 0] }}
+        transition={{ ...rippleTransition, delay: 0.55 }}
+      />
+      <motion.span
+        className="relative z-1 block h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary)/0.95)] ring-2 ring-primary/35"
+        initial={false}
+        animate={{ opacity: [1, 0.35, 1], scale: [1, 0.82, 1] }}
+        transition={{
+          duration: 0.85,
+          repeat: Infinity,
+          ease: "easeInOut",
+          repeatDelay: 0.05,
+        }}
+      />
+    </span>
+  );
+}
+
+export function ProjectDetails({ project, index, total }: Readonly<ProjectDetailsProps>) {
+  const ref = String(total - index).padStart(3, "0");
   const totalLabel = String(total).padStart(3, "0");
   const techCategories = Object.entries(project.tech);
-  const techCount = techCategories.reduce(
-    (sum, [, techs]) => sum + techs.length,
-    0,
-  );
+  const techCount = techCategories.reduce((sum, [, techs]) => sum + techs.length, 0);
   const isLive = Boolean(project.link);
 
   return (
@@ -73,21 +108,20 @@ export function ProjectDetails({
 
           <span
             className={cn(
-              "inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest",
+              "inline-flex items-center gap-2 rounded-full border px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-widest ring-1 ring-inset",
               isLive
-                ? "border-primary/40 bg-primary/5 text-primary"
-                : "border-border text-muted-foreground",
+                ? "border-primary/40 bg-primary/5 text-primary ring-primary/15"
+                : "border-border text-muted-foreground ring-transparent",
             )}
           >
-            <span
-              className={cn(
-                "h-1.5 w-1.5 rounded-full",
-                isLive
-                  ? "bg-primary shadow-[0_0_6px_hsl(var(--primary)/0.7)]"
-                  : "bg-muted-foreground/40",
-              )}
-            />
-            {isLive ? "Deployed" : "Source Only"}
+            {isLive ? (
+              <LiveStatusDot />
+            ) : (
+              <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/40" />
+            )}
+            <span className={cn(isLive && "font-semibold tracking-[0.12em]")}>
+              {isLive ? "Live" : "Source Only"}
+            </span>
           </span>
         </div>
 
@@ -111,11 +145,7 @@ export function ProjectDetails({
                 asChild
                 className="font-mono text-[11px] uppercase tracking-[0.2em]"
               >
-                <a
-                  href={project.source}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href={project.source} target="_blank" rel="noopener noreferrer">
                   <GitHub className="mr-2 h-3.5 w-3.5" />
                   Source
                 </a>
@@ -212,9 +242,7 @@ export function ProjectDetails({
                 >
                   {String(i + 1).padStart(2, "0")}
                 </span>
-                <span className="text-sm leading-relaxed text-muted-foreground">
-                  {feature}
-                </span>
+                <span className="text-sm leading-relaxed text-muted-foreground">{feature}</span>
               </motion.li>
             ))}
           </ul>

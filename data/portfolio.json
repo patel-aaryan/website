@@ -278,23 +278,48 @@
     },
     {
       "title": "Atrangi Eventz",
-      "description": "",
-      "tech": {},
-      "mainTech": [],
-      "colour": "",
+      "description": "Secure Ticketing platform with venue check-in for student run organization that connects student across Ontario via cultural events.",
+      "tech": {
+        "Frontend": ["Next.js", "TypeScript", "Redux"],
+        "Backend": ["PostgreSQL", "Redis", "Stripe", "Amazon S3", "Amazon SES"],
+        "DevOps & Integration": [
+          "Turborepo",
+          "GitHub Actions",
+          "Cloudflare",
+          "Instagram Graph API"
+        ]
+      },
+      "mainTech": ["AWS", "Stripe", "Redis"],
+      "colour": "#E1A730",
       "link": "https://www.atrangieventz.com/",
-      "source": "",
-      "features": []
+      "source": "https://github.com/arkinflow/atrangi-eventz-v2",
+      "features": [
+        "High-performance, cost-efficient ticketing: card checkout, receipts, confirmations, secure payments",
+        "Drop-day traffic: accurate seats under concurrent buyers, no overselling, lean infrastructure",
+        "Host event media and send automated emails for orders, reminders, and updates",
+        "QR codes at the door for fast admission and shorter lines",
+        "Internal portal for club admins and day-to-day operations, with Instagram wired in for social and marketing workflows"
+      ]
     },
     {
       "title": "Memento",
-      "description": "",
-      "tech": {},
-      "mainTech": [],
-      "colour": "",
+      "description": "Android app for uploading, storing, and revisiting personal and shared memories through a Compose-driven, map-aware interface, backed by a FastAPI service that integrates Firebase and is deployed with Docker.",
+      "tech": {
+        "Frontend": ["Kotlin", "Jetpack Compose", "Material 3", "Android"],
+        "Backend": ["FastAPI", "Python", "Firebase", "Google Maps Platform"],
+        "DevOps": ["Docker", "Gradle", "Secrets Gradle Plugin"],
+        "Libraries": ["Coil", "OkHttp", "WorkManager", "Play Services Location"]
+      },
+      "mainTech": ["Kotlin", "FastAPI", "Firebase"],
+      "colour": "#7F52FF",
       "link": "",
       "source": "https://github.com/patel-aaryan/memento",
-      "features": []
+      "features": [
+        "Jetpack Compose UI with Material 3, adaptive navigation suite, and extended icons",
+        "Image workflows with Coil, EXIF metadata, and background jobs via WorkManager",
+        "Google Maps and Maps Compose for location-linked memories",
+        "Dockerized FastAPI backend integrated with Firebase for server-side flows alongside the mobile client"
+      ]
     },
     {
       "title": "UWDSC Website",
@@ -335,6 +360,26 @@
         "AI-powered social companion functionality",
         "Comprehensive caregiver dashboard",
         "Conversation analytics and insights"
+      ]
+    },
+    {
+      "title": "UWDSC Speed Dataing",
+      "description": "UW Data Science Club's web app for the speed-dating event: registration and surveys, OpenAI embedding-based matchmaking.",
+      "tech": {
+        "Frontend": ["Next.js", "TypeScript", "Redux"],
+        "Backend": ["Node.js", "PostgreSQL"],
+        "AI & Data": ["OpenAI Embeddings", "text-embedding-3-small"]
+      },
+      "mainTech": ["OpenAI", "Next.js", "PostgreSQL"],
+      "colour": "#DB2777",
+      "link": "https://speed-dataing.uwdatascience.ca",
+      "source": "https://github.com/uw-datasci/speed-dataing",
+      "features": [
+        "UW Data Science Club in-person speed-dating night: timed rounds with a new partner each round so members meet many peers in one evening",
+        "Structured surveys feed each round through Next.js form-status and form-submit APIs",
+        "Similarity matching algorithm with OpenAI text-embedding-3-small vectors stored in database",
+        "Dashboard and history for each round's live match assignment",
+        "Admin portal to manage event gated behind main UWDSC website auth"
       ]
     },
     {
@@ -387,7 +432,7 @@
       },
       "mainTech": ["Django", "Next.js", "Stripe"],
       "colour": "#96BD4A",
-      "link": "https://www.craftsbyaash.com/",
+      "link": "",
       "source": "https://github.com/patel-aaryan/CraftsByAash",
       "features": [
         "User registration and authentication",
@@ -406,7 +451,7 @@
       },
       "mainTech": ["Next.js", "OpenAI API", "Cloud Functions"],
       "colour": "#7952B3",
-      "link": "https://pepper-phi.vercel.app/",
+      "link": "",
       "source": "https://github.com/patel-aaryan/PEPPER",
       "features": [
         "Human-like conversational responses",

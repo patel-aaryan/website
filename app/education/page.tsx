@@ -35,7 +35,7 @@ export default function EducationPage() {
         <div className="absolute bottom-1/3 left-0 h-[400px] w-[400px] rounded-full bg-primary/5 blur-[100px]" />
       </div>
 
-      <div className="relative mx-auto max-w-6xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+      <div className="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
