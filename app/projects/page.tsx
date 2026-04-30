@@ -3,9 +3,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Menu } from "@mui/icons-material";
-import { ProjectDetails } from "@/components/projects/ProjectDetails";
-import { ProjectsPartnerCta } from "@/components/projects/ProjectsPartnerCta";
-import { ProjectsSidebar } from "@/components/projects/ProjectsSidebar";
+import { ProjectDetails, ProjectsSidebar } from "@/components/projects";
 import { Button } from "@/components/ui/button";
 import {
   Sheet,
@@ -114,8 +112,6 @@ export default function ProjectsPage() {
             </AnimatePresence>
           </div>
         </div>
-
-        <ProjectsPartnerCta className="mt-12 md:mt-16" />
       </div>
     </main>
   );
