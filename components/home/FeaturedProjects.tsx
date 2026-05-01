@@ -44,11 +44,11 @@ export function FeaturedProjects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
           >
-            <Card className="h-full flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.08)] relative overflow-hidden">
+            <Card className="h-full gap-0 py-0 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.08)] relative overflow-hidden">
               <div className="absolute top-0 right-0 p-6 opacity-5 group-hover:opacity-10 transition-opacity pointer-events-none select-none">
                 <span className="text-9xl font-bold text-foreground">AI</span>
               </div>
-              <CardContent className="p-8 flex flex-col gap-6 h-full">
+              <CardContent className="flex flex-col gap-5 p-7 sm:p-8 h-full">
                 <div className="flex justify-between items-start">
                   <Badge
                     variant="outline"
@@ -83,25 +83,12 @@ export function FeaturedProjects() {
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {main.tech.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="secondary"
-                      className="text-xs uppercase font-mono"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-
                 <div className="bg-muted/40 rounded-lg p-4 font-mono text-[11px] text-muted-foreground border border-border/50">
                   <p className="text-primary/70 mb-1 text-[10px] uppercase tracking-wider">
                     // system_log
                   </p>
                   <p>
-                    FEATURES: {main.features.length} modules &nbsp;|&nbsp; STACK:{" "}
-                    {main.tech.slice(0, 2).join(" + ")} &nbsp;|&nbsp; STATUS: Open Source
+                    FEATURES: {main.features.length} modules &nbsp;|&nbsp; STATUS: Open Source
                   </p>
                 </div>
 
@@ -135,8 +122,8 @@ export function FeaturedProjects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            <Card className="h-full flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.08)]">
-              <CardContent className="p-6 flex flex-col gap-4 h-full">
+            <Card className="h-full gap-0 py-0 flex flex-col justify-between group hover:-translate-y-1 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.08)]">
+              <CardContent className="flex flex-col gap-4 p-6 sm:p-7 h-full">
                 <div className="w-12 h-12 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center shrink-0">
                   <span className="font-bold text-primary text-sm font-mono">
                     {side.title.slice(0, 2).toUpperCase()}
@@ -148,18 +135,6 @@ export function FeaturedProjects() {
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     {side.description}
                   </p>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {side.tech.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="outline"
-                      className="text-[10px] uppercase font-mono"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
                 </div>
 
                 <div className="space-y-2 mt-auto">
@@ -217,8 +192,8 @@ export function FeaturedProjects() {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <Card className="h-full group hover:-translate-y-1 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.08)]">
-              <CardContent className="p-8 flex flex-col gap-4 h-full">
+            <Card className="h-full gap-0 py-0 group hover:-translate-y-1 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_30px_hsl(var(--primary)/0.08)]">
+              <CardContent className="flex flex-col gap-4 p-6 sm:p-7 h-full">
                 <div className="flex items-center gap-2">
                   <div className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
                   <span className="text-[10px] text-muted-foreground uppercase tracking-widest">
@@ -226,59 +201,39 @@ export function FeaturedProjects() {
                   </span>
                 </div>
 
-                <div>
-                  <h3 className="text-2xl font-bold mb-3">{medium.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {medium.description}
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className="text-2xl font-bold min-w-0 pr-2 leading-tight">
+                    {medium.title}
+                  </h3>
+                  <div className="flex shrink-0 gap-1">
+                    {medium.source && (
+                      <Button asChild variant="ghost" size="icon" className="h-8 w-8">
+                        <Link href={medium.source} target="_blank">
+                          <GitHub className="h-4 w-4 text-muted-foreground hover:text-foreground" />
+                        </Link>
+                      </Button>
+                    )}
+                    {medium.link && (
+                      <Button asChild variant="ghost" size="icon" className="h-8 w-8">
+                        <Link href={medium.link} target="_blank">
+                          <OpenInNew className="h-4 w-4 text-muted-foreground hover:text-foreground" />
+                        </Link>
+                      </Button>
+                    )}
+                  </div>
+                </div>
+
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  {medium.description}
+                </p>
+
+                <div className="bg-muted/40 p-3.5 rounded border border-border/50">
+                  <p className="text-[10px] text-muted-foreground uppercase mb-1 tracking-wider">
+                    Features
                   </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-4">
-                  <div className="bg-muted/40 p-3 rounded border border-border/50">
-                    <p className="text-[10px] text-muted-foreground uppercase mb-1 tracking-wider">
-                      Tech Stack
-                    </p>
-                    <p className="text-lg font-bold font-mono text-foreground">
-                      {medium.tech.length} libs
-                    </p>
-                  </div>
-                  <div className="bg-muted/40 p-3 rounded border border-border/50">
-                    <p className="text-[10px] text-muted-foreground uppercase mb-1 tracking-wider">
-                      Features
-                    </p>
-                    <p className="text-lg font-bold font-mono text-foreground">
-                      {medium.features.length} core
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap gap-2">
-                  {medium.tech.map((tech) => (
-                    <Badge
-                      key={tech}
-                      variant="secondary"
-                      className="text-[10px] uppercase font-mono"
-                    >
-                      {tech}
-                    </Badge>
-                  ))}
-                </div>
-
-                <div className="flex gap-3 mt-auto">
-                  {medium.source && (
-                    <Button asChild variant="ghost" size="icon" className="h-8 w-8">
-                      <Link href={medium.source} target="_blank">
-                        <GitHub className="h-4 w-4 text-muted-foreground hover:text-foreground" />
-                      </Link>
-                    </Button>
-                  )}
-                  {medium.link && (
-                    <Button asChild variant="ghost" size="icon" className="h-8 w-8">
-                      <Link href={medium.link} target="_blank">
-                        <OpenInNew className="h-4 w-4 text-muted-foreground hover:text-foreground" />
-                      </Link>
-                    </Button>
-                  )}
+                  <p className="text-lg font-bold font-mono text-foreground">
+                    {medium.features.length} core
+                  </p>
                 </div>
               </CardContent>
             </Card>
@@ -294,24 +249,13 @@ export function FeaturedProjects() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: 0.2 + i * 0.05 }}
               >
-                <Card className="h-full group cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_20px_hsl(var(--primary)/0.08)] relative overflow-hidden">
+                <Card className="h-full gap-0 py-0 group cursor-pointer hover:-translate-y-1 transition-all duration-300 hover:border-primary/40 hover:shadow-[0_0_20px_hsl(var(--primary)/0.08)] relative overflow-hidden">
                   <div className="absolute inset-0 bg-linear-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-                  <CardContent className="p-6 flex flex-col gap-3 h-full">
+                  <CardContent className="flex flex-col gap-3 px-6 py-4 sm:py-5 h-full">
                     <h4 className="font-bold text-sm">{project.title}</h4>
                     <p className="text-[12px] text-muted-foreground leading-relaxed flex-1 line-clamp-3">
                       {project.description}
                     </p>
-                    <div className="flex flex-wrap gap-1.5 mt-auto">
-                      {project.mainTech.slice(0, 2).map((tech) => (
-                        <Badge
-                          key={tech}
-                          variant="secondary"
-                          className="text-[10px] uppercase font-mono px-1.5"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
                   </CardContent>
                 </Card>
               </motion.div>

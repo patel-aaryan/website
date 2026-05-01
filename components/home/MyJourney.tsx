@@ -2,22 +2,21 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Briefcase, ChevronRight, Sparkles, Users } from "lucide-react";
+import { Briefcase, ChevronRight, Drama, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RadialOrbitalTimeline, {
   type TimelineItem,
-  type TimelineOrbitRing,
 } from "@/components/ui/radial-orbital-timeline";
 import portfolioData from "@/data/portfolio.json";
-import type { Experience } from "@/data/types";
+import type { Experience, ExperienceKind } from "@/data/types";
 import { useMemo } from "react";
 
-function orbitRingForExperience(exp: Experience): TimelineOrbitRing {
+function orbitRingForExperience(exp: Experience): ExperienceKind {
   switch (exp.type) {
     case "club":
       return "club";
-    case "extra":
-      return "extra";
+    case "dance":
+      return "dance";
     case "work":
     case undefined:
       return "work";
@@ -32,8 +31,8 @@ function iconForExperience(exp: Experience) {
   switch (exp.type) {
     case "club":
       return Users;
-    case "extra":
-      return Sparkles;
+    case "dance":
+      return Drama;
     case "work":
     case undefined:
       return Briefcase;
@@ -70,19 +69,23 @@ export function MyJourney() {
   const timelineData = useMemo(() => buildTimelineItems(experiences), [experiences]);
 
   return (
-    <section id="recent-work-experience" className="py-16 px-4 sm:px-6 lg:px-8">
+    <section
+      id="recent-work-experience"
+      className="overflow-x-clip py-12 px-3 sm:px-6 sm:py-16 lg:px-8"
+    >
       <div className="mx-auto max-w-7xl">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-10%" }}
           transition={{ duration: 0.5 }}
-          className="mb-12 md:mb-16"
+          className="mb-10 sm:mb-12 md:mb-16"
         >
-          <h2 className="font-heading text-3xl tracking-tight sm:text-4xl">MY_JOURNEY</h2>
-          <p className="mt-3 max-w-2xl text-muted-foreground">
-            Every role on the orbit - click a node for title, dates, tech, and a one-line
-            highlight.
+          <h2 className="font-heading text-2xl tracking-tight sm:text-3xl md:text-4xl">
+            MY_JOURNEY
+          </h2>
+          <p className="mt-3 max-w-2xl text-sm text-muted-foreground sm:text-base">
+            Every node has a story in orbit. Click one to learn more.
           </p>
         </motion.div>
 
@@ -93,13 +96,13 @@ export function MyJourney() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.15 }}
-          className="mt-14 text-center md:mt-16"
+          className="text-center mt-12 md:mt-8"
         >
           <Button
             asChild
             size="lg"
             variant="outline"
-            className="transition-transform hover:scale-[1.02]"
+            className="w-full max-w-xs transition-transform hover:scale-[1.02] sm:w-auto sm:max-w-none"
           >
             <Link href="/experience">
               Full timeline and details

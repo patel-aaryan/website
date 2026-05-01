@@ -14,7 +14,6 @@ export interface Education {
   name: string;
   date: string;
   major: string;
-  minor?: string;
   location: string;
   colour: string;
   courses?: CourseInfo[];
@@ -22,7 +21,7 @@ export interface Education {
   milestones: string[];
 }
 
-export type ExperienceKind = "work" | "club" | "extra";
+export type ExperienceKind = "work" | "club" | "dance";
 
 export interface Experience {
   label: string;

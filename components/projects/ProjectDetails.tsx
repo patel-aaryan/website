@@ -198,15 +198,15 @@ export function ProjectDetails({ project, index, total }: Readonly<ProjectDetail
                   duration: 0.3,
                   delay: 0.1 + categoryIndex * 0.05,
                 }}
-                className="grid gap-2 rounded-lg border border-border/70 bg-background/40 p-3 sm:grid-cols-[180px_1fr] sm:items-center sm:gap-4"
+                className="flex flex-col items-start gap-2 rounded-lg border border-border/70 bg-background/40 p-3 sm:flex-row sm:gap-4"
               >
                 <p
-                  className="font-mono text-[10px] font-semibold uppercase tracking-[0.2em]"
+                  className="shrink-0 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] sm:w-[180px] sm:min-w-[180px]"
                   style={{ color: project.colour }}
                 >
                   {category.trim()}
                 </p>
-                <div className="flex flex-wrap gap-1.5">
+                <div className="flex min-w-0 flex-1 flex-wrap justify-start gap-1.5">
                   {techs.map((tech) => (
                     <span
                       key={tech}

@@ -1,16 +1,35 @@
 "use client";
 
-import { useState, useEffect, useRef, useMemo } from "react";
-import { Briefcase } from "lucide-react";
+import { useState, useEffect, useRef, useMemo, useSyncExternalStore } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import type { ExperienceKind } from "@/data/types";
 
-/** Inner = internships; outer = tech clubs and extras (shared ring). */
-export type TimelineOrbitRing = "work" | "club" | "extra";
+const INNER_ORBIT_RADIUS_DESKTOP_PX = 180;
+const OUTER_ORBIT_RADIUS_DESKTOP_PX = 288;
 
-const INNER_ORBIT_RADIUS_PX = 180;
-const OUTER_ORBIT_RADIUS_PX = 288;
+function subscribeMaxSmOrbit(callback: () => void) {
+  const mq = globalThis.matchMedia("(max-width: 639px)");
+  mq.addEventListener("change", callback);
+  return () => mq.removeEventListener("change", callback);
+}
+
+function getMaxSmOrbitSnapshot() {
+  return globalThis.matchMedia("(max-width: 639px)").matches;
+}
+
+function getServerMaxSmOrbitSnapshot() {
+  return false;
+}
+
+function useIsMaxSmOrbit() {
+  return useSyncExternalStore(
+    subscribeMaxSmOrbit,
+    getMaxSmOrbitSnapshot,
+    getServerMaxSmOrbitSnapshot,
+  );
+}
 
 export interface TimelineItem {
   id: number;
@@ -24,8 +43,7 @@ export interface TimelineItem {
   icon: React.ElementType;
   status: "completed" | "in-progress" | "pending";
   energy?: number;
-  /** Defaults to inner (work) orbit when omitted. */
-  ring?: TimelineOrbitRing;
+  ring?: ExperienceKind;
 }
 
 interface RadialOrbitalTimelineProps {
@@ -48,13 +66,20 @@ export default function RadialOrbitalTimeline({
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
 
   const isDark = variant === "dark";
+  const isMaxSm = useIsMaxSmOrbit();
+  const innerOrbitRadiusPx = isMaxSm
+    ? Math.round(INNER_ORBIT_RADIUS_DESKTOP_PX * 0.6)
+    : INNER_ORBIT_RADIUS_DESKTOP_PX;
+  const outerOrbitRadiusPx = isMaxSm
+    ? Math.round(OUTER_ORBIT_RADIUS_DESKTOP_PX * 0.6)
+    : OUTER_ORBIT_RADIUS_DESKTOP_PX;
 
   const innerRingItems = useMemo(
     () => timelineData.filter((item) => (item.ring ?? "work") === "work"),
     [timelineData],
   );
   const outerRingItems = useMemo(
-    () => timelineData.filter((item) => item.ring === "club" || item.ring === "extra"),
+    () => timelineData.filter((item) => item.ring === "club" || item.ring === "dance"),
     [timelineData],
   );
   const hasOuterRing = outerRingItems.length > 0;
@@ -64,7 +89,7 @@ export default function RadialOrbitalTimeline({
       case "work":
         return innerRingItems;
       case "club":
-      case "extra":
+      case "dance":
         return outerRingItems;
       default:
         return innerRingItems;
@@ -74,12 +99,12 @@ export default function RadialOrbitalTimeline({
   const orbitRadiusForItem = (item: TimelineItem): number => {
     switch (item.ring ?? "work") {
       case "work":
-        return INNER_ORBIT_RADIUS_PX;
+        return innerOrbitRadiusPx;
       case "club":
-      case "extra":
-        return OUTER_ORBIT_RADIUS_PX;
+      case "dance":
+        return outerOrbitRadiusPx;
       default:
-        return INNER_ORBIT_RADIUS_PX;
+        return innerOrbitRadiusPx;
     }
   };
 
@@ -206,18 +231,24 @@ export default function RadialOrbitalTimeline({
     ? "bg-white text-black border-white"
     : "bg-primary text-primary-foreground border-primary";
   const detailCardClass = isDark
-    ? "top-20 left-1/2 -translate-x-1/2 w-64 bg-black/90 backdrop-blur-lg border-white/30 shadow-xl shadow-white/10"
-    : "top-20 left-1/2 -translate-x-1/2 w-[min(100vw-2rem,18rem)] bg-card/95 backdrop-blur-lg border-border shadow-lg";
+    ? "top-[5.25rem] left-1/2 max-h-[min(70dvh,24rem)] w-[min(100vw-1.25rem,16rem)] -translate-x-1/2 overflow-y-auto overscroll-contain bg-black/90 backdrop-blur-lg border-white/30 shadow-xl shadow-white/10 sm:top-20 sm:w-64 sm:max-h-none"
+    : "top-[5.25rem] left-1/2 max-h-[min(70dvh,24rem)] w-[min(100vw-1.25rem,18rem)] -translate-x-1/2 overflow-y-auto overscroll-contain bg-card/95 backdrop-blur-lg border-border shadow-lg sm:top-20 sm:max-h-none";
 
   return (
     <div
       className={cn(
-        "flex w-full flex-col items-center justify-center overflow-hidden",
+        "flex w-full flex-col items-center justify-center overflow-x-clip overflow-y-visible",
         isDark
           ? "h-screen bg-black"
           : cn(
-              "rounded-2xl py-8",
-              hasOuterRing ? "min-h-[min(74vh,680px)]" : "min-h-[min(70vh,560px)]",
+              "rounded-2xl py-6 sm:py-8",
+              hasOuterRing
+                ? isMaxSm
+                  ? "min-h-[400px]"
+                  : "min-h-[min(74vh,680px)]"
+                : isMaxSm
+                  ? "min-h-[340px]"
+                  : "min-h-[min(70vh,560px)]",
             ),
         className,
       )}
@@ -226,8 +257,14 @@ export default function RadialOrbitalTimeline({
     >
       <div
         className={cn(
-          "relative flex h-full w-full max-w-4xl items-center justify-center",
-          hasOuterRing ? "min-h-[min(72vh,640px)]" : "min-h-[480px]",
+          "relative flex h-full w-full max-w-4xl items-center justify-center px-1 sm:px-0",
+          hasOuterRing
+            ? isMaxSm
+              ? "min-h-[360px]"
+              : "min-h-[min(72vh,640px)]"
+            : isMaxSm
+              ? "min-h-[300px]"
+              : "min-h-[480px]",
         )}
       >
         <div
@@ -241,37 +278,46 @@ export default function RadialOrbitalTimeline({
           {hasOuterRing && (
             <div
               className={cn(
-                "pointer-events-none absolute z-[1] rounded-full border border-dashed",
+                "pointer-events-none absolute left-1/2 top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed",
                 isDark ? "border-white/15" : "border-primary/20",
               )}
               style={{
-                width: OUTER_ORBIT_RADIUS_PX * 2,
-                height: OUTER_ORBIT_RADIUS_PX * 2,
+                width: outerOrbitRadiusPx * 2,
+                height: outerOrbitRadiusPx * 2,
               }}
               aria-hidden
             />
           )}
 
           <div
-            className={cn("absolute z-[2] rounded-full border", nodeRingClass)}
+            className={cn(
+              "absolute left-1/2 top-1/2 z-[2] -translate-x-1/2 -translate-y-1/2 rounded-full border",
+              nodeRingClass,
+            )}
             style={{
-              width: INNER_ORBIT_RADIUS_PX * 2,
-              height: INNER_ORBIT_RADIUS_PX * 2,
+              width: innerOrbitRadiusPx * 2,
+              height: innerOrbitRadiusPx * 2,
             }}
           />
 
           <div
             className={cn(
-              "absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse",
-              !isDark && "ring-2 ring-primary/20",
+              // Same anchor as orbit nodes; above nodes (z ≈ 50–150), below expanded (z-200).
+              "absolute left-1/2 top-1/2 z-160 h-14 w-14 shrink-0 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-2 shadow-md sm:h-16 sm:w-16",
+              isDark
+                ? "border-white/35 shadow-black/50"
+                : "border-primary/30 ring-2 ring-primary/15",
             )}
           >
-            <div className="absolute h-20 w-20 animate-ping rounded-full border border-white/20 opacity-70" />
-            <div
-              className="absolute h-24 w-24 animate-ping rounded-full border border-white/10 opacity-50"
-              style={{ animationDelay: "0.5s" }}
+            <img
+              src="/journey-node.jpg"
+              alt="Aaryan Patel"
+              width={256}
+              height={256}
+              className="pointer-events-none h-full w-full object-cover"
+              decoding="async"
+              fetchPriority="high"
             />
-            <Briefcase className="relative h-7 w-7 text-white/90" aria-hidden />
           </div>
 
           {timelineData.map((item) => {
@@ -300,7 +346,7 @@ export default function RadialOrbitalTimeline({
                   nodeRefs.current[item.id] = el;
                 }}
                 className={cn(
-                  "absolute cursor-pointer",
+                  "absolute cursor-pointer touch-manipulation",
                   // Smooth recenter when a node is open; no transition while auto-rotating (avoids drift).
                   !autoRotate && "transition-[transform,opacity] duration-700 ease-out",
                 )}
@@ -325,23 +371,23 @@ export default function RadialOrbitalTimeline({
 
                 <div
                   className={cn(
-                    "flex h-10 w-10 items-center justify-center rounded-full border-2 transition-all duration-300",
+                    "flex h-11 w-11 min-h-11 min-w-11 items-center justify-center rounded-full border-2 transition-all duration-300 sm:h-10 sm:w-10 sm:min-h-10 sm:min-w-10",
                     isExpanded ? orbitNodeExpanded + " scale-150 shadow-lg" : orbitNodeIdle,
                     isExpanded && (isDark ? "shadow-white/30" : "shadow-primary/25"),
                   )}
                 >
-                  <Icon className="h-4 w-4" size={16} strokeWidth={1.5} />
+                  <Icon className="h-4 w-4 shrink-0" size={16} strokeWidth={1.5} />
                 </div>
 
                 <div
                   className={cn(
-                    "absolute left-1/2 top-12 flex -translate-x-1/2 flex-col items-center gap-0.5 text-center transition-all duration-300",
+                    "absolute left-1/2 top-[3.25rem] flex max-w-[calc(100vw-2rem)] -translate-x-1/2 flex-col items-center gap-0.5 text-center transition-all duration-300 sm:top-12 sm:max-w-none",
                     isExpanded && "scale-125",
                   )}
                 >
                   <span
                     className={cn(
-                      "max-w-[11rem] text-xs font-semibold leading-tight tracking-wider",
+                      "max-w-[9.5rem] text-[10px] font-semibold leading-tight tracking-wider sm:max-w-[11rem] sm:text-xs",
                       nodeLabelClass,
                     )}
                   >
@@ -470,15 +516,6 @@ export default function RadialOrbitalTimeline({
           })}
         </div>
       </div>
-
-      <p
-        className={cn(
-          "pointer-events-none mt-16 px-4 text-center text-xs",
-          isDark ? "text-white/40" : "text-muted-foreground",
-        )}
-      >
-        Click a node to see role details. Click anywhere else to resume orbit.
-      </p>
     </div>
   );
 }

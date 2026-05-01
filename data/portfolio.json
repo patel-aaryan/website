@@ -152,12 +152,12 @@
       "title": "Dancer",
       "company": "Navrangi Radhikas",
       "location": "Waterloo, ON, Canada",
-      "summary": "Dancer on Navrangi Radhikas — competing in the Borderless Revival circuit with Garba choreography and showcase performances.",
+      "summary": "Dancer on Navrangi Radhikas — competing in the Borderless Revival competition.",
       "description": [],
       "date": "Oct 2025 - Jan 2026",
       "colour": "#C026D3",
       "tech": [],
-      "type": "extra"
+      "type": "dance"
     },
     {
       "label": "Scrawlr",
@@ -214,11 +214,11 @@
       "company": "Raas Warriors",
       "location": "Waterloo, ON, Canada",
       "description": [],
-      "summary": "Dancer on UW Raas Warriors — competing in the RAASMotion Battle of the Raas Competition",
+      "summary": "Dancer on UW Raas Warriors — competing in the RAASMotion Battle of the Raas Competition.",
       "date": "Sep 2024 - Mar 2025",
       "colour": "#EA580C",
       "tech": [],
-      "type": "extra"
+      "type": "dance"
     },
     {
       "label": "CGI\u00a0Inc",
@@ -275,48 +275,48 @@
   ],
   "featuredProjects": [
     {
-      "title": "G.R.A.C.E.",
-      "description": "An AI-powered social companion that engages isolated users through lifelike face-to-face conversations with real-time voice-to-avatar interactions. Features lip-synced 3D avatars and a comprehensive caregiver dashboard with conversation analytics.",
-      "tech": ["Next.js", "FastAPI", "Pipecat", "Deepgram"],
-      "colour": "#7952B3",
-      "link": "",
-      "source": "https://github.com/patel-aaryan/GRACE",
+      "title": "ArkinFlow",
+      "description": "Client-facing studio site for Arkin — modern, fully custom websites for growing businesses: strong performance and SEO, native AI integration options, and no vendor lock-in.",
+      "tech": ["Next.js", "TypeScript", "Tailwind CSS"],
+      "colour": "#0EA5E9",
+      "link": "https://arkinflow.com/",
+      "source": "",
       "features": [
-        "Real-time voice-to-avatar conversations",
-        "Lip-synced 3D avatars for lifelike interactions",
-        "AI-powered social companion functionality",
-        "Comprehensive caregiver dashboard",
-        "Conversation analytics and insights"
+        "Custom marketing site with compare, services, process, and contact flows",
+        "Performance- and SEO-oriented presentation layer",
+        "Positioning for scalable builds and ongoing support",
+        "Clear tiered offerings from portfolio sites through full-suite engagements",
+        "Interactive product demos and strong visual storytelling"
       ]
     },
     {
-      "title": "AniTrack",
-      "description": "Full-stack anime tracking application that allows users to discover popular anime, write reviews, add new titles, find friends with shared interests, and manage their watch history. Features comprehensive database management and community-driven content.",
-      "tech": ["Next.js", "TypeScript", "PostgreSQL", "Python"],
-      "colour": "#FFC107",
-      "link": "https://ani-track-kappa.vercel.app",
-      "source": "https://github.com/patel-aaryan/AniTrack",
+      "title": "CxC",
+      "description": "Marketing and event site for CXC, Waterloo's largest student-run AI hackathon.",
+      "tech": ["Next.js", "Supabase", "PostgreSQL"],
+      "colour": "#7CA3DE",
+      "link": "https://cxc.uwdatascience.ca/",
+      "source": "",
       "features": [
-        "Discover trending and popular anime",
-        "Write and share anime reviews",
-        "Add new anime titles to the database",
-        "Find friends with similar anime interests",
-        "Track personal watch history and progress"
+        "Public-facing event hub: schedule, sponsors, logistics, and past-project spotlights",
+        "Hacker registration with teams and eligibility captured before the weekend",
+        "Organizer application review and rubric-based marking system to keep admissions fair",
+        "Venue and event check-in with QR codes and NFC to streamline high-traffic events",
+        "Clean separation between public-facing site and backstage tools for organizers"
       ]
     },
     {
-      "title": "STYLit",
-      "description": "Virtually try on clothing in real time using AI-powered image segmentation and pose estimation, allowing users to visualize how clothes fit and personalize outfits before purchasing online",
-      "tech": ["Next.js", "Express.js", "MongoDB", "MediaPipe"],
-      "colour": "#FF616D",
+      "title": "CCTV Dashboard",
+      "description": "Archives remote RTSP on a home NAS: an edge node chunks and buffers locally, syncs over a private tunnel, and the server reassembles segments into uninterrupted playback—so links can drop without losing footage or breaking the viewing experience.",
+      "tech": ["Go", "Svelte", "Docker"],
+      "colour": "#0F4C81",
       "link": "",
-      "source": "https://github.com/patel-aaryan/STYLit",
+      "source": "https://github.com/patel-aaryan/cctv-dashboard",
       "features": [
-        "Real-time virtual clothing try-on",
-        "AI-powered image segmentation",
-        "Pose estimation technology",
-        "Personalized outfit visualization",
-        "Pre-purchase clothing fitting simulation"
+        "Tailscale VPN between the remote cameras and home network for encrypted, peer-to-peer transit",
+        "Pi edge gateway: intercepts RTSP, chunks to an external drive, and rsyncs with backlog catch-up after outages",
+        "Go stack watches the ingest directory, stitches .mp4 chunks into one timeline, and serves reassembled streams",
+        "Svelte UI for browsing the indexed timeline and watching footage as if it were a single file",
+        "Runs on OpenMediaVault under a dedicated camera_service account with strict permissions on archives"
       ]
     }
   ],
@@ -334,7 +334,7 @@
       "link": "",
       "source": "https://github.com/patel-aaryan/cctv-dashboard",
       "features": [
-        "Tailscale VPN between the remote property and home network for encrypted, peer-to-peer transit",
+        "Tailscale VPN between the remote cameras and home network for encrypted, peer-to-peer transit",
         "Pi edge gateway: intercepts RTSP, chunks to an external drive, and rsyncs with backlog catch-up after outages",
         "Go stack watches the ingest directory, stitches .mp4 chunks into one timeline, and serves reassembled streams",
         "Svelte UI for browsing the indexed timeline and watching footage as if it were a single file",
@@ -364,6 +364,26 @@
         "Host event media and send automated emails for orders, reminders, and updates",
         "QR codes at the door for fast admission and shorter lines",
         "Internal portal for club admins and day-to-day operations, with Instagram wired in for social and marketing workflows"
+      ]
+    },
+    {
+      "title": "CxC",
+      "description": "Marketing and event site for CXC, Waterloo's largest student-run AI hackathon.",
+      "tech": {
+        "Frontend": ["Next.js", "TypeScript", "Tailwind CSS", "Shadcn"],
+        "Backend": ["Node.js", "Supabase", "PostgreSQL"],
+        "Developer Tools": ["Vercel", "GitHub Actions", "Infisical"]
+      },
+      "mainTech": ["Next.js", "Supabase", "PostgreSQL"],
+      "colour": "#7CA3DE",
+      "link": "https://cxc.uwdatascience.ca/",
+      "source": "",
+      "features": [
+        "Public-facing event hub: schedule, sponsors, logistics, and past-project spotlights",
+        "Hacker registration with teams and eligibility captured before the weekend",
+        "Organizer application review and rubric-based marking system to keep admissions fair",
+        "Venue and event check-in with QR codes and NFC to streamline high-traffic events",
+        "Clean separation between public-facing site and backstage tools for organizers"
       ]
     },
     {
