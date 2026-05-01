@@ -310,7 +310,7 @@ export default function RadialOrbitalTimeline({
             )}
           >
             <img
-              src="/journey-node.jpg"
+              src="/profile.jpg"
               alt="Aaryan Patel"
               width={256}
               height={256}

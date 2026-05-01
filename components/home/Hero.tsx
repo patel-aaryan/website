@@ -84,7 +84,7 @@ export function Hero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <Image
-          src="/profile.jpg"
+          src="/banner.jpg"
           alt=""
           fill
           className="object-cover object-[65%_top]"
