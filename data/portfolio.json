@@ -57,6 +57,7 @@
       "name": "University of Waterloo",
       "date": "Sep 2022 - June 2027",
       "major": "Computer Science & Artificial Intelligence",
+      "term": "4A",
       "location": "Waterloo, ON, Canada",
       "colour": "#EAAB00",
       "courses": [
@@ -275,48 +276,44 @@
   ],
   "featuredProjects": [
     {
-      "title": "ArkinFlow",
-      "description": "Client-facing studio site for Arkin — modern, fully custom websites for growing businesses: strong performance and SEO, native AI integration options, and no vendor lock-in.",
-      "tech": ["Next.js", "TypeScript", "Tailwind CSS"],
-      "colour": "#0EA5E9",
+      "title": "Arkin",
+      "description": "Arkin is a studio I founded. Modern, fully custom websites for growing businesses, with strong performance and SEO, native AI integration, and no vendor lock-in.",
       "link": "https://arkinflow.com/",
-      "source": "",
-      "features": [
-        "Custom marketing site with compare, services, process, and contact flows",
-        "Performance- and SEO-oriented presentation layer",
-        "Positioning for scalable builds and ongoing support",
-        "Clear tiered offerings from portfolio sites through full-suite engagements",
-        "Interactive product demos and strong visual storytelling"
+      "source": "https://github.com/arkinflow",
+      "liveLog": {
+        "header": "PRODUCTION_SURFACE_01",
+        "metrics": [
+          { "key": "DEPLOY", "value": "LIVE" },
+          { "key": "SURFACE", "value": "MARKETING" },
+          { "key": "SCOPE", "value": "SERVICES · TIERS · PROCESS · CONTACT" }
+        ]
+      },
+      "linkHighlights": [
+        "Core Web Vitals-minded pages, structured metadata, and fast first paint",
+        "Services, tiered packages, and a transparent build process in one narrative",
+        "Contact flow tuned for serious inquiries — no generic form dump"
       ]
     },
     {
       "title": "CxC",
       "description": "Marketing and event site for CXC, Waterloo's largest student-run AI hackathon.",
       "tech": ["Next.js", "Supabase", "PostgreSQL"],
-      "colour": "#7CA3DE",
       "link": "https://cxc.uwdatascience.ca/",
-      "source": "",
-      "features": [
-        "Public-facing event hub: schedule, sponsors, logistics, and past-project spotlights",
-        "Hacker registration with teams and eligibility captured before the weekend",
-        "Organizer application review and rubric-based marking system to keep admissions fair",
-        "Venue and event check-in with QR codes and NFC to streamline high-traffic events",
-        "Clean separation between public-facing site and backstage tools for organizers"
+      "source": "https://github.com/uw-datasci/cxc",
+      "stats": [
+        { "label": "Hack sprint", "value": "36 hrs" },
+        { "label": "NFC check-in", "value": "<1s / tap" }
       ]
     },
     {
       "title": "CCTV Dashboard",
       "description": "Archives remote RTSP on a home NAS: an edge node chunks and buffers locally, syncs over a private tunnel, and the server reassembles segments into uninterrupted playback—so links can drop without losing footage or breaking the viewing experience.",
       "tech": ["Go", "Svelte", "Docker"],
-      "colour": "#0F4C81",
       "link": "",
       "source": "https://github.com/patel-aaryan/cctv-dashboard",
-      "features": [
-        "Tailscale VPN between the remote cameras and home network for encrypted, peer-to-peer transit",
-        "Pi edge gateway: intercepts RTSP, chunks to an external drive, and rsyncs with backlog catch-up after outages",
-        "Go stack watches the ingest directory, stitches .mp4 chunks into one timeline, and serves reassembled streams",
-        "Svelte UI for browsing the indexed timeline and watching footage as if it were a single file",
-        "Runs on OpenMediaVault under a dedicated camera_service account with strict permissions on archives"
+      "stats": [
+        { "label": "Segment length", "value": "15 min" },
+        { "label": "Buffer capacity", "value": "250 GB" }
       ]
     }
   ],
@@ -377,7 +374,7 @@
       "mainTech": ["Next.js", "Supabase", "PostgreSQL"],
       "colour": "#7CA3DE",
       "link": "https://cxc.uwdatascience.ca/",
-      "source": "",
+      "source": "https://github.com/uw-datasci/cxc",
       "features": [
         "Public-facing event hub: schedule, sponsors, logistics, and past-project spotlights",
         "Hacker registration with teams and eligibility captured before the weekend",

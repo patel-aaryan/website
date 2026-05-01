@@ -7,12 +7,11 @@ import { widgetBase, WidgetLabel } from "./WidgetShared";
 interface HeroWidgetProps {
   ed: Education;
   progress: number;
-  termIndex: number;
 }
 
 const YEARS = ["2022", "2023", "2024", "2025", "2026", "2027"];
 
-export function HeroWidget({ ed, progress, termIndex }: Readonly<HeroWidgetProps>) {
+export function HeroWidget({ ed, progress }: Readonly<HeroWidgetProps>) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -77,7 +76,7 @@ export function HeroWidget({ ed, progress, termIndex }: Readonly<HeroWidgetProps
         <div className="flex items-center justify-between">
           <WidgetLabel>[degree_progress]</WidgetLabel>
           <span className="font-mono text-[11px] font-semibold tracking-wider text-primary">
-            {Math.round(progress * 100)}% · term {String(termIndex).padStart(2, "0")}
+            {Math.round(progress * 100)}% · {ed.term} term
           </span>
         </div>
         <div className="relative h-1.5 overflow-hidden rounded-full bg-muted">
@@ -90,7 +89,7 @@ export function HeroWidget({ ed, progress, termIndex }: Readonly<HeroWidgetProps
         </div>
         <div className="flex justify-between font-mono text-[9px] uppercase tracking-wider text-muted-foreground/70">
           {YEARS.map((y) => (
-            <span key={y}>{y.slice(2)}</span>
+            <span key={y}>{y}</span>
           ))}
         </div>
       </div>

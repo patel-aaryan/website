@@ -16,15 +16,13 @@ import type { Education } from "@/data/types";
 export default function EducationPage() {
   const ed = portfolioData.education[0] as Education;
 
-  const { progress, termIndex } = useMemo(() => {
+  const progress = useMemo(() => {
     const start = new Date(2022, 8, 1); // Sep 2022
     const end = new Date(2027, 5, 30); // June 2027
     const now = new Date();
     const total = end.getTime() - start.getTime();
     const elapsed = Math.max(0, Math.min(total, now.getTime() - start.getTime()));
-    const p = total > 0 ? elapsed / total : 0;
-    const t = Math.min(15, Math.max(1, Math.ceil(p * 15)));
-    return { progress: p, termIndex: t };
+    return total > 0 ? elapsed / total : 0;
   }, []);
 
   return (
@@ -58,7 +56,7 @@ export default function EducationPage() {
         {/* Dashboard — top row band uses fixed row tracks for bento rhythm; below uses flexible rows */}
         <div className="flex flex-col gap-3 md:gap-4">
           <div className="grid auto-rows-[minmax(108px,auto)] grid-cols-12 gap-3 md:auto-rows-[108px] md:gap-4">
-            <HeroWidget ed={ed} progress={progress} termIndex={termIndex} />
+            <HeroWidget ed={ed} progress={progress} />
             <ProgrammeWidget />
             <SpecWidget />
           </div>

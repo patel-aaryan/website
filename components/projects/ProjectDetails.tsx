@@ -28,41 +28,13 @@ function SectionLabel({
   );
 }
 
-/** Broadcast-style live dot: staggered ripples + core “breathing” pulse (primary only). */
+/** Broadcast-style live dot: staggered ripples + core “breathing” pulse (CSS; reliable in prod). */
 function LiveStatusDot() {
-  const rippleEase = [0.22, 1, 0.36, 1] as const;
-  const rippleTransition = {
-    duration: 1.35,
-    repeat: Infinity,
-    ease: rippleEase,
-    repeatDelay: 0.15,
-  };
-
   return (
     <span className="relative grid h-3 w-3 shrink-0 place-items-center" aria-hidden>
-      <motion.span
-        className="absolute aspect-square w-[7px] rounded-full bg-primary"
-        initial={false}
-        animate={{ scale: [1, 3.2], opacity: [0.85, 0] }}
-        transition={{ ...rippleTransition, delay: 0 }}
-      />
-      <motion.span
-        className="absolute aspect-square w-[7px] rounded-full bg-primary"
-        initial={false}
-        animate={{ scale: [1, 3.2], opacity: [0.85, 0] }}
-        transition={{ ...rippleTransition, delay: 0.55 }}
-      />
-      <motion.span
-        className="relative z-1 block h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary)/0.95)] ring-2 ring-primary/35"
-        initial={false}
-        animate={{ opacity: [1, 0.35, 1], scale: [1, 0.82, 1] }}
-        transition={{
-          duration: 0.85,
-          repeat: Infinity,
-          ease: "easeInOut",
-          repeatDelay: 0.05,
-        }}
-      />
+      <span className="live-status-ripple absolute aspect-square w-[7px] rounded-full bg-primary" />
+      <span className="live-status-ripple live-status-ripple--delayed absolute aspect-square w-[7px] rounded-full bg-primary" />
+      <span className="live-status-core relative z-1 block h-2 w-2 rounded-full bg-primary shadow-[0_0_10px_hsl(var(--primary)/0.95)] ring-2 ring-primary/35" />
     </span>
   );
 }
@@ -156,7 +128,7 @@ export function ProjectDetails({ project, index, total }: Readonly<ProjectDetail
               >
                 <a href={project.link} target="_blank" rel="noopener noreferrer">
                   <OpenInNew className="mr-2 h-3.5 w-3.5" />
-                  Live Demo
+                  Check it out
                 </a>
               </Button>
             )}
@@ -198,15 +170,16 @@ export function ProjectDetails({ project, index, total }: Readonly<ProjectDetail
                   duration: 0.3,
                   delay: 0.1 + categoryIndex * 0.05,
                 }}
-                className="flex flex-col items-start gap-2 rounded-lg border border-border/70 bg-background/40 p-3 sm:flex-row sm:gap-4"
+                className="flex flex-wrap items-center gap-3 rounded-lg border border-border/70 bg-background/40 p-3"
               >
                 <p
-                  className="shrink-0 font-mono text-[10px] font-semibold uppercase tracking-[0.2em] sm:w-[180px] sm:min-w-[180px]"
+                  className="shrink-0 font-mono text-[10px] font-semibold uppercase tracking-[0.2em]"
                   style={{ color: project.colour }}
                 >
                   {category.trim()}
                 </p>
-                <div className="flex min-w-0 flex-1 flex-wrap justify-start gap-1.5">
+                <span className="h-3 w-px shrink-0 bg-border/60" aria-hidden />
+                <div className="flex flex-wrap items-center gap-1.5">
                   {techs.map((tech) => (
                     <span
                       key={tech}

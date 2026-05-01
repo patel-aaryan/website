@@ -128,3 +128,56 @@
     @apply font-mono;
   }
 }
+
+/* Live status indicator (projects detail) — CSS keyframes avoid Motion + Next prod bundle edge cases */
+@keyframes live-status-ripple {
+  0% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+  90% {
+    transform: scale(3.2);
+    opacity: 0;
+  }
+  90.01%,
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes live-status-core {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.35;
+    transform: scale(0.82);
+  }
+}
+
+.live-status-ripple {
+  animation: live-status-ripple 1.5s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+}
+
+.live-status-ripple--delayed {
+  animation-delay: 0.55s;
+}
+
+.live-status-core {
+  animation: live-status-core 0.85s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .live-status-ripple {
+    animation: none;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .live-status-core {
+    animation: none;
+  }
+}

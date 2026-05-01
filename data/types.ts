@@ -14,6 +14,8 @@ export interface Education {
   name: string;
   date: string;
   major: string;
+  /** Current academic term label, e.g. 4A */
+  term: string;
   location: string;
   colour: string;
   courses?: CourseInfo[];
@@ -47,4 +49,23 @@ export interface Project {
   link: string;
   source: string;
   features: string[];
+}
+
+export interface FeaturedProjectLiveLog {
+  /** Uppercase terminal-style label, e.g. PRODUCTION_SURFACE_01 */
+  header: string;
+  metrics: { key: string; value: string }[];
+}
+
+export interface FeaturedProject {
+  title: string;
+  description: string;
+  tech?: string[];
+  link: string;
+  source: string;
+  stats?: { label: string; value: string }[];
+  /** Terminal-style live strip on the featured card when `link` is set */
+  liveLog?: FeaturedProjectLiveLog;
+  /** Short bullets shown next to the live-site callout on the featured card */
+  linkHighlights?: string[];
 }
