@@ -180,11 +180,11 @@ export default function Footer() {
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     Back in school and taking courses on{" "}
                     <span className="font-medium text-foreground">
-                      distributed systems, networks, software architecture
+                      AI and machine learning, privacy, cryptography, and security
                     </span>
                     {". "}
-                    Deep diving into computer networks, systems design, and building scalable,
-                    high-performance distributed applications.
+                    Complementing that with a deep dive in assessing opportunities, IP and
+                    partnerships, and what it takes to commercialize an idea.
                   </p>
                 </CardContent>
               </Card>
