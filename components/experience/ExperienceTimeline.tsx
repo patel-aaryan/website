@@ -127,7 +127,9 @@ function ExperienceCard({ exp, index }: Readonly<ExperienceCardProps>) {
 }
 
 export function ExperienceTimeline() {
-  const experiences = portfolioData.experience as Experience[];
+  const experiences = (portfolioData.experience as Experience[]).filter(
+    (exp) => (exp.type ?? "work") === "work",
+  );
 
   return (
     <section>

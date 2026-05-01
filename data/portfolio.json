@@ -116,7 +116,8 @@
   ],
   "experience": [
     {
-      "label": "RBC - Sep 2025",
+      "label": "RBC",
+      "labelDate": "Sep 2025",
       "title": "DevOps Engineer Intern",
       "company": "RBC Capital Markets",
       "location": "Toronto, ON, Canada",
@@ -128,10 +129,39 @@
       ],
       "date": "Sep 2025 - Dec 2025",
       "colour": "#005DAA",
-      "tech": ["GitHub Actions", "Jenkins", "Helm", "Docker", "Aqua"]
+      "tech": ["GitHub Actions", "Jenkins", "Helm", "Docker", "Aqua"],
+      "type": "work"
     },
     {
-      "label": "Scrawlr - May 2025",
+      "label": "UW\u00a0DSC",
+      "labelDate": "Sep 2025",
+      "title": "VP of Development",
+      "company": "UW Data Science Club",
+      "location": "Waterloo, ON, Canada",
+      "summary": "Lead the club's developer track and manage technical infrastructure; previously shipped features and workshop support as a Developer.",
+      "description": [],
+      "date": "Sep 2025 - Present",
+      "colour": "#6366F1",
+      "tech": ["Next.js", "Supabase", "PostgreSQL"],
+      "active": true,
+      "type": "club"
+    },
+    {
+      "label": "BRDRLESS REVIVAL",
+      "labelDate": "Jan 2026",
+      "title": "Dancer",
+      "company": "Navrangi Radhikas",
+      "location": "Waterloo, ON, Canada",
+      "summary": "Dancer on Navrangi Radhikas — competing in the Borderless Revival circuit with Garba choreography and showcase performances.",
+      "description": [],
+      "date": "Oct 2025 - Jan 2026",
+      "colour": "#C026D3",
+      "tech": [],
+      "type": "extra"
+    },
+    {
+      "label": "Scrawlr",
+      "labelDate": "May 2025",
       "title": "Backend/API Developer",
       "company": "Scrawlr",
       "location": "Vancouver, BC, Canada",
@@ -143,10 +173,12 @@
       ],
       "date": "May 2025 - Aug 2025",
       "colour": "#196AFF",
-      "tech": ["Node.js", "Fastify", "PostgreSQL", "Redis", "Docker"]
+      "tech": ["Node.js", "Fastify", "PostgreSQL", "Redis", "Docker"],
+      "type": "work"
     },
     {
-      "label": "RBC - Sep 2024",
+      "label": "RBC",
+      "labelDate": "Sep 2024",
       "title": "Software Engineer Intern",
       "company": "RBC Capital Markets",
       "location": "Toronto, ON, Canada",
@@ -159,10 +191,38 @@
       ],
       "date": "Sep 2024 - Dec 2024",
       "colour": "#005DAA",
-      "tech": ["Next.js", "Kubernetes", "MongoDB", "Redux"]
+      "tech": ["Next.js", "Kubernetes", "MongoDB", "Redux"],
+      "type": "work"
     },
     {
-      "label": "CGI Inc - Jan 2024",
+      "label": "WATO",
+      "labelDate": "May 2024",
+      "title": "Autonomous Software Team",
+      "company": "WATOnomous",
+      "location": "Waterloo, ON, Canada",
+      "summary": "Explored ROS-based autonomous driving software: pub/sub messaging, multi-modal sensing, and decentralized nodes for scalable AV stacks.",
+      "description": [],
+      "date": "May 2024 - Aug 2024",
+      "colour": "#0D9488",
+      "tech": ["ROS", "Python", "C++"],
+      "type": "club"
+    },
+    {
+      "label": "RAASMotion BOTR",
+      "labelDate": "Mar 2025",
+      "title": "Dancer",
+      "company": "Raas Warriors",
+      "location": "Waterloo, ON, Canada",
+      "description": [],
+      "summary": "Dancer on UW Raas Warriors — competing in the RAASMotion Battle of the Raas Competition",
+      "date": "Sep 2024 - Mar 2025",
+      "colour": "#EA580C",
+      "tech": [],
+      "type": "extra"
+    },
+    {
+      "label": "CGI\u00a0Inc",
+      "labelDate": "Jan 2024",
       "title": "Application Developer",
       "company": "CGI Inc",
       "location": "Toronto, ON, Canada",
@@ -174,10 +234,12 @@
       ],
       "date": "Jan 2024 - May 2024",
       "colour": "#E31937",
-      "tech": ["Google Cloud", "PostgreSQL", "Keycloak", "Terraform"]
+      "tech": ["Google Cloud", "PostgreSQL", "Keycloak", "Terraform"],
+      "type": "work"
     },
     {
-      "label": "JANA - May 2023",
+      "label": "JANA",
+      "labelDate": "May 2023",
       "title": "Software Developer",
       "company": "JANA Corporation",
       "location": "Aurora, ON, Canada",
@@ -190,10 +252,12 @@
       ],
       "date": "May 2023 - Aug 2023",
       "colour": "#6EB273",
-      "tech": ["C#", "ASP.NET", "SQL Server"]
+      "tech": ["C#", "ASP.NET", "SQL Server"],
+      "type": "work"
     },
     {
-      "label": "CGI Inc - Jun 2022",
+      "label": "CGI\u00a0Inc",
+      "labelDate": "Jun 2022",
       "title": "Junior Developer",
       "company": "CGI Inc",
       "location": "Mississauga, ON, Canada",
@@ -205,7 +269,8 @@
       ],
       "date": "Jun 2022 - Sep 2022",
       "colour": "#E31937",
-      "tech": ["Angular", "TypeScript", "HTML", "CSS"]
+      "tech": ["Angular", "TypeScript", "HTML", "CSS"],
+      "type": "work"
     }
   ],
   "featuredProjects": [

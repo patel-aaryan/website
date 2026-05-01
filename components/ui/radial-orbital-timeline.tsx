@@ -1,22 +1,31 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useMemo } from "react";
 import { Briefcase } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+
+/** Inner = internships; outer = tech clubs and extras (shared ring). */
+export type TimelineOrbitRing = "work" | "club" | "extra";
+
+const INNER_ORBIT_RADIUS_PX = 180;
+const OUTER_ORBIT_RADIUS_PX = 288;
 
 export interface TimelineItem {
   id: number;
   title: string;
   company: string;
   orbitLabel?: string;
+  orbitLabelDate?: string;
   date: string;
   content: string;
   tech: string[];
   icon: React.ElementType;
   status: "completed" | "in-progress" | "pending";
   energy?: number;
+  /** Defaults to inner (work) orbit when omitted. */
+  ring?: TimelineOrbitRing;
 }
 
 interface RadialOrbitalTimelineProps {
@@ -39,6 +48,43 @@ export default function RadialOrbitalTimeline({
   const nodeRefs = useRef<Record<number, HTMLDivElement | null>>({});
 
   const isDark = variant === "dark";
+
+  const innerRingItems = useMemo(
+    () => timelineData.filter((item) => (item.ring ?? "work") === "work"),
+    [timelineData],
+  );
+  const outerRingItems = useMemo(
+    () => timelineData.filter((item) => item.ring === "club" || item.ring === "extra"),
+    [timelineData],
+  );
+  const hasOuterRing = outerRingItems.length > 0;
+
+  const ringListForItem = (item: TimelineItem): TimelineItem[] => {
+    switch (item.ring ?? "work") {
+      case "work":
+        return innerRingItems;
+      case "club":
+      case "extra":
+        return outerRingItems;
+      default:
+        return innerRingItems;
+    }
+  };
+
+  const orbitRadiusForItem = (item: TimelineItem): number => {
+    switch (item.ring ?? "work") {
+      case "work":
+        return INNER_ORBIT_RADIUS_PX;
+      case "club":
+      case "extra":
+        return OUTER_ORBIT_RADIUS_PX;
+      default:
+        return INNER_ORBIT_RADIUS_PX;
+    }
+  };
+
+  const ringIndexForItem = (item: TimelineItem) =>
+    ringListForItem(item).findIndex((i) => i.id === item.id);
 
   const handleContainerClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if (e.target === containerRef.current || e.target === orbitRef.current) {
@@ -91,8 +137,14 @@ export default function RadialOrbitalTimeline({
   const centerViewOnNode = (nodeId: number) => {
     if (!nodeRefs.current[nodeId]) return;
 
-    const nodeIndex = timelineData.findIndex((item) => item.id === nodeId);
-    const totalNodes = timelineData.length;
+    const item = timelineData.find((i) => i.id === nodeId);
+    if (!item) return;
+
+    const ring = ringListForItem(item);
+    const totalNodes = ring.length;
+    if (totalNodes === 0) return;
+
+    const nodeIndex = ring.findIndex((i) => i.id === nodeId);
     const targetAngle = (nodeIndex / totalNodes) * 360;
 
     setRotationAngle(270 - targetAngle);
@@ -101,18 +153,16 @@ export default function RadialOrbitalTimeline({
   /** Round so SSR and client produce identical inline styles (avoids hydration mismatch from float noise). */
   const roundPx = (n: number) => Math.round(n * 1000) / 1000;
   /** Match typical serialized CSS opacity precision so SSR and client strings align. */
-  const roundOpacity = (n: number) =>
-    Number(Math.max(0, Math.min(1, n)).toFixed(6));
+  const roundOpacity = (n: number) => Number(Math.max(0, Math.min(1, n)).toFixed(6));
   /** Stable px string: same as browser/CSS minimal form (e.g. -100 not -100.000). */
   const fmtPx = (n: number) => String(Number.parseFloat(roundPx(n).toFixed(3)));
 
-  const calculateNodePosition = (index: number, total: number) => {
+  const calculateNodePosition = (index: number, total: number, radiusPx: number) => {
     const angle = ((index / total) * 360 + rotationAngle) % 360;
-    const radius = 200;
     const radian = (angle * Math.PI) / 180;
 
-    const x = roundPx(radius * Math.cos(radian) + centerOffset.x);
-    const y = roundPx(radius * Math.sin(radian) + centerOffset.y);
+    const x = roundPx(radiusPx * Math.cos(radian) + centerOffset.x);
+    const y = roundPx(radiusPx * Math.sin(radian) + centerOffset.y);
 
     const zIndex = Math.round(100 + 50 * Math.cos(radian));
     const opacity = roundOpacity(
@@ -163,13 +213,23 @@ export default function RadialOrbitalTimeline({
     <div
       className={cn(
         "flex w-full flex-col items-center justify-center overflow-hidden",
-        isDark ? "h-screen bg-black" : "min-h-[min(70vh,560px)] rounded-2xl py-8",
+        isDark
+          ? "h-screen bg-black"
+          : cn(
+              "rounded-2xl py-8",
+              hasOuterRing ? "min-h-[min(74vh,680px)]" : "min-h-[min(70vh,560px)]",
+            ),
         className,
       )}
       ref={containerRef}
       onClick={handleContainerClick}
     >
-      <div className="relative flex h-full min-h-[480px] w-full max-w-4xl items-center justify-center">
+      <div
+        className={cn(
+          "relative flex h-full w-full max-w-4xl items-center justify-center",
+          hasOuterRing ? "min-h-[min(72vh,640px)]" : "min-h-[480px]",
+        )}
+      >
         <div
           className="absolute flex h-full w-full items-center justify-center"
           ref={orbitRef}
@@ -178,6 +238,28 @@ export default function RadialOrbitalTimeline({
             transform: `translate(${centerOffset.x}px, ${centerOffset.y}px)`,
           }}
         >
+          {hasOuterRing && (
+            <div
+              className={cn(
+                "pointer-events-none absolute z-[1] rounded-full border border-dashed",
+                isDark ? "border-white/15" : "border-primary/20",
+              )}
+              style={{
+                width: OUTER_ORBIT_RADIUS_PX * 2,
+                height: OUTER_ORBIT_RADIUS_PX * 2,
+              }}
+              aria-hidden
+            />
+          )}
+
+          <div
+            className={cn("absolute z-[2] rounded-full border", nodeRingClass)}
+            style={{
+              width: INNER_ORBIT_RADIUS_PX * 2,
+              height: INNER_ORBIT_RADIUS_PX * 2,
+            }}
+          />
+
           <div
             className={cn(
               "absolute z-10 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br from-purple-500 via-blue-500 to-teal-500 animate-pulse",
@@ -192,20 +274,24 @@ export default function RadialOrbitalTimeline({
             <Briefcase className="relative h-7 w-7 text-white/90" aria-hidden />
           </div>
 
-          <div className={cn("absolute h-96 w-96 rounded-full border", nodeRingClass)} />
-
-          {timelineData.map((item, index) => {
-            const position = calculateNodePosition(index, timelineData.length);
+          {timelineData.map((item) => {
+            const ringIdx = ringIndexForItem(item);
+            const ringItems = ringListForItem(item);
+            const ringLen = ringItems.length;
+            const radiusPx = orbitRadiusForItem(item);
+            const position = calculateNodePosition(ringIdx, Math.max(ringLen, 1), radiusPx);
             const isExpanded = expandedItems[item.id];
             const Icon = item.icon;
 
             const nodeStyle: React.CSSProperties = {
-              transform: `translate(${fmtPx(position.x)}px, ${fmtPx(position.y)}px)`,
+              left: "50%",
+              top: "50%",
+              transform: `translate(-50%, -50%) translate(${fmtPx(position.x)}px, ${fmtPx(position.y)}px)`,
               zIndex: isExpanded ? 200 : position.zIndex,
               opacity: isExpanded ? 1 : position.opacity,
             };
 
-            const orbitCaption = item.orbitLabel ?? item.company;
+            const orbitTitle = item.orbitLabel ?? item.company;
 
             return (
               <div
@@ -213,7 +299,11 @@ export default function RadialOrbitalTimeline({
                 ref={(el) => {
                   nodeRefs.current[item.id] = el;
                 }}
-                className="absolute cursor-pointer transition-all duration-700"
+                className={cn(
+                  "absolute cursor-pointer",
+                  // Smooth recenter when a node is open; no transition while auto-rotating (avoids drift).
+                  !autoRotate && "transition-[transform,opacity] duration-700 ease-out",
+                )}
                 style={nodeStyle}
                 onClick={(e) => {
                   e.stopPropagation();
@@ -245,12 +335,28 @@ export default function RadialOrbitalTimeline({
 
                 <div
                   className={cn(
-                    "absolute top-12 whitespace-nowrap text-xs font-semibold tracking-wider transition-all duration-300",
-                    nodeLabelClass,
+                    "absolute left-1/2 top-12 flex -translate-x-1/2 flex-col items-center gap-0.5 text-center transition-all duration-300",
                     isExpanded && "scale-125",
                   )}
                 >
-                  {orbitCaption}
+                  <span
+                    className={cn(
+                      "max-w-[11rem] text-xs font-semibold leading-tight tracking-wider",
+                      nodeLabelClass,
+                    )}
+                  >
+                    {orbitTitle}
+                  </span>
+                  {item.orbitLabelDate ? (
+                    <span
+                      className={cn(
+                        "whitespace-nowrap font-mono text-[10px] font-medium uppercase tracking-widest",
+                        isDark ? "text-white/55" : "text-muted-foreground",
+                      )}
+                    >
+                      {item.orbitLabelDate}
+                    </span>
+                  ) : null}
                 </div>
 
                 {isExpanded && (
@@ -367,7 +473,7 @@ export default function RadialOrbitalTimeline({
 
       <p
         className={cn(
-          "pointer-events-none mt-8 px-4 text-center text-xs",
+          "pointer-events-none mt-16 px-4 text-center text-xs",
           isDark ? "text-white/40" : "text-muted-foreground",
         )}
       >

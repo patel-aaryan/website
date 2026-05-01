@@ -2,14 +2,47 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { Briefcase, ChevronRight } from "lucide-react";
+import { Briefcase, ChevronRight, Sparkles, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import RadialOrbitalTimeline, {
   type TimelineItem,
+  type TimelineOrbitRing,
 } from "@/components/ui/radial-orbital-timeline";
 import portfolioData from "@/data/portfolio.json";
 import type { Experience } from "@/data/types";
 import { useMemo } from "react";
+
+function orbitRingForExperience(exp: Experience): TimelineOrbitRing {
+  switch (exp.type) {
+    case "club":
+      return "club";
+    case "extra":
+      return "extra";
+    case "work":
+    case undefined:
+      return "work";
+    default: {
+      const _never: never = exp.type;
+      return _never;
+    }
+  }
+}
+
+function iconForExperience(exp: Experience) {
+  switch (exp.type) {
+    case "club":
+      return Users;
+    case "extra":
+      return Sparkles;
+    case "work":
+    case undefined:
+      return Briefcase;
+    default: {
+      const _never: never = exp.type;
+      return _never;
+    }
+  }
+}
 
 function buildTimelineItems(experiences: Experience[]): TimelineItem[] {
   return experiences.map((exp, index) => {
@@ -20,11 +53,13 @@ function buildTimelineItems(experiences: Experience[]): TimelineItem[] {
       title: exp.title,
       company: exp.company,
       orbitLabel: exp.label,
+      orbitLabelDate: exp.labelDate,
       date: exp.date,
       content: exp.summary,
       tech: exp.tech,
-      icon: Briefcase,
+      icon: iconForExperience(exp),
       status: exp.active ? "in-progress" : "completed",
+      ring: orbitRingForExperience(exp),
     };
   });
 }

@@ -22,8 +22,11 @@ export interface Education {
   milestones: string[];
 }
 
+export type ExperienceKind = "work" | "club" | "extra";
+
 export interface Experience {
   label: string;
+  labelDate: string;
   title: string;
   company: string;
   location: string;
@@ -33,6 +36,7 @@ export interface Experience {
   colour: string;
   tech: string[];
   active?: boolean;
+  type?: ExperienceKind;
 }
 
 export interface Project {
