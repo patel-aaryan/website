@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { mg } from "@/config/mailgun";
+import { resend } from "@/config/resend";
 import { serverConfig } from "@/config/server";
 
 export async function POST(request) {
@@ -11,12 +11,7 @@ export async function POST(request) {
       return NextResponse.json({ error: "All fields are required" }, { status: 400 });
     }
 
-    // Email template
-    const emailData = {
-      from: `Portfolio Contact Form <${serverConfig.fromEmail}>`,
-      to: serverConfig.toEmail,
-      subject: subject,
-      html: `
+    const html = `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px;">
           <h2 style="color: #333; border-bottom: 2px solid #e1e1e1; padding-bottom: 10px;">
             New Contact Form Submission
@@ -40,15 +35,27 @@ ${message}
             <p>Reply directly to this email to respond to ${name} (${email})</p>
           </div>
         </div>
-      `,
-      "h:Reply-To": email,
-    };
+      `;
 
-    await mg.messages.create(serverConfig.mailgunDomain, emailData);
+    const { error } = await resend.emails.send({
+      from: serverConfig.fromEmail,
+      to: serverConfig.toEmail,
+      replyTo: email,
+      subject,
+      html,
+    });
+
+    if (error) {
+      console.error("Resend error:", JSON.stringify(error, null, 2));
+      return NextResponse.json(
+        { error: "Failed to send email. Please try again later." },
+        { status: 500 },
+      );
+    }
 
     return NextResponse.json({ message: "Email sent successfully" }, { status: 200 });
   } catch (error) {
-    console.error("Mailgun error:", JSON.stringify(error, null, 2));
+    console.error("Contact form error:", JSON.stringify(error, null, 2));
 
     return NextResponse.json(
       { error: "Failed to send email. Please try again later." },

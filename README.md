@@ -17,7 +17,7 @@ Visit the live website: [https://www.aaryan-patel.com](https://www.aaryan-patel.
 - **🌙 Dark Mode** - Clean, professional dark theme
 - **⚡ Performance Optimized** - Built with Next.js 15 and React 19
 - **🎨 Modern UI** - shadcn/ui components with smooth Framer Motion animations
-- **📧 Contact Form** - Functional contact form with Mailgun integration
+- **📧 Contact Form** - Functional contact form with Resend integration
 - **📊 Interactive Sections** - Education timeline, experience cards, project showcases
 - **🎯 SEO Optimized** - Proper meta tags and structured data
 
@@ -35,7 +35,7 @@ Visit the live website: [https://www.aaryan-patel.com](https://www.aaryan-patel.
 
 ### Backend & APIs
 
-- **Email Service**: Mailgun.js
+- **Email Service**: Resend
 - **Contact API**: Next.js API routes
 
 ## 📁 Project Structure
@@ -109,7 +109,7 @@ The contact form uses:
 
 - React Hook Form for form handling
 - Zod for validation
-- Mailgun for email delivery
+- Resend for email delivery
 - Next.js API routes for backend processing
 
 ## 📄 License

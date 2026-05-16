@@ -183,8 +183,8 @@ export default function Footer() {
                       AI and machine learning, privacy, cryptography, and security
                     </span>
                     {". "}
-                    Complementing that with a deep dive in assessing opportunities, IP and
-                    partnerships, and what it takes to commercialize an idea.
+                    Complementing that with a deep dive on entrepreneurial strategies, and what
+                    it takes to commercialize an idea.
                   </p>
                 </CardContent>
               </Card>

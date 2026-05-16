@@ -8,7 +8,7 @@ function requireEnv(name: string): string {
 }
 
 export const serverConfig = {
-  mailgunDomain: requireEnv("MAILGUN_DOMAIN"),
+  /** Address used as the Resend `from` identity (must match a verified domain in Resend) */
   fromEmail: requireEnv("FROM_EMAIL"),
   toEmail: requireEnv("TO_EMAIL"),
 };
