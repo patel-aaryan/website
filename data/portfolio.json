@@ -117,6 +117,20 @@
   ],
   "experience": [
     {
+      "label": "Zip",
+      "labelDate": "Sep 2026",
+      "title": "Software Engineer Intern",
+      "company": "Zip",
+      "location": "Toronto, ON, Canada",
+      "summary": "Coming soon...",
+      "description": [],
+      "date": "Incoming Sep 2026",
+      "colour": "#5E7ADB",
+      "tech": [],
+      "active": true,
+      "type": "work"
+    },
+    {
       "label": "RBC",
       "labelDate": "Sep 2025",
       "title": "DevOps Engineer Intern",

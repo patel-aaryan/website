@@ -218,7 +218,7 @@ export default function RadialOrbitalTimeline({
     }
   };
 
-  const nodeRingClass = isDark ? "border-white/10" : "border-border/60";
+  const orbitLineClass = "border-primary";
   const nodeLabelClass = isDark
     ? expandedItems
       ? "text-white"
@@ -279,7 +279,7 @@ export default function RadialOrbitalTimeline({
             <div
               className={cn(
                 "pointer-events-none absolute left-1/2 top-1/2 z-[1] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed",
-                isDark ? "border-white/15" : "border-primary/20",
+                orbitLineClass,
               )}
               style={{
                 width: outerOrbitRadiusPx * 2,
@@ -292,7 +292,7 @@ export default function RadialOrbitalTimeline({
           <div
             className={cn(
               "absolute left-1/2 top-1/2 z-[2] -translate-x-1/2 -translate-y-1/2 rounded-full border",
-              nodeRingClass,
+              orbitLineClass,
             )}
             style={{
               width: innerOrbitRadiusPx * 2,
